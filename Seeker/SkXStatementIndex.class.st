@@ -1,10 +1,12 @@
 Class {
-	#name : #SkXStatementIndex,
-	#superclass : #SkXNodeIndex,
-	#category : #'Seeker-Experimental-NodeNotation'
+	#name : 'SkXStatementIndex',
+	#superclass : 'SkXNodeIndex',
+	#category : 'Seeker-Experimental-NodeNotation',
+	#package : 'Seeker',
+	#tag : 'Experimental-NodeNotation'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkXStatementIndex >> findIn: aCompiledCodeOrNode [
 
 	| node |
@@ -18,7 +20,7 @@ SkXStatementIndex >> findIn: aCompiledCodeOrNode [
 		  ifFalse: [ node statements at: index ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkXStatementIndex >> isStatement [
 
 	^ true

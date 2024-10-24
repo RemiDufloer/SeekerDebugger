@@ -1,6 +1,6 @@
-Extension { #name : #LookupKey }
+Extension { #name : 'LookupKey' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 LookupKey >> softEqualTo: anObject withCache: objs [
 
 	(objs includes: self) ifTrue: [ ^ true ].

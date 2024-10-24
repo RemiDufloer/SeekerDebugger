@@ -8,71 +8,73 @@ Once an execution is mapped, then Time-Travel is available to any point from the
 The Execution Mapper component uses one of my subclasses to set limits for the execution, and does not enforce determinism or anything else.
 "
 Class {
-	#name : #SkExecutionMapperAlgorithm,
-	#superclass : #Object,
+	#name : 'SkExecutionMapperAlgorithm',
+	#superclass : 'Object',
 	#instVars : [
 		'tracer',
 		'currentState',
 		'mapper'
 	],
-	#category : #'Seeker-Components'
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkExecutionMapperAlgorithm class >> isNone [
 
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkExecutionMapperAlgorithm class >> matchesExecutionScenario: tracer [
 
 	^ self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionMapperAlgorithm >> currentState [
 
 	^ currentState
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionMapperAlgorithm >> currentState: anObject [
 
 	currentState := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkExecutionMapperAlgorithm >> isNone [
 
 	^ self class isNone
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkExecutionMapperAlgorithm >> mapExecution [
 
 	^ self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionMapperAlgorithm >> mapper [
 
 	^ mapper
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionMapperAlgorithm >> mapper: anObject [
 
 	mapper := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionMapperAlgorithm >> tracer [
 
 	^ tracer
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionMapperAlgorithm >> tracer: anObject [
 
 	tracer := anObject

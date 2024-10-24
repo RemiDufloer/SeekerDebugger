@@ -1,21 +1,23 @@
 Class {
-	#name : #SkGoToFinalStepLC,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkGoToFinalStepLC',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkGoToFinalStepLC >> description [
 	^'MyCommand description'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SkGoToFinalStepLC >> executeCommand [
 	self seeker tracer mapExecutionIfNotMappedAlready ifFalse: [ ^self inform: 'Unable to execute Seeker command in unmapped execution' ].
 	self seeker tracer stepToFinalStep
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkGoToFinalStepLC >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -27,12 +29,12 @@ SkGoToFinalStepLC >> icon [
 	^ #add
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkGoToFinalStepLC >> name [
 	^'Go to the last step'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkGoToFinalStepLC >> pushesNavigation [
 
 	^ true

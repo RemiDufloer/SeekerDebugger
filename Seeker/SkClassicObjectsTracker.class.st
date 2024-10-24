@@ -1,10 +1,12 @@
 Class {
-	#name : #SkClassicObjectsTracker,
-	#superclass : #SkObjectsTracker,
-	#category : #'Seeker-Components'
+	#name : 'SkClassicObjectsTracker',
+	#superclass : 'SkObjectsTracker',
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkClassicObjectsTracker >> doPostStepProcess [
 
 	"No super here. The override is a new implementation of the method"
@@ -26,7 +28,7 @@ SkClassicObjectsTracker >> doPostStepProcess [
 			withOid: tracer bytecodeIndex ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkClassicObjectsTracker >> doPreStepProcess [
 
 	"No super here. The override is a new implementation of the method"
@@ -40,7 +42,7 @@ SkClassicObjectsTracker >> doPreStepProcess [
 	restorer enabled ifTrue: [ restorer doPreStepProcessForAssignments ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkClassicObjectsTracker >> doPreStepProcessForMessageSends [
 
 	"No super here. The override is a new implementation of the method"

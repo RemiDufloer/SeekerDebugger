@@ -3,31 +3,33 @@ A direct copy of SpMorphicTableAdapter that builds a SeekerSpFTTableMorph instea
 (TODO: Make this class to inherit from that instead of being a copy?)
 "
 Class {
-	#name : #SkSpMorphicSeekerTableAdapter,
-	#superclass : #SpAbstractMorphicListAdapter,
-	#category : #'Seeker-UI'
+	#name : 'SkSpMorphicSeekerTableAdapter',
+	#superclass : 'SpAbstractMorphicListAdapter',
+	#category : 'Seeker-UI',
+	#package : 'Seeker',
+	#tag : 'UI'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSpMorphicSeekerTableAdapter class >> adaptingName [
 
 	^ 'SeekerTableAdapter' asSymbol
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSpMorphicSeekerTableAdapter class >> intercellSpacing [
 
 	^ 2@0
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkSpMorphicSeekerTableAdapter >> addKeyBindingsTo: aWidget [
 
 	super addKeyBindingsTo: aWidget.
 	self addContextMenuKeyBindings: aWidget
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 SkSpMorphicSeekerTableAdapter >> addModelTo: tableMorph [
 
 	self model columns do: [ :each |
@@ -70,7 +72,7 @@ SkSpMorphicSeekerTableAdapter >> addModelTo: tableMorph [
 	self updateItemFilterBlockWith: self itemFilter
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 SkSpMorphicSeekerTableAdapter >> buildWidget [
 
 	widget := SeekerSpFTTableMorph new
@@ -86,29 +88,29 @@ SkSpMorphicSeekerTableAdapter >> buildWidget [
 	^ widget
 ]
 
-{ #category : #emulating }
+{ #category : 'emulating' }
 SkSpMorphicSeekerTableAdapter >> clickOnColumnHeaderAt: anIndex [
 	self widgetDo: [ :tableWidget | tableWidget clickOnColumnHeaderAt: anIndex ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkSpMorphicSeekerTableAdapter >> columns [
 	^ widget columns
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 SkSpMorphicSeekerTableAdapter >> defaultColumn [
 
 	^ SpStringTableColumn new evaluated: #yourself
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 SkSpMorphicSeekerTableAdapter >> ensureAtLeastOneColumnIn: tableMorph [
 	self model columns ifNotEmpty: [ ^ self ].
 	tableMorph addColumn: (self newColumnFrom: self defaultColumn)
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SkSpMorphicSeekerTableAdapter >> ifSorted: sortedBlock ifNotSorted: notSortedBlock [ 
 	widget columns 
 		do: [ :column | | state | 
@@ -120,7 +122,7 @@ SkSpMorphicSeekerTableAdapter >> ifSorted: sortedBlock ifNotSorted: notSortedBlo
 	^ notSortedBlock value
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkSpMorphicSeekerTableAdapter >> isNonEditableRow: aRow column: aColumn [
 
 	^ (self widget dataSource
@@ -128,23 +130,23 @@ SkSpMorphicSeekerTableAdapter >> isNonEditableRow: aRow column: aColumn [
 		row: aRow) submorphs allSatisfy: [ :e | e asReadOnlyMorph == e ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkSpMorphicSeekerTableAdapter >> isResizable [
 	^ self model isResizable
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkSpMorphicSeekerTableAdapter >> isShowColumnHeaders [
 
 	^ widget isShowColumnHeaders 	
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkSpMorphicSeekerTableAdapter >> isShowingColumnHeaders [
 	^ self model isShowingColumnHeaders
 ]
 
-{ #category : #'private - factory' }
+{ #category : 'private - factory' }
 SkSpMorphicSeekerTableAdapter >> newColumnFrom: aTableColumn [
 
 	^ (SpMorphicTableColumn on: aTableColumn)
@@ -152,7 +154,7 @@ SkSpMorphicSeekerTableAdapter >> newColumnFrom: aTableColumn [
 		yourself
 ]
 
-{ #category : #'private - factory' }
+{ #category : 'private - factory' }
 SkSpMorphicSeekerTableAdapter >> newDataSource [ 
 
 	^ SpMorphicTableDataSource new
@@ -161,20 +163,20 @@ SkSpMorphicSeekerTableAdapter >> newDataSource [
 
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 SkSpMorphicSeekerTableAdapter >> refreshColumnsInWidget [
 
 	widget columns: (self model columns collect: [ :each | self newColumnFrom: each ]).
 	self ensureAtLeastOneColumnIn: widget.
 ]
 
-{ #category : #refreshing }
+{ #category : 'refreshing' }
 SkSpMorphicSeekerTableAdapter >> refreshList [
 
 	^ self widget refresh
 ]
 
-{ #category : #refreshing }
+{ #category : 'refreshing' }
 SkSpMorphicSeekerTableAdapter >> refreshModel [
 
 	widget dataSource resetElements.
@@ -183,7 +185,7 @@ SkSpMorphicSeekerTableAdapter >> refreshModel [
 		ifNotSorted: [ self refreshList ]
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 SkSpMorphicSeekerTableAdapter >> refreshShowColumnHeaders [
 	
 	self presenter isShowingColumnHeaders 
@@ -197,7 +199,7 @@ SkSpMorphicSeekerTableAdapter >> refreshShowColumnHeaders [
 				refresh ]
 ]
 
-{ #category : #refreshing }
+{ #category : 'refreshing' }
 SkSpMorphicSeekerTableAdapter >> refreshWidgetSelection [
 	| rowIndexes |
 	rowIndexes := self presenter selection selectedIndexes.
@@ -209,7 +211,7 @@ SkSpMorphicSeekerTableAdapter >> refreshWidgetSelection [
 	^ self refreshList
 ]
 
-{ #category : #selection }
+{ #category : 'selection' }
 SkSpMorphicSeekerTableAdapter >> selectIndex: anInteger [ 
 
 	(anInteger = 0 and: [ widget selectedIndexes isEmpty ]) ifTrue: [ ^ self ].	
@@ -217,13 +219,13 @@ SkSpMorphicSeekerTableAdapter >> selectIndex: anInteger [
 	widget selectIndex: anInteger
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkSpMorphicSeekerTableAdapter >> selectedIndexes [
 	
 	^ widget selectedIndexes 
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 SkSpMorphicSeekerTableAdapter >> selectionChanged: ann [
 
 	| diff selection |
@@ -242,7 +244,7 @@ SkSpMorphicSeekerTableAdapter >> selectionChanged: ann [
 	ann newSelectedIndexes ifEmpty: [ selection unselectAll ]
 ]
 
-{ #category : #emulating }
+{ #category : 'emulating' }
 SkSpMorphicSeekerTableAdapter >> sendRightClickEvent [
 	| evt |
 
@@ -257,14 +259,14 @@ SkSpMorphicSeekerTableAdapter >> sendRightClickEvent [
 	self widget click: evt
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 SkSpMorphicSeekerTableAdapter >> strongSelectionChanged: aFTStrongSelectionChanged [
 
 	self presenter activatesOnDoubleClick ifFalse: [ ^ self ].	
 	self presenter doubleClickAtIndex: aFTStrongSelectionChanged selectedIndex
 ]
 
-{ #category : #'drag and drop' }
+{ #category : 'drag and drop' }
 SkSpMorphicSeekerTableAdapter >> transferFrom: aTransferMorph event: anEvent [
 	| rowAndColumn |
 
@@ -276,7 +278,7 @@ SkSpMorphicSeekerTableAdapter >> transferFrom: aTransferMorph event: anEvent [
 		yourself
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 SkSpMorphicSeekerTableAdapter >> updateMenu [
 	
 	"there is no need to updateMenu here because it will be resolved at the dataSource"

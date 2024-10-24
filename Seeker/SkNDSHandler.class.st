@@ -2,15 +2,17 @@
 Intended to replace the current systemcalls handler at some point. Not yet.
 "
 Class {
-	#name : #SkNDSHandler,
-	#superclass : #Object,
+	#name : 'SkNDSHandler',
+	#superclass : 'Object',
 	#instVars : [
 		'handledMethods'
 	],
-	#category : #'Seeker-Components'
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkNDSHandler class >> allHandledMethods [
 
 	| allMethods |
@@ -20,25 +22,25 @@ SkNDSHandler class >> allHandledMethods [
 	^ allMethods
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkNDSHandler class >> allNDSHandlers [
 
 	^ self allSubclasses collect: [ :sub | sub new ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkNDSHandler class >> handledMethods [
 
 	^ {  }
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkNDSHandler >> handledMethods [
 
 	^ handledMethods
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkNDSHandler >> initialize [
 
 	handledMethods := self class handledMethods

@@ -1,10 +1,12 @@
 Class {
-	#name : #SeekerMetaDebugHelper,
-	#superclass : #Object,
-	#category : #'Seeker-Helpers'
+	#name : 'SeekerMetaDebugHelper',
+	#superclass : 'Object',
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerMetaDebugHelper class >> doBlock: aBlock [
 
 	"used to quickly return. equivalent to true ifTrue: [^self], but I can track by references to this class"
@@ -12,13 +14,13 @@ SeekerMetaDebugHelper class >> doBlock: aBlock [
 	aBlock value
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerMetaDebugHelper class >> dontDoBlock: aBlock [
 
 "Just for code annotations"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerMetaDebugHelper class >> getIndexOfFirstDifferingAssignmentValue: resultsCollectionA comparedTo: resultsCollectionB [
 
 	"returns the first index where elements differ, or nil there are no differences."
@@ -33,7 +35,7 @@ SeekerMetaDebugHelper class >> getIndexOfFirstDifferingAssignmentValue: resultsC
 	^ nil
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerMetaDebugHelper class >> getIndexOfFirstDifferingPrimitiveReturnValue: resultsCollectionA comparedTo: resultsCollectionB [
 
 	"returns the first index where elements differ, or nil there are no differences."
@@ -46,7 +48,7 @@ SeekerMetaDebugHelper class >> getIndexOfFirstDifferingPrimitiveReturnValue: res
 	^ nil
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerMetaDebugHelper class >> getIndexOfFirstDifferingVariableValue: resultsCollectionA comparedTo: resultsCollectionB [
 	"returns the first index where elements differ, or nil there are no differences."
 
@@ -64,7 +66,7 @@ SeekerMetaDebugHelper class >> getIndexOfFirstDifferingVariableValue: resultsCol
 	^ nil
 ]
 
-{ #category : #logging }
+{ #category : 'logging' }
 SeekerMetaDebugHelper class >> log: text [
 
 	Transcript
@@ -72,7 +74,7 @@ SeekerMetaDebugHelper class >> log: text [
 		cr
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerMetaDebugHelper class >> searchNDSNodeFor: tracer attemps: attempts [
 
 	"Returns the instruction index that differs because of a source of non determinism, or nil if no NDS is found. 
@@ -112,7 +114,7 @@ SeekerMetaDebugHelper class >> searchNDSNodeFor: tracer attemps: attempts [
 		^ maxIndex - 1 ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerMetaDebugHelper class >> searchNDSNodeFor: tracer targetTimeIndex: targetTime attemps: attempts [
 
 	"return true if a non determinism source is found up to targetTime"
@@ -131,7 +133,7 @@ SeekerMetaDebugHelper class >> searchNDSNodeFor: tracer targetTimeIndex: targetT
 	^ false
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerMetaDebugHelper class >> searchNDSPrimitiveReturnFor: tracer attemps: attempts [
 
 	"Search for the first primitive return value that from a previous execution.
@@ -171,7 +173,7 @@ SeekerMetaDebugHelper class >> searchNDSPrimitiveReturnFor: tracer attemps: atte
 		^ minimumIndex ifNil: [ nil ] ifNotNil: [ (originalResults at: differentIndex) bytecodeIndex ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerMetaDebugHelper class >> searchNDSVariableFor: tracer attemps: attempts [
 
 	"
@@ -207,7 +209,7 @@ SeekerMetaDebugHelper class >> searchNDSVariableFor: tracer attemps: attempts [
 			  (originalResults at: differentIndex) bytecodeIndex ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerMetaDebugHelper class >> searchNDSVariableReadFor: tracer attemps: attempts [
 
 	"Search for the first reading that differs in value from a previous execution.
@@ -247,14 +249,14 @@ SeekerMetaDebugHelper class >> searchNDSVariableReadFor: tracer attemps: attempt
 			  ifNotNil: [ (originalResults at: differentIndex) bytecodeIndex ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerMetaDebugHelper class >> slowlyTraverseStates: delayMS [
 
 	| delay |
 	delay := Delay forMilliseconds: delayMS
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerMetaDebugHelper class >> slowlyTraverseStatesFor: seeker withDelay: delayMS [
 
 	| delay continue |

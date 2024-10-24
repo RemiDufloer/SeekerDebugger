@@ -1,6 +1,6 @@
-Extension { #name : #Process }
+Extension { #name : 'Process' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Process >> findSeeker [
 	"Returns the instance of seeker debugger debugging this process"
 
@@ -10,7 +10,7 @@ Process >> findSeeker [
 	^ nil
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Process >> isWaitingForSemaphore [
 
 	myList ifNil: [ ^ false ].

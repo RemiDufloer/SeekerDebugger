@@ -1,6 +1,6 @@
 Class {
-	#name : #SeekerDebuggerPresenter,
-	#superclass : #SpPresenter,
+	#name : 'SeekerDebuggerPresenter',
+	#superclass : 'SpPresenter',
 	#traits : 'TStDebuggerExtension + TDebuggerUpdateCoordinatorClient',
 	#classTraits : 'TStDebuggerExtension classTrait + TDebuggerUpdateCoordinatorClient classTrait',
 	#instVars : [
@@ -18,16 +18,18 @@ Class {
 		'queriesPresenter',
 		'scrollablePresenter'
 	],
-	#category : #'Seeker-UI'
+	#category : 'Seeker-UI',
+	#package : 'Seeker',
+	#tag : 'UI'
 }
 
-{ #category : #'debugger extension' }
+{ #category : 'debugger extension' }
 SeekerDebuggerPresenter class >> defaultDisplayOrder [
 
 	^ 1
 ]
 
-{ #category : #layout }
+{ #category : 'layout' }
 SeekerDebuggerPresenter class >> defaultLayout [
 "Required to work in Pharo 11 for mistery reasons. Not used in Pharo 10 and 9"
 	^ SpBoxLayout newVertical
@@ -38,42 +40,42 @@ SeekerDebuggerPresenter class >> defaultLayout [
 		  yourself
 ]
 
-{ #category : #'debugger extension' }
+{ #category : 'debugger extension' }
 SeekerDebuggerPresenter class >> displayOrder [
 
 	^ debuggerExtensionDisplayOrder ifNil: [ 
 		  debuggerExtensionDisplayOrder := self defaultDisplayOrder ]
 ]
 
-{ #category : #'debugger extension' }
+{ #category : 'debugger extension' }
 SeekerDebuggerPresenter class >> displayOrder: anInteger [
 	debuggerExtensionDisplayOrder := anInteger
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebuggerPresenter class >> findPresenterInstanceFor: aSeekerDebugger [
 
 	^ (self allInstances select: [ :p |
 		   p seekerDebugger == aSeekerDebugger ]) lastOrNil
 ]
 
-{ #category : #'debugger extension' }
+{ #category : 'debugger extension' }
 SeekerDebuggerPresenter class >> showInDebugger [
 	^showDebuggerExtension ifNil: [showDebuggerExtension := false]
 ]
 
-{ #category : #'debugger extension' }
+{ #category : 'debugger extension' }
 SeekerDebuggerPresenter class >> showInDebugger: aBoolean [
 	showDebuggerExtension := aBoolean
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 SeekerDebuggerPresenter >> advanceDownHandler [
 
 	self seekerDebugger tracer perform advanceToNextStatement
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerDebuggerPresenter >> blockingDoAndUpdateSessionAfter: aBlock [
 
 	"Updates the UI after executing the block. Forces UI Update, and returns after the UI cycle is completed"
@@ -82,36 +84,36 @@ SeekerDebuggerPresenter >> blockingDoAndUpdateSessionAfter: aBlock [
 
 ]
 
-{ #category : #'debugger extension' }
+{ #category : 'debugger extension' }
 SeekerDebuggerPresenter >> debuggerExtensionToolName [
 	^ 'Seeker'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerDebuggerPresenter >> debuggerUpdateCoordinator [
 
 	^ debuggerUpdateCoordinator
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerDebuggerPresenter >> debuggerUpdateCoordinator: anObject [
 
 	debuggerUpdateCoordinator := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebuggerPresenter >> deinitialize [
 
 	seekerDebugger := nil.
 	queriesPresenter := nil
 ]
 
-{ #category : #'debugger extension' }
+{ #category : 'debugger extension' }
 SeekerDebuggerPresenter >> displayOrder [
 	^self class displayOrder
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerDebuggerPresenter >> doAndUpdateSessionAfter: aBlock [
 
 	"Updates the UI after executing the block. Forces UI Update in a defered manner
@@ -122,7 +124,7 @@ SeekerDebuggerPresenter >> doAndUpdateSessionAfter: aBlock [
 	debuggerUpdateCoordinator coordinateUpdatesFor: aBlock
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 SeekerDebuggerPresenter >> emergencyStoptHandler [
 
 	"Called when pressing the icon in the toolbar"
@@ -130,7 +132,7 @@ SeekerDebuggerPresenter >> emergencyStoptHandler [
 	self tracer setEmergencyStopFlag
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebuggerPresenter >> enableTimeTravelingHandler [
 
 	self seekerDebugger tracer isMapped
@@ -144,7 +146,7 @@ SeekerDebuggerPresenter >> enableTimeTravelingHandler [
 		ifFalse: [ self mapExecutionIfNotMappedAlready ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebuggerPresenter >> getDefaultCodeText [
 
 	^ '"Put your debugger scripts here...
@@ -163,7 +165,7 @@ currentState : an object that is able to read the current state of an execution.
 "'
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerDebuggerPresenter >> initializeCode [
 
 	"comment stating purpose of instance-side method"
@@ -181,7 +183,7 @@ SeekerDebuggerPresenter >> initializeCode [
 	code whenTextChangedDo: [ self onCodeTextChanged ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerDebuggerPresenter >> initializeEvaluatorCode [
    "We define the extensions Code presenter initialization here"
    evaluatorCode := self newCode.
@@ -190,7 +192,7 @@ SeekerDebuggerPresenter >> initializeEvaluatorCode [
    evaluatorCode text: '"put your expression here"'
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerDebuggerPresenter >> initializeEvaluatorPresenters [
    "Called by the Spec framework. This method describes how the widgets are initialized"
    self initializeEvaluatorToolbar.
@@ -207,7 +209,7 @@ SeekerDebuggerPresenter >> initializeEvaluatorPresenters [
    self updatePresenter
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerDebuggerPresenter >> initializeEvaluatorToolbar [
    evaluatorToolbar := self newToolbar
                  addItem: (self newToolbarButton
@@ -217,7 +219,7 @@ SeekerDebuggerPresenter >> initializeEvaluatorToolbar [
                  yourself
 ]
 
-{ #category : #'accessing model' }
+{ #category : 'accessing model' }
 SeekerDebuggerPresenter >> initializePresenters [
 
 	"Called automatically by the Spec framework. This method describes how the widgets are initialized"
@@ -241,7 +243,7 @@ SeekerDebuggerPresenter >> initializePresenters [
 			 yourself)
 ]
 
-{ #category : #'accessing model' }
+{ #category : 'accessing model' }
 SeekerDebuggerPresenter >> initializeTabs [
 
 	self initializeToolbar.
@@ -255,7 +257,7 @@ SeekerDebuggerPresenter >> initializeTabs [
 	tabs addPageTitle: 'Scripting' provider: [ code ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerDebuggerPresenter >> initializeToolbar [
 
 	"For icons inspect next line"
@@ -320,37 +322,37 @@ SeekerDebuggerPresenter >> initializeToolbar [
 			           yourself
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerDebuggerPresenter >> insertCodeText: aString [
 code text: (code text, aString)
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebuggerPresenter >> mapExecutionIfNotMappedAlready [
 "This function also notifies in the UI"
 	(self seekerDebugger tracer isMapped) ifTrue:[^self].
 	self seekerDebugger tracer quickMap ifTrue:[self inform: 'SEEKER: Time Traveling Enabled'] ifFalse: [ self inform: 'SEEKER: Could not enable Time Traveling' ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebuggerPresenter >> nextIterationHandler [
 
 	self seekerDebugger tracer perform stepToNextIteration
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebuggerPresenter >> onCodeTextChanged [
 	SeekerGlobals instance seekerCodePresenterText: code text.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebuggerPresenter >> onResultsFilterSubmitHandler [
 
 	self applyResultFilter.
 	self updateDisplayedResults
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 SeekerDebuggerPresenter >> restartHandler [
 
 	"Called when pressing the icon in the toolbar"
@@ -360,40 +362,40 @@ SeekerDebuggerPresenter >> restartHandler [
 		self seekerDebugger restart ]
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 SeekerDebuggerPresenter >> reverseUpHandler [
 
 	self seekerDebugger tracer perform reverseToPreviousStatement
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerDebuggerPresenter >> seekerDebugger [
 
 	^ seekerDebugger
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerDebuggerPresenter >> seekerDebugger: anObject [
 
 	seekerDebugger := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebuggerPresenter >> seekerStepUntilSelectedExpressionFails [
 ^nil
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerDebuggerPresenter >> setCodeText: aString [
 code text: aString
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerDebuggerPresenter >> setEndHandler [
 seekerDebugger setEndFromCurrentStep
 ]
 
-{ #category : #'accessing model' }
+{ #category : 'accessing model' }
 SeekerDebuggerPresenter >> setModelBeforeInitialization: aStDebugger [
 
 	| setupBlock |
@@ -425,31 +427,31 @@ SeekerDebuggerPresenter >> setModelBeforeInitialization: aStDebugger [
 			ifFalse: setupBlock ]
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 SeekerDebuggerPresenter >> setSelectedContexAsStartingPointHandler [
 "Called when pressing the icon in the toolbar"
 	self seekerDebugger setSelectedContextAsStartingPoint: stDebugger selectedContext
 ]
 
-{ #category : #'UI specific' }
+{ #category : 'UI specific' }
 SeekerDebuggerPresenter >> showInResult: aQueryDisplayModel [
 
 	queriesPresenter executeAndShow: aQueryDisplayModel query
 ]
 
-{ #category : #'UI specific' }
+{ #category : 'UI specific' }
 SeekerDebuggerPresenter >> showResult: anObject [
 
 	queriesPresenter showResult: anObject
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 SeekerDebuggerPresenter >> startRecordFromContextHandler [
 "Called when pressing the icon in the toolbar"
 	self seekerDebugger startRecordFromContext: stDebugger currentContext
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 SeekerDebuggerPresenter >> stepBackIntoHandler [
 "Called when pressing the icon in the toolbar"
 self mapExecutionIfNotMappedAlready.
@@ -457,14 +459,14 @@ self doAndUpdateSessionAfter: [ self seekerDebugger tracer pushNavigationHistory
 	
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 SeekerDebuggerPresenter >> stepBackOneByteCodeHandler [
 
 	self mapExecutionIfNotMappedAlready.
 	self seekerDebugger tracer stepBackOneBytecode
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 SeekerDebuggerPresenter >> stepBackOverHandler [
 "Called when pressing the icon in the toolbar"
 self mapExecutionIfNotMappedAlready.
@@ -472,7 +474,7 @@ self doAndUpdateSessionAfter: [ self seekerDebugger tracer pushNavigationHistory
      
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 SeekerDebuggerPresenter >> stepIntoHandler [
 
 	"Called when pressing the icon in the toolbar"
@@ -481,7 +483,7 @@ SeekerDebuggerPresenter >> stepIntoHandler [
 		self seekerDebugger tracer stepBytecodeAccountingInstrumentation ]
 ]
 
-{ #category : #'event handling' }
+{ #category : 'event handling' }
 SeekerDebuggerPresenter >> stepOverHandler [
 "Called when pressing the icon in the toolbar"
 self mapExecutionIfNotMappedAlready.
@@ -489,7 +491,7 @@ self doAndUpdateSessionAfter: [ self seekerDebugger tracer pushNavigationHistory
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebuggerPresenter >> stepToEndHandler [
 
 	| ms startingBytecode totalBytecodes message |
@@ -508,7 +510,7 @@ SeekerDebuggerPresenter >> stepToEndHandler [
 		"UIManager default inform: message" "No UI Update, because it introduces NDS for code that uses anoncements"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebuggerPresenter >> syncWithDebugSession [
 
 	| tracer |
@@ -524,18 +526,18 @@ SeekerDebuggerPresenter >> syncWithDebugSession [
 				tracer recountExecutedBytecodes ] ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerDebuggerPresenter >> tracer [
 
 	^ self seekerDebugger tracer
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebuggerPresenter >> updateEvaluatorCode [
 	evaluatorCode interactionModel context: evaluatorDebugger stDebugger currentContext
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerDebuggerPresenter >> updateExpressionValueDisplayed [
    "Evaluate the expression, in the code presenter, using the appropriate context (the current one of the stDebgger). Then update the ui to show and inspect the obtained value, or a potential exception."
    | expressionBlock expressionResult errorFlag errorMessage shownMessage|
@@ -564,7 +566,7 @@ SeekerDebuggerPresenter >> updateExpressionValueDisplayed [
           ifFalse: [ "expressionResult asString" shownMessage])
 ]
 
-{ #category : #'accessing model' }
+{ #category : 'accessing model' }
 SeekerDebuggerPresenter >> updateLabelOnly [
 
 	currentStepLabel label:
@@ -573,7 +575,7 @@ SeekerDebuggerPresenter >> updateLabelOnly [
 			 printShowingDecimalPlaces: 2) , '% of known execution)'
 ]
 
-{ #category : #'accessing model' }
+{ #category : 'accessing model' }
 SeekerDebuggerPresenter >> updatePresenter [
 
 	"Called automatically when the debugger updates its state after stepping""Your widgets should be updated here."
@@ -603,7 +605,7 @@ SeekerDebuggerPresenter >> updatePresenter [
 			super updatePresenter ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerDebuggerPresenter >> updateUI [
 
 	self doAndUpdateSessionAfter: [  ]

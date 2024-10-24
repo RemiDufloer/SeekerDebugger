@@ -1,10 +1,12 @@
 Class {
-	#name : #SkOmniSystemCallsHandler,
-	#superclass : #SkSystemCallsHandler,
-	#category : #'Seeker-Components'
+	#name : 'SkOmniSystemCallsHandler',
+	#superclass : 'SkSystemCallsHandler',
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkOmniSystemCallsHandler >> isSystemCall [
 
 	currentState isMessageSend ifFalse: [ ^ false ].

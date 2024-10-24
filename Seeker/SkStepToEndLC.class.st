@@ -1,22 +1,24 @@
 Class {
-	#name : #SkStepToEndLC,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkStepToEndLC',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepToEndLC >> description [
 
 	^'MyCommand description'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SkStepToEndLC >> executeCommand [
 
 	self tracer perform timeTravelToLastExecutedStatement
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepToEndLC >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -28,7 +30,7 @@ SkStepToEndLC >> icon [
 	^ #add
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepToEndLC >> name [
 
 	^'Step to the end'

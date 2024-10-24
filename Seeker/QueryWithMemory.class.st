@@ -1,7 +1,9 @@
 Class {
-	#name : #QueryWithMemory,
-	#superclass : #Query,
+	#name : 'QueryWithMemory',
+	#superclass : 'Query',
 	#traits : 'TSeekerTableWithMemory',
 	#classTraits : 'TSeekerTableWithMemory classTrait',
-	#category : #'Seeker-Experimental'
+	#category : 'Seeker-Experimental',
+	#package : 'Seeker',
+	#tag : 'Experimental'
 }

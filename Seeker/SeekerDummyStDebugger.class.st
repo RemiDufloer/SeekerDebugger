@@ -2,33 +2,35 @@
 Used for headless execution for the moment.
 "
 Class {
-	#name : #SeekerDummyStDebugger,
-	#superclass : #Object,
+	#name : 'SeekerDummyStDebugger',
+	#superclass : 'Object',
 	#instVars : [
 		'interruptedProcess'
 	],
-	#category : #'Seeker-Helpers'
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerDummyStDebugger >> interruptedContext [
 
 	^ interruptedProcess suspendedContext
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerDummyStDebugger >> interruptedProcess [
 
 	^ interruptedProcess
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerDummyStDebugger >> interruptedProcess: anObject [
 
 	interruptedProcess := anObject
 ]
 
-{ #category : #'debugging actions' }
+{ #category : 'debugging actions' }
 SeekerDummyStDebugger >> restart: aContext [
 
 	"Proceed from the initial state of selectedContext."
@@ -42,13 +44,13 @@ SeekerDummyStDebugger >> restart: aContext [
 	self unwindAndRestartToContext: aContext
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerDummyStDebugger >> session [
 
 	^ self
 ]
 
-{ #category : #evaluating }
+{ #category : 'evaluating' }
 SeekerDummyStDebugger >> unwindAndRestartToContext: aContext [
 
 	| ctx |

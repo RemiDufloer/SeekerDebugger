@@ -1,6 +1,6 @@
-Extension { #name : #Set }
+Extension { #name : 'Set' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Set >> softEqualTo: anObject withCache: objs [
 
 	(objs includes: self) ifTrue: [ ^ true ].
@@ -14,7 +14,7 @@ Set >> softEqualTo: anObject withCache: objs [
 	^ true
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Set >> softEquatToScanFor: anObject withCache:objs [
 
 	| index start |

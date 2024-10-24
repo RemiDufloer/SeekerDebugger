@@ -1,73 +1,75 @@
 Class {
-	#name : #SkTracedContextTraceTimeReference,
-	#superclass : #SkTraceTimeReference,
+	#name : 'SkTracedContextTraceTimeReference',
+	#superclass : 'SkTraceTimeReference',
 	#instVars : [
 		'tracedContextPC'
 	],
-	#category : #'Seeker-TraceTime'
+	#category : 'Seeker-TraceTime',
+	#package : 'Seeker',
+	#tag : 'TraceTime'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkTracedContextTraceTimeReference >> comparableObject [
 
 	^ tracedContextPC
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkTracedContextTraceTimeReference >> comparableObjectFromTracer: tracer [
 
 	^ tracer currentContext tracedContextPC
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkTracedContextTraceTimeReference >> referencesTheFuture: tracer [
 
 	^ tracedContextPC @> tracer currentContext tracedContextPC
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkTracedContextTraceTimeReference >> referencesTheLocalFuture: tracer [
 
 	^ self referencesThePresent: tracer
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkTracedContextTraceTimeReference >> referencesTheLocalPast: tracer [
 
 	^ self referencesThePresent: tracer
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkTracedContextTraceTimeReference >> referencesTheLocalPastOrPresent: tracer [
 
 	^ self referencesThePresent: tracer
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkTracedContextTraceTimeReference >> referencesThePast: tracer [
 
 	^ tracedContextPC @< tracer currentContext tracedContextPC
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkTracedContextTraceTimeReference >> referencesThePresent: tracer [
 
 	^ tracer currentContext matchesTracedContextPC: tracedContextPC
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkTracedContextTraceTimeReference >> referencesThePresentOrLocalFuture: tracer [
 
 	^ tracer currentContext matchesTracedContextPC: tracedContextPC
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracedContextTraceTimeReference >> tracedContextPC [
 
 	^ tracedContextPC
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracedContextTraceTimeReference >> tracedContextPC: anObject [
 
 	tracedContextPC := anObject

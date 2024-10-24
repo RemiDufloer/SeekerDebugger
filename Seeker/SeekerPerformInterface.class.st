@@ -3,12 +3,14 @@ The idea of this class was to separate the public debugging API from the rest. S
 At this point, everything is mixed, and a bigger refactoring is needed. I leave this class as a reminder of this.
 "
 Class {
-	#name : #SeekerPerformInterface,
-	#superclass : #SeekerInterfaceObject,
-	#category : #'Seeker-Interfaces'
+	#name : 'SeekerPerformInterface',
+	#superclass : 'SeekerInterfaceObject',
+	#category : 'Seeker-Interfaces',
+	#package : 'Seeker',
+	#tag : 'Interfaces'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerPerformInterface >> advanceToNextStatement [
 
 	| startingNode startingContext startingStatement startingStatementIndex startingStackDepth inSameDynanimcSequence statementsInSequence |
@@ -44,13 +46,13 @@ Therefore, calculating the next statement in the sequence should be done differe
 							statementIndex > startingStatementIndex ] ] ] ] ] ]
 ]
 
-{ #category : #starting }
+{ #category : 'starting' }
 SeekerPerformInterface >> restartAtBytecodeOne [
 
 	tracer restartAtBytecodeOne
 ]
 
-{ #category : #'debugging actions' }
+{ #category : 'debugging actions' }
 SeekerPerformInterface >> restartContext: aContext [
 
 	tracer doAndUpdateSessionAfter: [ 
@@ -60,7 +62,7 @@ SeekerPerformInterface >> restartContext: aContext [
 		tracer safeTimeTravelToTraceTime: targetContextTraceTime ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerPerformInterface >> reverseToPreviousStatement [
 
 	| startingNode startingContext startingStatement startingStatementIndex startingStackDepth inSameDynanimcSequence csi |
@@ -93,7 +95,7 @@ SeekerPerformInterface >> reverseToPreviousStatement [
 							statementIndex = (startingStatementIndex - 1) ] ] ] ] ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerPerformInterface >> smartTimeTravelToNode: aNode inContext: aContext [
 
 	| contextOfTargetNode |
@@ -109,13 +111,13 @@ SeekerPerformInterface >> smartTimeTravelToNode: aNode inContext: aContext [
 			tracer safeTimeTravelToTraceTime: nodeTraceTime ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerPerformInterface >> stepToNextIteration [
 
 	tracer stepToNextIteration
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerPerformInterface >> timeTravelToNode: aNode inContext: aContext [
 
 	"The node must in the context. If not, the execution will stop at an undefined bytecode. If not sure, use instead smartTimeTravelToNode:inContext:"
@@ -131,7 +133,7 @@ SeekerPerformInterface >> timeTravelToNode: aNode inContext: aContext [
 		tracer safeStepToTraceTime: targetTraceTime ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerPerformInterface >> timeTravelToSelectedNode [
 
 	| selectedNode |
@@ -141,7 +143,7 @@ SeekerPerformInterface >> timeTravelToSelectedNode [
 		inContext: tracer selectedContext
 ]
 
-{ #category : #starting }
+{ #category : 'starting' }
 SeekerPerformInterface >> timeTravelToUserStart [
 
 	tracer timeTravelToUserStart

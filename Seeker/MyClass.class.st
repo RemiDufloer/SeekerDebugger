@@ -1,10 +1,12 @@
 Class {
-	#name : #MyClass,
-	#superclass : #Object,
-	#category : #'Seeker-Temp'
+	#name : 'MyClass',
+	#superclass : 'Object',
+	#category : 'Seeker-Temp',
+	#package : 'Seeker',
+	#tag : 'Temp'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 MyClass >> methodA [
 
 	| w |
@@ -12,7 +14,7 @@ MyClass >> methodA [
 	^ w
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 MyClass >> methodB [
 
 	| x |
@@ -21,7 +23,7 @@ MyClass >> methodB [
 	^ x
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 MyClass >> methodC [
 
 	| y |
@@ -29,7 +31,7 @@ MyClass >> methodC [
 	^ y
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 MyClass >> methodD [
 
 	| z |

@@ -9,8 +9,8 @@ OIDs are based on executedBytecode because it is a meaningful number. For exampl
 OIDs are necessary for enforcing objects identities. Therefore, the ObjectTracker component needs to be enabled for the feature provided by IndentityEnforcer (which is only used by the ObjectTracker).
 "
 Class {
-	#name : #SkObjectsTracker,
-	#superclass : #SkComponent,
+	#name : 'SkObjectsTracker',
+	#superclass : 'SkComponent',
 	#instVars : [
 		'identityEnforcer',
 		'oidsDictionary',
@@ -26,10 +26,12 @@ Class {
 		'lastRegisteredOid',
 		'lastRegisteredObjectClassName'
 	],
-	#category : #'Seeker-Components'
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkObjectsTracker >> bindComponents [
 
 	tracer := componentsHolder tracer.
@@ -38,7 +40,7 @@ SkObjectsTracker >> bindComponents [
 	identityEnforcer := componentsHolder identityEnforcer
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkObjectsTracker >> clearRecords [
 	"similar to reset, but ignores persistence status"
 
@@ -51,7 +53,7 @@ SkObjectsTracker >> clearRecords [
 	persistentReverseOidsDictionary removeAll
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkObjectsTracker >> doPostStepProcess [
 
 	| instancedObj |
@@ -89,7 +91,7 @@ SkObjectsTracker >> doPostStepProcess [
 	"end of patch for 'query all reading of self'"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkObjectsTracker >> doPreStepProcess [
 
 	"Dont register readOnly objects or strings"
@@ -115,7 +117,7 @@ SkObjectsTracker >> doPreStepProcess [
 		withOid: tracer bytecodeIndex
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkObjectsTracker >> doPreStepProcessForAssignments [
 
 	"Dont register readOnly objects or strings"
@@ -127,7 +129,7 @@ SkObjectsTracker >> doPreStepProcessForAssignments [
 	self registerObjectInstance: assignLeftSide withOid: tracer bytecodeIndex
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkObjectsTracker >> doPreStepProcessForMessageSends [
 	"Dont register readOnly objects or strings"
 
@@ -147,31 +149,31 @@ SkObjectsTracker >> doPreStepProcessForMessageSends [
 				restorer doPreStepProcessForMessageSends ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkObjectsTracker >> enabled [
 
 	^ enabled and: [SeekerConfig default objectTrackingEnabled]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkObjectsTracker >> getObjectByOid: aNumber [
 
 	^ nonPersistentReverseOidsDictionary at: aNumber ifAbsent: [ nil ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkObjectsTracker >> getOidOf: anObject [
 
 	^ oidsDictionary at: anObject ifAbsent: [ nil ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkObjectsTracker >> getPersistentObjectByOid: aNumber [
 
 	^ persistentReverseOidsDictionary at: aNumber ifAbsent: [ nil ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkObjectsTracker >> initialize [
 
 	super initialize.
@@ -184,7 +186,7 @@ SkObjectsTracker >> initialize [
 	oidRegisteredFlag :=false "Only used by UTTQAllObjects"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkObjectsTracker >> instantiationFlag [
 
 	"Its value is true right after a preStepProcess of an instantiation message, and remains true until the the next call of preStepProcess"
@@ -192,7 +194,7 @@ SkObjectsTracker >> instantiationFlag [
 	^ instantiationFlag
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkObjectsTracker >> isPersistent [
 
 	"if true, the component will not reset when restarting the execution for a replay"
@@ -200,25 +202,25 @@ SkObjectsTracker >> isPersistent [
 	^ false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkObjectsTracker >> lastRegisteredObjectClassName [
 
 	^ lastRegisteredObjectClassName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkObjectsTracker >> lastRegisteredOid [
 
 	^ lastRegisteredOid
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkObjectsTracker >> nonLocalObjects [
 
 	^ nonLocalObjects
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkObjectsTracker >> objectIsLocal: anObject [
 
 	"Returns true if the object that corresponds to the given Tid is instantiated during the execution"
@@ -229,7 +231,7 @@ SkObjectsTracker >> objectIsLocal: anObject [
 	^ instantiatedLocalObjects includes: anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkObjectsTracker >> objectOidIsLocal: aNumber [
 
 	"Returns true if the object that corresponds to the given Tid is instantiated during the execution"
@@ -240,7 +242,7 @@ SkObjectsTracker >> objectOidIsLocal: aNumber [
 	^ (nonLocalObjects includes: obj) not
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkObjectsTracker >> oidRegisteredFlag [
 	"Note that this method and instance variable is only used by TTQAllObjectsQuery "
 
@@ -250,19 +252,19 @@ SkObjectsTracker >> oidRegisteredFlag [
 	^ val
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkObjectsTracker >> oidRegisteredFlag: anObject [
 
 	oidRegisteredFlag := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkObjectsTracker >> oidsDictionary [
 
 	^ oidsDictionary
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkObjectsTracker >> registerObjectInstance: anObject withOid: aNumber [
 
 	anObject class = Metaclass ifTrue: [ ^ self ].
@@ -283,7 +285,7 @@ SkObjectsTracker >> registerObjectInstance: anObject withOid: aNumber [
 		nonLocalObjects add: anObject "Set will only add it if it is not present yet" ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkObjectsTracker >> reset [
 
 	self isPersistent ifFalse: [ "note to self: if isPersistent is true, then ensure that identities are enforced before registering objects

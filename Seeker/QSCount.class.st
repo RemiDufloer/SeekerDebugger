@@ -1,10 +1,12 @@
 Class {
-	#name : #QSCount,
-	#superclass : #QuerySolver,
-	#category : #'Seeker-Query'
+	#name : 'QSCount',
+	#superclass : 'QuerySolver',
+	#category : 'Seeker-Query',
+	#package : 'Seeker',
+	#tag : 'Query'
 }
 
-{ #category : #navigating }
+{ #category : 'navigating' }
 QSCount >> resolve [
 
 	| count |

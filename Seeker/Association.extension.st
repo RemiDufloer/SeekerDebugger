@@ -1,6 +1,6 @@
-Extension { #name : #Association }
+Extension { #name : 'Association' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Association >> softEqualTo: anAssociation withCache: objs [
 
 	(objs includes: self) ifTrue: [ ^ true ].

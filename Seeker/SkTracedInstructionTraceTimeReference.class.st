@@ -1,31 +1,33 @@
 Class {
-	#name : #SkTracedInstructionTraceTimeReference,
-	#superclass : #SkTraceTimeReference,
+	#name : 'SkTracedInstructionTraceTimeReference',
+	#superclass : 'SkTraceTimeReference',
 	#instVars : [
 		'tracedInstructionPC'
 	],
-	#category : #'Seeker-TraceTime'
+	#category : 'Seeker-TraceTime',
+	#package : 'Seeker',
+	#tag : 'TraceTime'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkTracedInstructionTraceTimeReference >> comparableObject [
 
 	^ tracedInstructionPC
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkTracedInstructionTraceTimeReference >> comparableObjectFromTracer: tracer [
 
 	^ tracer currentContext tracedInstructionPC
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkTracedInstructionTraceTimeReference >> referencesTheFuture: tracer [
 
 	^ tracedInstructionPC @> tracer currentContext tracedInstructionPC
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkTracedInstructionTraceTimeReference >> referencesTheLocalFuture: tracer [
 
 	"Is this trace time a reference to the future in the same sequence?"
@@ -37,7 +39,7 @@ SkTracedInstructionTraceTimeReference >> referencesTheLocalFuture: tracer [
 		  context pc < tracedInstructionPC pc ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkTracedInstructionTraceTimeReference >> referencesTheLocalPast: tracer [
 
 	"Is this trace time a reference to the past in the same sequence?"
@@ -49,7 +51,7 @@ SkTracedInstructionTraceTimeReference >> referencesTheLocalPast: tracer [
 		  context pc > tracedInstructionPC pc ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkTracedInstructionTraceTimeReference >> referencesTheLocalPastOrPresent: tracer [
 
 	"Is this trace time a reference to the past in the same sequence?"
@@ -62,20 +64,20 @@ SkTracedInstructionTraceTimeReference >> referencesTheLocalPastOrPresent: tracer
 			  tracedInstructionPC tracedContextPC ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkTracedInstructionTraceTimeReference >> referencesThePast: tracer [
 
 	^ tracedInstructionPC @< tracer currentContext tracedInstructionPC
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkTracedInstructionTraceTimeReference >> referencesThePresent: tracer [
 
 	^ tracer currentContext matchesTracedInstructionPC:
 		  tracedInstructionPC
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkTracedInstructionTraceTimeReference >> referencesThePresentOrLocalFuture: tracer [
 
 	"Is this trace time a reference to the future in the same sequence?"
@@ -87,13 +89,13 @@ SkTracedInstructionTraceTimeReference >> referencesThePresentOrLocalFuture: trac
 			  tracedInstructionPC tracedContextPC ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracedInstructionTraceTimeReference >> tracedInstructionPC [
 
 	^ tracedInstructionPC
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracedInstructionTraceTimeReference >> tracedInstructionPC: anObject [
 
 	tracedInstructionPC := anObject

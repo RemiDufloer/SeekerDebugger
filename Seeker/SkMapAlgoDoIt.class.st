@@ -1,16 +1,18 @@
 Class {
-	#name : #SkMapAlgoDoIt,
-	#superclass : #SkExecutionMapperAlgorithm,
-	#category : #'Seeker-Components'
+	#name : 'SkMapAlgoDoIt',
+	#superclass : 'SkExecutionMapperAlgorithm',
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkMapAlgoDoIt class >> matchesExecutionScenario: tracer [
 
 	^ tracer slowCurrentContext compiledCode isDoIt
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkMapAlgoDoIt >> mapExecution [
 
 	| recordingInitialContext testInitialContext endingContext endTracedInstructionPC endTraceTime findContext currentCompiledMethod |

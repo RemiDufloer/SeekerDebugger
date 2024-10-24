@@ -1,22 +1,24 @@
 Class {
-	#name : #SkNodeUnderCursorTestLC,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkNodeUnderCursorTestLC',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkNodeUnderCursorTestLC >> description [
 
 	^'MyCommand description'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SkNodeUnderCursorTestLC >> executeCommand [
 
 	context nodeUnderSelection inspect
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkNodeUnderCursorTestLC >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -28,7 +30,7 @@ SkNodeUnderCursorTestLC >> icon [
 	^ #add
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkNodeUnderCursorTestLC >> name [
 
 	^'Node Under Cursor'

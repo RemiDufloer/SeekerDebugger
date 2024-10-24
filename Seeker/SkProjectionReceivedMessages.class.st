@@ -1,10 +1,12 @@
 Class {
-	#name : #SkProjectionReceivedMessages,
-	#superclass : #SeekerProjectionFunction,
-	#category : #'Seeker-TimeTravelingQueries'
+	#name : 'SkProjectionReceivedMessages',
+	#superclass : 'SeekerProjectionFunction',
+	#category : 'Seeker-TimeTravelingQueries',
+	#package : 'Seeker',
+	#tag : 'TimeTravelingQueries'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkProjectionReceivedMessages >> value: state [
 
 	^ autoType newWith

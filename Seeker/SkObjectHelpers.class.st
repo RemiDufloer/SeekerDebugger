@@ -1,16 +1,18 @@
 Class {
-	#name : #SkObjectHelpers,
-	#superclass : #Object,
-	#category : #'Seeker-Helpers'
+	#name : 'SkObjectHelpers',
+	#superclass : 'Object',
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkObjectHelpers class >> isClass: aClass sameOrInheritsFrom: aParentClass [
 
 	^ aClass == aParentClass or: [ aClass inheritsFrom: aParentClass ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkObjectHelpers class >> isObject: anObject subclassOf: aClass [
 	|iterationClass|
 	iterationClass := anObject class.

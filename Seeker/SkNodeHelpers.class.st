@@ -1,10 +1,12 @@
 Class {
-	#name : #SkNodeHelpers,
-	#superclass : #Object,
-	#category : #'Seeker-Helpers'
+	#name : 'SkNodeHelpers',
+	#superclass : 'Object',
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkNodeHelpers class >> calculateNodesOrdinalIndexFor: node [
 
 	"this method assign indices to all children of the given node. relies on the trait TSeekerOrdinatedNode"
@@ -14,7 +16,7 @@ SkNodeHelpers class >> calculateNodesOrdinalIndexFor: node [
 		                  left ordinationValue < right ordinationValue ].
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkNodeHelpers class >> getBlockNodeOfStatementNode: aStatementNode [
 "If a statement node is part of sequence that directly belongs to a block, it returns said block. Returns nil otherwise"
 "Must give a statement Node as input"
@@ -28,23 +30,23 @@ SkNodeHelpers class >> getBlockNodeOfStatementNode: aStatementNode [
 	^ blockNode
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkNodeHelpers class >> nodeOrdinalIndex: node [
 	"returns the ordinal index of the node in its hierarchy".
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkNodeHelpers class >> sequenceNodeOf: aStatementNode [
 ^aStatementNode parent."Is this always the case?"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkNodeHelpers class >> statementCountOfOwningSequenceFor: aStatementNode [
 ^self statementCountOfSequenceNode: (self sequenceNodeOf: aStatementNode)."Is this always the case?"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkNodeHelpers class >> statementCountOfSequenceNode: aSequenceNode [
 
 	aSequenceNode ifNil: [ ^ 0 ].
@@ -53,7 +55,7 @@ SkNodeHelpers class >> statementCountOfSequenceNode: aSequenceNode [
 	^ aSequenceNode statements size
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkNodeHelpers class >> statementNodeIndexInSequence: aStatementNode [
 |aSequenceNode|
 aSequenceNode := aStatementNode parent.

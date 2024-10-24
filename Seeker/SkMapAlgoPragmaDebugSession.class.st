@@ -1,10 +1,12 @@
 Class {
-	#name : #SkMapAlgoPragmaDebugSession,
-	#superclass : #SkExecutionMapperAlgorithm,
-	#category : #'Seeker-Components'
+	#name : 'SkMapAlgoPragmaDebugSession',
+	#superclass : 'SkExecutionMapperAlgorithm',
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkMapAlgoPragmaDebugSession class >> matchesExecutionScenario: tracer [
 
 	^ tracer slowCurrentContext receiver = SeekerSessionHelpers and: [ 
@@ -12,7 +14,7 @@ SkMapAlgoPragmaDebugSession class >> matchesExecutionScenario: tracer [
 		  = #innerSeekerPragmaDebugSessionFor:withFlag: ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkMapAlgoPragmaDebugSession >> mapExecution [
 
 	| recordingInitialContext testInitialContext endingContext findContext |
@@ -53,7 +55,7 @@ SkMapAlgoPragmaDebugSession >> mapExecution [
 	^ true
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkMapAlgoPragmaDebugSession >> stepForwardToInterestingMethod [
 
 	"SpToggleMenuItemMorph "

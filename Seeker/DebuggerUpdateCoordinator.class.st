@@ -3,17 +3,19 @@ Should have only one coordinator.
 Remember to set the reference to the StDebugger
 "
 Class {
-	#name : #DebuggerUpdateCoordinator,
-	#superclass : #Object,
+	#name : 'DebuggerUpdateCoordinator',
+	#superclass : 'Object',
 	#instVars : [
 		'stDebugger',
 		'preventUpdate',
 		'tracer'
 	],
-	#category : #'Seeker-Helpers'
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DebuggerUpdateCoordinator >> coordinateUpdatesFor: aBlock [
 
 	| oldFlagValue caughtException |
@@ -41,7 +43,7 @@ DebuggerUpdateCoordinator >> coordinateUpdatesFor: aBlock [
 			ifTrue: [ preventUpdate := oldFlagValue ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 DebuggerUpdateCoordinator >> deinitialize [
 
 	preventUpdate := true.
@@ -49,19 +51,19 @@ DebuggerUpdateCoordinator >> deinitialize [
 	tracer := nil
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 DebuggerUpdateCoordinator >> initialize [
 
 	preventUpdate := false
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 DebuggerUpdateCoordinator >> preventingUpdates [
 
 	^ preventUpdate
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 DebuggerUpdateCoordinator >> safeInvoke: aBlock [
 
 	UIManager default uiProcess == Processor activeProcess
@@ -69,25 +71,25 @@ DebuggerUpdateCoordinator >> safeInvoke: aBlock [
 		ifFalse: [ UIManager default defer: aBlock ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DebuggerUpdateCoordinator >> stDebugger [
 
 	^ stDebugger
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DebuggerUpdateCoordinator >> stDebugger: anObject [
 
 	stDebugger := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DebuggerUpdateCoordinator >> tracer [
 
 	^ tracer
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DebuggerUpdateCoordinator >> tracer: aTracer [
 
 	tracer := aTracer

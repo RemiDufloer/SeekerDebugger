@@ -1,10 +1,12 @@
 Class {
-	#name : #SkBugMarkdownEscapeCharTest,
-	#superclass : #TestCase,
-	#category : #'Seeker-BugCollection-Tests'
+	#name : 'SkBugMarkdownEscapeCharTest',
+	#superclass : 'TestCase',
+	#category : 'Seeker-BugCollection-Tests',
+	#package : 'Seeker',
+	#tag : 'BugCollection-Tests'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkBugMarkdownEscapeCharTest >> testMarkdownEscapeCharExample [
 
 	"To originally reproduce this bug, put the failing string in the class comment tab (in any class) and save. The comment is saved, but an exception happens when the renderer tries to parse the content (because of the trailing escape character)"
@@ -17,7 +19,7 @@ SkBugMarkdownEscapeCharTest >> testMarkdownEscapeCharExample [
 	"Nothing to assert. The previous call is not expected to have an unhandled exception"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkBugMarkdownEscapeCharTest >> testMarkdownEscapeCharMediumExample [
 
 	"To originally reproduce this bug, put the failing string in the class comment tab (in any class) and save. The comment is saved, but an exception happens when the renderer tries to parse the content (because of the trailing escape character)"
@@ -36,7 +38,7 @@ SkBugMarkdownEscapeCharTest >> testMarkdownEscapeCharMediumExample [
 	"Nothing to assert. The previous call is not expected to have an unhandled exception"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkBugMarkdownEscapeCharTest >> testMarkdownEscapeCharShortExample [
 
 	"To originally reproduce this bug, put the failing string in the class comment tab (in any class) and save. The comment is saved, but an exception happens when the renderer tries to parse the content (because of the trailing escape character)"

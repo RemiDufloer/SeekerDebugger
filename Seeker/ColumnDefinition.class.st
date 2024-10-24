@@ -1,6 +1,6 @@
 Class {
-	#name : #ColumnDefinition,
-	#superclass : #Object,
+	#name : 'ColumnDefinition',
+	#superclass : 'Object',
 	#instVars : [
 		'key',
 		'label',
@@ -10,16 +10,18 @@ Class {
 	#classInstVars : [
 		'shouldLog'
 	],
-	#category : #'Seeker-UI'
+	#category : 'Seeker-UI',
+	#package : 'Seeker',
+	#tag : 'UI'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ColumnDefinition class >> newCollectionForKeys: aCollection [
 
 	^ aCollection collect: [ :each | self newForKey: each ]
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ColumnDefinition class >> newForKey: aSymbol [
 	"This might be an overkill. The method compiled is used only for the view, and I thing that little is 'optimized' by creating this anonymous class instead of just storing the selector and call a perform primitive."
 
@@ -44,13 +46,13 @@ ColumnDefinition class >> newForKey: aSymbol [
 	^ col "]"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ColumnDefinition class >> unitWidth [
 
 	^ 60
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ColumnDefinition >> bc [
 
 	"makes the column width of bytecode column"
@@ -60,44 +62,44 @@ ColumnDefinition >> bc [
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ColumnDefinition >> expandable [
 
 	^ expandable
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ColumnDefinition >> expandable: anObject [
 
 	expandable := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ColumnDefinition >> initialize [
 
 	expandable := false.
 	self md
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ColumnDefinition >> key [
 
 	^ key
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ColumnDefinition >> label [
 
 	^ label
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ColumnDefinition >> label: anObject [
 
 	label := anObject
 ]
 
-{ #category : #styling }
+{ #category : 'styling' }
 ColumnDefinition >> lg [
 
 	"makes the column large"
@@ -107,7 +109,7 @@ ColumnDefinition >> lg [
 	^ self
 ]
 
-{ #category : #styling }
+{ #category : 'styling' }
 ColumnDefinition >> md [
 
 	"makes the column medium"
@@ -117,7 +119,7 @@ ColumnDefinition >> md [
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ColumnDefinition >> privateKey: anObject [
 
 	"Dont call this. Only used by the ColumnDefinition instantiation routine (ColumnDefinition newForKey:)."
@@ -125,7 +127,7 @@ ColumnDefinition >> privateKey: anObject [
 	key := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ColumnDefinition >> readValueIn: anObject [
 
 	"this method is automatically overwritten by AnonymousColumnDefinitionX"
@@ -137,7 +139,7 @@ ColumnDefinition >> readValueIn: anObject [
 	^ anObject perform: key
 ]
 
-{ #category : #styling }
+{ #category : 'styling' }
 ColumnDefinition >> sm [
 
 	"makes the column small"
@@ -147,19 +149,19 @@ ColumnDefinition >> sm [
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ColumnDefinition >> width [
 
 	^ width
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ColumnDefinition >> width: anObject [
 
 	width := anObject
 ]
 
-{ #category : #styling }
+{ #category : 'styling' }
 ColumnDefinition >> xl [
 
 	"makes the column extra large"
@@ -169,7 +171,7 @@ ColumnDefinition >> xl [
 	^ self
 ]
 
-{ #category : #styling }
+{ #category : 'styling' }
 ColumnDefinition >> xs [
 
 	"makes the column extra small"

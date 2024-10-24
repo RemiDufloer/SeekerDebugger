@@ -5,35 +5,37 @@ It doesn't count elements when asked for its size. However, it only supports rem
 Used to store a weak pair (weak array of length2) of Contexts (first) and their context id (second).
 "
 Class {
-	#name : #SkContextStack,
-	#superclass : #Stack,
+	#name : 'SkContextStack',
+	#superclass : 'Stack',
 	#instVars : [
 		'fastSize'
 	],
-	#category : #'Seeker-Helpers'
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #adding }
+{ #category : 'adding' }
 SkContextStack >> addFirst: anObject [
 
 	fastSize := fastSize + 1.
 	^ super addFirst: anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkContextStack >> fastSize [
 
 	^ fastSize
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkContextStack >> initialize [
 
 	fastSize := 0.
 	super initialize
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 SkContextStack >> removeAll [
 	"Implementation note: this has to be fast"
 
@@ -41,7 +43,7 @@ SkContextStack >> removeAll [
 	firstLink := lastLink := nil
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 SkContextStack >> removeFirst [
 
 	| r |

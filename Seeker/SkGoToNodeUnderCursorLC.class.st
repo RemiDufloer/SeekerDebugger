@@ -1,21 +1,23 @@
 Class {
-	#name : #SkGoToNodeUnderCursorLC,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkGoToNodeUnderCursorLC',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkGoToNodeUnderCursorLC >> description [
 	^'Restarts the execution and replays it until the execution is at the node located under the cursor.'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SkGoToNodeUnderCursorLC >> executeCommand [
 
 	self tracer perform timeTravelToSelectedNode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkGoToNodeUnderCursorLC >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -27,7 +29,7 @@ SkGoToNodeUnderCursorLC >> icon [
 	^ #add
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkGoToNodeUnderCursorLC >> name [
 	^'Go to node under cursor'
 ]

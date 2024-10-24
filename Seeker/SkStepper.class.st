@@ -14,8 +14,8 @@ For example, the ExecutionRestorer component can be disabled, and then Seeker wi
 This also means that it is easier to find errors in Seeker implementation by individually disable components.
 "
 Class {
-	#name : #SkStepper,
-	#superclass : #SkComponent,
+	#name : 'SkStepper',
+	#superclass : 'SkComponent',
 	#instVars : [
 		'tracer',
 		'mapper',
@@ -28,10 +28,12 @@ Class {
 		'haltableMode',
 		'instructionStream'
 	],
-	#category : #'Seeker-Components'
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #'actions api' }
+{ #category : 'actions api' }
 SkStepper >> basicStepBytecode [
 
 	"interprets one bytecode. no checks"
@@ -42,7 +44,7 @@ SkStepper >> basicStepBytecode [
 	tracer currentContext: currentContext
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkStepper >> bindComponents [
 
 	"For safety, only use calls direcly over componentsHolder. Dont call methods on the components (they might be null)"
@@ -53,43 +55,43 @@ SkStepper >> bindComponents [
 	systemCallsHandler := componentsHolder systemCallsHandler.
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkStepper >> canStep [
 
 	^ self cantStep not
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkStepper >> cantStep [
 
 	^ self isExecutionFinished or: [ self isRiskyStep ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepper >> currentState [
 
 	^ currentState
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepper >> currentState: anObject [
 
 	currentState := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepper >> emergencyStopFlag [
 
 	^ emergencyStopFlag
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepper >> emergencyStopFlag: anObject [
 
 	emergencyStopFlag := anObject
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SkStepper >> getAllMethodsOfPackageNamed: aString [
 
 	| pkg methods |
@@ -102,19 +104,19 @@ SkStepper >> getAllMethodsOfPackageNamed: aString [
 	^ methods
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepper >> haltableMode [
 
 	^ haltableMode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepper >> haltableMode: anObject [
 
 	haltableMode := anObject
 ]
 
-{ #category : #'actions api' }
+{ #category : 'actions api' }
 SkStepper >> handleEmergencyStopFlag [
 
 	emergencyStopFlag := false.
@@ -123,7 +125,7 @@ SkStepper >> handleEmergencyStopFlag [
 	^ false
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkStepper >> initialize [
 
 	super initialize.
@@ -135,7 +137,7 @@ SkStepper >> initialize [
 	self initializeSkippableMethods
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkStepper >> initializeSkippableMethods [
 
 	"The list might have methods in common with the ones excluded form the queries"
@@ -203,7 +205,7 @@ SkStepper >> initializeSkippableMethods [
 		(self getAllMethodsOfPackageNamed: 'UnifiedFFI')
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkStepper >> isExecutionFinished [
 
 	"Returns whether the debugged execution is finished"
@@ -213,7 +215,7 @@ SkStepper >> isExecutionFinished [
 			  currentState isDead or: [ tracer debuggedProcess isTerminating ] ] ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkStepper >> isRiskyStep [
 
 	| context receiver |
@@ -228,31 +230,31 @@ SkStepper >> isRiskyStep [
 					  receiver class inheritsFrom: Exception ] ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepper >> iteratingFlag [
 
 	^ iteratingFlag
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepper >> iteratingFlag: anObject [
 
 	^ iteratingFlag := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepper >> mapper [
 
 	^ mapper
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepper >> mapper: anObject [
 
 	mapper := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkStepper >> setEmergencyStopFlag [
 
 	"iteratingFlag ifFalse: [ ^ self ]."
@@ -260,31 +262,31 @@ SkStepper >> setEmergencyStopFlag [
 	tracer preventNextTimeRestorationOfLiveState: true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepper >> skipFlag [
 
 	^ skipFlag
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepper >> skipFlag: anObject [
 
 	skipFlag := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepper >> skippableMethods [
 
 	^ skippableMethods
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepper >> skippableMethods: anObject [
 
 	skippableMethods := anObject
 ]
 
-{ #category : #'actions api' }
+{ #category : 'actions api' }
 SkStepper >> stepBytecode [
 
 	^ self
@@ -292,13 +294,13 @@ SkStepper >> stepBytecode [
 		  doingAfterEachStep: nil
 ]
 
-{ #category : #'actions api' }
+{ #category : 'actions api' }
 SkStepper >> stepBytecodeDoingAfterStep: aBlock [
 
 	^ self stepBytecodeUntilConditionIsTrue: (SeekerCounter countTo: 2) doingAfterEachStep: aBlock
 ]
 
-{ #category : #'actions api' }
+{ #category : 'actions api' }
 SkStepper >> stepBytecodeUntilConditionIsTrue: aBlock [
 
 	^ self
@@ -306,7 +308,7 @@ SkStepper >> stepBytecodeUntilConditionIsTrue: aBlock [
 		  doingAfterEachStep: nil
 ]
 
-{ #category : #'actions api' }
+{ #category : 'actions api' }
 SkStepper >> stepBytecodeUntilConditionIsTrue: aBlock doingAfterEachStep: afterStepBlock [
 	"returns true if the execution can be still be stepped. False otherwise. 
 	Since this method might be used inside loops, if a false return is detected, then the loop must be stopped, otherwise risking a endless loop.
@@ -363,13 +365,13 @@ This will fail if the code relies on more encoders (Need to test in Pharo 9.0)"
 		  ifFalse: [ self cantStep not ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepper >> tracer [
 
 	^ tracer
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepper >> tracer: anObject [
 
 	tracer := anObject

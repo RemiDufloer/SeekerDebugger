@@ -1,10 +1,12 @@
 Class {
-	#name : #QdmForAnnouncementsDeliveries,
-	#superclass : #QueryDisplayModel,
-	#category : #'Seeker-UI'
+	#name : 'QdmForAnnouncementsDeliveries',
+	#superclass : 'QueryDisplayModel',
+	#category : 'Seeker-UI',
+	#package : 'Seeker',
+	#tag : 'UI'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QdmForAnnouncementsDeliveries >> buildContextMenuForResults: aQueryResutls withSelectedItem: selection forTracer: tracer [
 
 	"builds a context menu for an item of this display model"
@@ -35,13 +37,13 @@ QdmForAnnouncementsDeliveries >> buildContextMenuForResults: aQueryResutls withS
 		  "openWithSpecAt: self currentHand position"yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QdmForAnnouncementsDeliveries >> defaultQueryTitle [
 
 	^ 'Message Sends Query'
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 QdmForAnnouncementsDeliveries >> initializeModel [
 
 	columns := { 

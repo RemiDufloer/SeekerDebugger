@@ -2,8 +2,8 @@
 Base column class. The returned value is the same read from the model object. Use this for String fields (ie, when there is no need to convert). If a conversion to String is needed, use the corresponding subclass.
 "
 Class {
-	#name : #SeekerResultsColumn,
-	#superclass : #Object,
+	#name : 'SeekerResultsColumn',
+	#superclass : 'Object',
 	#instVars : [
 		'key',
 		'valueProjectionBlock',
@@ -11,16 +11,18 @@ Class {
 		'expandable',
 		'width'
 	],
-	#category : #'Seeker-UI'
+	#category : 'Seeker-UI',
+	#package : 'Seeker',
+	#tag : 'UI'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerResultsColumn class >> colWidthUnit [
 
 	^ 60
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerResultsColumn >> bc [
 
 	"makes the column width of bytecode column"
@@ -30,50 +32,50 @@ SeekerResultsColumn >> bc [
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerResultsColumn >> expandable [
 
 	^ expandable
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerResultsColumn >> expandable: anObject [
 
 	expandable := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerResultsColumn >> initialize [
 
 	width := 80.
 	expandable := false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerResultsColumn >> key [
 
 	^ key
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerResultsColumn >> key: anObject [
 
 	key := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerResultsColumn >> label [
 
 	label ifNil: [ ^ key ] ifNotNil: [ ^ label ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerResultsColumn >> label: aString [
 
 	label := aString
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerResultsColumn >> lg [
 	"makes the column large"
 	self width: self class colWidthUnit *4.
@@ -81,7 +83,7 @@ SeekerResultsColumn >> lg [
 	^ self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerResultsColumn >> md [
 
 	"makes the column medium"
@@ -91,7 +93,7 @@ SeekerResultsColumn >> md [
 	^ self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerResultsColumn >> sm [
 
 	"makes the column small"
@@ -101,7 +103,7 @@ SeekerResultsColumn >> sm [
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerResultsColumn >> value: aRow [
 
 	"Row is an object that responds to the key message"
@@ -109,19 +111,19 @@ SeekerResultsColumn >> value: aRow [
 	^ aRow perform: #key
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerResultsColumn >> width [
 
 	^ width
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerResultsColumn >> width: anObject [
 
 	width := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerResultsColumn >> xl [
 
 	"makes the column large"
@@ -131,7 +133,7 @@ SeekerResultsColumn >> xl [
 	^ self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerResultsColumn >> xp [
 
 	"makes the column expandable"
@@ -140,7 +142,7 @@ SeekerResultsColumn >> xp [
 	^ self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerResultsColumn >> xs [
 
 	"makes the column extra small"

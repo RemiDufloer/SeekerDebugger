@@ -1,10 +1,12 @@
 Class {
-	#name : #SkAllMessageSendsWithSelectorLC,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkAllMessageSendsWithSelectorLC',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllMessageSendsWithSelectorLC >> description [
 
 	^ self commonDescriptionIntroString
@@ -12,7 +14,7 @@ SkAllMessageSendsWithSelectorLC >> description [
 	  'for every <message send> whose <selector> matches the <selected text>. Every listed result corresponds to the moment before performing the message send. (Sender''s point of view)'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SkAllMessageSendsWithSelectorLC >> executeCommand [
 
 	| selector |
@@ -22,7 +24,7 @@ SkAllMessageSendsWithSelectorLC >> executeCommand [
 			 withSelector: selector)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllMessageSendsWithSelectorLC >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -34,13 +36,13 @@ SkAllMessageSendsWithSelectorLC >> icon [
 	^ #glamorousSaveToUrl
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllMessageSendsWithSelectorLC >> name [
 
 	^'All Message Sends with selected selector'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkAllMessageSendsWithSelectorLC >> selectionTitleString [
 
 	^ ' : (' , self codeSelectedSelector asString , ')'

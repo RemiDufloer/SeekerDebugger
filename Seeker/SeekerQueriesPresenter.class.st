@@ -1,6 +1,6 @@
 Class {
-	#name : #SeekerQueriesPresenter,
-	#superclass : #SpPresenter,
+	#name : 'SeekerQueriesPresenter',
+	#superclass : 'SpPresenter',
 	#instVars : [
 		'tracer',
 		'table',
@@ -20,10 +20,12 @@ Class {
 		'reExecuteQueryButton',
 		'lastExecutedQuery'
 	],
-	#category : #'Seeker-UI'
+	#category : 'Seeker-UI',
+	#package : 'Seeker',
+	#tag : 'UI'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerQueriesPresenter >> appendResults: aCollection [
 
 	"Called when using buffered results"
@@ -34,7 +36,7 @@ SeekerQueriesPresenter >> appendResults: aCollection [
 	self updateDisplayedResults
 ]
 
-{ #category : #'UI specific' }
+{ #category : 'UI specific' }
 SeekerQueriesPresenter >> applyResultFilter [
 
 	| filterTokens |
@@ -50,7 +52,7 @@ SeekerQueriesPresenter >> applyResultFilter [
 				                                   val includesSubstring: f ] ] ]
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 SeekerQueriesPresenter >> buildWithLayout: l [
 
 	| ret |
@@ -61,7 +63,7 @@ SeekerQueriesPresenter >> buildWithLayout: l [
 	^ ret
 ]
 
-{ #category : #'UI specific' }
+{ #category : 'UI specific' }
 SeekerQueriesPresenter >> executeAndShow: aQuery [
 
 	"aQueryDisplayModel: an instance of QueryDisplayModel"
@@ -130,14 +132,14 @@ Set the tables columns from the ordered collection
 	[ solver resolve ] fork
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerQueriesPresenter >> getRowSerialization: row [
 
 	^ String streamContents: [ :stream | 
 		  queryResults printRow: row on: stream ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerQueriesPresenter >> initializePresenters [
 
 	| queryLabelPresenter |
@@ -185,7 +187,7 @@ SeekerQueriesPresenter >> initializePresenters [
 			 "fill: false"yourself)
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerQueriesPresenter >> initializeTable [
 
 	table := SeekerSpTablePresenter new
@@ -210,7 +212,7 @@ SeekerQueriesPresenter >> initializeTable [
 		         "Without item, the filter signal an error"yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerQueriesPresenter >> inspectNewObjectInstanceAt: bytecodeIndex [
 
 	"The object is about to be isntantiated when time is bytecodeIndex. This means, it is exists in the next bytecode"
@@ -223,7 +225,7 @@ SeekerQueriesPresenter >> inspectNewObjectInstanceAt: bytecodeIndex [
 	self tracer currentState context top inspect
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerQueriesPresenter >> makeDefaultQuerySolverFor: aQueryDisplayModel [
 
 	"QueryDisplayModel"
@@ -252,7 +254,7 @@ SeekerQueriesPresenter >> makeDefaultQuerySolverFor: aQueryDisplayModel [
 	^ solver
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerQueriesPresenter >> makeHighlightBlock [
 
 	^ [ :val | 
@@ -265,7 +267,7 @@ SeekerQueriesPresenter >> makeHighlightBlock [
 		  filterTokens anySatisfy: [ :f | val includesSubstring: f ] ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerQueriesPresenter >> menuBuilderForAllInstancesCreation [
 
 	^ SpMenuPresenter new
@@ -292,7 +294,7 @@ SeekerQueriesPresenter >> menuBuilderForAllInstancesCreation [
 		  yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerQueriesPresenter >> menuBuilderForAssignments [
 
 	^ SpMenuPresenter new
@@ -319,19 +321,19 @@ SeekerQueriesPresenter >> menuBuilderForAssignments [
 		  "openWithSpecAt: self currentHand position"yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerQueriesPresenter >> notifySeekerSearchInputActivated [
 
 	tracer seeker notifyQueryFilterTextEntered: resultsFilter text
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerQueriesPresenter >> notifyTimeTravel: row [
 
 	"tracer seeker notifyTimeTravel: (self getRowSerialization: row)"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerQueriesPresenter >> reExecuteQuery [
 
 	lastExecutedQuery ifNotNil: [ 
@@ -339,33 +341,33 @@ SeekerQueriesPresenter >> reExecuteQuery [
 			ifFalse: [ self executeAndShow: lastExecutedQuery ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerQueriesPresenter >> seekAllChangesFor: aNumber [
 
 	(self getInstantiatedObjectAt: aNumber)
 		seekAndDisplayAllMyChanges
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerQueriesPresenter >> seekAllMessagesFor: aNumber [
 
 	(self getInstantiatedObjectAt: aNumber)
 		seekAndDisplayAllMessagesSentToMe
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerQueriesPresenter >> tracer [
 
 	^ tracer
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerQueriesPresenter >> tracer: t [
 
 	tracer := t
 ]
 
-{ #category : #'UI specific' }
+{ #category : 'UI specific' }
 SeekerQueriesPresenter >> updateDisplayedResults [
 
 	table items: queryResults. "filteredResult"
@@ -374,7 +376,7 @@ SeekerQueriesPresenter >> updateDisplayedResults [
 		, queryDisplayModel timeToRun asString , 'ms.' "filteredResult"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerQueriesPresenter >> valueMatchesSearchFilter: anObject [
 
 	^ filterMatchBlockForHighlighting value: anObject

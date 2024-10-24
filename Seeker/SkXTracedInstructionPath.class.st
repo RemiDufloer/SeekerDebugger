@@ -1,14 +1,16 @@
 Class {
-	#name : #SkXTracedInstructionPath,
-	#superclass : #Object,
+	#name : 'SkXTracedInstructionPath',
+	#superclass : 'Object',
 	#instVars : [
 		'contextPath',
 		'nodePath'
 	],
-	#category : #'Seeker-Experimental-NodeNotation'
+	#category : 'Seeker-Experimental-NodeNotation',
+	#package : 'Seeker',
+	#tag : 'Experimental-NodeNotation'
 }
 
-{ #category : #compiling }
+{ #category : 'compiling' }
 SkXTracedInstructionPath class >> compileSource: aString [
 
 	^ nil class compiler
@@ -22,20 +24,20 @@ SkXTracedInstructionPath class >> compileSource: aString [
 		  compile
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 SkXTracedInstructionPath >> asExpression [
 
 	^ contextPath asExpression , ' / ' , nodePath asExpression
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 SkXTracedInstructionPath >> asExpressionSkippingFirst: aNumber [
 
 	^ (contextPath asExpressionSkippingFirst: aNumber)
 	  , ' / ' , nodePath asExpression
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 SkXTracedInstructionPath >> asTopNodesArray [
 
 	| collection |
@@ -45,25 +47,25 @@ SkXTracedInstructionPath >> asTopNodesArray [
 	^ collection asArray
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXTracedInstructionPath >> contextPath [
 
 	^ contextPath
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXTracedInstructionPath >> contextPath: anObject [
 
 	contextPath := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXTracedInstructionPath >> nodePath [
 
 	^ nodePath
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXTracedInstructionPath >> nodePath: anObject [
 
 	nodePath := anObject

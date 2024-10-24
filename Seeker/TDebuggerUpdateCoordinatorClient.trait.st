@@ -1,12 +1,14 @@
 Trait {
-	#name : #TDebuggerUpdateCoordinatorClient,
+	#name : 'TDebuggerUpdateCoordinatorClient',
 	#instVars : [
 		'debuggerUpdateCoordinator'
 	],
-	#category : #'Seeker-Helpers'
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TDebuggerUpdateCoordinatorClient >> blockingDoAndUpdateSessionAfter: aBlock [
 
 	"Updates the UI after executing the block. Forces UI Update, and returns after the UI cycle is completed.
@@ -18,19 +20,19 @@ TDebuggerUpdateCoordinatorClient >> blockingDoAndUpdateSessionAfter: aBlock [
 	UIManager default currentWorld doOneCycleNow
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TDebuggerUpdateCoordinatorClient >> debuggerUpdateCoordinator [
 
 	^ debuggerUpdateCoordinator
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TDebuggerUpdateCoordinatorClient >> debuggerUpdateCoordinator: anObject [
 
 	debuggerUpdateCoordinator := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TDebuggerUpdateCoordinatorClient >> doAndUpdateSessionAfter: aBlock [
 
 	"Updates the UI after executing the block. Forces UI Update in a defered manner
@@ -41,7 +43,7 @@ TDebuggerUpdateCoordinatorClient >> doAndUpdateSessionAfter: aBlock [
 	debuggerUpdateCoordinator coordinateUpdatesFor: aBlock
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TDebuggerUpdateCoordinatorClient >> safeInvoke: aBlock [
 
 	debuggerUpdateCoordinator safeInvoke: aBlock

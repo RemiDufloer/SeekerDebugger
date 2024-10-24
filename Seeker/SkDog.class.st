@@ -1,32 +1,34 @@
 Class {
-	#name : #SkDog,
-	#superclass : #Object,
+	#name : 'SkDog',
+	#superclass : 'Object',
 	#instVars : [
 		'name',
 		'age'
 	],
-	#category : #'Seeker-BugCollection-Tests'
+	#category : 'Seeker-BugCollection-Tests',
+	#package : 'Seeker',
+	#tag : 'BugCollection-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkDog >> age [
 
 	^ age
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkDog >> age: anObject [
 
 	age := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkDog >> name [
 
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkDog >> name: anObject [
 
 	name := anObject

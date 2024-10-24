@@ -1,13 +1,15 @@
 Class {
-	#name : #SeekerMessageDialog,
-	#superclass : #MessageDialogWindow,
+	#name : 'SeekerMessageDialog',
+	#superclass : 'MessageDialogWindow',
 	#instVars : [
 		'entryText'
 	],
-	#category : #'Seeker-UI'
+	#category : 'Seeker-UI',
+	#package : 'Seeker',
+	#tag : 'UI'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerMessageDialog class >> showDialog: text withTitle: title [
 
 	| dialog width linesCount |
@@ -28,7 +30,7 @@ SeekerMessageDialog class >> showDialog: text withTitle: title [
 	"dialog position: 25 @ 25"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerMessageDialog class >> showModalDialog: text withTitle: title [
 
 	| dialog |
@@ -48,14 +50,14 @@ SeekerMessageDialog class >> showModalDialog: text withTitle: title [
 	self inform: 'Seeker installation complete'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerMessageDialog >> entryText [
 	"Answer the value of entryText"
 
 	^ entryText
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerMessageDialog >> entryText: anObject [
 	"Set the value of entryText"
 
@@ -63,14 +65,14 @@ SeekerMessageDialog >> entryText: anObject [
 	self changed: #entryText
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerMessageDialog >> isResizeable [
 	"Answer whether we are not we can be resized."
 
 	^true
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 SeekerMessageDialog >> newContentMorph [
 	"Answer a new content morph."
 
@@ -82,7 +84,7 @@ SeekerMessageDialog >> newContentMorph [
 			vResizing: #spaceFill)
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 SeekerMessageDialog >> newTextMorph [
 	"Answer a new text editor morph."
 
@@ -99,7 +101,7 @@ SeekerMessageDialog >> newTextMorph [
 	^tm
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerMessageDialog >> text: aStringOrText [
 	"Set the text."
 	

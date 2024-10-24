@@ -1,10 +1,12 @@
 Class {
-	#name : #SkMapAlgoExecutionStatesDoSession,
-	#superclass : #SkExecutionMapperAlgorithm,
-	#category : #'Seeker-Components'
+	#name : 'SkMapAlgoExecutionStatesDoSession',
+	#superclass : 'SkExecutionMapperAlgorithm',
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkMapAlgoExecutionStatesDoSession class >> matchesExecutionScenario: tracer [
 
 	^ tracer slowCurrentContext receiver = SeekerSessionHelpers and: [ 
@@ -12,7 +14,7 @@ SkMapAlgoExecutionStatesDoSession class >> matchesExecutionScenario: tracer [
 		  = #innerSeekerExecutionStatesDoSessionFor:withFlag: ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkMapAlgoExecutionStatesDoSession >> findPragmaNamed: aSymbol inStack: context [
 
 	context ifNil: [ ^ nil ].
@@ -21,7 +23,7 @@ SkMapAlgoExecutionStatesDoSession >> findPragmaNamed: aSymbol inStack: context [
 	^ self findPragmaNamed: aSymbol inStack: context sender
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkMapAlgoExecutionStatesDoSession >> mapExecution [
 
 	"Only works if used the option: debug with Seeker""findContext is a SeekerFindContextInStackInterface object"
@@ -77,7 +79,7 @@ SkMapAlgoExecutionStatesDoSession >> mapExecution [
 	^ true
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkMapAlgoExecutionStatesDoSession >> stepForwardToInterestingMethod [
 
 	"SpToggleMenuItemMorph "

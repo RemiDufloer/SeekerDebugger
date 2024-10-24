@@ -1,6 +1,6 @@
 Class {
-	#name : #SeekerConfigPresenter,
-	#superclass : #SpPresenter,
+	#name : 'SeekerConfigPresenter',
+	#superclass : 'SpPresenter',
 	#instVars : [
 		'chkEnableMouseButtonEvent',
 		'chkHandleMouseUp',
@@ -18,10 +18,12 @@ Class {
 		'chkQueryResultsLimitEnabled',
 		'chkSystemCallsHandlerEnabled'
 	],
-	#category : #'Seeker-UI'
+	#category : 'Seeker-UI',
+	#package : 'Seeker',
+	#tag : 'UI'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SeekerConfigPresenter class >> open [
 
 	<script>
@@ -31,13 +33,13 @@ SeekerConfigPresenter class >> open [
 	^ presenter open title: 'SeekerDebugger Configuration'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfigPresenter >> config [
 
 	^ SeekerConfig default
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerConfigPresenter >> createCheckbox: label [
 
 	^ self newCheckBox
@@ -45,7 +47,7 @@ SeekerConfigPresenter >> createCheckbox: label [
 		  yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerConfigPresenter >> createChecksLayout [
 
 	^ SpBoxLayout newTopToBottom
@@ -67,25 +69,25 @@ SeekerConfigPresenter >> createChecksLayout [
 		  yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerConfigPresenter >> handleReleasePinnedMenus [
 
 	self config releasePinnedMenus
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerConfigPresenter >> handleResetEmergencyDeactivation [
 
 	SeekerSessionHelpers emergencyPreventLoading: false
 ]
 
-{ #category : #api }
+{ #category : 'api' }
 SeekerConfigPresenter >> initialExtent [
 
 	^ 300 @ 430
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerConfigPresenter >> initializePresenters [
 
 	| checkboxes |
@@ -143,7 +145,7 @@ SeekerConfigPresenter >> initializePresenters [
 			 "		add: #checkboxExample;"yourself)
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SeekerConfigPresenter >> open [
 
 	"This is the method as defined in Pharo 10. Overriden explicitly for compatibility with Pharo 9.0"
@@ -151,7 +153,7 @@ SeekerConfigPresenter >> open [
 	^ self asWindow open
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerConfigPresenter >> updateFromConfig [
 
 	chkEnableMouseButtonEvent state: self config enableMouseButtonEventDebug.
@@ -169,7 +171,7 @@ SeekerConfigPresenter >> updateFromConfig [
 	chkQueryResultsLimitEnabled state: self config queryResultsLimitEnabled
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerConfigPresenter >> updateToConfig [
 
 	self config enableMouseButtonEventDebug: chkEnableMouseButtonEvent state.

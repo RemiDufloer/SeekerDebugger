@@ -1,10 +1,12 @@
 Class {
-	#name : #UTTQBugSeeker,
-	#superclass : #UserTTQ,
-	#category : #'Seeker-TimeTravelingQueries'
+	#name : 'UTTQBugSeeker',
+	#superclass : 'UserTTQ',
+	#category : 'Seeker-TimeTravelingQueries',
+	#package : 'Seeker',
+	#tag : 'TimeTravelingQueries'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 UTTQBugSeeker class >> queryFastFrom: programStates buggyExpression: aBlockExp buggyExceptionPredicate: aBlock startingAtStep: aNumber collectingAs: aCollectAsBlock [
 
 	| bs violationStatus |
@@ -34,7 +36,7 @@ UTTQBugSeeker class >> queryFastFrom: programStates buggyExpression: aBlockExp b
 				  violationStatus: violationStatus ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 UTTQBugSeeker class >> queryFrom: programStates buggyExpression: aBlockExp buggyExceptionPredicate: aBlock startingAtStep: aNumber collectingAs: aCollectAsBlock [
 
 	| bs isGoodStatus |
@@ -59,7 +61,7 @@ UTTQBugSeeker class >> queryFrom: programStates buggyExpression: aBlockExp buggy
 				  node: state node ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 UTTQBugSeeker >> ttqTitle [
 
 	^ 'Seeks bugs. To be used only by scripting'

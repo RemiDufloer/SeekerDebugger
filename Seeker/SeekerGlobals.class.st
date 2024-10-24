@@ -1,6 +1,6 @@
 Class {
-	#name : #SeekerGlobals,
-	#superclass : #Object,
+	#name : 'SeekerGlobals',
+	#superclass : 'Object',
 	#instVars : [
 		'seekerCodePresenterText',
 		'auxiliaryTempStorage1',
@@ -15,62 +15,64 @@ Class {
 	#classVars : [
 		'instance'
 	],
-	#category : #'Seeker-Helpers'
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerGlobals class >> forceInstanceRefresh [
 
 	instance := nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerGlobals class >> instance [
 	instance ifNil: [ instance := self new ].
 	^instance
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerGlobals >> auxiliaryTempStorage1 [
 
 	^ auxiliaryTempStorage1
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerGlobals >> auxiliaryTempStorage1: anObject [
 
 	auxiliaryTempStorage1 := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerGlobals >> auxiliaryTempStorage2 [
 
 	^ auxiliaryTempStorage2
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerGlobals >> auxiliaryTempStorage2: anObject [
 
 	auxiliaryTempStorage2 := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerGlobals >> clearWatchedProcesses [
 	watchedProcesses ifNotNil: [watchedProcesses removeAll].
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerGlobals >> debugCommandKeysPressed [
 
 	^ self isCommandPressed and: [ self isShiftPressed ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerGlobals >> defaultStepperClass: aStepperClass [
 	defaultTracerClass := aStepperClass
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerGlobals >> defaultTracerClass [
 
 	| fallbackDefault |
@@ -81,7 +83,7 @@ SeekerGlobals >> defaultTracerClass [
 	^ defaultTracerClass
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerGlobals >> goToStDebuggerActionModelOverride [
 
 	(StDebugger >> #debuggerActionModel) browse.
@@ -91,49 +93,49 @@ SeekerGlobals >> goToStDebuggerActionModelOverride [
 		'SeekerStDebuggerDebuggerActionModel ready in clipboard for overwriting'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerGlobals >> isAltPressed [
 
 	^ isAltPressed
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerGlobals >> isAltPressed: anObject [
 
 	isAltPressed := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerGlobals >> isCommandPressed [
 
 	^ isCommandPressed
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerGlobals >> isCommandPressed: anObject [
 
 	isCommandPressed := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerGlobals >> isShiftPressed [
 
 	^ isShiftPressed
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerGlobals >> isShiftPressed: anObject [
 
 	isShiftPressed := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerGlobals >> isWatchedProcess: aProcess [
 	watchedProcesses ifNil: [ ^false ].
 	^watchedProcesses includes: aProcess.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerGlobals >> seekerCodePresenterText [
 
 	"This returns the remembered text in the scripting code presenter"
@@ -141,13 +143,13 @@ SeekerGlobals >> seekerCodePresenterText [
 	^ seekerCodePresenterText
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerGlobals >> seekerCodePresenterText: anObject [
 
 	seekerCodePresenterText := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerGlobals >> startQueryingFromBytecodeOne [
 
 	"A configuration flag (read only)"
@@ -160,7 +162,7 @@ SeekerGlobals >> startQueryingFromBytecodeOne [
 	^ false
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerGlobals >> stopWatchingProcess: aProcess [
 
 	"Bad solution. It works, but it is only temporary. It is possbile that process will be kept in the collection, so a manual cleaninig is needed"
@@ -173,7 +175,7 @@ SeekerGlobals >> stopWatchingProcess: aProcess [
 			self error: 'SEEKER ERROR: Process not being watched' ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerGlobals >> updateModifierKeys: anEvent [
 
 	anEvent buttons ifNil: [ ^ false ].
@@ -188,7 +190,7 @@ SeekerGlobals >> updateModifierKeys: anEvent [
 		                    ifFalse: [ false ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerGlobals >> watchProcess: aProcess [
 
 	"Bad solution. It works, but it is only temporary. It is possbile that process will be kept in the collection, so a manual cleaninig is needed"

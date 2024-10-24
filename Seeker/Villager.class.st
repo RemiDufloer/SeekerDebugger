@@ -1,16 +1,18 @@
 Class {
-	#name : #Villager,
-	#superclass : #Object,
+	#name : 'Villager',
+	#superclass : 'Object',
 	#instVars : [
 		'name',
 		'age',
 		'basket',
 		'status'
 	],
-	#category : #'Seeker-Presentation'
+	#category : 'Seeker-Presentation',
+	#package : 'Seeker',
+	#tag : 'Presentation'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Villager class >> newAlice [
 
 	^ self new
@@ -19,7 +21,7 @@ Villager class >> newAlice [
 		  yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Villager class >> newBob [
 
 	^ self new
@@ -28,7 +30,7 @@ Villager class >> newBob [
 		  yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Villager class >> newCharlie [
 
 	^ self new
@@ -37,31 +39,31 @@ Villager class >> newCharlie [
 		  yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Villager >> age [
 
 	^ age
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Villager >> age: anObject [
 
 	age := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Villager >> basket [
 
 	^ basket
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Villager >> changeStatus: random [
 
 	status := { #ok. #happy. #bored } at: (random nextIntegerBetween: 1 and: 3)
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Villager >> eatAllApples [
 
 	basket copy do: [ :apple | 
@@ -69,19 +71,19 @@ Villager >> eatAllApples [
 		self eatApple: apple ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Villager >> eatApple: apple [
 
 	apple healthy ifFalse: [ status := #kia ]
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 Villager >> hash [
 
 	^ name hash
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Villager >> initialize [
 
 	name := 'Unknown'.
@@ -90,19 +92,19 @@ Villager >> initialize [
 	status := #ok
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Villager >> name [
 
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Villager >> name: anObject [
 
 	name := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 Villager >> printOn: aStream [
 
 	aStream
@@ -113,25 +115,25 @@ Villager >> printOn: aStream [
 		nextPutAll: status asString"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Villager >> receiveApples: aCollection [
 
 	aCollection do: [ :apple | basket add: apple ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Villager >> status [
 
 	^ status
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Villager >> status: anObject [
 
 	status := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Villager >> takeNApples: aNumber random: random [
 
 	"takes aNumber Apples randomly selected from the basket. removes them from the basket, and returns them"

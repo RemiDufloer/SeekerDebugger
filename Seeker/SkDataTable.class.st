@@ -2,16 +2,18 @@
 Represents a data table
 "
 Class {
-	#name : #SkDataTable,
-	#superclass : #SkCollectionBasedDataTable,
+	#name : 'SkDataTable',
+	#superclass : 'SkCollectionBasedDataTable',
 	#instVars : [
 		'columnLabels',
 		'tableName'
 	],
-	#category : #'Seeker-Query'
+	#category : 'Seeker-Query',
+	#package : 'Seeker',
+	#tag : 'Query'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkDataTable class >> newForAnonymousTypeObjects: aCollectionOfAnonymousTypeObjects [
 
 	^ aCollectionOfAnonymousTypeObjects
@@ -25,7 +27,7 @@ SkDataTable class >> newForAnonymousTypeObjects: aCollectionOfAnonymousTypeObjec
 			  ds ]
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkDataTable class >> newWithColumns: aCollectionOfSymbols [
 
 	| ds |
@@ -34,7 +36,7 @@ SkDataTable class >> newWithColumns: aCollectionOfSymbols [
 	^ ds
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 SkDataTable >> asSeekerResultsCollection [
 
 	| res setColumnWidth |
@@ -52,25 +54,25 @@ SkDataTable >> asSeekerResultsCollection [
 	^ res
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkDataTable >> columnLabels [
 
 	^ columnLabels
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkDataTable >> columnLabels: anObject [
 
 	columnLabels := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkDataTable >> getRelevantFields [
 
 	^ {  }
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkDataTable >> initialize [
 	tableName := 'unnamedTable'.
 	data := OrderedCollection new.
@@ -78,25 +80,25 @@ SkDataTable >> initialize [
 	super initialize.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkDataTable >> rows [
 
 	^ data
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkDataTable >> rows: anObject [
 
 	data := anObject 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkDataTable >> tableName [
 
 	^ tableName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkDataTable >> tableName: anObject [
 
 	tableName := anObject

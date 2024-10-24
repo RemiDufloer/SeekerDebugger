@@ -1,6 +1,6 @@
-Extension { #name : #Collection }
+Extension { #name : 'Collection' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Collection >> asScopedObjectDo: aBlock [
 
 	self size = aBlock argumentCount ifFalse: [ 

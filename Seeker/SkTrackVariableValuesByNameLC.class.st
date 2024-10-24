@@ -1,16 +1,18 @@
 Class {
-	#name : #SkTrackVariableValuesByNameLC,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkTrackVariableValuesByNameLC',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTrackVariableValuesByNameLC >> description [
 
 	^ 'Track variable values by its name. The name is chosen from the selected text.'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SkTrackVariableValuesByNameLC >> executeCommand [
 	 
 	"Needs a mapped execution"
@@ -25,7 +27,7 @@ SkTrackVariableValuesByNameLC >> executeCommand [
 		self error: 'Not implmenented method'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTrackVariableValuesByNameLC >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -37,7 +39,7 @@ SkTrackVariableValuesByNameLC >> icon [
 	^ #add
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTrackVariableValuesByNameLC >> name [
 	^'Track variable values by name'
 ]

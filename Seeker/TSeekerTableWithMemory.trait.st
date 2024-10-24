@@ -1,13 +1,15 @@
 Trait {
-	#name : #TSeekerTableWithMemory,
+	#name : 'TSeekerTableWithMemory',
 	#instVars : [
 		'privateTableMemoryPreviousCallRow',
 		'privateTableMemoryPreviousCallPrevious'
 	],
-	#category : #'Seeker-Experimental'
+	#category : 'Seeker-Experimental',
+	#package : 'Seeker',
+	#tag : 'Experimental'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TSeekerTableWithMemory >> currentRow [
 
 	| row |
@@ -26,14 +28,14 @@ TSeekerTableWithMemory >> currentRow [
 	^ row
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 TSeekerTableWithMemory >> do: aBlock [
 
 	self privateResetTableMemory.
 	^ super do: aBlock
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TSeekerTableWithMemory >> getRelevantFields [
 
 	| fields |
@@ -42,7 +44,7 @@ TSeekerTableWithMemory >> getRelevantFields [
 	^ fields
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TSeekerTableWithMemory >> privateResetTableMemory [
 	privateTableMemoryPreviousCallRow := nil.
 	privateTableMemoryPreviousCallPrevious :=nil.

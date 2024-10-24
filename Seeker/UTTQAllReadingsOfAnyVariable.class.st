@@ -1,10 +1,12 @@
 Class {
-	#name : #UTTQAllReadingsOfAnyVariable,
-	#superclass : #UserTTQ,
-	#category : #'Seeker-TimeTravelingQueries'
+	#name : 'UTTQAllReadingsOfAnyVariable',
+	#superclass : 'UserTTQ',
+	#category : 'Seeker-TimeTravelingQueries',
+	#package : 'Seeker',
+	#tag : 'TimeTravelingQueries'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 UTTQAllReadingsOfAnyVariable class >> queryFrom: programStates [
 
 	^ self
@@ -37,7 +39,7 @@ UTTQAllReadingsOfAnyVariable class >> queryFrom: programStates [
 				  inNode: node ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 UTTQAllReadingsOfAnyVariable >> ttqTitle [
 
 	^ 'Find All Readings of Any Variable'

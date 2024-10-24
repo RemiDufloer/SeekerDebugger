@@ -1,16 +1,18 @@
 Class {
-	#name : #SkGoToNextCallOfCurrentMethodLC,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkGoToNextCallOfCurrentMethodLC',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkGoToNextCallOfCurrentMethodLC >> description [
 
 	^'MyCommand description'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SkGoToNextCallOfCurrentMethodLC >> executeCommand [
 
 	| currentContext |
@@ -22,7 +24,7 @@ SkGoToNextCallOfCurrentMethodLC >> executeCommand [
 		ofClass: self seeker tracer currentContext receiver class
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkGoToNextCallOfCurrentMethodLC >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -34,13 +36,13 @@ SkGoToNextCallOfCurrentMethodLC >> icon [
 	^ #add
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkGoToNextCallOfCurrentMethodLC >> name [
 
 	^'Go to the next call of the current method'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkGoToNextCallOfCurrentMethodLC >> pushesNavigation [
 
 	^ true

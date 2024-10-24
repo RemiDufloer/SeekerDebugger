@@ -1,13 +1,15 @@
 Class {
-	#name : #QSAdaptiveTimeBufferedResult,
-	#superclass : #QuerySolver,
+	#name : 'QSAdaptiveTimeBufferedResult',
+	#superclass : 'QuerySolver',
 	#instVars : [
 		'bufferReadyCallback'
 	],
-	#category : #'Seeker-Query'
+	#category : 'Seeker-Query',
+	#package : 'Seeker',
+	#tag : 'Query'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 QSAdaptiveTimeBufferedResult class >> newForQuery: aQuery withBufferCompletedCallback: aBlock [
 
 	^ (self newForQuery: aQuery)
@@ -15,26 +17,26 @@ QSAdaptiveTimeBufferedResult class >> newForQuery: aQuery withBufferCompletedCal
 		  yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QSAdaptiveTimeBufferedResult >> bufferReadyCallback [
 
 	^ bufferReadyCallback
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QSAdaptiveTimeBufferedResult >> bufferReadyCallback: anObject [
 
 	bufferReadyCallback := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 QSAdaptiveTimeBufferedResult >> initialize [
 
 	super initialize.
 	bufferReadyCallback := [ :o |  ]
 ]
 
-{ #category : #navigating }
+{ #category : 'navigating' }
 QSAdaptiveTimeBufferedResult >> resolve [
 
 	"This will call the buffer callback every x milliseconds or when the buffer reaches its full capacity"

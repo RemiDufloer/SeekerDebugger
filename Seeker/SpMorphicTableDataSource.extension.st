@@ -1,6 +1,6 @@
-Extension { #name : #SpMorphicTableDataSource }
+Extension { #name : 'SpMorphicTableDataSource' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 SpMorphicTableDataSource >> newDataSourceMatching: aFTFilter [
 
 	"Fixes errors related to the usage of ItemFilters and SpTablePresenter"

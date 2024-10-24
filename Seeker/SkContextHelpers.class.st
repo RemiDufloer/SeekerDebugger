@@ -1,10 +1,12 @@
 Class {
-	#name : #SkContextHelpers,
-	#superclass : #Object,
-	#category : #'Seeker-Helpers'
+	#name : 'SkContextHelpers',
+	#superclass : 'Object',
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkContextHelpers class >> contextStackAsListFrom: aContext [
 
 	"Returns a collection of the contexts in the stack. The bottom of the stack is at 1 in the list, and the top of the stack is at last in the list (aContext)."
@@ -17,14 +19,14 @@ SkContextHelpers class >> contextStackAsListFrom: aContext [
 	^ contextCollection
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkContextHelpers class >> countStackDepthFrom: aContext [
 
 	aContext ifNil: [ ^ 0 ].
 	^ 1 + (self countStackDepthFrom: aContext sender)
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkContextHelpers class >> createStepDescriptorForContext: aContext [
 
 	| sd |
@@ -32,7 +34,7 @@ SkContextHelpers class >> createStepDescriptorForContext: aContext [
 	sd topStatementID indexInSequence: 1
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkContextHelpers class >> currentNodeOf: aContext isTopContext: aBoolean [
 
 	^ aContext method sourceNodeForPC: aContext pc + (aBoolean
@@ -40,7 +42,7 @@ SkContextHelpers class >> currentNodeOf: aContext isTopContext: aBoolean [
 			   ifFalse: [ -1 ])
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkContextHelpers class >> findContextInStack: aBlock startingContext: aContext [
 
 	"returns the first context where the given predicate returns true. Or nil. The stack is traversed from top to bottom."
@@ -50,7 +52,7 @@ SkContextHelpers class >> findContextInStack: aBlock startingContext: aContext [
 	^ self findContextInStack: aBlock startingContext: aContext sender
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkContextHelpers class >> findContextInStack: aBlock startingContext: aContext untilContext: lastContextToSearch [
 
 	"returns the first context where the given predicate returns true. Or nil. The stack is traversed from top to bottom."
@@ -64,7 +66,7 @@ SkContextHelpers class >> findContextInStack: aBlock startingContext: aContext u
 		  untilContext: lastContextToSearch
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkContextHelpers class >> recursiveAddContextInStackToList: aCollection startingContext: aContext [
 
 	| sender |

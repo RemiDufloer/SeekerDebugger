@@ -1,17 +1,19 @@
 Class {
-	#name : #SeekerLiteCommands,
-	#superclass : #Object,
-	#category : #'Seeker-Commands'
+	#name : 'SeekerLiteCommands',
+	#superclass : 'Object',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerLiteCommands class >> registerCommands: stDebuggerInstance forRoot: rootCommandGroup [
 	|instance|
 	instance := self new.
 	instance registerCommands: stDebuggerInstance forRoot: rootCommandGroup
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 SeekerLiteCommands >> addTree: aCollection toGroup: commandGroup [
 	"The commands group are declared statically. In the future, we might even consider following the class hierarchy to build the menus"
 
@@ -53,14 +55,14 @@ SeekerLiteCommands >> addTree: aCollection toGroup: commandGroup [
 					ifFalse: [ self addTree: each toGroup: commandGroup ] ] ]
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 SeekerLiteCommands >> domainSpecificQueries [
 
 	^ (TDomainSpecificQueryMenuBuilder users collect: [ :user |
 		   user new buildCodeCommandTreeMenu ]) asArray
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 SeekerLiteCommands >> makeUTTQsMenu [
 
 	| uttqs |
@@ -79,7 +81,7 @@ SeekerLiteCommands >> makeUTTQsMenu [
 	^ uttqs asArray
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 SeekerLiteCommands >> registerCommands: stDebuggerInstance forRoot: rootCommandGroup [
 
 	"This method is called from the stDebugger"
@@ -97,7 +99,7 @@ SeekerLiteCommands >> registerCommands: stDebuggerInstance forRoot: rootCommandG
 	self addTree: self stCodeCommandsTree toGroup: seekerGroup
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 SeekerLiteCommands >> stCodeCommandsTree [
 
 	^ {

@@ -1,13 +1,15 @@
 Class {
-	#name : #SkQueryableTracer,
-	#superclass : #SkOptimizedTracer,
+	#name : 'SkQueryableTracer',
+	#superclass : 'SkOptimizedTracer',
 	#instVars : [
 		'shouldAlwaysRunToEnd'
 	],
-	#category : #'Seeker-Components'
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkQueryableTracer >> checkIfShouldRunToEnd [
 
 	"If in the execution we find elements that need to finish their execution before restarting,
@@ -19,7 +21,7 @@ SkQueryableTracer >> checkIfShouldRunToEnd [
 		shouldAlwaysRunToEnd := self receiver class == Semaphore ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkQueryableTracer >> createContextCacheFor: aContext [
 
 	| contextVars |
@@ -27,13 +29,13 @@ SkQueryableTracer >> createContextCacheFor: aContext [
 	^ aContext stackPtr = (contextVars + 1)
 ]
 
-{ #category : #'UI specific' }
+{ #category : 'UI specific' }
 SkQueryableTracer >> executeAndShow: aQuery [
 
 	seeker seekerDebuggerPresenter showInResult: aQuery displayModel
 ]
 
-{ #category : #'object - api' }
+{ #category : 'object - api' }
 SkQueryableTracer >> findContextInStack [
 
 	| findContextInterface |
@@ -42,13 +44,13 @@ SkQueryableTracer >> findContextInStack [
 	^ findContextInterface
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkQueryableTracer >> getOidOf: anObject [
 
 	^ objectsTracker getOidOf: anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkQueryableTracer >> initialize [
 
 	shouldAlwaysRunToEnd := false.
@@ -56,38 +58,38 @@ SkQueryableTracer >> initialize [
 	self bindComponents
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkQueryableTracer >> isTopContext: aContext [
 
 	^ stDebugger interruptedContext = aContext
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkQueryableTracer >> newProgramStates [
 	"Obsolete. use instead programStates"
 
 	^ SkProgramStates newForTracer: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkQueryableTracer >> objectIsLocal: anObject [
 
 	^ objectsTracker objectIsLocal: anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkQueryableTracer >> objectOidIsLocal: aNumber [
 
 	^ objectsTracker objectOidIsLocal: aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkQueryableTracer >> objectWithOid: aNumber [
 
 	^ objectsTracker getObjectByOid: aNumber
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkQueryableTracer >> onTracedContextChanged [
 
 	"self createContextCacheFor: self currentContext."
@@ -102,13 +104,13 @@ SkQueryableTracer >> onTracedContextChanged [
 	super onTracedContextChanged
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkQueryableTracer >> programStates [
 
 	^ SkProgramStates newForTracer: self
 ]
 
-{ #category : #starting }
+{ #category : 'starting' }
 SkQueryableTracer >> restartAtBytecodeOne [
 
 	"Before restarting, check if the execution should be executed to end"
@@ -124,19 +126,19 @@ SkQueryableTracer >> restartAtBytecodeOne [
 	super restartAtBytecodeOne
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkQueryableTracer >> selectedCode [
 
 	^ stDebugger code selectedText
 ]
 
-{ #category : #'accessing context' }
+{ #category : 'accessing context' }
 SkQueryableTracer >> selectedContext [
 
 	^ stDebugger selectedContext
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkQueryableTracer >> selectedNode [
 
 	"Returns the node under the StDebugger code presenter selection."
@@ -144,13 +146,13 @@ SkQueryableTracer >> selectedNode [
 	^ stDebugger nodeUnderSelection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkQueryableTracer >> selectedSelector [
 
 	^ stDebugger code selectedSelector
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkQueryableTracer >> stepToNextIteration [
 
 	"we want to get to the same node of when the context receiver is the same as the current"
@@ -183,7 +185,7 @@ SkQueryableTracer >> stepToNextIteration [
 							currentState node nonInlinedOwner = nodeOwner ] ] ] ] ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkQueryableTracer >> stepToNextMarker [
 
 	self doAndUpdateSessionAfter: [ 

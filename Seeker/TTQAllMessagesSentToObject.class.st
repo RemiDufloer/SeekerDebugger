@@ -1,17 +1,19 @@
 Class {
-	#name : #TTQAllMessagesSentToObject,
-	#superclass : #TTQAllMessageSends,
-	#category : #'Seeker-TimeTravelingQueries'
+	#name : 'TTQAllMessagesSentToObject',
+	#superclass : 'TTQAllMessageSends',
+	#category : 'Seeker-TimeTravelingQueries',
+	#package : 'Seeker',
+	#tag : 'TimeTravelingQueries'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TTQAllMessagesSentToObject class >> performWith: tracer withArg: arg [
 
 	tracer ui showInResult:
 		(self queryFrom: tracer newProgramStates withObjectOid: arg) displayModel 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TTQAllMessagesSentToObject class >> queryFrom: source withObjectOid: aNumber [
 
 	^ (self queryFrom: source)
@@ -19,19 +21,19 @@ TTQAllMessagesSentToObject class >> queryFrom: source withObjectOid: aNumber [
 		  yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TTQAllMessagesSentToObject class >> selectionFunction [
 
 	^ SkSelectionMessagesSentToObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TTQAllMessagesSentToObject >> objectOid [
 
 	^ selectionFunction messageReceiverOid
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TTQAllMessagesSentToObject >> objectOid: anObject [
 
 	selectionFunction messageReceiverOid: anObject

@@ -1,14 +1,16 @@
 Class {
-	#name : #TownEventLoggerUtil,
-	#superclass : #Object,
+	#name : 'TownEventLoggerUtil',
+	#superclass : 'Object',
 	#classInstVars : [
 		'loggedMessages',
 		'enabled'
 	],
-	#category : #'Seeker-Presentation'
+	#category : 'Seeker-Presentation',
+	#package : 'Seeker',
+	#tag : 'Presentation'
 }
 
-{ #category : #logging }
+{ #category : 'logging' }
 TownEventLoggerUtil class >> clear [
 
 	enabled ifFalse: [ ^ self ].
@@ -18,14 +20,14 @@ TownEventLoggerUtil class >> clear [
 		loggedMessages removeAll ] ] fork
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TownEventLoggerUtil class >> initialize [
 
 	loggedMessages := OrderedCollection new.
 	enabled := true.
 ]
 
-{ #category : #logging }
+{ #category : 'logging' }
 TownEventLoggerUtil class >> log: aString [
 	enabled ifFalse: [ ^self ].
 	[ 
@@ -38,7 +40,7 @@ TownEventLoggerUtil class >> log: aString [
 			cr ] ] fork
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TownEventLoggerUtil class >> makeDisabled [
 
 	<script>
@@ -46,7 +48,7 @@ TownEventLoggerUtil class >> makeDisabled [
 	self inform: 'Logger disabled'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TownEventLoggerUtil class >> makeEnabled [
 
 	<script>

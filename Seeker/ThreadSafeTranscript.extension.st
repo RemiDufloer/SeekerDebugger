@@ -1,6 +1,6 @@
-Extension { #name : #ThreadSafeTranscript }
+Extension { #name : 'ThreadSafeTranscript' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 ThreadSafeTranscript >> shiftMenu [
 
 	"Adding this mthod prevents some crashes"

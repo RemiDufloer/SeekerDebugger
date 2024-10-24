@@ -1,6 +1,6 @@
 Class {
-	#name : #SeekerExecutor,
-	#superclass : #Object,
+	#name : 'SeekerExecutor',
+	#superclass : 'Object',
 	#instVars : [
 		'programTimestamp',
 		'tcus',
@@ -8,10 +8,12 @@ Class {
 		'random',
 		'enableDcs'
 	],
-	#category : #'Seeker-Experimental'
+	#category : 'Seeker-Experimental',
+	#package : 'Seeker',
+	#tag : 'Experimental'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerExecutor class >> executeUntracked: aBlock [
 
 	"this is treated by seeker as a SND. So it will not be analyzed, and interpreted directily until it returns, counting as a single bytecode"
@@ -19,7 +21,7 @@ SeekerExecutor class >> executeUntracked: aBlock [
 	^ aBlock value
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SeekerExecutor class >> newFor: anOrderedCollectionOfTCUs [
 
 	^ self new
@@ -27,7 +29,7 @@ SeekerExecutor class >> newFor: anOrderedCollectionOfTCUs [
 		  yourself
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerExecutor >> canStep [
 
 	tcus do: [ :each | 
@@ -36,7 +38,7 @@ SeekerExecutor >> canStep [
 	^ false
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerExecutor >> chooseNextTCUIndex [
 
 	"For now we assume equal thread priority, and a randomized scheduling strategy"
@@ -51,7 +53,7 @@ SeekerExecutor >> chooseNextTCUIndex [
 	^ 1
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerExecutor >> doUndoBlocks [
 
 	| mergedUndos |
@@ -76,19 +78,19 @@ SeekerExecutor >> doUndoBlocks [
 		each second value "executes the undo block" ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerExecutor >> enableDcs [
 
 	^ enableDcs
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerExecutor >> enableDcs: anObject [
 
 	enableDcs := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerExecutor >> initialize [
 
 	tcus := OrderedCollection new.
@@ -98,38 +100,38 @@ SeekerExecutor >> initialize [
 	enableDcs := true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerExecutor >> isFirstPlayOfNextStep [
 
 	^ enableDcs not or: [
 		  (tcuExecutionOrder includesKey: programTimestamp + 1) not ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerExecutor >> programTimestamp [
 
 	^ programTimestamp
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerExecutor >> programTimestamp: anObject [
 
 	programTimestamp := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerExecutor >> random [
 
 	^ random
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerExecutor >> random: anObject [
 
 	random := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerExecutor >> restart [
 
 	programTimestamp := 1.
@@ -143,13 +145,13 @@ SeekerExecutor >> restart [
 			] ]
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 SeekerExecutor >> resume [
 
 	tcus do: [ :each | each tracer debuggedProcess resume]
 ]
 
-{ #category : #api }
+{ #category : 'api' }
 SeekerExecutor >> step [
 	"If is firstplay, it chooses next tcu, registers the order
 If not, it reads which tcu follows from the logsDirectory 
@@ -182,50 +184,50 @@ After, it executes the tcu
 	^ true
 ]
 
-{ #category : #api }
+{ #category : 'api' }
 SeekerExecutor >> stepToEnd [
 
 	^ self stepUntil: [ false ]
 ]
 
-{ #category : #api }
+{ #category : 'api' }
 SeekerExecutor >> stepUntil: aBlock [
 
 	[ aBlock value or: [ self canStep not ] ] whileFalse: [ self step ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerExecutor >> tcuExecutionOrder [
 
 	^ tcuExecutionOrder
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerExecutor >> tcuExecutionOrder: anObject [
 
 	tcuExecutionOrder := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerExecutor >> tcus [
 
 	^ tcus
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerExecutor >> tcus: anObject [
 
 	tcus := anObject
 ]
 
-{ #category : #'debugging actions' }
+{ #category : 'debugging actions' }
 SeekerExecutor >> terminate [
 	"I think this crashes sometimes. Neet to test it"
 
 	tcus do: [ :each | each terminate ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerExecutor >> timeTravelTo: aNumber [
 
 	self restart.

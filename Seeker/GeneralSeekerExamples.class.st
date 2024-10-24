@@ -1,10 +1,12 @@
 Class {
-	#name : #GeneralSeekerExamples,
-	#superclass : #TestCase,
-	#category : #'Seeker-BugCollection-Tests'
+	#name : 'GeneralSeekerExamples',
+	#superclass : 'TestCase',
+	#category : 'Seeker-BugCollection-Tests',
+	#package : 'Seeker',
+	#tag : 'BugCollection-Tests'
 }
 
-{ #category : #converting }
+{ #category : 'converting' }
 GeneralSeekerExamples class >> asUIBasedSessionExample [
 
 	| t sk q qr |
@@ -23,7 +25,7 @@ GeneralSeekerExamples class >> asUIBasedSessionExample [
 		q }
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 GeneralSeekerExamples class >> markersExample [
 
 "In a playground, call SeekerSessionHelpers debugSession: [GeneralSeekerExamples markersExample] and select the Markers query from the menu. The executed query is: Se"
@@ -46,14 +48,14 @@ GeneralSeekerExamples class >> markersExample [
 	SeekerGlobals instance auxiliaryTempStorage1 value. "Fourth one is inside this block"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 GeneralSeekerExamples class >> otherInstanceWrapper: receiver wrappedMethod: aMethod arguments: args [
 	| res |
 	res := receiver execute: aMethod withArgs: args.
 	^ 'result is new: ' , res asString
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 GeneralSeekerExamples class >> reversibilityExample [
 
 	| aCollection |
@@ -61,7 +63,7 @@ GeneralSeekerExamples class >> reversibilityExample [
 	self reversibilityExampleWith: aCollection
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 GeneralSeekerExamples class >> reversibilityExampleWith: aCollection [
 
 	| aDistractingCollection |
@@ -86,7 +88,7 @@ GeneralSeekerExamples class >> reversibilityExampleWith: aCollection [
 	1 to: 10 do: [ :i | aCollection add: i ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 GeneralSeekerExamples class >> tempClassBuilderExample [
 
 	| myNewClass obj1 obj2 result |

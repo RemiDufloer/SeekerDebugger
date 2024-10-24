@@ -1,37 +1,39 @@
 Class {
-	#name : #SkExecutionStatesDo,
-	#superclass : #Object,
+	#name : 'SkExecutionStatesDo',
+	#superclass : 'Object',
 	#classInstVars : [
 		'lastExecutionStatesDo'
 	],
-	#category : #'Seeker-Query'
+	#category : 'Seeker-Query',
+	#package : 'Seeker',
+	#tag : 'Query'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionStatesDo class >> lastExecutionStatesDo [
 
 	^ lastExecutionStatesDo
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionStatesDo class >> lastExecutionStatesDo: anObject [
 
 	lastExecutionStatesDo := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionStatesDo >> action: state [
 
 	^ self
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkExecutionStatesDo >> initialize [
 
 	self class lastExecutionStatesDo: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionStatesDo >> selection: state [
 
 	^ true

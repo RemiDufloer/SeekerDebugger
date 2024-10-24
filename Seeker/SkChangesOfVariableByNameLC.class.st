@@ -1,10 +1,12 @@
 Class {
-	#name : #SkChangesOfVariableByNameLC,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkChangesOfVariableByNameLC',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkChangesOfVariableByNameLC >> description [
 
 	^ self commonDescriptionIntroString
@@ -12,7 +14,7 @@ SkChangesOfVariableByNameLC >> description [
 	  'for every assignment where the <variable name> matches the <selected text>'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SkChangesOfVariableByNameLC >> executeCommand [
 
 	| variableName |
@@ -22,7 +24,7 @@ SkChangesOfVariableByNameLC >> executeCommand [
 			 withVariableName: variableName)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkChangesOfVariableByNameLC >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -34,13 +36,13 @@ SkChangesOfVariableByNameLC >> icon [
 	^ #changeUpdate
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkChangesOfVariableByNameLC >> name [
 
 	^ 'All the assignments of variables with selected name'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkChangesOfVariableByNameLC >> selectionTitleString [
 
 	^ ' : (' , self codeSelectedText , ')'

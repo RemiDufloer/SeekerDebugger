@@ -1,14 +1,16 @@
 Class {
-	#name : #SeekerDebuggerPlugin,
-	#superclass : #Object,
+	#name : 'SeekerDebuggerPlugin',
+	#superclass : 'Object',
 	#instVars : [
 		'seeker',
 		'methodsHandling'
 	],
-	#category : #'Seeker-Plugins'
+	#category : 'Seeker-Plugins',
+	#package : 'Seeker',
+	#tag : 'Plugins'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebuggerPlugin >> handleMethod: aSymbol withArguments: args [
 
 	| handlingBlock |
@@ -20,19 +22,19 @@ SeekerDebuggerPlugin >> handleMethod: aSymbol withArguments: args [
 	^ handlingBlock valueWithArguments: args
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebuggerPlugin >> handlesMethod: aSymbol [
 
 	^ methodsHandling includesKey: aSymbol
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerDebuggerPlugin >> initialize [
 
 	methodsHandling := Dictionary new
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerDebuggerPlugin >> initializeMethodHandlers [
 
 	"Example"
@@ -44,14 +46,14 @@ SeekerDebuggerPlugin >> initializeMethodHandlers [
 	^ self subclassResponsibility
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerDebuggerPlugin >> initializeModel: anObject [
 
 	seeker := anObject.
 	self initializeMethodHandlers.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebuggerPlugin >> pragmaHolderForPlugins [
 
 	self subclassResponsibility
@@ -60,13 +62,13 @@ SeekerDebuggerPlugin >> pragmaHolderForPlugins [
 	"<seekerDebuggerPlugin:1>"
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerDebuggerPlugin >> seeker [
 
 	^ seeker
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerDebuggerPlugin >> seeker: anObject [
 
 	seeker := anObject

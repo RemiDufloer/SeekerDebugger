@@ -11,15 +11,17 @@ context := thisContext.
 ExtendedProperties on: context at: 'newInstanceVariable' put: 'Hello'
 "
 Class {
-	#name : #SeekerCacheObject,
-	#superclass : #Object,
+	#name : 'SeekerCacheObject',
+	#superclass : 'Object',
 	#instVars : [
 		'weakRefs'
 	],
-	#category : #'Seeker-SeekerCache'
+	#category : 'Seeker-SeekerCache',
+	#package : 'Seeker',
+	#tag : 'SeekerCache'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SeekerCacheObject class >> newFor: anObject [
 
 	| oe |
@@ -28,7 +30,7 @@ SeekerCacheObject class >> newFor: anObject [
 	^ oe
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerCacheObject >> initialize [
 
 	"
@@ -40,25 +42,25 @@ Reference listlist:
 	weakRefs := WeakArray new: 2
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCacheObject >> source [
 
 	^ weakRefs at: 1
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCacheObject >> source: anObj [
 
 	weakRefs at: 1 put: anObj
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCacheObject >> tracer [
 
 	^ weakRefs at: 2
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCacheObject >> tracer: anObj [
 
 	weakRefs at: 2 put: anObj

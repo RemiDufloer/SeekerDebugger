@@ -1,10 +1,12 @@
 Class {
-	#name : #SkChangesOfSelfLC,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkChangesOfSelfLC',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkChangesOfSelfLC >> description [
 
 	^ self commonDescriptionIntroString
@@ -12,7 +14,7 @@ SkChangesOfSelfLC >> description [
 	  'for every assignment of any <instance variable> of the object referred as <self> (in the selected context)'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SkChangesOfSelfLC >> executeCommand [
 
 	| objectOid |
@@ -23,7 +25,7 @@ SkChangesOfSelfLC >> executeCommand [
 			 withObjectOid: objectOid)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkChangesOfSelfLC >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -35,7 +37,7 @@ SkChangesOfSelfLC >> icon [
 	^ #objects
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkChangesOfSelfLC >> name [
 
 	^ 'All the assignments of instance variables, of self'

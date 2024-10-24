@@ -1,15 +1,17 @@
 Class {
-	#name : #QSTimeBufferedResult,
-	#superclass : #QuerySolver,
+	#name : 'QSTimeBufferedResult',
+	#superclass : 'QuerySolver',
 	#instVars : [
 		'bufferReadyCallback',
 		'buffersCapacity',
 		'timespan'
 	],
-	#category : #'Seeker-Query'
+	#category : 'Seeker-Query',
+	#package : 'Seeker',
+	#tag : 'Query'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 QSTimeBufferedResult class >> newForQuery: aQuery withBufferCompletedCallback: aBlock [
 
 	^ (self newForQuery: aQuery)
@@ -17,31 +19,31 @@ QSTimeBufferedResult class >> newForQuery: aQuery withBufferCompletedCallback: a
 		  yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QSTimeBufferedResult >> bufferReadyCallback [
 
 	^ bufferReadyCallback
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QSTimeBufferedResult >> bufferReadyCallback: anObject [
 
 	bufferReadyCallback := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QSTimeBufferedResult >> buffersCapacity [
 
 	^ buffersCapacity
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QSTimeBufferedResult >> buffersCapacity: anObject [
 
 	buffersCapacity := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 QSTimeBufferedResult >> initialize [
 
 	super initialize.
@@ -50,7 +52,7 @@ QSTimeBufferedResult >> initialize [
 	bufferReadyCallback := [ :o |  ]
 ]
 
-{ #category : #navigating }
+{ #category : 'navigating' }
 QSTimeBufferedResult >> resolve [
 	"This will call the buffer callback every x milliseconds or when the buffer reaches its full capacity"
 
@@ -75,13 +77,13 @@ QSTimeBufferedResult >> resolve [
 		bufferReadyCallback value: currentBuffer ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QSTimeBufferedResult >> timespan [
 
 	^ timespan
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QSTimeBufferedResult >> timespan: anObject [
 
 	timespan := anObject

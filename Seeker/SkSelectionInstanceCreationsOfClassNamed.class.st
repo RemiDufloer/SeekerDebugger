@@ -1,25 +1,27 @@
 Class {
-	#name : #SkSelectionInstanceCreationsOfClassNamed,
-	#superclass : #SkSelectionInstanceCreations,
+	#name : 'SkSelectionInstanceCreationsOfClassNamed',
+	#superclass : 'SkSelectionInstanceCreations',
 	#instVars : [
 		'newInstanceClassName'
 	],
-	#category : #'Seeker-TimeTravelingQueries'
+	#category : 'Seeker-TimeTravelingQueries',
+	#package : 'Seeker',
+	#tag : 'TimeTravelingQueries'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSelectionInstanceCreationsOfClassNamed >> newInstanceClassName [
 
 	^ newInstanceClassName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSelectionInstanceCreationsOfClassNamed >> newInstanceClassName: anObject [
 
 	newInstanceClassName := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSelectionInstanceCreationsOfClassNamed >> value: state [
 
 	^ state isInstantiationMessage and: [ 

@@ -1,10 +1,12 @@
 Class {
-	#name : #SkAnonymousTypeHelpers,
-	#superclass : #Object,
-	#category : #'Seeker-Helpers'
+	#name : 'SkAnonymousTypeHelpers',
+	#superclass : 'Object',
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #compiling }
+{ #category : 'compiling' }
 SkAnonymousTypeHelpers class >> compileCode: aString inContext: aContext [
 
 	^ aContext receiver class compiler
@@ -16,7 +18,7 @@ SkAnonymousTypeHelpers class >> compileCode: aString inContext: aContext [
 		  evaluate
 ]
 
-{ #category : #compiling }
+{ #category : 'compiling' }
 SkAnonymousTypeHelpers class >> compileNewSimplifiedBlockFor: aBlock withStatements: aCollection [
 
 	| templateBlockString innerArrayString newBlockSourceCode |
@@ -29,7 +31,7 @@ SkAnonymousTypeHelpers class >> compileNewSimplifiedBlockFor: aBlock withStateme
 	^ self compileCode: newBlockSourceCode inContext: aBlock asContext
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkAnonymousTypeHelpers class >> filterKeepingFields: aCollection andExcluding: aCollectionForExclusion ofInstantiationBlock: aBlock [
 
 	"Compiles a new block of anonymous type instantiation, removing fields not included in the collection parameter"
@@ -62,7 +64,7 @@ SkAnonymousTypeHelpers class >> filterKeepingFields: aCollection andExcluding: a
 		  withStatements: filteredStatements
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkAnonymousTypeHelpers class >> filterKeepingFields: aCollection ofInstantiationBlock: aBlock [
 
 	"Compiles a new block of anonymous type instantiation, removing fields not included in the collection parameter"
@@ -89,7 +91,7 @@ SkAnonymousTypeHelpers class >> filterKeepingFields: aCollection ofInstantiation
 		  withStatements: filteredStatements
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkAnonymousTypeHelpers class >> filterOutStatementsNodes: anArrayOfStatements listOfFieldsToRemove: aCollection [
 
 	| filteredStatements |
@@ -103,7 +105,7 @@ SkAnonymousTypeHelpers class >> filterOutStatementsNodes: anArrayOfStatements li
 	^ filteredStatements
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkAnonymousTypeHelpers class >> filterRemovingFields: aCollection ofInstantiationBlock: aBlock [
 
 	| ast anonInstantiationMessageNodes anonInstantiationNode isAnonInstantiationNode arrayNode filteredStatements |
@@ -132,7 +134,7 @@ SkAnonymousTypeHelpers class >> filterRemovingFields: aCollection ofInstantiatio
 		  withStatements: filteredStatements
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkAnonymousTypeHelpers class >> filterStatementsNodes: anArrayOfStatements listOfFieldsToKeep: aCollection [
 
 	| filteredStatements |
@@ -146,7 +148,7 @@ SkAnonymousTypeHelpers class >> filterStatementsNodes: anArrayOfStatements listO
 	^ filteredStatements
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkAnonymousTypeHelpers class >> filterStatementsNodes: anArrayOfStatements whileKeeping: aCollection andExcluding: aCollectionToExclude [
 
 	| filteredStatements |
@@ -163,7 +165,7 @@ SkAnonymousTypeHelpers class >> filterStatementsNodes: anArrayOfStatements while
 	^ filteredStatements
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkAnonymousTypeHelpers class >> isAnonymousTypeInstantiationNode: anRBNode [
 
 	| receiver |
@@ -175,7 +177,7 @@ SkAnonymousTypeHelpers class >> isAnonymousTypeInstantiationNode: anRBNode [
 			  anRBNode selector value = #with: ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkAnonymousTypeHelpers class >> listOfFieldsInAnonymousTypeBlock: aBlock [
 
 	"aBlock is a Block (Block closure) that recives one one argument which is expected to be an anonymous type object. This methods anaylizes the static ast of said block, and return all the fields names accessed for the argument "

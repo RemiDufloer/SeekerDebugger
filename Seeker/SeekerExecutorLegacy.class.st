@@ -1,6 +1,6 @@
 Class {
-	#name : #SeekerExecutorLegacy,
-	#superclass : #Object,
+	#name : 'SeekerExecutorLegacy',
+	#superclass : 'Object',
 	#instVars : [
 		'executionsAndLocksDictionary',
 		'random',
@@ -12,35 +12,37 @@ Class {
 		'eventsLog',
 		'systemTime'
 	],
-	#category : #'Seeker-Experimental'
+	#category : 'Seeker-Experimental',
+	#package : 'Seeker',
+	#tag : 'Experimental'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerExecutorLegacy class >> initialize [
 
 	systemTime := 0.
 	self resetLog
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerExecutorLegacy class >> registerSystemTime: aNumber executionTime: aNumber2 undoBlock: aBlock [
 
 	eventsLog add: aNumber -> (aNumber2 -> aBlock)
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerExecutorLegacy class >> resetLog [
 
 	eventsLog := OrderedCollection new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerExecutorLegacy class >> systemTime: anObject [
 
 	systemTime := anObject
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 SeekerExecutorLegacy >> addExecution: aSeekerDebugger [
 
 	executionsAndLocksDictionary at: aSeekerDebugger put: (Semaphore new
@@ -50,7 +52,7 @@ SeekerExecutorLegacy >> addExecution: aSeekerDebugger [
 		self handleWritingEventCallback: arg ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerExecutorLegacy >> canStepExecutions [
 
 	executionsAndLocksDictionary keysDo: [ :exe | 
@@ -58,7 +60,7 @@ SeekerExecutorLegacy >> canStepExecutions [
 	^ false
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerExecutorLegacy >> executeUntracked: aBlock [
 
 	"this is treated by seeker as a SND. So it will not be analyzed, and interpreted directily until it returns, counting as a single bytecode"
@@ -66,13 +68,13 @@ SeekerExecutorLegacy >> executeUntracked: aBlock [
 	^ aBlock value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerExecutorLegacy >> executionsLog [
 
 	^ executionsLog
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerExecutorLegacy >> handleWritingEventCallback: arg [
 
 	"arg is SeekerWritingEventCallbackArgs"
@@ -85,7 +87,7 @@ SeekerExecutorLegacy >> handleWritingEventCallback: arg [
 	executionsLog add: systemTime -> arg
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerExecutorLegacy >> initialize [
 
 	random := Random new
@@ -98,7 +100,7 @@ SeekerExecutorLegacy >> initialize [
 	"keys are SeekerDebuggerObjects. Values are semaphores for each execution"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerExecutorLegacy >> pickAnExecution [
 
 	| executions |
@@ -106,13 +108,13 @@ SeekerExecutorLegacy >> pickAnExecution [
 	^ executions at: (random nextIntegerBetween: 1 and: executions size)
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerExecutorLegacy >> resetExecutionsLog [
 
 	executionsLog removeAll
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerExecutorLegacy >> scheduleAndExecuteAnInstruction [
 
 	| scheduledExecution |
@@ -122,7 +124,7 @@ SeekerExecutorLegacy >> scheduleAndExecuteAnInstruction [
 		stepCounter := stepCounter + 1 ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerExecutorLegacy >> startExecutions [
 
 	stepCounter := 1.
@@ -146,7 +148,7 @@ SeekerExecutorLegacy >> startExecutions [
 	abortFlag ifTrue: [ SeekerMetaDebugHelper log: 'Executions were aborted' ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerExecutorLegacy >> stepExecution: anExecution [
 
 	"Tries to execute an instruciton of an execution. If the execution is still waiting for the previous operation to finish, it will immediately return instead."
@@ -162,7 +164,7 @@ SeekerExecutorLegacy >> stepExecution: anExecution [
 	[ [ anExecution tracer stepBytecode ] ensure: [ sem signal ] ] fork
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerExecutorLegacy >> timeTravelExecution: aSeekerDebugger toSystemTime: aNumber [
 
 	| minExecutionTime |

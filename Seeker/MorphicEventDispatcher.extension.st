@@ -1,12 +1,12 @@
-Extension { #name : #MorphicEventDispatcher }
+Extension { #name : 'MorphicEventDispatcher' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 MorphicEventDispatcher >> morph [
 
 	^ morph
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 MorphicEventDispatcher >> morph: anObject [
 
 	morph := anObject

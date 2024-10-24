@@ -1,12 +1,12 @@
-Extension { #name : #MorphicEvent }
+Extension { #name : 'MorphicEvent' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 MorphicEvent >> source [
 
 	^ source
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 MorphicEvent >> source: anObject [
 
 	source := anObject

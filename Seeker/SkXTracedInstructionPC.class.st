@@ -2,16 +2,18 @@
 This is the fastest structure to compare paths, howver. there is no information on ast (can't retrieve statements, etc).
 "
 Class {
-	#name : #SkXTracedInstructionPC,
-	#superclass : #Object,
+	#name : 'SkXTracedInstructionPC',
+	#superclass : 'Object',
 	#instVars : [
 		'pc',
 		'tracedContextPC'
 	],
-	#category : #'Seeker-Experimental-NodeNotation'
+	#category : 'Seeker-Experimental-NodeNotation',
+	#package : 'Seeker',
+	#tag : 'Experimental-NodeNotation'
 }
 
-{ #category : #compiling }
+{ #category : 'compiling' }
 SkXTracedInstructionPC class >> compileSource: aString [
 
 	^ nil class compiler
@@ -25,21 +27,21 @@ SkXTracedInstructionPC class >> compileSource: aString [
 		  compile
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SkXTracedInstructionPC >> @< anotherTiBcpPath [
 
 	self == anotherTiBcpPath ifTrue: [ ^ false ].
 	^ self compareWith: anotherTiBcpPath usingOperator: #<
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SkXTracedInstructionPC >> @<= anotherTiBcpPath [
 
 	self == anotherTiBcpPath ifTrue: [ ^ true ].
 	^ self compareWith: anotherTiBcpPath usingOperator: #<=
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SkXTracedInstructionPC >> @= anotherTiBcpPath [
 
 	"This method is not that slow, but the generation of tracedInstructionPC might be slightly slow.
@@ -52,27 +54,27 @@ SkXTracedInstructionPC >> @= anotherTiBcpPath [
 	^ self tracedContextPC @= anotherTiBcpPath tracedContextPC
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SkXTracedInstructionPC >> @> anotherTiBcpPath [
 
 	self == anotherTiBcpPath ifTrue: [ ^ false ].
 	^ self compareWith: anotherTiBcpPath usingOperator: #>
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SkXTracedInstructionPC >> @>= anotherTiBcpPath [
 
 	self == anotherTiBcpPath ifTrue: [ ^ true ].
 	^ self compareWith: anotherTiBcpPath usingOperator: #>=
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 SkXTracedInstructionPC >> asTraceTimeReference [
 
 	^ SkTracedInstructionTraceTimeReference new tracedInstructionPC: self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkXTracedInstructionPC >> compareWith: another usingOperator: aSymbol [
 
 	"Equalize path length and performs the comparison using the aSymbol operator"
@@ -95,19 +97,19 @@ SkXTracedInstructionPC >> compareWith: another usingOperator: aSymbol [
 					   SkTracedContextPC shiftBitSize * sizeDiff) ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXTracedInstructionPC >> pc [
 
 	^ pc
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXTracedInstructionPC >> pc: aNumber [
 
 	pc := aNumber
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkXTracedInstructionPC >> sameContextAs: aTiBcpOrContextBcp [
 
 	(aTiBcpOrContextBcp class inheritsFromOrSameAs: self class) ifTrue: [ 
@@ -115,24 +117,24 @@ SkXTracedInstructionPC >> sameContextAs: aTiBcpOrContextBcp [
 	^ self tracedContextPC = aTiBcpOrContextBcp
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXTracedInstructionPC >> shiftedSum: aNumber [
 	^nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXTracedInstructionPC >> sum [
 
 	^ pc + (tracedContextPC shiftedSum: 1)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXTracedInstructionPC >> tracedContextPC [
 
 	^ tracedContextPC
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXTracedInstructionPC >> tracedContextPC: anObject [
 
 	tracedContextPC := anObject

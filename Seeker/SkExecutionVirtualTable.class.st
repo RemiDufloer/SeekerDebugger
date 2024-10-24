@@ -1,6 +1,6 @@
 Class {
-	#name : #SkExecutionVirtualTable,
-	#superclass : #SkIterableDataSource,
+	#name : 'SkExecutionVirtualTable',
+	#superclass : 'SkIterableDataSource',
 	#instVars : [
 		'rowReificationBlock',
 		'tracer',
@@ -9,10 +9,12 @@ Class {
 		'excludedFields',
 		'protectedColumns'
 	],
-	#category : #'Seeker-Experimental'
+	#category : 'Seeker-Experimental',
+	#package : 'Seeker',
+	#tag : 'Experimental'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkExecutionVirtualTable class >> newWithRowReificationBlock: aBlock forTracer: tracer [
 
 	| table |
@@ -22,7 +24,7 @@ SkExecutionVirtualTable class >> newWithRowReificationBlock: aBlock forTracer: t
 	^ table
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkExecutionVirtualTable >> advanceToNextRow [
 
 	"advances to the next row. returns false if the end of the table (there are no more rows) was reached before trying to advance."
@@ -33,7 +35,7 @@ SkExecutionVirtualTable >> advanceToNextRow [
 	^ tracer THISSHOUDLNOTBEUSED "This is not good, I should use the bytecode step instead!"
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 SkExecutionVirtualTable >> asTableWithMemory [
 
 	| t |
@@ -44,19 +46,19 @@ SkExecutionVirtualTable >> asTableWithMemory [
 	^ t
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkExecutionVirtualTable >> currentRow [
 
 	^ optimizedRowReificationBlock value
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkExecutionVirtualTable >> dataSourceIsTracedExecution [
 
 	^ true
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 SkExecutionVirtualTable >> do: aBlock [
 
 	"A specilized version of do:, made specifically to be used with queries"
@@ -82,7 +84,7 @@ SkExecutionVirtualTable >> do: aBlock [
 			tracer timeTravelToTraceTime: currentTracetime ] ]
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 SkExecutionVirtualTable >> doBackup: aBlock [
 
 	"Dont use this. Just a backed up funciton"
@@ -93,7 +95,7 @@ SkExecutionVirtualTable >> doBackup: aBlock [
 		tracer restartAndStepToIndex: currentStepDescriptor executionIndex ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkExecutionVirtualTable >> endOfTableReached [
 
 	"returns true if the table has no more rows (and advanceToNextRow will return false)"
@@ -101,38 +103,38 @@ SkExecutionVirtualTable >> endOfTableReached [
 	^ tracer isExecutionFinished or: [ tracer isRiskyStep ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionVirtualTable >> excluding [
 
 	^ excludedFields
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionVirtualTable >> excluding: anObject [
 	excludedFields := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkExecutionVirtualTable >> findTracer [
 
 	tracer isMapped ifFalse: [ self error: 'Time Traveling not enabled' ].
 	^ tracer
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkExecutionVirtualTable >> getRelevantFields [
 
 	^ protectedColumns
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkExecutionVirtualTable >> initialize [
 
 	excludedFields := {  }.
 	protectedColumns := {  }
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkExecutionVirtualTable >> optimizeRowAcquisitionForFields: aCollection [
 
 	optimizedRowReificationBlock := SkAnonymousTypeHelpers
@@ -142,19 +144,19 @@ SkExecutionVirtualTable >> optimizeRowAcquisitionForFields: aCollection [
 		                                rowReificationBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionVirtualTable >> protectedColumns [
 
 	^ protectedColumns
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionVirtualTable >> protectedColumns: anObject [
 
 	protectedColumns := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkExecutionVirtualTable >> resetTableTraversing [
 
 	"Puts the table traversing cursor 'before the first row'. one advanceToNextRow is necessary to enter the first row. getting currentRow of a reseted table has unspecified behavior"
@@ -163,26 +165,26 @@ SkExecutionVirtualTable >> resetTableTraversing [
 	tracer restartAtBytecodeOne
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionVirtualTable >> rowReificationBlock [
 
 	^ rowReificationBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionVirtualTable >> rowReificationBlock: anObject [
 
 	optimizedRowReificationBlock := anObject.
 	rowReificationBlock := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionVirtualTable >> tracer [
 
 	^ tracer
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionVirtualTable >> tracer: anObject [
 
 	tracer := anObject

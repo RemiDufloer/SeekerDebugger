@@ -1,35 +1,37 @@
 Class {
-	#name : #StInspectorSeekerQueriesCommand,
-	#superclass : #StInspectorCommand,
-	#category : #'Seeker-Commands'
+	#name : 'StInspectorSeekerQueriesCommand',
+	#superclass : 'StInspectorCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #default }
+{ #category : 'default' }
 StInspectorSeekerQueriesCommand class >> defaultDescription [
 
 	^ 'Show menu with Seeker Queries'
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 StInspectorSeekerQueriesCommand class >> defaultIconName [
 
 	^ #exception
 ]
 
-{ #category : #default }
+{ #category : 'default' }
 StInspectorSeekerQueriesCommand class >> defaultName [
 	<toolbarInspectCommand: 10>
 
 	^ 'SeekerQueries'
 ]
 
-{ #category : #documentation }
+{ #category : 'documentation' }
 StInspectorSeekerQueriesCommand class >> documentContextRequiredSelectors [
 
 	^ super documentContextRequiredSelectors
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 StInspectorSeekerQueriesCommand >> execute [
 
 	"Shows a menu with all Seeker Object centric queries and actions related to the inspected object"
@@ -58,13 +60,13 @@ StInspectorSeekerQueriesCommand >> execute [
 	menu invokeModal
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 StInspectorSeekerQueriesCommand >> findAllReadingsOfObjectWithOid: aNumber in: seeker [
 
 	(UTTQAllReadingsOfObject queryFrom: seeker newProgramStates forOid: aNumber) showInSeeker
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 StInspectorSeekerQueriesCommand >> privAddFindAllReadingsMenuEntry: menu [
 
 	| seekerAndOidPair stInspector "SeekerAndOidPair" |
@@ -81,7 +83,7 @@ StInspectorSeekerQueriesCommand >> privAddFindAllReadingsMenuEntry: menu [
 				seekerAndOidPair seeker }
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 StInspectorSeekerQueriesCommand >> privAddTimeTravelToInstantiationMenuEntry: menu [
 
 	| seekerAndOidPair stInspector "SeekerAndOidPair" |
@@ -96,7 +98,7 @@ StInspectorSeekerQueriesCommand >> privAddTimeTravelToInstantiationMenuEntry: me
 		argument: seekerAndOidPair oid
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 StInspectorSeekerQueriesCommand >> privFindInstanceVariables: object [
 
 	object ifNil: [ ^ #(  ) ].
@@ -104,7 +106,7 @@ StInspectorSeekerQueriesCommand >> privFindInstanceVariables: object [
 	^ object class allInstVarNames sorted
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 StInspectorSeekerQueriesCommand >> privFindSelectors: object [
 
 	object ifNil: [ ^ #(  ) ].
@@ -112,7 +114,7 @@ StInspectorSeekerQueriesCommand >> privFindSelectors: object [
 	^ object class allSelectors sorted
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 StInspectorSeekerQueriesCommand >> privFindSelectorsOfClass: cls [
 
 	cls = UndefinedObject ifTrue: [ ^ #(  ) ].
@@ -120,7 +122,7 @@ StInspectorSeekerQueriesCommand >> privFindSelectorsOfClass: cls [
 	^ cls selectors sorted
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 StInspectorSeekerQueriesCommand >> privMakeSelectorsMenu: object [
 
 	| menu superClasses |
@@ -134,7 +136,7 @@ StInspectorSeekerQueriesCommand >> privMakeSelectorsMenu: object [
 	^ menu
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 StInspectorSeekerQueriesCommand >> privMakeSelectorsMenuForClass: cls ofObject: object [
 
 	| menu selNames |
@@ -150,7 +152,7 @@ StInspectorSeekerQueriesCommand >> privMakeSelectorsMenuForClass: cls ofObject: 
 	^ menu
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 StInspectorSeekerQueriesCommand >> privMakeVariablesMenu: object [
 
 	| menu varNames |
@@ -166,31 +168,31 @@ StInspectorSeekerQueriesCommand >> privMakeVariablesMenu: object [
 	^ menu
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 StInspectorSeekerQueriesCommand >> seekAllChanges: anObject [
 
 	anObject seekAndDisplayAllMyChanges  
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 StInspectorSeekerQueriesCommand >> seekAllChangesOn: anObject onInstanceVariable: varName [
 
 	anObject seekAndDisplayAllMyChangesOfVariableNamed: varName
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 StInspectorSeekerQueriesCommand >> seekAllMessages: anObject [
 
 	anObject seekAndDisplayAllMessagesSentToMe
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 StInspectorSeekerQueriesCommand >> seekAllMessagesOn: anObject ofSelector: selector [
 
 	anObject seekAndDisplayAllMessagesSentToMeWithSelector: selector
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 StInspectorSeekerQueriesCommand >> showMessageSelectorPrompt: object [
 
 	| selector |
@@ -203,7 +205,7 @@ StInspectorSeekerQueriesCommand >> showMessageSelectorPrompt: object [
 	self seekAllMessagesOn: object ofSelector: selector asSymbol
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 StInspectorSeekerQueriesCommand >> timeTravelToInstantiationOf: anObject [
 
 	| oid seeker |

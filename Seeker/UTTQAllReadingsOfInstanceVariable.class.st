@@ -1,10 +1,12 @@
 Class {
-	#name : #UTTQAllReadingsOfInstanceVariable,
-	#superclass : #UserTTQ,
-	#category : #'Seeker-TimeTravelingQueries'
+	#name : 'UTTQAllReadingsOfInstanceVariable',
+	#superclass : 'UserTTQ',
+	#category : 'Seeker-TimeTravelingQueries',
+	#package : 'Seeker',
+	#tag : 'TimeTravelingQueries'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 UTTQAllReadingsOfInstanceVariable class >> queryFrom: programStates forOid: aNumber andInstanceVarNamed: aSymbol [
 
 	| autoType |
@@ -21,7 +23,7 @@ UTTQAllReadingsOfInstanceVariable class >> queryFrom: programStates forOid: aNum
 				  endWith ]
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 UTTQAllReadingsOfInstanceVariable class >> queryInteractivelyFrom: programStates [
 
 	| oid varName |
@@ -33,7 +35,7 @@ UTTQAllReadingsOfInstanceVariable class >> queryInteractivelyFrom: programStates
 		  andInstanceVarNamed: varName
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 UTTQAllReadingsOfInstanceVariable >> ttqTitle [
 
 	^ 'Find All Readings of an Instance Variable'

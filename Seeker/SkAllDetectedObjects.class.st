@@ -1,10 +1,12 @@
 Class {
-	#name : #SkAllDetectedObjects,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkAllDetectedObjects',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllDetectedObjects >> description [
 
 	^ self commonDescriptionIntroString
@@ -12,7 +14,7 @@ SkAllDetectedObjects >> description [
 	  'for every <object> that is detected during the execution of the program.'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SkAllDetectedObjects >> executeCommand [
 
 	| className |
@@ -21,7 +23,7 @@ SkAllDetectedObjects >> executeCommand [
 			 queryFrom: self tracer newProgramStates)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllDetectedObjects >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -33,7 +35,7 @@ SkAllDetectedObjects >> icon [
 	^ #objects
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllDetectedObjects >> name [
 
 	^'All detected objects of execution'

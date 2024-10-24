@@ -1,10 +1,12 @@
 Class {
-	#name : #QdmForInstanceCreations,
-	#superclass : #QueryDisplayModel,
-	#category : #'Seeker-UI'
+	#name : 'QdmForInstanceCreations',
+	#superclass : 'QueryDisplayModel',
+	#category : 'Seeker-UI',
+	#package : 'Seeker',
+	#tag : 'UI'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QdmForInstanceCreations >> buildContextMenuForResults: aQueryResutls withSelectedItem: selection forTracer: tracer [
 
 	"builds a context menu for an item of this display model"
@@ -37,13 +39,13 @@ QdmForInstanceCreations >> buildContextMenuForResults: aQueryResutls withSelecte
 		  "openWithSpecAt: self currentHand position"yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QdmForInstanceCreations >> defaultQueryTitle [
 
 	^ 'Instances Creation Query'
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 QdmForInstanceCreations >> initializeModel [
 
 	columns := { 
@@ -63,7 +65,7 @@ QdmForInstanceCreations >> initializeModel [
 			            md) }
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QdmForInstanceCreations >> trackObjectWithOid: aNumber withTracer: tracer [
 
 	tracer bytecodeIndex <= aNumber ifTrue: [ tracer timeTravelToBytecodeIndex: aNumber + 1 ].

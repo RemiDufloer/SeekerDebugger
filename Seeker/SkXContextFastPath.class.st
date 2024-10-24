@@ -1,10 +1,12 @@
 Class {
-	#name : #SkXContextFastPath,
-	#superclass : #OrderedCollection,
-	#category : #'Seeker-Experimental-NodeNotation'
+	#name : 'SkXContextFastPath',
+	#superclass : 'OrderedCollection',
+	#category : 'Seeker-Experimental-NodeNotation',
+	#package : 'Seeker',
+	#tag : 'Experimental-NodeNotation'
 }
 
-{ #category : #arithmetic }
+{ #category : 'arithmetic' }
 SkXContextFastPath >> / aNodeOrContextFastPath [
 
 	(aNodeOrContextFastPath class inheritsFromOrSameAs:
@@ -15,7 +17,7 @@ SkXContextFastPath >> / aNodeOrContextFastPath [
 	^ self
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SkXContextFastPath >> = anotherPath [
 
 	"Returns if two context paths are equal (no necessarily the same instance)"
@@ -28,7 +30,7 @@ SkXContextFastPath >> = anotherPath [
 	^ true
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 SkXContextFastPath >> asContextPath [
 
 	^ self error: 'not implmented'

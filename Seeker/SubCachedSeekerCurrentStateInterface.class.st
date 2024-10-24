@@ -1,6 +1,6 @@
 Class {
-	#name : #SubCachedSeekerCurrentStateInterface,
-	#superclass : #SeekerCurrentStateInterface,
+	#name : 'SubCachedSeekerCurrentStateInterface',
+	#superclass : 'SeekerCurrentStateInterface',
 	#instVars : [
 		'__cached_assignmentCurrentValue',
 		'__cached_assignmentCurrentValueTimeKey',
@@ -124,17 +124,19 @@ Class {
 		'__cached_willStoreTimeKey',
 		'_cacheTimeKey'
 	],
-	#category : #'Seeker-Interfaces'
+	#category : 'Seeker-Interfaces',
+	#package : 'Seeker',
+	#tag : 'Interfaces'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SubCachedSeekerCurrentStateInterface >> resetCacheTimeKey [
 
 	self class slots do: [ :arg1 | arg1 write: nil to: self ].
 	_cacheTimeKey := 0
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SubCachedSeekerCurrentStateInterface >> updateCacheTimeKey [
 
 	_cacheTimeKey := tracer bytecodeIndex

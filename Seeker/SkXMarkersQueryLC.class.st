@@ -1,24 +1,26 @@
 Class {
-	#name : #SkXMarkersQueryLC,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkXMarkersQueryLC',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXMarkersQueryLC >> description [
 
 	^ self commonDescriptionIntroString
 	  , 'for every Seeker Marker method call'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SkXMarkersQueryLC >> executeCommand [
 
 	self showResultFor:
 		(UTTQSeekerMarkers queryFrom: self tracer newProgramStates)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXMarkersQueryLC >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -30,7 +32,7 @@ SkXMarkersQueryLC >> icon [
 	^ #changeUpdate
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXMarkersQueryLC >> name [
 
 	^ 'All Seeker Markers'

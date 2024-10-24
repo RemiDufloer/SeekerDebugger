@@ -1,10 +1,12 @@
 Class {
-	#name : #SkMapAlgoTestCaseNoSetup,
-	#superclass : #SkExecutionMapperAlgorithm,
-	#category : #'Seeker-Components'
+	#name : 'SkMapAlgoTestCaseNoSetup',
+	#superclass : 'SkExecutionMapperAlgorithm',
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkMapAlgoTestCaseNoSetup class >> matchesExecutionScenario: tracer [
 
 	| safelyMatchLiterals |
@@ -20,7 +22,7 @@ SkMapAlgoTestCaseNoSetup class >> matchesExecutionScenario: tracer [
 			  safelyMatchLiterals value: context method ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkMapAlgoTestCaseNoSetup >> mapExecution [
 
 	| recordingInitialContext testInitialContext endingContext endTracedInstructionPC endTraceTime findContext currentCompiledMethod |

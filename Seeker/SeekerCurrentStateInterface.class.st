@@ -86,8 +86,8 @@ testing methods starting with is are safe. Which means, there is no need to chec
 Other methods might need a prior check.
 "
 Class {
-	#name : #SeekerCurrentStateInterface,
-	#superclass : #SeekerInterfaceObject,
+	#name : 'SeekerCurrentStateInterface',
+	#superclass : 'SeekerInterfaceObject',
 	#instVars : [
 		'exceptionSignalSelectors',
 		'instantiationPrimitiveMethods',
@@ -99,10 +99,12 @@ Class {
 		'primitivePragmas',
 		'writingPrimitivesArray'
 	],
-	#category : #'Seeker-Interfaces'
+	#category : 'Seeker-Interfaces',
+	#package : 'Seeker',
+	#tag : 'Interfaces'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface class >> getHaltingMethods [
 	"Try to cache this methods return (dont directly call this in a query because it is slow).
 The get prefix implies that it is not a simple accessor"
@@ -115,7 +117,7 @@ The get prefix implies that it is not a simple accessor"
 		  (Breakpoint >> #breakInContext:node:) }
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerCurrentStateInterface class >> initialize [
 
 	"Read the class comments for details on the magic literals"
@@ -135,7 +137,7 @@ SeekerCurrentStateInterface class >> initialize [
 		writingPrimitivesArray at: each put: true ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface class >> isInstantiationPrimitive: aNumber [
 
 	^ (aNumber < 1 or: [ aNumber > 160 ])
@@ -144,13 +146,13 @@ SeekerCurrentStateInterface class >> isInstantiationPrimitive: aNumber [
 			  InstanceCreationPrimitivesArray at: aNumber ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface class >> isWaitPrimitive: aNumber [
 
 	^ aNumber = 86
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface class >> isWritingPrimitive: aNumber [
 
 	^ (aNumber < 1 or: [ aNumber > 659 ])
@@ -159,14 +161,14 @@ SeekerCurrentStateInterface class >> isWritingPrimitive: aNumber [
 			  writingPrimitivesArray at: aNumber ]
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SeekerCurrentStateInterface class >> new [
 
 	<qwpSubCacheDelegated>
 	^ self basicNew initialize
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface class >> pragmasOfAllPrimitives [
 
 	^ ((Pragma allNamed: #primitive:) select: [ :p |
@@ -174,21 +176,21 @@ SeekerCurrentStateInterface class >> pragmasOfAllPrimitives [
 		  (a argumentAt: 1) < (b argumentAt: 1) ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface class >> pragmasOfNonRegisteredPrimitives [
 
 	^ self pragmasOfAllPrimitives reject: [ :p |
 		  self isWritingPrimitive: (p argumentAt: 1) ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface class >> pragmasOfRegisteredWritingPrimitives [
 
 	^ self pragmasOfAllPrimitives select: [ :p |
 		  self isWritingPrimitive: (p argumentAt: 1) ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface class >> writingPrimitives [
 
 	^ #( 39 61 64 69 74 105 144 145 166 168 211 615 616 617 618 619 620 621 622 623 624 625 626 627 628 629 645 646 647 648 649 650 651 652 653 654 655 656 657 658  )
@@ -196,13 +198,13 @@ SeekerCurrentStateInterface class >> writingPrimitives [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> aliasOfObject: anObject [
 
 	^ tracer getOidOf: anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> assignmentCurrentValue [
 
 	"returns the current value of the variable (that is, before the assignemt takes place) in the current assignement node"
@@ -213,7 +215,7 @@ SeekerCurrentStateInterface >> assignmentCurrentValue [
 	^ self assignmentNodeVariable readInContext: self context
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> assignmentNextValue [
 
 	"returns the current value of the variable (that is, before the assignemt takes place) in the current assignement node"
@@ -226,7 +228,7 @@ SeekerCurrentStateInterface >> assignmentNextValue [
 	^ context at: context basicSize
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> assignmentNodeVariable [
 
 	"Returns the Variable object of the RBVariableNode of the current RBAssignmentNode"
@@ -235,7 +237,7 @@ SeekerCurrentStateInterface >> assignmentNodeVariable [
 	^ self node variable variable
 ]
 
-{ #category : #stackAccessHelpers }
+{ #category : 'stackAccessHelpers' }
 SeekerCurrentStateInterface >> assignmentVariableName [
 
 	"The variable name of the curent assignment node"
@@ -244,7 +246,7 @@ SeekerCurrentStateInterface >> assignmentVariableName [
 	^ self node variable variable name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerCurrentStateInterface >> bytecode [
 
 	<qwpSubCached>
@@ -253,13 +255,13 @@ SeekerCurrentStateInterface >> bytecode [
 		  ifNone: [ nil ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerCurrentStateInterface >> bytecodeIndex [
 "Eachtime a bytecode is executed, the tracer counts it. this is that counter"
 	^ tracer bytecodeIndex
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> classNameOfObjectAboutToBeInstantiated [
 
 	<qwpSubCached>
@@ -270,40 +272,40 @@ SeekerCurrentStateInterface >> classNameOfObjectAboutToBeInstantiated [
 		  ifFalse: [ instMsgReceiver class name ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerCurrentStateInterface >> compiledCode [
 
 	<qwpSubCached>
 	^ self context compiledCode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerCurrentStateInterface >> context [
 
 	<qwpSubCached>
 	^ tracer currentContext
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> contextCounter [
 
 	^ tracer contextCounter
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> contextID [
 
 	^ tracer currentContextID
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerCurrentStateInterface >> contextPC [
 
 	<qwpSubCached>
 	^ self context pc
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> contextTop [
 
 	<qwpSubCached>
@@ -312,21 +314,21 @@ SeekerCurrentStateInterface >> contextTop [
 		  ifFalse: [ #contextTopUnavailable ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> encoderClass [
 
 	<qwpSubCached>
 	^ self method encoderClass
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerCurrentStateInterface >> endPC [
 
 	<qwpSubCached>
 	^ self compiledCode endPC
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerCurrentStateInterface >> fieldNames [
 
 	"A compatibility method. Just to prevent failures caused by using CSI instead of a QueryData object"
@@ -334,7 +336,7 @@ SeekerCurrentStateInterface >> fieldNames [
 	^ { #dynamic }
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> formattedStack [
 
 	| stack |
@@ -343,7 +345,7 @@ SeekerCurrentStateInterface >> formattedStack [
 	^ '/' join: (stack collect: [ :c | c compiledCode method name ])
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> implicitReadInstanceVariable [
 	"Assumes it is a quick accessor"
 
@@ -352,14 +354,14 @@ SeekerCurrentStateInterface >> implicitReadInstanceVariable [
 	^ nil
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> initialPC [
 
 	<qwpSubCached>
 	^ self compiledCode initialPC
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerCurrentStateInterface >> initialize [
 
 	self initializePrimitivePragmas.
@@ -367,7 +369,7 @@ SeekerCurrentStateInterface >> initialize [
 	self initializeWritingPrimitiveMethods
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerCurrentStateInterface >> initializeInstantiationPrimitiveMethods [
 
 	| methods |
@@ -380,14 +382,14 @@ SeekerCurrentStateInterface >> initializeInstantiationPrimitiveMethods [
 	instantiationPrimitiveMethods addAll: methods
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerCurrentStateInterface >> initializePrimitivePragmas [
 
 	primitivePragmas := (Pragma all select: [ :p | 
 		                     p selector beginsWith: #primitive: ]) asSet
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerCurrentStateInterface >> initializeWritingPrimitiveMethods [
 
 	| methods |
@@ -400,7 +402,7 @@ SeekerCurrentStateInterface >> initializeWritingPrimitiveMethods [
 	writingPrimitiveMethods addAll: methods
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> isAssignment [
 	"Prefer this method over nodeIsAssignment. Several bytecodes could be executed in the same node. 
 	This method only returns true for the actual store instruction."
@@ -409,7 +411,7 @@ SeekerCurrentStateInterface >> isAssignment [
 	^ self nodeIsAssignment and: [self willStore  ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> isAssignmentOfInstanceVariable [
 	"Prefer this method over nodeIsAssignment. Several bytecodes could be executed in the same node. 
 	This method only returns true for the actual store instruction."
@@ -418,14 +420,14 @@ SeekerCurrentStateInterface >> isAssignmentOfInstanceVariable [
 	^ self nodeIsAssignmentOfInstanceVariable and: [self willStore]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> isDead [
 
 	<qwpSubCached>
 	^ self context isDead
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> isExceptionSignaledMethod [
 
 	<qwpSubCached>
@@ -433,20 +435,20 @@ SeekerCurrentStateInterface >> isExceptionSignaledMethod [
 		  exceptionSignalSelectors includes: self methodSelector ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> isFalseIfNilSend [
 
 	<qwpSubCached>
 	^self node isInlineIfNil and: [ self willJumpIfTrueOrFalse not ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> isFirstBytecodeOfMethod [
 <superCached>
 	^self contextPC = self initialPC
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> isImplicitReadingOfInstanceVariable [
 	"Occurs when an optimized accessor is executed (and no context is pushed to the stack)"
 
@@ -465,7 +467,7 @@ SeekerCurrentStateInterface >> isImplicitReadingOfInstanceVariable [
 	^ retnode value isInstanceVariable
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> isInstantiationMessage [
 
 	"Returns true if the current node is a message node, 
@@ -480,7 +482,7 @@ and the method called corresponds to an instantiation primitive.
 		  instantiationPrimitiveMethods includes: methodAboutToExecute ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> isInterestingInstruction [
 	"The standardard debugger only stops on these kind of instructions. This is used to emulate the standard debugger stepping"
 
@@ -489,14 +491,14 @@ SeekerCurrentStateInterface >> isInterestingInstruction [
 		  self willReturn or: [ self willStore or: [ self willCreateBlock ] ] ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> isMessageNode [
 
 	<qwpSubCached>
 	^ self node isMessage
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> isMessageSend [
 	"A more realiable version of isMessageNode. The difference is that several bytecodes might correspond to the same message node. This method returns true only once for the bytecode when the message will be sent."
 
@@ -507,21 +509,21 @@ SeekerCurrentStateInterface >> isMessageSend [
 					  self willJumpIfFalse or: [ self willJumpIfTrue ] ] ] ] ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> isMethodReturn [
 
 	<qwpSubCached>
 	^ self contextPC = self endPC
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> isVariable [
 
 	<qwpSubCached>
 	^ self node isVariable
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> isWaitPrimitive [
 
 	<qwpSubCached>
@@ -532,7 +534,7 @@ SeekerCurrentStateInterface >> isWaitPrimitive [
 		  self class isWaitPrimitive: methodAboutToExecute primitive ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> isWritingPrimitiveMessage [
 
 	"Returns true if the current node is a message node, 
@@ -547,7 +549,7 @@ and the method called corresponds to a writing primitive.
 		  writingPrimitiveMethods includes: methodAboutToExecute ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> messageArgumentAt: aNumber [
 
 	"Returns the argument at the specified index of the current message node. Assumes the current node is a message node
@@ -569,7 +571,7 @@ SeekerCurrentStateInterface >> messageArgumentAt: aNumber [
 			  context at: pointer "Heuristics" ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> messageArguments [
 
 	<qwpSubCached>
@@ -592,7 +594,7 @@ SeekerCurrentStateInterface >> messageArguments [
 	^ args
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> messageIsSeekerMarkerMethod [
 
 	<qwpSubCached>
@@ -602,7 +604,7 @@ SeekerCurrentStateInterface >> messageIsSeekerMarkerMethod [
 	^ messageSelector == #marker or: [ messageSelector == #marker: ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> messageNumberOfArguments [
 
 	<qwpSubCached>
@@ -613,7 +615,7 @@ SeekerCurrentStateInterface >> messageNumberOfArguments [
 	^ nArgs
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> messageReceiver [
 
 	"Returns the message receiver of the current message node. Assumes the current node is a message node
@@ -637,21 +639,21 @@ SeekerCurrentStateInterface >> messageReceiver [
 			  context at: pointer "Heuristics" ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> messageReceiverIsLocalToExecution [
 
 	<qwpSubCached>
 	^ tracer objectIsLocal: self messageReceiver
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> messageReceiverOid [
 
 	<qwpSubCached>
 	^ self aliasOfObject: self messageReceiver
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> messageSelector [
 
 	"Returns the message selector of the current message node. Assumes the current node is a message node
@@ -662,14 +664,14 @@ SeekerCurrentStateInterface >> messageSelector [
 	^ self node selector
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerCurrentStateInterface >> method [
 
 	<qwpSubCached>
 	^ self context method
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> methodAboutToExecute [
 
 	"Returns the method (CompiledMethod) about to be executed for the current message node. Assuems that the current node is a message node"
@@ -689,21 +691,21 @@ SeekerCurrentStateInterface >> methodAboutToExecute [
 	^ methodAboutToExecute
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerCurrentStateInterface >> methodClass [
 
 	<qwpSubCached>
 	^ self context methodClass
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> methodNotation [
 
 	<superCached>
 	^ self method asSeekerOfflineExpressionString
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> methodReturnValue [
 
 	"Alias for context top"
@@ -712,21 +714,21 @@ SeekerCurrentStateInterface >> methodReturnValue [
 	^ self contextTop
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerCurrentStateInterface >> methodSelector [
 
 	<qwpSubCached>
 	^ self context selector
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> nameOfImplicitReadInstanceVariable [
 	"Assumes it is a quick accessor"
 
 	^ self implicitReadInstanceVariable name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerCurrentStateInterface >> node [
 
 	<qwpSubCached>
@@ -734,7 +736,7 @@ SeekerCurrentStateInterface >> node [
 	^ self method sourceNodeForPC: self contextPC
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> nodeIndexInAst [
 
 	"This is not useful"
@@ -745,14 +747,14 @@ SeekerCurrentStateInterface >> nodeIndexInAst [
 	^ astNodes indexOf: self node
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> nodeIsAssignment [
 
 	<qwpSubCached>
 	^ self node isAssignment
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> nodeIsAssignmentOfInstanceVariable [
 
 	<qwpSubCached>
@@ -761,38 +763,38 @@ SeekerCurrentStateInterface >> nodeIsAssignmentOfInstanceVariable [
 	^ node isAssignment and: [ node variable isInstanceVariable ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> nodeIsVariable [
 
 	<qwpSubCached>
 	^ self node isVariable
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> nodeOrdinalIndex [
 
 	^ self node ordinalIndex
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> objectOid: object [
 
 	^ self aliasOfObject: object
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> objectOidIsLocal: aNumber [
 
 	^ tracer objectOidIsLocal: aNumber
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> objectWithOid: aNumber [
 
 	^ tracer objectWithOid: aNumber
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> previousNoi [
 
 	"The calculated ordinal index for the previous bytecode"
@@ -800,49 +802,49 @@ SeekerCurrentStateInterface >> previousNoi [
 	^ 0
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> primitive [
 
 	<qwpSubCached>
 	^ self method primitive
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> receiver [
 
 	<qwpSubCached>
 	^ tracer currentContext receiver
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerCurrentStateInterface >> receiverAlias [
 
 	<qwpSubCached>
 	^ tracer getOidOf: self receiver
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerCurrentStateInterface >> receiverClass [
 
 	<qwpSubCached>
 	^ tracer currentContext receiver class
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerCurrentStateInterface >> receiverIsLocalToExecution [
 
 	<qwpSubCached>
 	^ tracer objectIsLocal: self receiver
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> receiverOid [
 
 	<qwpSubCached>
 	^ tracer getOidOf: tracer currentContext receiver
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerCurrentStateInterface >> receiverPackage [
 
 	<qwpSubCached>
@@ -853,14 +855,14 @@ SeekerCurrentStateInterface >> receiverPackage [
 		  ifFalse: [ rcvr class package ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerCurrentStateInterface >> receiverTid [
 
 	<qwpSubCached>
 	^ tracer getOidOf: self receiver
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerCurrentStateInterface >> resetCacheTimeKey [
 
 	"THIS NEEDS TO BE DEFINED. OTHERWISE THE DEBUGGER WILL CRASH WHEN UNINSTALLING THE WRAPPERS!"
@@ -868,49 +870,49 @@ SeekerCurrentStateInterface >> resetCacheTimeKey [
 	^ self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> sourceCodeOfNode [
 <superCached>
 	^ self node sourceCode
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> sourceCodeOfStatement [
 
 	^ self statementNode sourceCode
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> stackDepth [
 <superCached>
 	^ tracer currentContext stackDepth
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerCurrentStateInterface >> statementIndex [
 
 	<superCached>
 	^ self node statementIndex
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerCurrentStateInterface >> statementNode [
 <superCached>
 	^ tracer currentStatementNode
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> statementNotation [
 <superCached>
 	^tracer currentStatementNode statementNotation 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerCurrentStateInterface >> tracedStatementPath [
 	^nil
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> updateCacheTimeKey [
 
 	"THIS NEEDS TO BE DEFINED. OTHERWISE THE DEBUGGER WILL CRASH WHEN UNINSTALLING THE WRAPPERS!"
@@ -918,7 +920,7 @@ SeekerCurrentStateInterface >> updateCacheTimeKey [
 	^ self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> valueOfImplicitReadInstanceVariable [
 	"Assumes it is a quick accessor"
 
@@ -926,7 +928,7 @@ SeekerCurrentStateInterface >> valueOfImplicitReadInstanceVariable [
 		  self nameOfImplicitReadInstanceVariable
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> valueToBeAssigned [
 
 	<qwpSubCached>
@@ -935,14 +937,14 @@ SeekerCurrentStateInterface >> valueToBeAssigned [
 	^ context at: context basicSize
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCurrentStateInterface >> variableValue [
 
 	<qwpSubCached>
 	^ self node variable readInContext: self context
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> willCreateBlock [
 
 	"next bytecode is a block creation"
@@ -962,7 +964,7 @@ SeekerCurrentStateInterface >> willCreateBlock [
 				  in: self method ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> willExecutePrimitive [
 
 	<qwpSubCached>
@@ -970,7 +972,7 @@ SeekerCurrentStateInterface >> willExecutePrimitive [
 	^ self methodAboutToExecute ifNil: [ false ] ifNotNil: [ self methodAboutToExecute primitive > 0 ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> willJumpIfFalse [
 
 	"Answer whether the next bytecode is a jump-if-false."
@@ -981,7 +983,7 @@ SeekerCurrentStateInterface >> willJumpIfFalse [
 	^ EncoderForSistaV1 isBranchIfFalseAt: self contextPC in: self method
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> willJumpIfTrue [
 
 	"Answer whether the next bytecode is a jump-if-true."
@@ -990,7 +992,7 @@ SeekerCurrentStateInterface >> willJumpIfTrue [
 	^ EncoderForSistaV1 isBranchIfTrueAt: self contextPC in: self method
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> willJumpIfTrueOrFalse [
 	"Answer whether the next bytecode is a jump-if-false."
 
@@ -1000,7 +1002,7 @@ SeekerCurrentStateInterface >> willJumpIfTrueOrFalse [
 	^ self willJumpIfTrue or: [ self willJumpIfFalse ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> willReturn [
 
 	"Answer whether the next bytecode is a return."
@@ -1013,7 +1015,7 @@ SeekerCurrentStateInterface >> willReturn [
 	^ EncoderForSistaV1 isReturnAt: self contextPC in: self method
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> willSend [
 
 	"Answer whether the next bytecode is a message-send."
@@ -1022,7 +1024,7 @@ SeekerCurrentStateInterface >> willSend [
 	^ EncoderForSistaV1 isSendAt: self contextPC in: self method
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerCurrentStateInterface >> willStore [
 
 	"Answer whether the next bytecode is a store or store-pop"

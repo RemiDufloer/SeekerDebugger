@@ -1,10 +1,12 @@
 Class {
-	#name : #SkAllInstanceCreationsOfClassLC,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkAllInstanceCreationsOfClassLC',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllInstanceCreationsOfClassLC >> description [
 
 	^ self commonDescriptionIntroString
@@ -12,7 +14,7 @@ SkAllInstanceCreationsOfClassLC >> description [
 	  'for every <instance creation message send> that will instantiate an object of the class whose name matches the <selected text>. Every listed result corresponds to the moment before performing the object instantiation. (Sender''s point of view)'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SkAllInstanceCreationsOfClassLC >> executeCommand [
 
 	| className |
@@ -22,7 +24,7 @@ SkAllInstanceCreationsOfClassLC >> executeCommand [
 			 withClassName: className)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllInstanceCreationsOfClassLC >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -34,13 +36,13 @@ SkAllInstanceCreationsOfClassLC >> icon [
 	^ #smallNew
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllInstanceCreationsOfClassLC >> name [
 
 	^'All Instances Creation of class named as selection'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkAllInstanceCreationsOfClassLC >> selectionTitleString [
 
 	^ ' : (' , self codeSelectedText , ')'

@@ -4,12 +4,14 @@ Note that writing performed with the method writeSlot: and derivates target a di
 We could extend this query to include writings to its slots, but it requires some sort of multipass approach.
 "
 Class {
-	#name : #UTTQAllWritingsOnObject,
-	#superclass : #UserTTQ,
-	#category : #'Seeker-TimeTravelingQueries'
+	#name : 'UTTQAllWritingsOnObject',
+	#superclass : 'UserTTQ',
+	#category : 'Seeker-TimeTravelingQueries',
+	#package : 'Seeker',
+	#tag : 'TimeTravelingQueries'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 UTTQAllWritingsOnObject class >> queryFrom: programStates forOid: aNumber [
 
 "This query joins to type of instructions. Assignments on instance varaibles of the receiver, and writing primitive calls on on the targetOID"
@@ -29,7 +31,7 @@ UTTQAllWritingsOnObject class >> queryFrom: programStates forOid: aNumber [
 				  endWith ]
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 UTTQAllWritingsOnObject class >> queryInteractivelyFrom: programStates [
 	"Note that this method doesnt work for scoped querys (since a new seeker debugger instance will run the query with different OIDs"
 
@@ -38,7 +40,7 @@ UTTQAllWritingsOnObject class >> queryInteractivelyFrom: programStates [
 	^ self queryFrom: programStates forOid: oid
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 UTTQAllWritingsOnObject >> ttqTitle [
 
 	^ 'Find All Writings on Object'

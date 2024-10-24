@@ -1,6 +1,6 @@
 Class {
-	#name : #QuerySolver,
-	#superclass : #Object,
+	#name : 'QuerySolver',
+	#superclass : 'Object',
 	#instVars : [
 		'query',
 		'resultsLimit',
@@ -14,62 +14,64 @@ Class {
 		'PotentiallyExcludedSeekerClasses',
 		'PotentiallyExcludedSystemClasses'
 	],
-	#category : #'Seeker-Query'
+	#category : 'Seeker-Query',
+	#package : 'Seeker',
+	#tag : 'Query'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QuerySolver class >> disableIncludeInstrumentation [
 
 	<script>
 	IncludeInstrumentation := false
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QuerySolver class >> disableIncludeSystemClasses [
 
 	<script>
 	IncludeSystemClasses := false
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QuerySolver class >> enableIncludeInstrumentation [
 
 	<script>
 	IncludeInstrumentation := true
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QuerySolver class >> enableSystemClasses [
 
 	<script>
 	IncludeSystemClasses := true
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QuerySolver class >> includeInstrumentation [
 
 	^ IncludeInstrumentation
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QuerySolver class >> includeInstrumentation: anObject [
 
 	IncludeInstrumentation := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QuerySolver class >> includeSystemClasses [
 
 	^ IncludeSystemClasses
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QuerySolver class >> includeSystemClasses: anObject [
 
 	IncludeSystemClasses := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 QuerySolver class >> initialize [
 
 	IncludeInstrumentation := true.
@@ -106,7 +108,7 @@ QuerySolver class >> initialize [
 			Boolean }
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 QuerySolver class >> newForQuery: aQuery [
 
 	^ self new
@@ -114,31 +116,31 @@ QuerySolver class >> newForQuery: aQuery [
 		  yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QuerySolver class >> otherExcludedClases [
 
 	^ PotentiallyExcludedSystemClasses
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QuerySolver class >> seekerInstrumentationClasses [
 
 	^ PotentiallyExcludedSeekerClasses
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 QuerySolver class >> solve: aQuery [
 
 	^ (self newForQuery: aQuery) resolve
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QuerySolver >> ellapsedTime [
 
 	^  Time millisecondClockValue - initialTime - Smalltalk vm totalGCTime
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 QuerySolver >> initialize [
 
 	resultsLimit := self seekerConfig queryResultsLimitEnabled
@@ -147,32 +149,32 @@ QuerySolver >> initialize [
 	timeToRun := 0
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QuerySolver >> notifyResultsLimitReached [
 
 	^ self inform:
 		  'Query results limit reached: ' , resultsLimit asString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QuerySolver >> query [
 
 	^ query
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QuerySolver >> query: anObject [
 
 	query := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QuerySolver >> queryFinishedCallback: anObject [
 
 	queryFinishedCallback := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QuerySolver >> queryToSolve [
 
 	"Filters a query, leaving out instrumented code and other undesirable result items. Might be reworked with the new stepping pipeline"
@@ -196,25 +198,25 @@ QuerySolver >> queryToSolve [
 			  ifFalse: [ (excluded includes: state receiver class) not ] ]
 ]
 
-{ #category : #navigating }
+{ #category : 'navigating' }
 QuerySolver >> resolve [
 
 	^ self subclassResponsibility
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QuerySolver >> seekerConfig [
 
 	^ SeekerConfig default
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 QuerySolver >> setInitialTime [
 
 	initialTime := Time millisecondClockValue - Smalltalk vm totalGCTime
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QuerySolver >> timeToRun [
 
 	^ timeToRun

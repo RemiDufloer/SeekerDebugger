@@ -1,6 +1,6 @@
-Extension { #name : #SpPresenter }
+Extension { #name : 'SpPresenter' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 SpPresenter >> findOwner: aPredicateBlock [
 
 	"find the first owner in the owner chain that satisfies the predicate"

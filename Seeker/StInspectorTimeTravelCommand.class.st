@@ -1,29 +1,31 @@
 Class {
-	#name : #StInspectorTimeTravelCommand,
-	#superclass : #StInspectorCommand,
-	#category : #'Seeker-Commands'
+	#name : 'StInspectorTimeTravelCommand',
+	#superclass : 'StInspectorCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #default }
+{ #category : 'default' }
 StInspectorTimeTravelCommand class >> defaultDescription [
 
 	^ 'Time travel to this description'
 ]
 
-{ #category : #default }
+{ #category : 'default' }
 StInspectorTimeTravelCommand class >> defaultName [
 	"<toolbarInspectCommand: 40>"
 
 	^ 'Time Travel'
 ]
 
-{ #category : #documentation }
+{ #category : 'documentation' }
 StInspectorTimeTravelCommand class >> documentContextRequiredSelectors [
 
 	^ super documentContextRequiredSelectors, #(selectedObject)
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 StInspectorTimeTravelCommand >> asSpecCommand [
 
 	^ super asSpecCommand 
@@ -31,13 +33,13 @@ StInspectorTimeTravelCommand >> asSpecCommand [
 		yourself
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 StInspectorTimeTravelCommand >> execute [
 
 	self interestingObject timeTravelToThis
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 StInspectorTimeTravelCommand >> interestingObject [
 
 	^ self context selectedObject

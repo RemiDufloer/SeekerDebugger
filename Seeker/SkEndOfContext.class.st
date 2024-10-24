@@ -1,50 +1,52 @@
 Class {
-	#name : #SkEndOfContext,
-	#superclass : #SkEndCondition,
+	#name : 'SkEndOfContext',
+	#superclass : 'SkEndCondition',
 	#instVars : [
 		'context',
 		'endTraceTime'
 	],
-	#category : #'Seeker-Components'
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkEndOfContext >> context [
 
 	^ context
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkEndOfContext >> context: anObject [
 
 	context := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkEndOfContext >> currentState [
 
 	^ currentState
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkEndOfContext >> currentState: anObject [
 
 	currentState := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkEndOfContext >> endTraceTime [
 
 	^ endTraceTime
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkEndOfContext >> endTraceTime: anObject [
 
 	endTraceTime := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkEndOfContext >> isEndReached [
 
 	^ currentState context == context

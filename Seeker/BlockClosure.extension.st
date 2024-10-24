@@ -1,13 +1,13 @@
-Extension { #name : #BlockClosure }
+Extension { #name : 'BlockClosure' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 BlockClosure >> asProgramStates [
 	"to match the paper API"
 
 	^ (SeekerDebugger headlessDebugBlock: self) tracer newProgramStates
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 BlockClosure >> asReversibleDo: aBlock [
 	"See test for examples (see senders of this method)"
 
@@ -18,13 +18,13 @@ BlockClosure >> asReversibleDo: aBlock [
 		reversibleExecution terminate ]
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 BlockClosure >> case: caseBlock do: doBlock [
 
 	^ self value: caseBlock value: doBlock
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 BlockClosure >> defaultCase: aValuable [
 
 	"used for switch case do"
@@ -32,20 +32,20 @@ BlockClosure >> defaultCase: aValuable [
 	^ self value: #performDefaultCase value: aValuable
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 BlockClosure >> lockUntilTrue [
 
 	self whileFalse: [ true ]
 	
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 BlockClosure >> programQuery [
 "Experimental feature"
 	^ SeekerQueryInterface newForBlock: self
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 BlockClosure >> programQuery: queriesBlock [
 	"Experimental feature"
 
@@ -54,14 +54,14 @@ BlockClosure >> programQuery: queriesBlock [
 	[ queriesBlock value: sqi ] ensure: [ sqi terminate ]
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 BlockClosure >> programStates [
 	"experimental feature"
 
 	^ (SeekerDebugger headlessDebugBlock: self) tracer newProgramStates
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 BlockClosure >> programStates: block [
 	"experimental feature. cleaner notation"
 
@@ -70,7 +70,7 @@ BlockClosure >> programStates: block [
 	[ block value: sk programStates ] ensure: [ sk terminate ]
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 BlockClosure >> reversibleValue [
 	"experimental feature. Quite slow"
 
@@ -79,7 +79,7 @@ BlockClosure >> reversibleValue [
 		  yourself
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 BlockClosure >> softEqualTo: anObject withCache: objs [
 
 	(objs includes: self) ifTrue: [ ^ true ].
@@ -88,7 +88,7 @@ BlockClosure >> softEqualTo: anObject withCache: objs [
 	^ true
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 BlockClosure >> softEqualTo: anObject withDepth: depth [
 
 	depth <= 0 ifTrue: [ ^ true ].
@@ -96,7 +96,7 @@ BlockClosure >> softEqualTo: anObject withDepth: depth [
 	^ true
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 BlockClosure >> switchCase: anArrayOfCases [
 
 	"A case is a pair where the first item is the key for the case and the value is a block to be executed if the result of self value matches the key value. if the result of the evaluation of self is not found in the keys values, it will execute the #defaultCase keyed case from the list. Throws and error if no case was matched"
@@ -108,7 +108,7 @@ BlockClosure >> switchCase: anArrayOfCases [
 	^ anArrayOfCases doCase: self
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 BlockClosure >> whileFalseAlt: aBlock lvl: aNumber [
 
 	1 to: aNumber do: [ :i | 
@@ -117,7 +117,7 @@ BlockClosure >> whileFalseAlt: aBlock lvl: aNumber [
 	^ self whileFalseAlt: aBlock lvl: aNumber * 2
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 BlockClosure >> whileTrueAlt: aBlock lvl: aNumber [
 
 	1 to: aNumber do: [ :i | 

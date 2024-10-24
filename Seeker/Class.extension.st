@@ -1,6 +1,6 @@
-Extension { #name : #Class }
+Extension { #name : 'Class' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Class >> softEqualTo: anObject withCache: objs [
 
 	| mySlotsNames theirSlotsNames |

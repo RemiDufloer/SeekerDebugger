@@ -1,6 +1,6 @@
-Extension { #name : #CompiledCode }
+Extension { #name : 'CompiledCode' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 CompiledCode >> @ aNumberOrNodeIndex [
 
 	"In the future this will be extended to suppory other expression (#last, etc)"
@@ -12,7 +12,7 @@ CompiledCode >> @ aNumberOrNodeIndex [
 	^ self error: 'unsupported argument type'
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 CompiledCode >> bytecodeNodes [
 
 	"Don't modify this. Should return a copy instead?"
@@ -20,13 +20,13 @@ CompiledCode >> bytecodeNodes [
 	^ self ast bcToASTCache ordinatedChildren
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 CompiledCode >> ordinatedNodes [
 
 	^ self sourceNode ordinatedChildren
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 CompiledCode >> softEqualTo: aCompiledMethod withCache: objs [
 
 	self == aCompiledMethod
@@ -46,7 +46,7 @@ CompiledCode >> softEqualTo: aCompiledMethod withCache: objs [
  
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 CompiledCode >> statementNodes [
 
 	"Don't modify this. Should return a copy instead?"

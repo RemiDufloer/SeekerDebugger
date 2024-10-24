@@ -1,39 +1,41 @@
 Class {
-	#name : #SeekerAndOidPair,
-	#superclass : #Object,
+	#name : 'SeekerAndOidPair',
+	#superclass : 'Object',
 	#instVars : [
 		'seeker',
 		'oid'
 	],
-	#category : #'Seeker-Helpers'
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #cleaning }
+{ #category : 'cleaning' }
 SeekerAndOidPair >> clean [
 
 	seeker := nil.
 	oid := nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerAndOidPair >> oid [
 
 	^ oid
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerAndOidPair >> oid: anObject [
 
 	oid := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerAndOidPair >> seeker [
 
 	^ seeker
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerAndOidPair >> seeker: anObject [
 
 	seeker := anObject

@@ -1,14 +1,16 @@
 Class {
-	#name : #SeekerStDebuggerDebuggerActionModel,
-	#superclass : #StDebuggerActionModel,
+	#name : 'SeekerStDebuggerDebuggerActionModel',
+	#superclass : 'StDebuggerActionModel',
 	#instVars : [
 		'tracer',
 		'currentState'
 	],
-	#category : #'Seeker-Core'
+	#category : 'Seeker-Core',
+	#package : 'Seeker',
+	#tag : 'Core'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SeekerStDebuggerDebuggerActionModel class >> on: aDebugSession [
 
 	^ self basicNew
@@ -16,7 +18,7 @@ SeekerStDebuggerDebuggerActionModel class >> on: aDebugSession [
 		  initialize
 ]
 
-{ #category : #'debug - execution' }
+{ #category : 'debug - execution' }
 SeekerStDebuggerDebuggerActionModel >> clearDebugSession [
 
 	[ session interruptedProcess resume ]
@@ -29,7 +31,7 @@ SeekerStDebuggerDebuggerActionModel >> clearDebugSession [
 	super clearDebugSession
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerStDebuggerDebuggerActionModel >> doStepToFirstInterestingBytecode [
 
 	"advances and returns the current context"
@@ -44,7 +46,7 @@ SeekerStDebuggerDebuggerActionModel >> doStepToFirstInterestingBytecode [
 	^ startingBytecode ~= tracer bytecodeIndex
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerStDebuggerDebuggerActionModel >> enabled [
 
 	tracer ifNotNil: [ ^ tracer isMapped ].
@@ -52,7 +54,7 @@ SeekerStDebuggerDebuggerActionModel >> enabled [
 	^ false
 ]
 
-{ #category : #'debugging actions' }
+{ #category : 'debugging actions' }
 SeekerStDebuggerDebuggerActionModel >> oldStepOver: aContext [
  
 	self enabled
@@ -96,7 +98,7 @@ SeekerStDebuggerDebuggerActionModel >> oldStepOver: aContext [
 		ifFalse: [ ^ super stepOver: aContext ]
 ]
 
-{ #category : #context }
+{ #category : 'context' }
 SeekerStDebuggerDebuggerActionModel >> referenceContext [
 
 	"This prevents a bug that happens when time traveling to the signaled exception. In that case, probable because of replays and context unwindinws,topContext receiver signalContext is nil, so signalerContext call fails.This prevents that."
@@ -108,7 +110,7 @@ SeekerStDebuggerDebuggerActionModel >> referenceContext [
 		  ifNotNil: [ topContext receiver signalerContext ]
 ]
 
-{ #category : #'debugging actions' }
+{ #category : 'debugging actions' }
 SeekerStDebuggerDebuggerActionModel >> restartContext: aContext [
 
 	self enabled
@@ -122,7 +124,7 @@ SeekerStDebuggerDebuggerActionModel >> restartContext: aContext [
 		ifFalse: [ super restartContext: aContext ]
 ]
 
-{ #category : #'debugging actions' }
+{ #category : 'debugging actions' }
 SeekerStDebuggerDebuggerActionModel >> runToSelection: aSelectionInterval inContext: aContext [
 
 	self enabled
@@ -133,7 +135,7 @@ SeekerStDebuggerDebuggerActionModel >> runToSelection: aSelectionInterval inCont
 		super runToSelection: aSelectionInterval inContext: aContext ]
 ]
 
-{ #category : #'debugging actions' }
+{ #category : 'debugging actions' }
 SeekerStDebuggerDebuggerActionModel >> stepInto: aContext [
 
 	self enabled
@@ -153,7 +155,7 @@ SeekerStDebuggerDebuggerActionModel >> stepInto: aContext [
 		ifFalse: [ super stepInto: aContext ]
 ]
 
-{ #category : #'debugging actions' }
+{ #category : 'debugging actions' }
 SeekerStDebuggerDebuggerActionModel >> stepOver: aContext [
 
 self enabled
@@ -182,7 +184,7 @@ self enabled
 		ifFalse: [ ^ super stepOver: aContext ]
 ]
 
-{ #category : #'debugging actions' }
+{ #category : 'debugging actions' }
 SeekerStDebuggerDebuggerActionModel >> stepThrough: aContext [
 
 	self enabled
@@ -211,13 +213,13 @@ SeekerStDebuggerDebuggerActionModel >> stepThrough: aContext [
 		ifFalse: [ ^ super stepThrough: aContext ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerStDebuggerDebuggerActionModel >> tracer [
 
 	^ tracer
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerStDebuggerDebuggerActionModel >> tracer: anObject [
 
 	tracer := anObject.

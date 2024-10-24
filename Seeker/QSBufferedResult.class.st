@@ -1,14 +1,16 @@
 Class {
-	#name : #QSBufferedResult,
-	#superclass : #QuerySolver,
+	#name : 'QSBufferedResult',
+	#superclass : 'QuerySolver',
 	#instVars : [
 		'bufferReadyCallback',
 		'buffersCapacity'
 	],
-	#category : #'Seeker-Query'
+	#category : 'Seeker-Query',
+	#package : 'Seeker',
+	#tag : 'Query'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 QSBufferedResult class >> newForQuery: aQuery withBufferCompletedCallback: aBlock [
 
 	^ (self newForQuery: aQuery)
@@ -16,31 +18,31 @@ QSBufferedResult class >> newForQuery: aQuery withBufferCompletedCallback: aBloc
 		  yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QSBufferedResult >> bufferReadyCallback [
 
 	^ bufferReadyCallback
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QSBufferedResult >> bufferReadyCallback: anObject [
 
 	bufferReadyCallback := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QSBufferedResult >> buffersCapacity [
 
 	^ buffersCapacity
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QSBufferedResult >> buffersCapacity: anObject [
 
 	buffersCapacity := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 QSBufferedResult >> initialize [
 
 	super initialize.
@@ -48,7 +50,7 @@ QSBufferedResult >> initialize [
 	bufferReadyCallback := [ :o |  ]
 ]
 
-{ #category : #navigating }
+{ #category : 'navigating' }
 QSBufferedResult >> resolve [
 
 	| currentBuffer |

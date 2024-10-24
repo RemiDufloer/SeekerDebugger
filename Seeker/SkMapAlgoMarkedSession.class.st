@@ -1,10 +1,12 @@
 Class {
-	#name : #SkMapAlgoMarkedSession,
-	#superclass : #SkExecutionMapperAlgorithm,
-	#category : #'Seeker-Components'
+	#name : 'SkMapAlgoMarkedSession',
+	#superclass : 'SkExecutionMapperAlgorithm',
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkMapAlgoMarkedSession class >> matchesExecutionScenario: tracer [
 
 	^ tracer slowCurrentContext receiver = SeekerSessionHelpers and: [ 
@@ -12,7 +14,7 @@ SkMapAlgoMarkedSession class >> matchesExecutionScenario: tracer [
 		  = #innerSeekerSessionFor:withFlag: ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkMapAlgoMarkedSession >> mapExecution [
 
 	| recordingInitialContext testInitialContext endingContext findContext currentCompiledMethod |

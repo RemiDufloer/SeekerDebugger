@@ -1,16 +1,18 @@
 Class {
-	#name : #SkNodeBeforeOrAfterCurrentLC,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkNodeBeforeOrAfterCurrentLC',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkNodeBeforeOrAfterCurrentLC >> description [
 
 	^'MyCommand description'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SkNodeBeforeOrAfterCurrentLC >> executeCommand [
 
 	| currentIndex selectedIndex |
@@ -23,7 +25,7 @@ SkNodeBeforeOrAfterCurrentLC >> executeCommand [
 	^ self inform: '(current = selected)'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkNodeBeforeOrAfterCurrentLC >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -35,7 +37,7 @@ SkNodeBeforeOrAfterCurrentLC >> icon [
 	^ #add
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkNodeBeforeOrAfterCurrentLC >> name [
 
 	^'Node Before or After'

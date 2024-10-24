@@ -1,11 +1,11 @@
-Extension { #name : #Array }
+Extension { #name : 'Array' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Array >> asSkXAnonymousType [
 	AnonymousType newWith: self
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Array >> doCase: anExpression [
 
 | exprValue defaultCaseBlock |

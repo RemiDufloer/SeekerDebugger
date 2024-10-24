@@ -1,14 +1,16 @@
 Class {
-	#name : #BugSeeker,
-	#superclass : #Object,
+	#name : 'BugSeeker',
+	#superclass : 'Object',
 	#instVars : [
 		'seeker',
 		'exceptionPredicate'
 	],
-	#category : #'Seeker-Experimental'
+	#category : 'Seeker-Experimental',
+	#package : 'Seeker',
+	#tag : 'Experimental'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 BugSeeker class >> new: aSeekerDebugger [
 
 	^ self new
@@ -16,19 +18,19 @@ BugSeeker class >> new: aSeekerDebugger [
 		  yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BugSeeker >> exceptionPredicate [
 
 	^ exceptionPredicate
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BugSeeker >> exceptionPredicate: anObject [
 
 	exceptionPredicate := anObject
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 BugSeeker >> execute [
 	"This is for unhandled Exceptions"
 
@@ -47,13 +49,13 @@ Then, it reverses the execution"
 	^ foundException
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BugSeeker >> seeker [
 
 	^ seeker
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BugSeeker >> seeker: anObject [
 
 	seeker := anObject

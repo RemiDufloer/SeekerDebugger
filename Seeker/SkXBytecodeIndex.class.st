@@ -1,10 +1,12 @@
 Class {
-	#name : #SkXBytecodeIndex,
-	#superclass : #SkXNodeIndex,
-	#category : #'Seeker-Experimental-NodeNotation'
+	#name : 'SkXBytecodeIndex',
+	#superclass : 'SkXNodeIndex',
+	#category : 'Seeker-Experimental-NodeNotation',
+	#package : 'Seeker',
+	#tag : 'Experimental-NodeNotation'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkXBytecodeIndex >> findIn: aCompiledCodeOrNode [
 
 	| node ownerNode |
@@ -21,7 +23,7 @@ SkXBytecodeIndex >> findIn: aCompiledCodeOrNode [
 			  ownerNode bcToASTCache nodeForPC: index ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkXBytecodeIndex >> isBytecode [
 
 	^ true

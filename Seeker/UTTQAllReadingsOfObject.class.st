@@ -1,10 +1,12 @@
 Class {
-	#name : #UTTQAllReadingsOfObject,
-	#superclass : #UserTTQ,
-	#category : #'Seeker-TimeTravelingQueries'
+	#name : 'UTTQAllReadingsOfObject',
+	#superclass : 'UserTTQ',
+	#category : 'Seeker-TimeTravelingQueries',
+	#package : 'Seeker',
+	#tag : 'TimeTravelingQueries'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 UTTQAllReadingsOfObject class >> queryFrom: programStates forOid: aNumber [
 
 	| autoType |
@@ -20,7 +22,7 @@ UTTQAllReadingsOfObject class >> queryFrom: programStates forOid: aNumber [
 				  endWith ]
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 UTTQAllReadingsOfObject class >> queryInteractivelyFrom: programStates [
 
 	| oid |
@@ -28,7 +30,7 @@ UTTQAllReadingsOfObject class >> queryInteractivelyFrom: programStates [
 	^ self queryFrom: programStates forOid: oid
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 UTTQAllReadingsOfObject >> ttqTitle [
 
 	^ 'Find All Readings of Object'

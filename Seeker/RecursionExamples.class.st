@@ -1,10 +1,12 @@
 Class {
-	#name : #RecursionExamples,
-	#superclass : #TestCase,
-	#category : #'Seeker-BugCollection-Tests'
+	#name : 'RecursionExamples',
+	#superclass : 'TestCase',
+	#category : 'Seeker-BugCollection-Tests',
+	#package : 'Seeker',
+	#tag : 'BugCollection-Tests'
 }
 
-{ #category : #'test-support' }
+{ #category : 'test-support' }
 RecursionExamples class >> directFibonacci: aNumber [
 	"Example of breakpoint navigation. 
 Put a breakpoint anywhere here, and debug with seeker the following code from a Playground, then query allBreakpointsAndHalts. Code:
@@ -16,13 +18,13 @@ RecursionExamples directFibonacci: 10
 	  + (self directFibonacci: aNumber - 2)
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 RecursionExamples >> deferredFibonacci: aNumber [
  (aNumber <= 1) ifTrue: [ ^ 1].
 	^ (self deferredFibonacciInLoopFunction1: (aNumber - 1) ) + (self deferredFibonacciInLoopFunction1: (aNumber - 2))
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 RecursionExamples >> deferredFibonacciInLoopFunction1: aNumber [
 |uselessObject|
 "just to add some noise in the execution graph"
@@ -30,7 +32,7 @@ uselessObject := Dictionary new.
 	^ self deferredFibonacciInLoopFunction2: aNumber
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 RecursionExamples >> deferredFibonacciInLoopFunction2: aNumber [
 |uselessObject|
 "just to add some noise in the execution graph"
@@ -38,26 +40,26 @@ uselessObject := OrderedCollection new.
 	^ self deferredFibonacci: aNumber 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 RecursionExamples >> directFibonacci: aNumber [
  (aNumber <= 1) ifTrue: [ ^ 1].
 	^ (self directFibonacci: (aNumber - 1) ) + (self directFibonacci: (aNumber - 2))
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 RecursionExamples >> directForwardConcatenation: aStringCollection separator: aString [
  aStringCollection ifEmpty: [ ^'' ].
  ^aStringCollection first , aString , ' ' , (self directForwardConcatenation: (aStringCollection copyFrom: 2 to: aStringCollection size) separator: aString )
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 RecursionExamples >> directForwardCount: aCollection startingAt: aNumber [
 
 	aNumber > aCollection size ifTrue: [ ^ 0 ].
 	^ 1+ (self directForwardCount: aCollection startingAt: aNumber + 1)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RecursionExamples >> doNewRecursion: aNumber [
 
 	| depth context startingStackp |
@@ -82,21 +84,21 @@ RecursionExamples >> doNewRecursion: aNumber [
 		show: String cr
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RecursionExamples >> testContextStackSize [
 
 	self doNewRecursion: 5.
 	self assert: false
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RecursionExamples >> testDirectRecursion [
 	|result|
 	result := self directFibonacci: 22.
 	self assert: result equals: -8
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RecursionExamples >> testDirectRecursionConcatenationExample [
 	|	stringCollection separator	result|
 	stringCollection := { 'One' . 'Two' . 'Three' . 'Four'}.
@@ -105,7 +107,7 @@ RecursionExamples >> testDirectRecursionConcatenationExample [
 	self assert: result equals: 'One,Two,Three,Four'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RecursionExamples >> testDirectRecursionConcatenationShortExample [
 	|	stringCollection separator	result|
 	stringCollection := { 'One'}.
@@ -114,7 +116,7 @@ RecursionExamples >> testDirectRecursionConcatenationShortExample [
 	self assert: result equals: 'One '
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RecursionExamples >> testDirectRecursionConcatenationShorterExample [
 	|	collection	result|
 	collection := { #one }.
@@ -122,7 +124,7 @@ RecursionExamples >> testDirectRecursionConcatenationShorterExample [
 	self assert: result equals: 0
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RecursionExamples >> testFindFirstStatementInSequence [
 
 	| aCol block |
@@ -144,7 +146,7 @@ RecursionExamples >> testFindFirstStatementInSequence [
 	self assert: false
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RecursionExamples >> testIndirectRecursion [
 	|result|
 	result := self deferredFibonacci: 10.

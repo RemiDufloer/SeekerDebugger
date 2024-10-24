@@ -1,10 +1,12 @@
 Class {
-	#name : #SkAllMessageSendsWithSelectorPromptLC,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkAllMessageSendsWithSelectorPromptLC',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllMessageSendsWithSelectorPromptLC >> description [
 
 	^ self commonDescriptionIntroString
@@ -12,7 +14,7 @@ SkAllMessageSendsWithSelectorPromptLC >> description [
 	  'for every <message send> whose <selector> matches the <requested selector>.'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SkAllMessageSendsWithSelectorPromptLC >> executeCommand [
 
 	| selector |
@@ -22,7 +24,7 @@ SkAllMessageSendsWithSelectorPromptLC >> executeCommand [
 			 withSelector: selector)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllMessageSendsWithSelectorPromptLC >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -34,13 +36,13 @@ SkAllMessageSendsWithSelectorPromptLC >> icon [
 	^ #glamorousSaveToUrl
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllMessageSendsWithSelectorPromptLC >> name [
 
 	^'All Message Sends with the selector...'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkAllMessageSendsWithSelectorPromptLC >> selectionTitleString [
 
 	^ ' : (user input)'

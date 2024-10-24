@@ -3,15 +3,17 @@ Time-Traveling Queries
 Are queries that additionally hold their associated display model.
 "
 Class {
-	#name : #TimeTravelingQuery,
-	#superclass : #Query,
+	#name : 'TimeTravelingQuery',
+	#superclass : 'Query',
 	#instVars : [
 		'displayModel'
 	],
-	#category : #'Seeker-TimeTravelingQueries'
+	#category : 'Seeker-TimeTravelingQueries',
+	#package : 'Seeker',
+	#tag : 'TimeTravelingQueries'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TimeTravelingQuery class >> checkCompatibilityOfDisplayModelAndProjection [
 
 	<script>
@@ -21,13 +23,13 @@ TimeTravelingQuery class >> checkCompatibilityOfDisplayModelAndProjection [
 	self inform: 'All display model columns found in the projection'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TimeTravelingQuery class >> displayModel [
 
 	^ self subclassResponsibility
 ]
 
-{ #category : #'error handling' }
+{ #category : 'error handling' }
 TimeTravelingQuery class >> logError: string [
 
 	Transcript
@@ -36,7 +38,7 @@ TimeTravelingQuery class >> logError: string [
 	self error: string
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TimeTravelingQuery class >> logMessage: string [
 
 	self inform: string.
@@ -45,7 +47,7 @@ TimeTravelingQuery class >> logMessage: string [
 		cr
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TimeTravelingQuery class >> performWith: tracer [
 
 	"PerformWith and performWith:withArg: are scripting functions to keep a uniform interface. It is experimental. And you should not probalbly bother using these methods. Use the specific ones instead *queryFrom, showInSeeker, etc"
@@ -53,31 +55,31 @@ TimeTravelingQuery class >> performWith: tracer [
 	tracer ui showInResult: (self queryFrom: tracer newProgramStates) displayModel
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TimeTravelingQuery class >> performWith: tracer withArg: anObject [
 
 	^ self performWith: tracer
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TimeTravelingQuery class >> projectionFields [
 
 	^ self projectionFunction new fields
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TimeTravelingQuery class >> projectionFunction [
 
 	^ self subclassResponsibility
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TimeTravelingQuery class >> projectionSample [
 
 	^ self projectionFunction new value: AutoTypeDummyObject new
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TimeTravelingQuery class >> queryFrom: aDataSource [
 
 	^ self new
@@ -87,14 +89,14 @@ TimeTravelingQuery class >> queryFrom: aDataSource [
 		  yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TimeTravelingQuery class >> queryInteractivelyFrom: aDataSource [
 	"Queries that requires arguments other than the programsStates iterable override this method to request the user for these arguments. If no other argument is required, this is equivalten to a call to queryFrom: "
 
 	^ self queryFrom: aDataSource
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TimeTravelingQuery class >> runAllChecks [
 
 	<script>
@@ -122,7 +124,7 @@ TimeTravelingQuery class >> runAllChecks [
 		self logMessage: 'Projection function returning an AutoType' ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TimeTravelingQuery class >> runAllChecksOnAllTTQs [
 
 	<script>
@@ -130,13 +132,13 @@ TimeTravelingQuery class >> runAllChecksOnAllTTQs [
 	self allSubclassesDo: [ :q | q runAllChecksOnAllTTQs ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TimeTravelingQuery class >> selectionFunction [
 
 	^ self subclassResponsibility
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TimeTravelingQuery class >> showProjectionExample [
 
 	"Select a subclass, check Class Side checkbox in the method categories to see all class side methods, and click this script"
@@ -145,30 +147,26 @@ TimeTravelingQuery class >> showProjectionExample [
 	self projectionSample inspect
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TimeTravelingQuery >> displayModel [
 
 	^ displayModel
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TimeTravelingQuery >> displayModel: anObject [
 
 	displayModel := anObject
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 TimeTravelingQuery >> do: aBlock [
 
-	| tracer queryingFlag |
-	tracer := self findTracer.
-	queryingFlag := tracer stepper haltableMode.
-	tracer stepper haltableMode: false.
-	[ super do: aBlock ] ensure: [ 
-		tracer stepper haltableMode: queryingFlag ]
+	
+	 super do: aBlock 
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 TimeTravelingQuery >> do: aBlock withTimedCallback: timedCallbackBlock every: anIntMilliseconds [
 
 	| tracer queryingFlag |
@@ -183,7 +181,7 @@ TimeTravelingQuery >> do: aBlock withTimedCallback: timedCallbackBlock every: an
 		tracer stepper haltableMode: queryingFlag ]
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 TimeTravelingQuery >> executeAndShowIn: aSeekerTracer [
 
 	"Starts a parallalel process that solves the query, while updating the UI. This method doesn't return the results"
@@ -191,14 +189,14 @@ TimeTravelingQuery >> executeAndShowIn: aSeekerTracer [
 	^ aSeekerTracer executeAndShow: self
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TimeTravelingQuery >> initialize [
 
 	super initialize.
 	self ttqInitialize
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 TimeTravelingQuery >> showInSeeker [
 
 	| tr |
@@ -207,14 +205,14 @@ TimeTravelingQuery >> showInSeeker [
 	tr executeAndShow: self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TimeTravelingQuery >> ttqInitialize [
 
 	displayModel := self class displayModel newForQuery: self.
 	displayModel title: self ttqTitle
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TimeTravelingQuery >> ttqTitle [
 
 	"Override this method to show a more specific name"

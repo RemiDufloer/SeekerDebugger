@@ -1,12 +1,12 @@
-Extension { #name : #Context }
+Extension { #name : 'Context' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Context >> @ aNumber [
 
 	^ self sourceNode @ aNumber
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Context >> contextFastPath [
 
 	"I could cache the path, but I am not sure if the sender are changed weirdly"
@@ -17,14 +17,14 @@ Context >> contextFastPath [
 	^ self sender contextFastPath / self sender sourceNodeExecuted
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Context >> contextPath [
 
 	self sender ifNil: [ ^ SkXContextPath new ].
 	^ self sender contextPath / self sender sourceNodeExecuted fullPath
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Context >> currentFastTracedInstructionPath [
 
 	| tip |
@@ -34,7 +34,7 @@ Context >> currentFastTracedInstructionPath [
 	^ tip
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Context >> currentTracedInstructionPath [
 
 	| tip |
@@ -44,13 +44,13 @@ Context >> currentTracedInstructionPath [
 	^ tip
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Context >> defaultSeekerCacheObjectClass [
 
 	^ SkContextCacheObject
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Context >> isVarDeclaredInAnOuterContext: varName [
 	| ctx |
 	ctx := self outerContext.
@@ -62,14 +62,14 @@ Context >> isVarDeclaredInAnOuterContext: varName [
 	^ false
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Context >> matchesTracedContextPC: aBcp [
 
 	sender ifNil: [ ^ false ].
 	^ sender matchesTracedContextPC: aBcp atIndex: aBcp size
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Context >> matchesTracedContextPC: aBcp atIndex: aNumber [
 
 	"Recursive call. It specifies at which index in the TracedContextPC we should look into for conparison"
@@ -82,38 +82,38 @@ Context >> matchesTracedContextPC: aBcp atIndex: aNumber [
 	^ sender matchesTracedContextPC: aBcp atIndex: aNumber - 1
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Context >> matchesTracedInstructionPC: aTracedInstructionBcp [
 
 	aTracedInstructionBcp pc = pc ifFalse: [ ^ false ].
 	^ self matchesTracedContextPC: aTracedInstructionBcp tracedContextPC
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Context >> nodeForExecutedPC [
 
 	^ self compiledCode nodeForPC: self executedPC
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Context >> nodeForPC [
 
 	^ self compiledCode sourceNodeForPC: pc
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Context >> setReturnedValue: anObject [
 
 	self at: stackp put: anObject
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Context >> skipOne [
 
 	pc := pc + 1
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Context >> stackDepth [
 
 	"the size of the stack. Not named stackSize to avoid possible conflicting naming issues"
@@ -122,13 +122,13 @@ Context >> stackDepth [
 	"^ self seekerCache stackDepth"
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Context >> tracedContextPC [
 
 	^ self seekerCache tracedContextPC
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Context >> tracedInstructionPC [
 
 	| tip |
@@ -138,7 +138,7 @@ Context >> tracedInstructionPC [
 	^ tip
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Context >> tracedInstructionPCForNode: aNode [
 
 	| tip |

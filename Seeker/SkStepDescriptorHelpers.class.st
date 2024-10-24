@@ -1,10 +1,12 @@
 Class {
-	#name : #SkStepDescriptorHelpers,
-	#superclass : #Object,
-	#category : #'Seeker-Helpers'
+	#name : 'SkStepDescriptorHelpers',
+	#superclass : 'Object',
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepDescriptorHelpers class >> descriptor: aStepDescriptor containsSequenceByMethod: aMethod reverseSearchStartingAt: aNumber [
 
 	"returns true if any of the sequence (starting at aNumber) in this path matches the method. Returns false otherwise. aMethod is a compiledMethod (example: Object>>#release)"
@@ -22,7 +24,7 @@ SkStepDescriptorHelpers class >> descriptor: aStepDescriptor containsSequenceByM
 	^ false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepDescriptorHelpers class >> descriptor: aStepDescriptor containsSequenceByMethod: aMethod startingAt: aNumber [
 
 	"returns true if any of the sequence (starting at aNumber) in this path matches the method. Returns false otherwise. aMethod is a compiledMethod (example: Object>>#release)"
@@ -40,7 +42,7 @@ SkStepDescriptorHelpers class >> descriptor: aStepDescriptor containsSequenceByM
 	^ false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepDescriptorHelpers class >> descriptor: aStepDescriptor containsSequenceByMethodSelector: aSymbol andClass: aClass startingAt: aNumber [
 
 	"returns true if any of the sequence (starting at aNumber) in this path matches the method. Returns false otherwise. aMethod is a compiledMethod (example: Object>>#release)"
@@ -57,7 +59,7 @@ SkStepDescriptorHelpers class >> descriptor: aStepDescriptor containsSequenceByM
 	^ false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepDescriptorHelpers class >> descriptor: aStepDescriptor containsSequenceByMethodSelector: aSymbol startingAt: aNumber [
 
 	"returns true if any of the sequence (starting at aNumber) in this path matches the method. Returns false otherwise. aMethod is a compiledMethod (example: Object>>#release)"

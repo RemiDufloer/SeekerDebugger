@@ -1,10 +1,12 @@
 Class {
-	#name : #UTTQAllBreakpointsAndHalts,
-	#superclass : #UserTTQ,
-	#category : #'Seeker-TimeTravelingQueries'
+	#name : 'UTTQAllBreakpointsAndHalts',
+	#superclass : 'UserTTQ',
+	#category : 'Seeker-TimeTravelingQueries',
+	#package : 'Seeker',
+	#tag : 'TimeTravelingQueries'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 UTTQAllBreakpointsAndHalts class >> queryFrom: aDataSource [
 	"This query requires that the datasourcer has a tracer field. It is used only to identify the list of possible halting methods.
 To remove the dependency, "
@@ -34,7 +36,7 @@ To remove the dependency, "
 				  endWith ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 UTTQAllBreakpointsAndHalts >> ttqTitle [
 
 	^ 'Find All Breakpoint and Halt hits'

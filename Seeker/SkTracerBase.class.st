@@ -12,8 +12,8 @@ TLDR: Just use SkQueryableTracer.
 Objects of this class act as a components initializer and holder. Meaning that it has ownershipt over the components, and each component pointing to the componentHolder will have reference the tracer.
 "
 Class {
-	#name : #SkTracerBase,
-	#superclass : #Object,
+	#name : 'SkTracerBase',
+	#superclass : 'Object',
 	#traits : 'TDebuggerUpdateCoordinatorClient',
 	#classTraits : 'TDebuggerUpdateCoordinatorClient classTrait',
 	#instVars : [
@@ -33,16 +33,18 @@ Class {
 		'localTimestampToProgram',
 		'deinitialized'
 	],
-	#category : #'Seeker-Components'
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkTracerBase >> bindComponents [
 
 	components ifNotNil: [ components do: [ :c | c bindComponents ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> blockingDoAndUpdateSessionAfter: aBlock [
 
 	"Updates the UI after executing the block. Forces UI Update, and returns after the UI cycle is completed.
@@ -54,13 +56,13 @@ SkTracerBase >> blockingDoAndUpdateSessionAfter: aBlock [
 	UIManager default currentWorld doOneCycleNow
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkTracerBase >> canStep [
 
 	^ stepper canStep
 ]
 
-{ #category : #starting }
+{ #category : 'starting' }
 SkTracerBase >> clearRecords [
 
 	deinitialized ifTrue: [ ^ self ].
@@ -69,25 +71,25 @@ SkTracerBase >> clearRecords [
 	systemCallsHandler clearRecords
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> components [
 
 	^ components
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> components: anObject [
 
 	components := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkTracerBase >> componentsLateInitialization [
 
 	components ifNotNil: [ components do: [ :c | c lateInitialization ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkTracerBase >> deinitialize [
 
 	| deinit |
@@ -112,7 +114,7 @@ SkTracerBase >> deinitialize [
 	localTimestampToProgram := nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> doAndUpdateSessionAfter: aBlock [
 
 	"Updates the UI after executing the block. Forces UI Update in a defered manner
@@ -124,7 +126,7 @@ SkTracerBase >> doAndUpdateSessionAfter: aBlock [
 	debuggerUpdateCoordinator coordinateUpdatesFor: aBlock
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkTracerBase >> doMouseButtonEventInstrumentedBlockOnce: aBlock [
 
 	| oldVal |
@@ -134,43 +136,43 @@ SkTracerBase >> doMouseButtonEventInstrumentedBlockOnce: aBlock [
 	aBlock ensure: [ inMouseButtonEventInstrumentationFlag := oldVal ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> headless [
 
 	^ headless
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> headless: anObject [
 
 	headless := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> identityEnforcer [
 
 	^ identityEnforcer
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> identityEnforcer: anObject [
 
 	^ identityEnforcer := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> inMouseButtonEventInstrumentationFlag [
 
 	^ inMouseButtonEventInstrumentationFlag
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> inMouseButtonEventInstrumentationFlag: anObject [
 
 	^ inMouseButtonEventInstrumentationFlag := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkTracerBase >> initialize [
 	deinitialized :=false.
 	isSessionActive := false.
@@ -184,7 +186,7 @@ SkTracerBase >> initialize [
 		inMouseButtonEventInstrumentationFlag := false ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkTracerBase >> initializeComponents [
 
 	components := OrderedCollection new.
@@ -202,7 +204,7 @@ SkTracerBase >> initializeComponents [
 	self bindComponents
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkTracerBase >> initializeInstrumentedMethods [
 
 	instrumentedMethods := Set new.
@@ -219,86 +221,86 @@ SkTracerBase >> initializeInstrumentedMethods [
 		QuickWrapMethodProxy methodDictionary values
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkTracerBase >> isIterating [
 
 ^ stepper iteratingFlag
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkTracerBase >> isSessionActive [
 
 	^ isSessionActive
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> localTimestampToProgram [
 
 	^ localTimestampToProgram
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkTracerBase >> notifySessionEnd [
 
 	isSessionActive := false.
 	self seeker notifySessionEnd
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> objectsTracker [
 
 	^ objectsTracker
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> objectsTracker: anObject [
 
 	objectsTracker := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> programTimestampToLocal [
 
 	^ programTimestampToLocal
 ]
 
-{ #category : #starting }
+{ #category : 'starting' }
 SkTracerBase >> restart [
 
 	^ self subclassResponsibility 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkTracerBase >> restartRecordFromContext: aContext [
    self subclassResponsibility
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> restorer [
 
 	^ restorer
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> restorer: anObject [
 
 	restorer := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> seeker [
 
 	^ seeker
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> seeker: anObject [
 
 	seeker := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkTracerBase >> seekerResultsPresenter [
 
 	"Returns the result presenter. Or Nil"
@@ -306,30 +308,30 @@ SkTracerBase >> seekerResultsPresenter [
 	^ seeker stDebugger seekerDebuggerPresenter 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> session [
 
 	^ session
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> session: anObject [
 
 	session := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkTracerBase >> setEmergencyStopFlag [
 
 	stepper setEmergencyStopFlag
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkTracerBase >> setSelectedContextAsStartingPoint: aContext [
 	^self subclassResponsibility 
 ]
 
-{ #category : #'debug - stepping' }
+{ #category : 'debug - stepping' }
 SkTracerBase >> stepBackInto [
 
 	"comment stating purpose of instance-side method"
@@ -339,7 +341,7 @@ SkTracerBase >> stepBackInto [
 	self subclassResponsibility
 ]
 
-{ #category : #'debug - stepping' }
+{ #category : 'debug - stepping' }
 SkTracerBase >> stepBackOver [
 
 	"comment stating purpose of instance-side method"
@@ -349,7 +351,7 @@ SkTracerBase >> stepBackOver [
 	self subclassResponsibility
 ]
 
-{ #category : #'debug - stepping' }
+{ #category : 'debug - stepping' }
 SkTracerBase >> stepInto [
 
 	"comment stating purpose of instance-side method"
@@ -359,7 +361,7 @@ SkTracerBase >> stepInto [
 	self subclassResponsibility
 ]
 
-{ #category : #'debug - stepping' }
+{ #category : 'debug - stepping' }
 SkTracerBase >> stepOver [
 
 	"comment stating purpose of instance-side method"
@@ -369,48 +371,48 @@ SkTracerBase >> stepOver [
 	self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> stepper [
 
 	^ stepper
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> stepper: anObject [
 
 	^ stepper := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> systemCallsHandler [
 
 	^ systemCallsHandler
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> systemCallsHandler: anObject [
 
 	systemCallsHandler := anObject
 ]
 
-{ #category : #starting }
+{ #category : 'starting' }
 SkTracerBase >> timeTravelToUserStart [
 	self subclassResponsibility 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> trace [
 	"Returns the collection of steps signatures"
 	self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracerBase >> tracer [
 
 	^ self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkTracerBase >> ui [
 
 	"Returns the result presenter. Or Nil"

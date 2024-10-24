@@ -1,6 +1,6 @@
-Extension { #name : #Magnitude }
+Extension { #name : 'Magnitude' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Magnitude >> softEqualTo: anObject withCache: objs [
 
 	(objs includes: self) ifTrue: [ ^ true ].

@@ -1,14 +1,16 @@
 Class {
-	#name : #SkEndOfTestCaseNoSetup,
-	#superclass : #SkEndCondition,
+	#name : 'SkEndOfTestCaseNoSetup',
+	#superclass : 'SkEndCondition',
 	#instVars : [
 		'performTestMethod',
 		'senderFallbackMethod'
 	],
-	#category : #'Seeker-Components'
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkEndOfTestCaseNoSetup >> isEndReached [
 
 	| method |
@@ -17,25 +19,25 @@ SkEndOfTestCaseNoSetup >> isEndReached [
 		  method == performTestMethod or: [ method == senderFallbackMethod ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkEndOfTestCaseNoSetup >> performTestMethod [
 
 	^ performTestMethod
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkEndOfTestCaseNoSetup >> performTestMethod: anObject [
 
 	performTestMethod := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkEndOfTestCaseNoSetup >> senderFallbackMethod [
 
 	^ senderFallbackMethod
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkEndOfTestCaseNoSetup >> senderFallbackMethod: anObject [
 
 	senderFallbackMethod := anObject

@@ -1,10 +1,12 @@
 Class {
-	#name : #SeekerWrapperMethods,
-	#superclass : #Object,
-	#category : #'Seeker-Helpers'
+	#name : 'SeekerWrapperMethods',
+	#superclass : 'Object',
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerWrapperMethods class >> handMorphHandleEventWrapper: receiver method: method arguments: arguments [
 
 	| event |

@@ -1,18 +1,18 @@
-Extension { #name : #Integer }
+Extension { #name : 'Integer' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Integer >> asExecutedBytecodeTraceTime [
 
 	^ SkExecutedBytecodeTraceTimeReference new executedBytecode: self
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Integer >> nthBytecode [
 
 	^ SkXBytecodeIndex new index: self
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Integer >> nthStatement [
 
 	^ SkXStatementIndex new index: self

@@ -1,10 +1,12 @@
 Class {
-	#name : #SkWeakIdentityKeyDictionary,
-	#superclass : #WeakIdentityKeyDictionary,
-	#category : #'Seeker-Helpers'
+	#name : 'SkWeakIdentityKeyDictionary',
+	#superclass : 'WeakIdentityKeyDictionary',
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #private }
+{ #category : 'private' }
 SkWeakIdentityKeyDictionary >> scanForEmptySlotFor: aKey [
 	"Scan the key array for the first slot containing an empty slot (indicated by a nil). Answer the index of that slot. This method will be overridden in various subclasses that have different interpretations for matching elements."
 
@@ -16,7 +18,7 @@ SkWeakIdentityKeyDictionary >> scanForEmptySlotFor: aKey [
 	self errorNoFreeSpace
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SkWeakIdentityKeyDictionary >> startIndexFor: anObject [
 	"Return the index at which the scan for anObject should start."
 

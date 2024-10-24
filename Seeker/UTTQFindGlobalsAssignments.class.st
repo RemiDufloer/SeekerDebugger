@@ -1,10 +1,12 @@
 Class {
-	#name : #UTTQFindGlobalsAssignments,
-	#superclass : #UserTTQ,
-	#category : #'Seeker-TimeTravelingQueries'
+	#name : 'UTTQFindGlobalsAssignments',
+	#superclass : 'UserTTQ',
+	#category : 'Seeker-TimeTravelingQueries',
+	#package : 'Seeker',
+	#tag : 'TimeTravelingQueries'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 UTTQFindGlobalsAssignments class >> queryFrom: programStates [
 
 	| autoType |
@@ -18,7 +20,7 @@ UTTQFindGlobalsAssignments class >> queryFrom: programStates [
 				  endWith ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 UTTQFindGlobalsAssignments >> ttqTitle [
 
 	^ 'Find Global Assignments'

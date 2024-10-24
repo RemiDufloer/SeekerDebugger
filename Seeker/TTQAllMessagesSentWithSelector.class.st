@@ -1,17 +1,19 @@
 Class {
-	#name : #TTQAllMessagesSentWithSelector,
-	#superclass : #TTQAllMessageSends,
-	#category : #'Seeker-TimeTravelingQueries'
+	#name : 'TTQAllMessagesSentWithSelector',
+	#superclass : 'TTQAllMessageSends',
+	#category : 'Seeker-TimeTravelingQueries',
+	#package : 'Seeker',
+	#tag : 'TimeTravelingQueries'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TTQAllMessagesSentWithSelector class >> performWith: tracer withArg: arg [
 
 	tracer ui showInResult:
 		(self queryFrom: tracer newProgramStates withSelector: arg) displayModel 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TTQAllMessagesSentWithSelector class >> queryFrom: source withSelector: anObject [
 
 	^ (self queryFrom: source)
@@ -19,7 +21,7 @@ TTQAllMessagesSentWithSelector class >> queryFrom: source withSelector: anObject
 		  yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TTQAllMessagesSentWithSelector class >> queryInteractivelyFrom: source [
 
 	^ (self queryFrom: source)
@@ -27,19 +29,19 @@ TTQAllMessagesSentWithSelector class >> queryInteractivelyFrom: source [
 		  yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TTQAllMessagesSentWithSelector class >> selectionFunction [
 
 	^ SkSelectionMessagesSentWithSelector
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TTQAllMessagesSentWithSelector >> selector [
 
 	^ selectionFunction selector
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TTQAllMessagesSentWithSelector >> selector: anObject [
 
 	selectionFunction selector: anObject

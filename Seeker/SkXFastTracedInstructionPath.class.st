@@ -1,14 +1,16 @@
 Class {
-	#name : #SkXFastTracedInstructionPath,
-	#superclass : #Object,
+	#name : 'SkXFastTracedInstructionPath',
+	#superclass : 'Object',
 	#instVars : [
 		'contextFastPath',
 		'node'
 	],
-	#category : #'Seeker-Experimental-NodeNotation'
+	#category : 'Seeker-Experimental-NodeNotation',
+	#package : 'Seeker',
+	#tag : 'Experimental-NodeNotation'
 }
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SkXFastTracedInstructionPath >> = anotherPath [
 
 	"Returns if two context paths are equal (no necessarily the same instance)"
@@ -19,25 +21,25 @@ SkXFastTracedInstructionPath >> = anotherPath [
 	^ contextFastPath = anotherPath contextFastPath
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXFastTracedInstructionPath >> contextFastPath [
 
 	^ contextFastPath
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXFastTracedInstructionPath >> contextFastPath: anObject [
 
 	^ contextFastPath := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXFastTracedInstructionPath >> node [
 
 	^ node
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXFastTracedInstructionPath >> node: anObject [
 
 	node := anObject

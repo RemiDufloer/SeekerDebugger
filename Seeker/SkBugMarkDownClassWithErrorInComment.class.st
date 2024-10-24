@@ -10,12 +10,14 @@ Whitespaces and separators can be customised using setters.
 Subclasses may change the definition of names by redefining isCurrentALetter.
 "
 Class {
-	#name : #SkBugMarkDownClassWithErrorInComment,
-	#superclass : #TestCase,
-	#category : #'Seeker-BugCollection-Tests'
+	#name : 'SkBugMarkDownClassWithErrorInComment',
+	#superclass : 'TestCase',
+	#category : 'Seeker-BugCollection-Tests',
+	#package : 'Seeker',
+	#tag : 'BugCollection-Tests'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkBugMarkDownClassWithErrorInComment >> justOpenTheCommentTab [
 	"To reproduce the error, open the comment tab. Note however that a manual map is required"
 ]

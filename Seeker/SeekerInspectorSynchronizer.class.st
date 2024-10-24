@@ -1,6 +1,6 @@
 Class {
-	#name : #SeekerInspectorSynchronizer,
-	#superclass : #Object,
+	#name : 'SeekerInspectorSynchronizer',
+	#superclass : 'Object',
 	#instVars : [
 		'inspectorAndSeekerNOidsDictionary',
 		'showOutOfTimeAsNil'
@@ -8,22 +8,24 @@ Class {
 	#classInstVars : [
 		'default'
 	],
-	#category : #'Seeker-Helpers'
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerInspectorSynchronizer class >> default [
 
 	^ default
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerInspectorSynchronizer class >> initialize [
 
 	default := self new
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerInspectorSynchronizer >> cleanUpInvalidatedEntries [
 
 	"inspector synchronization is invalidated once the debugger session ends (or they are manually invalidated when recompiling or changing the debugged execution)"
@@ -40,20 +42,20 @@ SeekerInspectorSynchronizer >> cleanUpInvalidatedEntries [
 	invalidatedKeys do: [ :k | inspectorAndSeekerNOidsDictionary removeKey: k ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerInspectorSynchronizer >> getSeekerAndOidForInspector: aStInspector [
 
 	^ inspectorAndSeekerNOidsDictionary at: aStInspector ifAbsent: [ ^ nil ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerInspectorSynchronizer >> initialize [
 
 	inspectorAndSeekerNOidsDictionary := WeakIdentityKeyDictionary new.
 	showOutOfTimeAsNil := true
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerInspectorSynchronizer >> invalidateInspectorFor: tracer [
 
 	"SubtypeOf: SkTracerBase"
@@ -71,7 +73,7 @@ SeekerInspectorSynchronizer >> invalidateInspectorFor: tracer [
 	invalidatedKeys do: [ :k | inspectorAndSeekerNOidsDictionary remove: k ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerInspectorSynchronizer >> searchNewInspectorsFor: tracer [
 	"Add entries to the inspectors dictionary if a new one is detected"
 
@@ -92,19 +94,19 @@ SeekerInspectorSynchronizer >> searchNewInspectorsFor: tracer [
 								 yourself) ] ] ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerInspectorSynchronizer >> showOutOfTimeAsNil [
 
 	^ showOutOfTimeAsNil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerInspectorSynchronizer >> showOutOfTimeAsNil: anObject [
 
 	showOutOfTimeAsNil := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerInspectorSynchronizer >> updateInspectorsFor: tracer [
 
 	"SubtypeOf: SkTracerBase"

@@ -1,25 +1,27 @@
 Class {
-	#name : #SkEndOfTestCase,
-	#superclass : #SkEndCondition,
+	#name : 'SkEndOfTestCase',
+	#superclass : 'SkEndCondition',
 	#instVars : [
 		'endTraceTime'
 	],
-	#category : #'Seeker-Components'
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkEndOfTestCase >> endTraceTime [
 
 	^ endTraceTime
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkEndOfTestCase >> endTraceTime: anObject [
 
 	endTraceTime := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkEndOfTestCase >> isEndReached [
 
 	^ endTraceTime referencesTheLocalPastOrPresent: tracer "self traceTime @>="

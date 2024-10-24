@@ -1,19 +1,21 @@
 Class {
-	#name : #SkTracedContextPC,
-	#superclass : #OrderedCollection,
+	#name : 'SkTracedContextPC',
+	#superclass : 'OrderedCollection',
 	#instVars : [
 		'sum'
 	],
-	#category : #'Seeker-Experimental-NodeNotation'
+	#category : 'Seeker-Experimental-NodeNotation',
+	#package : 'Seeker',
+	#tag : 'Experimental-NodeNotation'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkTracedContextPC class >> shiftBitSize [
 
 	^ 8
 ]
 
-{ #category : #arithmetic }
+{ #category : 'arithmetic' }
 SkTracedContextPC >> / aNumberOrCbcp [
 
 	| copy |
@@ -26,7 +28,7 @@ SkTracedContextPC >> / aNumberOrCbcp [
 	^ copy
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SkTracedContextPC >> @< anotherPath [
 
 	"when comparing traced paths, it is importat to match the path lengths, so the bytes in both paths represent the propriate order of magnitude "
@@ -35,20 +37,20 @@ SkTracedContextPC >> @< anotherPath [
 	^ self compareTo: anotherPath usingOperator: #<
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SkTracedContextPC >> @<= anotherPath [
 
 	self == anotherPath ifTrue: [ ^ true ].
 	^ self compareTo: anotherPath usingOperator: #<=
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SkTracedContextPC >> @= anotherPath [
 
 	^ self sum = anotherPath sum
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SkTracedContextPC >> @> anotherPath [
 
 	"when comparing traced paths, it is importat to match the path lengths, so the bytes in both paths represent the propriate order of magnitude "
@@ -57,20 +59,20 @@ SkTracedContextPC >> @> anotherPath [
 	^ self compareTo: anotherPath usingOperator: #>
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SkTracedContextPC >> @>= anotherPath [
 
 	self == anotherPath ifTrue: [ ^ true ].
 	^ self compareTo: anotherPath usingOperator: #>=
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 SkTracedContextPC >> asTraceTimeReference [
 
 	^ SkTracedContextTraceTimeReference new tracedContextPC: self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkTracedContextPC >> compareTo: anotherPath [
 
 	"negativeNumber if self is less than the other. 0 if are equal and postive if greater"
@@ -78,7 +80,7 @@ SkTracedContextPC >> compareTo: anotherPath [
 	^ self compareTo: anotherPath usingOperator: #-
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkTracedContextPC >> compareTo: anotherPath usingOperator: aSymbol [
 
 	"negativeNumber if self is less than the other. 0 if are equal and postive if greater"
@@ -96,7 +98,7 @@ SkTracedContextPC >> compareTo: anotherPath usingOperator: aSymbol [
 		  self sum perform: aSymbol with: (anotherPath shiftedSum: sizeDiff) ]
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SkTracedContextPC >> oldEqual: anotherPath [
 
 	"Returns if two context paths are equal (no necessarily the same instance)"
@@ -109,7 +111,7 @@ SkTracedContextPC >> oldEqual: anotherPath [
 	^ true
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkTracedContextPC >> shiftedSum: aNumber [
 
 	"returns the sum value shifted by the default number of bits (8) times aNumber"
@@ -118,7 +120,7 @@ SkTracedContextPC >> shiftedSum: aNumber [
 		  aNumber * SkTracedContextPC shiftBitSize
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracedContextPC >> sum [
 
 	"think of the pc path as byte array. We create an integer(posibly a large integer) and we can calcule precedence based on the sum"
@@ -129,13 +131,13 @@ SkTracedContextPC >> sum [
 		  sum ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkTracedContextPC >> sum: aNumber [
 
 	sum := aNumber
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkTracedContextPC >> updateSumStartingAt: aNumber [
 
 	aNumber to: self size do: [ :i | 

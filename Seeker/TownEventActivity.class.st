@@ -1,14 +1,16 @@
 Class {
-	#name : #TownEventActivity,
-	#superclass : #Object,
+	#name : 'TownEventActivity',
+	#superclass : 'Object',
 	#instVars : [
 		'name',
 		'participants'
 	],
-	#category : #'Seeker-Presentation'
+	#category : 'Seeker-Presentation',
+	#package : 'Seeker',
+	#tag : 'Presentation'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TownEventActivity class >> createRandomActivityName: aRandom [
 
 	| activityNamesPrefixArray activityNamesSufixArray r1 r2 |
@@ -20,13 +22,13 @@ TownEventActivity class >> createRandomActivityName: aRandom [
 	^ (activityNamesPrefixArray at: r1) , (activityNamesSufixArray at: r2)
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 TownEventActivity >> addParticipants: aCollection [
 
 	aCollection do: [ :p | participants add: p ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TownEventActivity >> doExchangeBetween: participant1 and: participant2 withRandom: aRandom [
 
 	| nToExchange applesOfP1 applesOfP2 |
@@ -37,44 +39,44 @@ TownEventActivity >> doExchangeBetween: participant1 and: participant2 withRando
 	participant2 receiveApples: applesOfP1.
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TownEventActivity >> initialize [
 
 	participants := OrderedCollection new.
 	name := 'unnamed Activity'.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TownEventActivity >> name [
 
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TownEventActivity >> name: anObject [
 
 	name := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TownEventActivity >> participants [
 
 	^ participants
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TownEventActivity >> participants: anObject [
 
 	participants := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 TownEventActivity >> printOn: aStream [
 
 	aStream nextPutAll: 'anActivity: (' , name asString , ')'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TownEventActivity >> start: random [
 
 	"Exchange apples, change status"

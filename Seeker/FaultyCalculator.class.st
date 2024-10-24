@@ -1,10 +1,12 @@
 Class {
-	#name : #FaultyCalculator,
-	#superclass : #Object,
-	#category : #'Seeker-BugCollection-Tests'
+	#name : 'FaultyCalculator',
+	#superclass : 'Object',
+	#category : 'Seeker-BugCollection-Tests',
+	#package : 'Seeker',
+	#tag : 'BugCollection-Tests'
 }
 
-{ #category : #'test methods' }
+{ #category : 'test methods' }
 FaultyCalculator class >> aMethod [
 
 	| a |
@@ -15,7 +17,7 @@ FaultyCalculator class >> aMethod [
 	^ a
 ]
 
-{ #category : #'test methods' }
+{ #category : 'test methods' }
 FaultyCalculator class >> aMethodCopy [
 
 	| a |
@@ -26,7 +28,7 @@ FaultyCalculator class >> aMethodCopy [
 	^ a
 ]
 
-{ #category : #'test methods' }
+{ #category : 'test methods' }
 FaultyCalculator class >> aMethodCopy2 [
 
 	| b |
@@ -37,7 +39,7 @@ FaultyCalculator class >> aMethodCopy2 [
 	^ b
 ]
 
-{ #category : #'test methods' }
+{ #category : 'test methods' }
 FaultyCalculator class >> aMethodForExecutionStatesDo [
 
 	<skpExecutionStatesDo: #SkESDCountBytecodes>
@@ -45,7 +47,7 @@ FaultyCalculator class >> aMethodForExecutionStatesDo [
 	^ self aMethod
 ]
 
-{ #category : #'test methods' }
+{ #category : 'test methods' }
 FaultyCalculator class >> aMethodToDebug [
 
 	<skpDebugWithSeeker>
@@ -53,7 +55,7 @@ FaultyCalculator class >> aMethodToDebug [
 	^ self aMethod
 ]
 
-{ #category : #'test methods' }
+{ #category : 'test methods' }
 FaultyCalculator class >> aMethodToDebug2 [
 
 	<skpDebugWithSeekerIfKeysPressed>
@@ -61,7 +63,7 @@ FaultyCalculator class >> aMethodToDebug2 [
 	^ self aMethod
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 FaultyCalculator class >> instrument [
 |m m2|
 	<script>
@@ -72,7 +74,7 @@ FaultyCalculator class >> instrument [
 	self class methodDictionary at: #aMethodCopy2 put: m.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 FaultyCalculator class >> sameInstanceWrapper: receiver wrappedMethod: aMethod arguments: args [
 
 	| res |
@@ -80,7 +82,7 @@ FaultyCalculator class >> sameInstanceWrapper: receiver wrappedMethod: aMethod a
 	^ 'result is: ' , res asString
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 FaultyCalculator class >> theWrapperOfJuanito: receiver wrappedMethod: aMethod arguments: args [
 
 	| res |
@@ -88,12 +90,12 @@ FaultyCalculator class >> theWrapperOfJuanito: receiver wrappedMethod: aMethod a
 	^ 'result is: ' , res asString
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 FaultyCalculator >> obtainValuesFromSomewhere [
   ^{1 . 2. 3. 4. 5. 6. 7. 8. 9. 0 . 13 . 42 . 35 . 75 . 68 . 79}
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 FaultyCalculator >> reciprocal: aCollection [
   ^ aCollection collect: [ :each | 1.0 / each ]
 ]

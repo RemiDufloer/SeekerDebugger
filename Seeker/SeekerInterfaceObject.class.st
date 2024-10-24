@@ -7,21 +7,23 @@ Some interfaces can be used to find specific objects in the debugged program exe
 See each interface object description for details.
 "
 Class {
-	#name : #SeekerInterfaceObject,
-	#superclass : #Object,
+	#name : 'SeekerInterfaceObject',
+	#superclass : 'Object',
 	#instVars : [
 		'tracer'
 	],
-	#category : #'Seeker-Interfaces'
+	#category : 'Seeker-Interfaces',
+	#package : 'Seeker',
+	#tag : 'Interfaces'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerInterfaceObject >> tracer [
 
 	^ tracer
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerInterfaceObject >> tracer: anObject [
 
 	tracer := anObject

@@ -1,14 +1,16 @@
 Class {
-	#name : #SkXStatementNotation,
-	#superclass : #Object,
+	#name : 'SkXStatementNotation',
+	#superclass : 'Object',
 	#instVars : [
 		'sequenceID',
 		'statementIndex'
 	],
-	#category : #'Seeker-Experimental'
+	#category : 'Seeker-Experimental',
+	#package : 'Seeker',
+	#tag : 'Experimental'
 }
 
-{ #category : #compiling }
+{ #category : 'compiling' }
 SkXStatementNotation class >> compileSource: aString [
 
 	^ nil class compiler
@@ -22,7 +24,7 @@ SkXStatementNotation class >> compileSource: aString [
 		  compile
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkXStatementNotation >> asSeekerOfflineExpression [
 
 	"Returns an bock that represents a statement. This is used in to denote statements from sequences that doesn't exists"
@@ -32,7 +34,7 @@ SkXStatementNotation >> asSeekerOfflineExpression [
 	^ (self class compileSource: offlineExpressionString) literals at: 1
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkXStatementNotation >> asSeekerOfflineExpressionString [
 
 	"Returns an bock that represents a statement. This is used in to denote statements from sequences that doesn't exists"
@@ -46,7 +48,7 @@ SkXStatementNotation >> asSeekerOfflineExpressionString [
 	^ stringExpression
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkXStatementNotation >> asSeekerStatementExpression [
 
 	"Returns an bock that represents a statement. This is used in to denote statements from sequences that doesn't exists"
@@ -56,7 +58,7 @@ SkXStatementNotation >> asSeekerStatementExpression [
 	^ (self class compileSource: expressionString) literals at: 1
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkXStatementNotation >> asSeekerStatementExpressionString [
 
 	"Returns an bock that represents a statement. This is used in to denote statements from sequences that doesn't exists"
@@ -70,43 +72,43 @@ SkXStatementNotation >> asSeekerStatementExpressionString [
 	^ stringExpression
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 SkXStatementNotation >> asStatementPathNode [
 
 	^ SkXStatementPathNode newFromStatement: self
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 SkXStatementNotation >> asString [
 
 	^ (sequenceID methodClass name asString), '>>#', (sequenceID selector asString)  , '@' , statementIndex asString
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkXStatementNotation >> node [
 	"We assume for the moment that the sequenceID is a method or block"
 	^ sequenceID ast body statements at: statementIndex
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXStatementNotation >> sequenceID [
 "sequenceID is an expression that could be a CompiledMethod, a CompiledBlock or aBlock"
 	^ sequenceID
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXStatementNotation >> sequenceID: anObject [
 
 	sequenceID := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXStatementNotation >> statementIndex [
 
 	^ statementIndex
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXStatementNotation >> statementIndex: anObject [
 
 	statementIndex := anObject

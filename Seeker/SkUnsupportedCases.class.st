@@ -1,16 +1,18 @@
 Class {
-	#name : #SkUnsupportedCases,
-	#superclass : #Object,
+	#name : 'SkUnsupportedCases',
+	#superclass : 'Object',
 	#instVars : [
 		'unsupportedMethods',
 		'unsupportedClassesForInstantiation',
 		'unsupportedClassesAsReceiver',
 		'logMessage'
 	],
-	#category : #'Seeker-Components'
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkUnsupportedCases >> checkCaseSupport: programState [
 
 (self isUnsupportedCase: programState) ifTrue: [ 
@@ -19,7 +21,7 @@ SkUnsupportedCases >> checkCaseSupport: programState [
 	 ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkUnsupportedCases >> initialize [ 
 logMessage :=''.
 unsupportedClassesForInstantiation := {
@@ -36,18 +38,18 @@ unsupportedMethods := {
  } asIdentitySet
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkUnsupportedCases >> isSupportedCase: programState [
 ^ (self isUnsupportedCase: programState)not
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkUnsupportedCases >> isUnsupportedCase: programState [
 programState isMessageSend ifTrue: [^self isUnsupportedMessageSend:programState  ].
 ^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkUnsupportedCases >> isUnsupportedMessageSend: programState [
 
 	programState isInstantiationMessage ifTrue: [

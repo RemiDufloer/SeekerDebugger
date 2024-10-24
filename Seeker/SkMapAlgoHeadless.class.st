@@ -1,16 +1,18 @@
 Class {
-	#name : #SkMapAlgoHeadless,
-	#superclass : #SkExecutionMapperAlgorithm,
-	#category : #'Seeker-Components'
+	#name : 'SkMapAlgoHeadless',
+	#superclass : 'SkExecutionMapperAlgorithm',
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkMapAlgoHeadless class >> matchesExecutionScenario: tracer [
 
 	^ tracer headless
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkMapAlgoHeadless >> mapExecution [
 
 	| initialContext endingContext endTracedInstructionPC endTraceTime endCondition |

@@ -1,20 +1,22 @@
 Class {
-	#name : #SkMapSessionFormSelectedStartingPointLC,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkMapSessionFormSelectedStartingPointLC',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkMapSessionFormSelectedStartingPointLC >> description [
 	^'Set starting point for the session for general usage'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SkMapSessionFormSelectedStartingPointLC >> executeCommand [
 	 self seeker tracer setStartingPointAndMap: self seeker stDebugger selectedContext
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkMapSessionFormSelectedStartingPointLC >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -26,7 +28,7 @@ SkMapSessionFormSelectedStartingPointLC >> icon [
 	^ #add
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkMapSessionFormSelectedStartingPointLC >> name [
 	^'Map the session using the selected context as starting point'
 ]

@@ -1,10 +1,12 @@
 Class {
-	#name : #UTTQAllWritings,
-	#superclass : #UserTTQ,
-	#category : #'Seeker-TimeTravelingQueries'
+	#name : 'UTTQAllWritings',
+	#superclass : 'UserTTQ',
+	#category : 'Seeker-TimeTravelingQueries',
+	#package : 'Seeker',
+	#tag : 'TimeTravelingQueries'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 UTTQAllWritings class >> queryFrom: programStates [
 
 "This query joins to type of instructions. Assignments on instance varaibles of the receiver, and writing primitive calls on on the targetOID"
@@ -23,7 +25,7 @@ UTTQAllWritings class >> queryFrom: programStates [
 				  endWith ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 UTTQAllWritings >> ttqTitle [
 
 	^ 'Find All Writings'

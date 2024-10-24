@@ -1,14 +1,16 @@
 Class {
-	#name : #SkEndCondition,
-	#superclass : #Object,
+	#name : 'SkEndCondition',
+	#superclass : 'Object',
 	#instVars : [
 		'tracer',
 		'currentState'
 	],
-	#category : #'Seeker-Components'
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkEndCondition class >> newForTracer: tracer [
 
 	^ self new
@@ -17,31 +19,31 @@ SkEndCondition class >> newForTracer: tracer [
 		  yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkEndCondition >> currentState [
 
 	^ currentState
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkEndCondition >> currentState: anObject [
 
 	currentState := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkEndCondition >> isEndReached [
 
 	^ self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkEndCondition >> tracer [
 
 	^ tracer
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkEndCondition >> tracer: anObject [
 
 	tracer := anObject

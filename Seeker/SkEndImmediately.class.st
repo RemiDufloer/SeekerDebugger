@@ -1,10 +1,12 @@
 Class {
-	#name : #SkEndImmediately,
-	#superclass : #SkEndCondition,
-	#category : #'Seeker-Components'
+	#name : 'SkEndImmediately',
+	#superclass : 'SkEndCondition',
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkEndImmediately class >> newForTracer: tracer [
 
 	^ self new
@@ -13,7 +15,7 @@ SkEndImmediately class >> newForTracer: tracer [
 		  yourself
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkEndImmediately >> isEndReached [
 
 	^ true

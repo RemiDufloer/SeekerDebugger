@@ -30,8 +30,8 @@ Internal Representation and Key Implementation Points.
     Implementation Points
 "
 Class {
-	#name : #SeekerDebugger,
-	#superclass : #Object,
+	#name : 'SeekerDebugger',
+	#superclass : 'Object',
 	#traits : 'TDebuggerUpdateCoordinatorClient',
 	#classTraits : 'TDebuggerUpdateCoordinatorClient classTrait',
 	#instVars : [
@@ -46,10 +46,12 @@ Class {
 	#classVars : [
 		'instanceNumberTotal'
 	],
-	#category : #'Seeker-Core'
+	#category : 'Seeker-Core',
+	#package : 'Seeker',
+	#tag : 'Core'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SeekerDebugger class >> debugBlock: aBlock [
 	"Starts a UI-based debug session with Seeker debugger, and returns the debugger instance"
 
@@ -72,7 +74,7 @@ SeekerDebugger class >> debugBlock: aBlock [
 	^ sk2
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger class >> findHeadlessDebuggerInstanceForProcess: aProcess [
 	"returns the last instance debugging the process"
 
@@ -83,7 +85,7 @@ SeekerDebugger class >> findHeadlessDebuggerInstanceForProcess: aProcess [
 		  ifEmpty: [ nil ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger class >> findUIDebuggerInstanceForProcess: aProcess [
 	"returns the last instance debugging the process"
 
@@ -92,7 +94,7 @@ SeekerDebugger class >> findUIDebuggerInstanceForProcess: aProcess [
 			   s tracer headless not ]] ]) lastOrNil
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger class >> headlessDebug: aProcess [
 
 	"not recommended to use this method. Prefer using the block one or manually specifying the offset to ensure that the execution can actually be replayed"
@@ -102,7 +104,7 @@ SeekerDebugger class >> headlessDebug: aProcess [
 	^ self headlessDebug: aProcess offsetBytecodes: 0
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger class >> headlessDebug: aProcess offsetBytecodes: aNumber [
 
 	| s |
@@ -116,7 +118,7 @@ SeekerDebugger class >> headlessDebug: aProcess offsetBytecodes: aNumber [
 	^ s
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger class >> headlessDebugBlock: aBlock [
 
 	| p s |
@@ -132,7 +134,7 @@ SeekerDebugger class >> headlessDebugBlock: aBlock [
 	^ s
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger class >> headlessDebugFor: receiver selector: selector withArgs: argsArray [
 
 	| p s |
@@ -149,7 +151,7 @@ SeekerDebugger class >> headlessDebugFor: receiver selector: selector withArgs: 
 	^ s
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger class >> headlessDebugForDoIt: aProcess [
 
 	| s |
@@ -165,7 +167,7 @@ SeekerDebugger class >> headlessDebugForDoIt: aProcess [
 	^ s
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SeekerDebugger class >> newFor: aStDebugger [
 
 	"Initializes a seeker debugger with a default-level stepper and trace.
@@ -190,14 +192,14 @@ SeekerDebugger class >> newFor: aStDebugger [
 	^ debugger
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger class >> nextInstanceID [
 
 	instanceNumberTotal ifNil: [ instanceNumberTotal := 0 ].
 	^ instanceNumberTotal + 1
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger >> asUIBasedSession [
 	"takes a headless mode session, and continues it as UI based with the StDebugger"
 
@@ -226,24 +228,24 @@ SeekerDebugger >> asUIBasedSession [
 	^ self
 ]
 
-{ #category : #starting }
+{ #category : 'starting' }
 SeekerDebugger >> clearRecords [
 
 	tracer clearRecords
 ]
 
-{ #category : #'accessing context' }
+{ #category : 'accessing context' }
 SeekerDebugger >> currentContext [
 ^tracer currentContext
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerDebugger >> currentState [
 
 	^ tracer currentState
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger >> deinitialize [
 	"Sets instance variables to nil. Used to prevent further manipulations of the debugged process by this instance of the debugger, and it is used when granting ownership of the debugger process to another debugger instance"
 
@@ -259,7 +261,7 @@ SeekerDebugger >> deinitialize [
 	tracer := nil
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger >> doUnsafeCode: aBlock [
 
 	"Catch exceptions and log them. Should be used in methods that are called when initializing the debugger to
@@ -274,7 +276,7 @@ prevent being unable to debug anything in case of failure
 			cr ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger >> evaluateExpression: aStream inContext: aContext [
    "Evaluates the expression coming from a stream. Uses the current context of the StDebugger"
    ^ aContext receiver class compiler
@@ -286,7 +288,7 @@ SeekerDebugger >> evaluateExpression: aStream inContext: aContext [
         evaluate
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger >> evaluateExpression: aString inContext: aContext throws: anError [
    "Evaluates the expression coming from a stream. Returns true or false if the given error was thrown on evaluation"
    [  aContext receiver class compiler
@@ -298,7 +300,7 @@ SeekerDebugger >> evaluateExpression: aString inContext: aContext throws: anErro
         evaluate] on: anError do: [ :e| ^true ] . ^false
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerDebugger >> initialize [
 	deinitialized :=false.
 	self doUnsafeCode: [ 
@@ -313,7 +315,7 @@ SeekerDebugger >> initialize [
 		self initializePlugins ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerDebugger >> initializePlugins [
 
 	"(Pragma allNamed: #seekerDebuggerPlugin:) do: [ :pluginPragma | 
@@ -324,55 +326,55 @@ SeekerDebugger >> initializePlugins [
 		plugins add: plugin ]"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger >> instanceID [ 
 	^ instanceNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerDebugger >> interruptedProcess [
 
 	^ stDebugger interruptedProcess
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerDebugger >> isSessionActive [
 
 	tracer ifNil: [ ^ false ].
 	^ tracer isSessionActive
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerDebugger >> localToExecutionTime [
    "This is only used by the ECU."
 	^ localToExecutionTime
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger >> notifyCommandExecution: aCommand subEvent: aSymbol [
 
 	self notifyPlugins
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger >> notifyDebuggerInitialized [
 
 	self notifyPlugins
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger >> notifyExecutionMapped [
 
 	self notifyExecutionMapped: tracer currentContext method
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger >> notifyExecutionMapped: compiledMethod [
 
 	self notifyPlugins
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger >> notifyPlugins [
 
 	| senderContext methodSelector |
@@ -385,30 +387,30 @@ SeekerDebugger >> notifyPlugins [
 				withArguments: senderContext arguments ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger >> notifyQueryFilterTextEntered: searchedString [
 
 	self notifyPlugins
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger >> notifySessionEnd [ 
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger >> notifyTimeTravel: stateString [
 
 	self notifyPlugins
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger >> programStates [
 
 	^ tracer newProgramStates
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger >> quickSetup [
 
 	| process |
@@ -421,7 +423,7 @@ SeekerDebugger >> quickSetup [
 	tracer componentsLateInitialization
 ]
 
-{ #category : #starting }
+{ #category : 'starting' }
 SeekerDebugger >> restart [
 
 	"Restarts the execution from the UserStart trace time (not bytecode one)"
@@ -429,43 +431,43 @@ SeekerDebugger >> restart [
 	tracer timeTravelToUserStart
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 SeekerDebugger >> resume [
 "used to resume the process. Time-traveling can't be used after this"
 	tracer debuggedProcess resume
 ]
 
-{ #category : #starting }
+{ #category : 'starting' }
 SeekerDebugger >> revert [
 
 	^ self restart
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger >> runReversibly [
 	"just an alias to match the asReversibleDo: dynamic"
 
 	^ self stepToEnd
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerDebugger >> seekerDebuggerPresenter [
 
 	^ seekerDebuggerPresenter
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerDebugger >> seekerDebuggerPresenter: anObject [
 
 	seekerDebuggerPresenter := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerDebugger >> setSelectedContextAsStartingPoint: aContext [
 	tracer setSelectedContextAsStartingPoint: aContext
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerDebugger >> setStDebugger: aStDebugger andCoordinator: updateCoordinator [
 
 	tracer stDebugger: aStDebugger.
@@ -479,38 +481,38 @@ SeekerDebugger >> setStDebugger: aStDebugger andCoordinator: updateCoordinator [
 	tracer seeker: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerDebugger >> stDebugger [
 
 	^ stDebugger
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerDebugger >> stDebugger: anObject [
 
 	stDebugger := anObject
 ]
 
-{ #category : #'debug - stepping' }
+{ #category : 'debug - stepping' }
 SeekerDebugger >> stepBackInto [
 
 	tracer stepBackInto
 ]
 
-{ #category : #'debug - stepping' }
+{ #category : 'debug - stepping' }
 SeekerDebugger >> stepBackOver [
 	tracer stepBackOver.
 	Transcript clear.
 	self printTrace
 ]
 
-{ #category : #'debug - stepping' }
+{ #category : 'debug - stepping' }
 SeekerDebugger >> stepBytecode [
 
 	tracer stepBytecode
 ]
 
-{ #category : #'debug - stepping' }
+{ #category : 'debug - stepping' }
 SeekerDebugger >> stepInto [
 
 	tracer stepInto.
@@ -518,51 +520,51 @@ SeekerDebugger >> stepInto [
 	self printTrace
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger >> stepNumber [
 
 	^ tracer bytecodeIndex
 ]
 
-{ #category : #'debug - stepping' }
+{ #category : 'debug - stepping' }
 SeekerDebugger >> stepOver [
 	tracer stepOver.
 	"Transcript clear.
 	self printTrace"
 ]
 
-{ #category : #'debug - stepping' }
+{ #category : 'debug - stepping' }
 SeekerDebugger >> stepToEnd [
 
 	tracer stepToEnd
 ]
 
-{ #category : #api }
+{ #category : 'api' }
 SeekerDebugger >> stepUntil: aBlock [
 "stops when block evaluates to true or the programs end"
 
 tracer stepBytecodeUntilConditionIsTrue:  aBlock 
 ]
 
-{ #category : #'debugging actions' }
+{ #category : 'debugging actions' }
 SeekerDebugger >> terminate [
 
 	tracer debuggedProcess terminate
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerDebugger >> timeTravelTo: stepNumber [
 
 	^ tracer timeTravelToBytecodeIndex: stepNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerDebugger >> tracer [
 
 	^ tracer
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerDebugger >> tracer: aDebuggerStepper [
 	tracer := aDebuggerStepper
 ]

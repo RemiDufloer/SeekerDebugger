@@ -1,6 +1,6 @@
-Extension { #name : #String }
+Extension { #name : 'String' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 String >> renderWidthUsingFont: font [
 
 	"width class inheritsFromOrSameAs: Number"
@@ -12,7 +12,7 @@ String >> renderWidthUsingFont: font [
 	^ font widthOfString: self
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 String >> searchCharacterIndexForRenderTrim: width usingFont: font [
 
 	"width class inheritsFromOrSameAs: Number"
@@ -39,7 +39,7 @@ String >> searchCharacterIndexForRenderTrim: width usingFont: font [
 	^ firstIndex max: lastIndex
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 String >> trimForRenderWidth: width usingFont: font autoEllipsis: autoEllipsis [
 
 	"width class inheritsFromOrSameAs: Number"

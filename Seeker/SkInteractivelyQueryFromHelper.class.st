@@ -1,10 +1,12 @@
 Class {
-	#name : #SkInteractivelyQueryFromHelper,
-	#superclass : #Object,
-	#category : #'Seeker-Helpers'
+	#name : 'SkInteractivelyQueryFromHelper',
+	#superclass : 'Object',
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkInteractivelyQueryFromHelper class >> requestClassName [
 
 	^ self
@@ -13,7 +15,7 @@ SkInteractivelyQueryFromHelper class >> requestClassName [
 		  title: 'Enter class name'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkInteractivelyQueryFromHelper class >> requestInput: message initialAnswer: initialAnswer title: title [
 
 	^ UIManager default
@@ -22,7 +24,7 @@ SkInteractivelyQueryFromHelper class >> requestInput: message initialAnswer: ini
 		  title: title
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkInteractivelyQueryFromHelper class >> requestNumberInput: message initialAnswer: initialAnswer title: title [
 	"request user input, and test it for number. If not a number returns nil"
 
@@ -34,7 +36,7 @@ SkInteractivelyQueryFromHelper class >> requestNumberInput: message initialAnswe
 	[ ^ input asNumber ] onErrorDo: [ :e | ^ nil ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkInteractivelyQueryFromHelper class >> requestOID [
 
 	^ self
@@ -43,7 +45,7 @@ SkInteractivelyQueryFromHelper class >> requestOID [
 		  title: 'OID'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkInteractivelyQueryFromHelper class >> requestSelector [
 
 	^ self
@@ -52,7 +54,7 @@ SkInteractivelyQueryFromHelper class >> requestSelector [
 		  title: 'Enter selector'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkInteractivelyQueryFromHelper class >> requestSymbolInput: message initialAnswer: initialAnswer title: title [
 	"request user input, returns a Symbol or nil"
 
@@ -66,7 +68,7 @@ SkInteractivelyQueryFromHelper class >> requestSymbolInput: message initialAnswe
 	^ input asSymbol ] onErrorDo: [ :e | ^ nil ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkInteractivelyQueryFromHelper class >> requestVariableName [
 
 	^ self

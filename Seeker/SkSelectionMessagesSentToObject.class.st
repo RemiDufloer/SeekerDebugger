@@ -1,25 +1,27 @@
 Class {
-	#name : #SkSelectionMessagesSentToObject,
-	#superclass : #SkSelectionMessageSends,
+	#name : 'SkSelectionMessagesSentToObject',
+	#superclass : 'SkSelectionMessageSends',
 	#instVars : [
 		'messageReceiverOid'
 	],
-	#category : #'Seeker-TimeTravelingQueries'
+	#category : 'Seeker-TimeTravelingQueries',
+	#package : 'Seeker',
+	#tag : 'TimeTravelingQueries'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSelectionMessagesSentToObject >> messageReceiverOid [
 
 	^ messageReceiverOid
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSelectionMessagesSentToObject >> messageReceiverOid: anObject [
 
 	messageReceiverOid := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSelectionMessagesSentToObject >> value: programState [
 
 	programState isMessageSend ifFalse: [ ^ false ].

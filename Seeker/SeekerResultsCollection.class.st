@@ -4,17 +4,19 @@ The results of the collection are expected to be display respecting the column o
 Each element of the collection is a ""row"", which is a AnonymousType object that at least responds to bytecodeIndex message.
 "
 Class {
-	#name : #SeekerResultsCollection,
-	#superclass : #OrderedCollection,
+	#name : 'SeekerResultsCollection',
+	#superclass : 'OrderedCollection',
 	#instVars : [
 		'columns',
 		'title',
 		'timeToRun'
 	],
-	#category : #'Seeker-UI'
+	#category : 'Seeker-UI',
+	#package : 'Seeker',
+	#tag : 'UI'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SeekerResultsCollection class >> new [
 
 	| c |
@@ -23,7 +25,7 @@ SeekerResultsCollection class >> new [
 	^ c
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 SeekerResultsCollection >> addColumn [
 
 	| c |
@@ -32,19 +34,19 @@ SeekerResultsCollection >> addColumn [
 	^ c
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerResultsCollection >> columns [
 
 	^ columns
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerResultsCollection >> columns: anObject [
 
 	columns := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerResultsCollection >> filteredItems: aString [
 
 	"Note that the filter is applied only in the specified columns, and not all the fields of the data object"
@@ -65,7 +67,7 @@ SeekerResultsCollection >> filteredItems: aString [
 	^ filteredResult
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerResultsCollection >> forAssignmentsOfAnyVariable [
 
 	columns removeAll.
@@ -93,7 +95,7 @@ SeekerResultsCollection >> forAssignmentsOfAnyVariable [
 	^ self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerResultsCollection >> forAssignmentsOfInstanceVariables [
 
 	columns removeAll.
@@ -121,7 +123,7 @@ SeekerResultsCollection >> forAssignmentsOfInstanceVariables [
 	^ self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerResultsCollection >> forAssignmentsOfInstanceVariablesWithPackage [
 
 	columns removeAll.
@@ -149,7 +151,7 @@ SeekerResultsCollection >> forAssignmentsOfInstanceVariablesWithPackage [
 	^ self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerResultsCollection >> forExceptionInstancesCreation [
 
 	columns removeAll.
@@ -168,7 +170,7 @@ SeekerResultsCollection >> forExceptionInstancesCreation [
 	^ self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerResultsCollection >> forExceptionSignals [
 
 	columns removeAll.
@@ -188,7 +190,7 @@ SeekerResultsCollection >> forExceptionSignals [
 	^ self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerResultsCollection >> forInstancesCreation [
 
 	columns removeAll.
@@ -207,7 +209,7 @@ SeekerResultsCollection >> forInstancesCreation [
 	^ self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerResultsCollection >> forMessageSends [
 
 	columns removeAll.
@@ -223,7 +225,7 @@ SeekerResultsCollection >> forMessageSends [
 	^ self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerResultsCollection >> forReceivedMessages [
 
 	columns removeAll.
@@ -243,7 +245,7 @@ SeekerResultsCollection >> forReceivedMessages [
 	^ self
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerResultsCollection >> initialize [
 
 	title := ''.
@@ -251,7 +253,7 @@ SeekerResultsCollection >> initialize [
 	super initialize
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 SeekerResultsCollection >> printRow: row on: aStream [
 
 	columns ifEmpty: [ ^ self ].
@@ -265,7 +267,7 @@ SeekerResultsCollection >> printRow: row on: aStream [
 		aStream nextPutAll: (c value: row) ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerResultsCollection >> quickConsistencyCheck [
 
 	"Used to test the obejct state before creating the UI side.(The UI will not allow to debug an exception)"
@@ -278,25 +280,25 @@ SeekerResultsCollection >> quickConsistencyCheck [
 	self columns do: [ :eachCol | eachCol value: f ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerResultsCollection >> timeToRun [
 
 	^ timeToRun
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerResultsCollection >> timeToRun: anObject [
 
 	timeToRun := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerResultsCollection >> title [
 
 	^ title
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerResultsCollection >> title: anObject [
 
 	title := anObject

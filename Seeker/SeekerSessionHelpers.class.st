@@ -1,22 +1,24 @@
 Class {
-	#name : #SeekerSessionHelpers,
-	#superclass : #Object,
+	#name : 'SeekerSessionHelpers',
+	#superclass : 'Object',
 	#classVars : [
 		'lastQueryResults'
 	],
 	#classInstVars : [
 		'emergencyPreventLoading'
 	],
-	#category : #'Seeker-Helpers'
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerSessionHelpers class >> debugSession: aBlock [
 
 	self innerSeekerSessionFor: aBlock withFlag: self makeOnceFlag
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerSessionHelpers class >> debugSessionIfKeysPressed: aBlock [
 
 	"this will open a seeker debugging session if Shift+Cmd keys are pressed during execution"
@@ -27,7 +29,7 @@ SeekerSessionHelpers class >> debugSessionIfKeysPressed: aBlock [
 		ifFalse: [ aBlock value ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerSessionHelpers class >> doCriticalInitialization: block [
 
 	emergencyPreventLoading ifTrue: [ 
@@ -40,25 +42,25 @@ SeekerSessionHelpers class >> doCriticalInitialization: block [
 		e debug ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerSessionHelpers class >> emergencyPreventLoading [
 
 	^ emergencyPreventLoading
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerSessionHelpers class >> emergencyPreventLoading: anObject [
 
 	emergencyPreventLoading := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerSessionHelpers class >> initialize [
 
 	emergencyPreventLoading := false
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerSessionHelpers class >> innerSeekerExecutionStatesDoSessionFor: aBlock withFlag: aFlagBlock [
 
 	aFlagBlock value ifTrue: [ 
@@ -67,7 +69,7 @@ SeekerSessionHelpers class >> innerSeekerExecutionStatesDoSessionFor: aBlock wit
 	aBlock ensure: [ self seekerSessionEndMarker ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerSessionHelpers class >> innerSeekerPragmaDebugSessionFor: aBlock withFlag: aFlagBlock [
 
 	aFlagBlock value ifTrue: [ 
@@ -76,7 +78,7 @@ SeekerSessionHelpers class >> innerSeekerPragmaDebugSessionFor: aBlock withFlag:
 	aBlock ensure: [ self seekerSessionEndMarker ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerSessionHelpers class >> innerSeekerSessionFor2: aBlock [
 
 	"Not used, but saved for later"
@@ -89,7 +91,7 @@ SeekerSessionHelpers class >> innerSeekerSessionFor2: aBlock [
 	self seekerSessionEndMarker
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerSessionHelpers class >> innerSeekerSessionFor: aBlock [
 
 	"Not used, but saved for later"
@@ -102,7 +104,7 @@ SeekerSessionHelpers class >> innerSeekerSessionFor: aBlock [
 	self seekerSessionEndMarker
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerSessionHelpers class >> innerSeekerSessionFor: aBlock withFlag: aFlagBlock [
 
 	aFlagBlock value ifTrue: [ Exception new signal ].
@@ -110,19 +112,19 @@ SeekerSessionHelpers class >> innerSeekerSessionFor: aBlock withFlag: aFlagBlock
 	self seekerSessionEndMarker
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerSessionHelpers class >> lastQueryResults [
 
 	^ lastQueryResults
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerSessionHelpers class >> lastQueryResults: aQueryResults [
 
 	lastQueryResults := aQueryResults
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerSessionHelpers class >> makeOnceFlag [
 
 	"creates a block that returns true only once"
@@ -136,7 +138,7 @@ SeekerSessionHelpers class >> makeOnceFlag [
 	  val ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerSessionHelpers class >> marker [
 
 	"Does nothing. Seeker should recognize this call."
@@ -146,7 +148,7 @@ SeekerSessionHelpers class >> marker [
 	^ self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerSessionHelpers class >> marker: aString [
 
 	"Does nothing. Seeker should recognize this call."
@@ -158,13 +160,13 @@ SeekerSessionHelpers class >> marker: aString [
 	^ self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerSessionHelpers class >> openDebugger [
 
 	Exception new signal 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerSessionHelpers class >> releasePinnedMenus [
 
 	<script>
@@ -172,7 +174,7 @@ SeekerSessionHelpers class >> releasePinnedMenus [
 		m stayUp: false ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerSessionHelpers class >> seekerExecutionStatesDoSessionWrapper: receiver method: aMethod arguments: args [
 
 	| val |
@@ -183,7 +185,7 @@ SeekerSessionHelpers class >> seekerExecutionStatesDoSessionWrapper: receiver me
 	^ val
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerSessionHelpers class >> seekerKeyConditionSessionWrapper: receiver method: aMethod arguments: args [
 
 	| val |
@@ -197,7 +199,7 @@ SeekerSessionHelpers class >> seekerKeyConditionSessionWrapper: receiver method:
 	^ val
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerSessionHelpers class >> seekerSession: aBlock [
 
 	SeekerGlobals instance debugCommandKeysPressed
@@ -206,7 +208,7 @@ SeekerSessionHelpers class >> seekerSession: aBlock [
 		ifFalse: [ aBlock value ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerSessionHelpers class >> seekerSessionEndMarker [
 
 	"Does nothing. Seeker should recognize this call."
@@ -217,7 +219,7 @@ SeekerSessionHelpers class >> seekerSessionEndMarker [
    ^ self yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerSessionHelpers class >> seekerSessionStartMaker [
 
 	"This method will open a debugger. If seeker is enabled, the debugger will recognize this method 
@@ -226,7 +228,7 @@ as the starting point recording and replaying. "
 	self openDebugger
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerSessionHelpers class >> seekerSessionWrapper: receiver method: aMethod arguments: args [
 
 	| val |

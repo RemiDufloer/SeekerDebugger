@@ -1,25 +1,27 @@
 Class {
-	#name : #SkSelectionAssignmentsOfInstanceVariablesOfObject,
-	#superclass : #SkSelectionAssignments,
+	#name : 'SkSelectionAssignmentsOfInstanceVariablesOfObject',
+	#superclass : 'SkSelectionAssignments',
 	#instVars : [
 		'objectOid'
 	],
-	#category : #'Seeker-TimeTravelingQueries'
+	#category : 'Seeker-TimeTravelingQueries',
+	#package : 'Seeker',
+	#tag : 'TimeTravelingQueries'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSelectionAssignmentsOfInstanceVariablesOfObject >> objectOid [
 
 	^ objectOid
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSelectionAssignmentsOfInstanceVariablesOfObject >> objectOid: anObject [
 
 	objectOid := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSelectionAssignmentsOfInstanceVariablesOfObject >> value: programState [
 
 	^ programState isAssignmentOfInstanceVariable and: [ 

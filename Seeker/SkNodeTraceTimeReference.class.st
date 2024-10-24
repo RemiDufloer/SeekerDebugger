@@ -1,6 +1,6 @@
 Class {
-	#name : #SkNodeTraceTimeReference,
-	#superclass : #SkTraceTimeReference,
+	#name : 'SkNodeTraceTimeReference',
+	#superclass : 'SkTraceTimeReference',
 	#instVars : [
 		'node',
 		'ownerNode',
@@ -8,16 +8,18 @@ Class {
 		'nodeStart',
 		'ownerStop'
 	],
-	#category : #'Seeker-TraceTime'
+	#category : 'Seeker-TraceTime',
+	#package : 'Seeker',
+	#tag : 'TraceTime'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkNodeTraceTimeReference >> node [
 
 	^ node
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkNodeTraceTimeReference >> node: anObject [
 
 	node := anObject.
@@ -27,7 +29,7 @@ SkNodeTraceTimeReference >> node: anObject [
 	nodeStart := node start
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkNodeTraceTimeReference >> referencesTheLocalPast: tracer [
 
 	| currentNode currentStop |
@@ -38,7 +40,7 @@ SkNodeTraceTimeReference >> referencesTheLocalPast: tracer [
 			  nodeStop <= currentStop and: [ currentNode start <= nodeStart ] ] ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkNodeTraceTimeReference >> referencesTheLocalPastOrPresent: tracer [
 
 	| currentNode currentStop |
@@ -53,7 +55,7 @@ SkNodeTraceTimeReference >> referencesTheLocalPastOrPresent: tracer [
 		  nodeStop <= currentStop and: [ currentNode start <= nodeStart ] ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkNodeTraceTimeReference >> referencesThePresent: tracer [
 
 	^ tracer currentState node = node

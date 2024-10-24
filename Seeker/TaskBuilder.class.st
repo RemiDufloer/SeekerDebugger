@@ -1,13 +1,15 @@
 Class {
-	#name : #TaskBuilder,
-	#superclass : #Object,
+	#name : 'TaskBuilder',
+	#superclass : 'Object',
 	#instVars : [
 		'receiver'
 	],
-	#category : #'Seeker-Helpers'
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TaskBuilder class >> newForReceiver: anObject [
 
 	^ self new
@@ -15,7 +17,7 @@ TaskBuilder class >> newForReceiver: anObject [
 		  yourself
 ]
 
-{ #category : #'reflective operations' }
+{ #category : 'reflective operations' }
 TaskBuilder >> doesNotUnderstand: aMessage [
 
 	"Creates a task with the messageSend to the receiver"
@@ -23,13 +25,13 @@ TaskBuilder >> doesNotUnderstand: aMessage [
 	^ TKTTask valuable: [ aMessage sendTo: receiver ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TaskBuilder >> privateReceiver [
 
 	^ receiver
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TaskBuilder >> privateReceiver: anObject [
 
 	receiver := anObject

@@ -2,8 +2,8 @@
 This is not a tree. This is a linked list. However, since the path this represents is the path of nodes in a tree, instead of ""previousNode"" or ""NextNode"" a tree structure terminology is used (parent, and child)
 "
 Class {
-	#name : #SkXStatementPathNode,
-	#superclass : #Object,
+	#name : 'SkXStatementPathNode',
+	#superclass : 'Object',
 	#instVars : [
 		'parent',
 		'depth',
@@ -12,10 +12,12 @@ Class {
 		'root',
 		'last'
 	],
-	#category : #'Seeker-Experimental'
+	#category : 'Seeker-Experimental',
+	#package : 'Seeker',
+	#tag : 'Experimental'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkXStatementPathNode class >> newFromStatement: aStatementNotation [
 
 	| pathNode |
@@ -29,7 +31,7 @@ SkXStatementPathNode class >> newFromStatement: aStatementNotation [
 	^ pathNode
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkXStatementPathNode class >> updateDescendantsDepthsFor: aStatementPathNode [
 
 	| node counter |
@@ -42,7 +44,7 @@ SkXStatementPathNode class >> updateDescendantsDepthsFor: aStatementPathNode [
 		node := node child ]
 ]
 
-{ #category : #arithmetic }
+{ #category : 'arithmetic' }
 SkXStatementPathNode >> / aStatementNotationOrPathNode [
 
 	"assign self as the parent of the argument, creating a node path"
@@ -66,7 +68,7 @@ SkXStatementPathNode >> / aStatementNotationOrPathNode [
 	^ self
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 SkXStatementPathNode >> asPath [
 
 	| path |
@@ -75,7 +77,7 @@ SkXStatementPathNode >> asPath [
 	^ path
 ]
 
-{ #category : #arithmetic }
+{ #category : 'arithmetic' }
 SkXStatementPathNode >> at: aNumber [
 
 	"To properly access the path,use (aNode root) at:"
@@ -84,79 +86,79 @@ SkXStatementPathNode >> at: aNumber [
 	^ child at: aNumber - 1
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXStatementPathNode >> child [
 
 	^ child
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXStatementPathNode >> child: anObject [
 
 	child := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXStatementPathNode >> depth [
 
 	^ depth
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXStatementPathNode >> depth: anObject [
 
 	depth := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXStatementPathNode >> first [
 
 	^ root
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXStatementPathNode >> last [
 
 	^ last
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXStatementPathNode >> last: anObject [
 
 	last := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXStatementPathNode >> parent [
 
 	^ parent
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXStatementPathNode >> parent: anObject [
 
 	parent := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXStatementPathNode >> root [
 
 	^ root
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXStatementPathNode >> root: anObject [
 
 	root := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXStatementPathNode >> statementNotation [
 
 	^ statementNotation
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXStatementPathNode >> statementNotation: anObject [
 
 	statementNotation := anObject

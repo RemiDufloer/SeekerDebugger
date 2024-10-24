@@ -1,6 +1,6 @@
-Extension { #name : #ClassDescription }
+Extension { #name : 'ClassDescription' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 ClassDescription >> slotNamesIncludingSuperClasses [
 	|mySlots|
 	mySlots:= (self slots collect: [ :each | each name ]) asOrderedCollection.

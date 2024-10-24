@@ -1,6 +1,6 @@
-Extension { #name : #BlockClosureTest }
+Extension { #name : 'BlockClosureTest' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 BlockClosureTest >> testSwitchCase [
 
 	| executedCorrectlyFlag aNumber result |

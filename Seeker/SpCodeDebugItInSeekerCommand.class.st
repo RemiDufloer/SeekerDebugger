@@ -1,28 +1,30 @@
 Class {
-	#name : #SpCodeDebugItInSeekerCommand,
-	#superclass : #SpCodeSelectionCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SpCodeDebugItInSeekerCommand',
+	#superclass : 'SpCodeSelectionCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #defaults }
+{ #category : 'defaults' }
 SpCodeDebugItInSeekerCommand class >> defaultIconName [
 
 	^ #exception
 ]
 
-{ #category : #default }
+{ #category : 'default' }
 SpCodeDebugItInSeekerCommand class >> defaultName [ 
 
 	^ 'Debug it in Seeker'
 ]
 
-{ #category : #default }
+{ #category : 'default' }
 SpCodeDebugItInSeekerCommand class >> defaultShortcutKey [
 
 	^ $x shift meta mac | $x alt control win | $x alt control unix
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SpCodeDebugItInSeekerCommand >> compile: aStream for: anObject in: evalContext [
 	| methodClass |
 
@@ -40,7 +42,7 @@ SpCodeDebugItInSeekerCommand >> compile: aStream for: anObject in: evalContext [
 		compile
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SpCodeDebugItInSeekerCommand >> debug: aStream [
 	| method doItReceiver doItContext |
 
@@ -59,7 +61,7 @@ SpCodeDebugItInSeekerCommand >> debug: aStream [
 		ifTrue: [ self debug: method receiver: doItReceiver in: doItContext ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SpCodeDebugItInSeekerCommand >> debug: aCompiledMethod receiver: anObject in: evalContext [
 
 	| process suspendedContext |
@@ -79,7 +81,7 @@ SpCodeDebugItInSeekerCommand >> debug: aCompiledMethod receiver: anObject in: ev
 		submit
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 SpCodeDebugItInSeekerCommand >> execute [
 
 	| selection |

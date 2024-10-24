@@ -1,31 +1,33 @@
 Class {
-	#name : #SkESDCountBytecodes,
-	#superclass : #SkExecutionStatesDo,
+	#name : 'SkESDCountBytecodes',
+	#superclass : 'SkExecutionStatesDo',
 	#instVars : [
 		'count'
 	],
-	#category : #'Seeker-Query'
+	#category : 'Seeker-Query',
+	#package : 'Seeker',
+	#tag : 'Query'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkESDCountBytecodes >> action: state [
 
 	count := count + 1
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkESDCountBytecodes >> count [
 
 	^ count
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkESDCountBytecodes >> count: anObject [
 
 	count := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkESDCountBytecodes >> initialize [
 
 	super initialize.

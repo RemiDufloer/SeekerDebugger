@@ -1,60 +1,62 @@
 Class {
-	#name : #SkPerson,
-	#superclass : #Object,
+	#name : 'SkPerson',
+	#superclass : 'Object',
 	#instVars : [
 		'name',
 		'age',
 		'pets'
 	],
-	#category : #'Seeker-BugCollection-Tests'
+	#category : 'Seeker-BugCollection-Tests',
+	#package : 'Seeker',
+	#tag : 'BugCollection-Tests'
 }
 
-{ #category : #operations }
+{ #category : 'operations' }
 SkPerson >> adopt: aSkDog [
 	pets add: aSkDog
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkPerson >> age [
 
 	^ age
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkPerson >> age: anObject [
 
 	age := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkPerson >> findPet: aBlock [
 	pets anySatisfy: aBlock
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkPerson >> initialize [
 	pets := OrderedCollection new.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkPerson >> name [
 
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkPerson >> name: anObject [
 
 	name := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkPerson >> pets [
 
 	^ pets
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkPerson >> pets: anObject [
 
 	pets := anObject

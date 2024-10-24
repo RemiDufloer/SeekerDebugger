@@ -1,10 +1,12 @@
 Class {
-	#name : #SkEndOfMarkedSession,
-	#superclass : #SkEndCondition,
-	#category : #'Seeker-Components'
+	#name : 'SkEndOfMarkedSession',
+	#superclass : 'SkEndCondition',
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkEndOfMarkedSession >> isEndReached [
 
 	^ currentState receiver == SeekerSessionHelpers and: [ "this is not a proper solution. If there is a returing block, these conditions might never be met." 

@@ -1,37 +1,39 @@
 Class {
-	#name : #SkXNodeIndex,
-	#superclass : #Object,
+	#name : 'SkXNodeIndex',
+	#superclass : 'Object',
 	#instVars : [
 		'index'
 	],
-	#category : #'Seeker-Experimental-NodeNotation'
+	#category : 'Seeker-Experimental-NodeNotation',
+	#package : 'Seeker',
+	#tag : 'Experimental-NodeNotation'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkXNodeIndex >> findIn: aCompiledCode [
 
 	^ self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXNodeIndex >> index [
 
 	^ index
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXNodeIndex >> index: anObject [
 
 	index := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkXNodeIndex >> isBytecode [
 
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkXNodeIndex >> isStatement [
 
 	^ false

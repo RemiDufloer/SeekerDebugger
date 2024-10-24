@@ -1,32 +1,34 @@
 Class {
-	#name : #SkMapAlgoCustom,
-	#superclass : #SkExecutionMapperAlgorithm,
+	#name : 'SkMapAlgoCustom',
+	#superclass : 'SkExecutionMapperAlgorithm',
 	#instVars : [
 		'recordContext',
 		'endConditionBlock'
 	],
-	#category : #'Seeker-Components'
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkMapAlgoCustom class >> matchesExecutionScenario: tracer [
 
 	^ false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkMapAlgoCustom >> endConditionBlock [
 
 	^ endConditionBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkMapAlgoCustom >> endConditionBlock: anObject [
 
 	endConditionBlock := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkMapAlgoCustom >> mapExecution [
 
 	| recordingInitialContext |
@@ -43,13 +45,13 @@ SkMapAlgoCustom >> mapExecution [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkMapAlgoCustom >> recordContext [
 
 	^ recordContext
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkMapAlgoCustom >> recordContext: anObject [
 
 	recordContext := anObject

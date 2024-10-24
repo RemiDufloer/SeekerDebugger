@@ -2,12 +2,14 @@
 The world menu build logic is in the class side. It follows the same pattern as Roassal3 menu
 "
 Class {
-	#name : #SeekerWorldLiteCommands,
-	#superclass : #Object,
-	#category : #'Seeker-Commands-World'
+	#name : 'SeekerWorldLiteCommands',
+	#superclass : 'Object',
+	#category : 'Seeker-Commands-World',
+	#package : 'Seeker',
+	#tag : 'Commands-World'
 }
 
-{ #category : #menu }
+{ #category : 'menu' }
 SeekerWorldLiteCommands class >> menu00SeekerDevOn: aBuilder [
 	<worldMenu>
 	(aBuilder item: #SeekerDev)
@@ -18,7 +20,7 @@ SeekerWorldLiteCommands class >> menu00SeekerDevOn: aBuilder [
 		order: 777
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerWorldLiteCommands class >> menuBrowseSeekerExamplesClass: aBuilder [
 	<worldMenu>
 	(aBuilder item: #SeekerDevBrowseSeekerExamplesClass)
@@ -30,7 +32,7 @@ SeekerWorldLiteCommands class >> menuBrowseSeekerExamplesClass: aBuilder [
 		action: [ RecursionExamples browse ] 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerWorldLiteCommands class >> menuBrowseSeekerPackage: aBuilder [
 
 	<worldMenu>
@@ -43,7 +45,7 @@ SeekerWorldLiteCommands class >> menuBrowseSeekerPackage: aBuilder [
 		action: [ (RPackageOrganizer default packageNamed: 'Seeker') browse ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerWorldLiteCommands class >> menuBrowseSeekerTracerClass: aBuilder [
 	<worldMenu>
 	(aBuilder item: #SeekerDevBrowseSeekerTracerClass)
@@ -55,7 +57,7 @@ SeekerWorldLiteCommands class >> menuBrowseSeekerTracerClass: aBuilder [
 		action: [ SkQueryableTracer  browse ] 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerWorldLiteCommands class >> menuEsteban: aBuilder [
 
 	"<worldMenu> " 
@@ -68,7 +70,7 @@ SeekerWorldLiteCommands class >> menuEsteban: aBuilder [
 		action: [ "Does Nothing" ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerWorldLiteCommands class >> menuEstebanColumnsCreation: aBuilder [
 
 	"<worldMenu>"
@@ -81,7 +83,7 @@ SeekerWorldLiteCommands class >> menuEstebanColumnsCreation: aBuilder [
 		action: [ (SeekerQueriesPresenter >> #showResult:) browse ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerWorldLiteCommands class >> menuEstebanDebuggerExtensionPresenter: aBuilder [
 
 	"<worldMenu>"
@@ -95,7 +97,7 @@ SeekerWorldLiteCommands class >> menuEstebanDebuggerExtensionPresenter: aBuilder
 		action: [ SeekerDebuggerPresenter browse ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerWorldLiteCommands class >> menuEstebanTestCase: aBuilder [
 
 	"<worldMenu>"
@@ -109,7 +111,7 @@ SeekerWorldLiteCommands class >> menuEstebanTestCase: aBuilder [
 			(MetacelloVersionNumberTestCase >> #testApproxVersion02) browse ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerWorldLiteCommands class >> menuOpenConfig: aBuilder [
 
 	<worldMenu>
@@ -122,7 +124,7 @@ SeekerWorldLiteCommands class >> menuOpenConfig: aBuilder [
 		action: [ SeekerConfigPresenter open ]
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 SeekerWorldLiteCommands class >> menuSeekerWarmup: aBuilder [
 
 	<worldMenu>

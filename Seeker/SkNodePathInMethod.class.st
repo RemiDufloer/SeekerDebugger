@@ -2,12 +2,14 @@
 Basically a list of nodes.
 "
 Class {
-	#name : #SkNodePathInMethod,
-	#superclass : #OrderedCollection,
-	#category : #'Seeker-Experimental-NodeNotation'
+	#name : 'SkNodePathInMethod',
+	#superclass : 'OrderedCollection',
+	#category : 'Seeker-Experimental-NodeNotation',
+	#package : 'Seeker',
+	#tag : 'Experimental-NodeNotation'
 }
 
-{ #category : #arithmetic }
+{ #category : 'arithmetic' }
 SkNodePathInMethod >> @ aNodeOrNodePath [
 
 	(aNodeOrNodePath class inheritsFromOrSameAs: SkNodePathInMethod)
@@ -24,7 +26,7 @@ SkNodePathInMethod >> @ aNodeOrNodePath [
 	^ self
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SkNodePathInMethod >> @< anotherNodePath [
 
 	self == anotherNodePath ifTrue: [ ^ false ].
@@ -32,7 +34,7 @@ SkNodePathInMethod >> @< anotherNodePath [
 	^ self last stop < anotherNodePath last stop
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SkNodePathInMethod >> @<= anotherNodePath [
 
 	self == anotherNodePath ifTrue: [ ^ true ].
@@ -40,7 +42,7 @@ SkNodePathInMethod >> @<= anotherNodePath [
 	^ self last stop <= anotherNodePath last stop
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SkNodePathInMethod >> @= anotherNodePath [
 
 	self flag:
@@ -52,7 +54,7 @@ SkNodePathInMethod >> @= anotherNodePath [
 	^ true
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SkNodePathInMethod >> @> anotherNodePath [
 
 	self == anotherNodePath ifTrue: [ ^ true ].
@@ -60,7 +62,7 @@ SkNodePathInMethod >> @> anotherNodePath [
 	^ self last stop > anotherNodePath last stop
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SkNodePathInMethod >> @>= anotherNodePath [
 
 	self == anotherNodePath ifTrue: [ ^ true ].
@@ -68,7 +70,7 @@ SkNodePathInMethod >> @>= anotherNodePath [
 	^ self last stop >= anotherNodePath last stop
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 SkNodePathInMethod >> asExpression [
 
 	self ifEmpty: [ '' ].
@@ -77,7 +79,7 @@ SkNodePathInMethod >> asExpression [
 			   str notEmpty ])
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkNodePathInMethod >> inSameSequenceAs: anotherPath [
 
 	self == anotherPath ifTrue: [ ^ true ].
@@ -87,7 +89,7 @@ SkNodePathInMethod >> inSameSequenceAs: anotherPath [
 	^ true
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkNodePathInMethod >> isInSequence: anotherPath [
 
 	"is anotherPath the sequence node of self?"
@@ -99,7 +101,7 @@ SkNodePathInMethod >> isInSequence: anotherPath [
 	^ true
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 SkNodePathInMethod >> printOn: aStream [
 
 	aStream nextPutAll:

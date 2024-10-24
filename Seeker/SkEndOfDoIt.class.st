@@ -1,38 +1,40 @@
 Class {
-	#name : #SkEndOfDoIt,
-	#superclass : #SkEndCondition,
+	#name : 'SkEndOfDoIt',
+	#superclass : 'SkEndCondition',
 	#instVars : [
 		'doItContext',
 		'endTraceTime'
 	],
-	#category : #'Seeker-Components'
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkEndOfDoIt >> doItContext [
 
 	^ doItContext
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkEndOfDoIt >> doItContext: anObject [
 
 	doItContext := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkEndOfDoIt >> endTraceTime [
 
 	^ endTraceTime
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkEndOfDoIt >> endTraceTime: anObject [
 
 	endTraceTime := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkEndOfDoIt >> isEndReached [
 
 	^ currentState context == doItContext

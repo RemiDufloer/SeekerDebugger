@@ -1,22 +1,24 @@
 Class {
-	#name : #SkStepToNextStatementInSequenceLC,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkStepToNextStatementInSequenceLC',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepToNextStatementInSequenceLC >> description [
 
 	^'MyCommand description'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SkStepToNextStatementInSequenceLC >> executeCommand [
 
 	self seeker tracer timeTravel toNextStatementInSequence
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepToNextStatementInSequenceLC >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -28,7 +30,7 @@ SkStepToNextStatementInSequenceLC >> icon [
 	^ #smallRedo
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkStepToNextStatementInSequenceLC >> name [
 
 	^'Step to Next Statement in Sequence'

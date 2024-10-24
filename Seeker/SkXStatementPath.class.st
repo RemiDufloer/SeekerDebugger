@@ -1,13 +1,15 @@
 Class {
-	#name : #SkXStatementPath,
-	#superclass : #Object,
+	#name : 'SkXStatementPath',
+	#superclass : 'Object',
 	#instVars : [
 		'rootPathNode'
 	],
-	#category : #'Seeker-Experimental'
+	#category : 'Seeker-Experimental',
+	#package : 'Seeker',
+	#tag : 'Experimental'
 }
 
-{ #category : #arithmetic }
+{ #category : 'arithmetic' }
 SkXStatementPath >> / aStatementPathOrStatementPathNodeOrStatementNotation [
 
 	| node |
@@ -22,7 +24,7 @@ SkXStatementPath >> / aStatementPathOrStatementPathNodeOrStatementNotation [
 	^ self
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 SkXStatementPath >> asSeekerOfflineExpressionString [
 
 	| node str |
@@ -35,30 +37,30 @@ SkXStatementPath >> asSeekerOfflineExpressionString [
 	^ '[#path ' , str , ']'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXStatementPath >> at: aNumber [
 	^ rootPathNode at: aNumber
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkXStatementPath >> leafStatementNode [
 
 	^ rootPathNode last
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXStatementPath >> rootPathNode [
 
 	^ rootPathNode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXStatementPath >> rootPathNode: anObject [
 
 	rootPathNode := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkXStatementPath >> rootStatementNode [
 
 	^ rootPathNode

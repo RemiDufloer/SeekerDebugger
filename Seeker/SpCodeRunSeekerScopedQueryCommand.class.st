@@ -1,28 +1,30 @@
 Class {
-	#name : #SpCodeRunSeekerScopedQueryCommand,
-	#superclass : #SpCodeSelectionCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SpCodeRunSeekerScopedQueryCommand',
+	#superclass : 'SpCodeSelectionCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #defaults }
+{ #category : 'defaults' }
 SpCodeRunSeekerScopedQueryCommand class >> defaultIconName [
 
 	^ #exception
 ]
 
-{ #category : #default }
+{ #category : 'default' }
 SpCodeRunSeekerScopedQueryCommand class >> defaultName [ 
 
 	^ 'Run Seeker Scoped Query...'
 ]
 
-{ #category : #default }
+{ #category : 'default' }
 SpCodeRunSeekerScopedQueryCommand class >> defaultShortcutKey [
 
 	^ nil
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SpCodeRunSeekerScopedQueryCommand >> compile: aStream for: anObject in: evalContext [
 	| methodClass |
 
@@ -40,13 +42,13 @@ SpCodeRunSeekerScopedQueryCommand >> compile: aStream for: anObject in: evalCont
 		compile
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 SpCodeRunSeekerScopedQueryCommand >> execute [
 
 	self showQueriesMenu 
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SpCodeRunSeekerScopedQueryCommand >> makeProcess: aStream [
 	| method doItReceiver doItContext |
 
@@ -66,7 +68,7 @@ SpCodeRunSeekerScopedQueryCommand >> makeProcess: aStream [
 		^nil
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SpCodeRunSeekerScopedQueryCommand >> makeProcessFor: aCompiledMethod receiver: anObject in: evalContext [
 
 	| process |
@@ -79,7 +81,7 @@ SpCodeRunSeekerScopedQueryCommand >> makeProcessFor: aCompiledMethod receiver: a
 	^process 
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 SpCodeRunSeekerScopedQueryCommand >> makeProgramStatesFromSelection [
 
 	| selection proc|
@@ -90,7 +92,7 @@ SpCodeRunSeekerScopedQueryCommand >> makeProgramStatesFromSelection [
 ^ (SeekerDebugger headlessDebugForDoIt: proc) tracer newProgramStates 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SpCodeRunSeekerScopedQueryCommand >> showQueriesMenu [
 
 	| menu |

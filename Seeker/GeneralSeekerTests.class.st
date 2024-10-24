@@ -1,10 +1,12 @@
 Class {
-	#name : #GeneralSeekerTests,
-	#superclass : #TestCase,
-	#category : #'Seeker-BugCollection-Tests'
+	#name : 'GeneralSeekerTests',
+	#superclass : 'TestCase',
+	#category : 'Seeker-BugCollection-Tests',
+	#package : 'Seeker',
+	#tag : 'BugCollection-Tests'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 GeneralSeekerTests class >> doItScenario [
 
 	| aCol aNumber |
@@ -19,7 +21,7 @@ GeneralSeekerTests class >> doItScenario [
 	SeekerGlobals instance auxiliaryTempStorage1: 3.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 GeneralSeekerTests class >> exceptionScenario [
 
 	"Do this once the window opens:
@@ -35,7 +37,7 @@ GeneralSeekerTests class >> exceptionScenario [
 	self assert: true
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 GeneralSeekerTests class >> myQueryExample: seeker [
 
 	| query |
@@ -57,7 +59,7 @@ GeneralSeekerTests class >> myQueryExample: seeker [
 	seeker ui showResult: query asSeekerResultsCollection
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> exceptionTest [
 
 	"Do this once the window opens:
@@ -73,7 +75,7 @@ GeneralSeekerTests >> exceptionTest [
 	self assert: true
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testCreateIndexlessStepDescriptorForConditionInStack [
 	"launch the test and when the debugger opens with the failing assertion, evaluate 
 	|targetContext|
@@ -89,7 +91,7 @@ GeneralSeekerTests >> testCreateIndexlessStepDescriptorForConditionInStack [
 	self assert: false
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testDoSomethingWithRandom: aRandom [
 
 	| r list number |
@@ -102,7 +104,7 @@ GeneralSeekerTests >> testDoSomethingWithRandom: aRandom [
 	list do: [ :i | number := i ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testDynReversal [
 
 	"This is a manual test"
@@ -118,7 +120,7 @@ GeneralSeekerTests >> testDynReversal [
 	"Here, reversing the Dyn should reverse only the state of aLocalVar, the stack and the executedBytecode"
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testEffReversal [
 
 	"This is a manual test"
@@ -134,7 +136,7 @@ GeneralSeekerTests >> testEffReversal [
 	"Here, reversing the Eff should reverse only the state of aCollection"
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testExceptionScenario [
 
 	"Do this once the window opens:
@@ -150,7 +152,7 @@ GeneralSeekerTests >> testExceptionScenario [
 	self assert: true
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testExceptionStepCount [
 
 	"Do this once the window opens:
@@ -165,7 +167,7 @@ GeneralSeekerTests >> testExceptionStepCount [
 	self assert: true
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testFamixJavaclass [
 
 "This reproduces the recursion in Anne's bug case. But first need to deploy the debugger to that image."
@@ -175,7 +177,7 @@ GeneralSeekerTests >> testFamixJavaclass [
 	self assert: false
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testFindInStack [
 	"launches the test and when the debugger opens with the failing assertion, evaluate 
 	seeker stepper findContextInStack: [:aContext| aContext selector = #testFindInStack]
@@ -189,7 +191,7 @@ GeneralSeekerTests >> testFindInStack [
 	self assert: false
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testFindTestContextInStack [
 	"launches the test and when the debugger opens with the failing assertion, evaluate 
 	seeker stepper findTestContext
@@ -203,7 +205,7 @@ GeneralSeekerTests >> testFindTestContextInStack [
 	self assert: false
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testIdentitySND [
 
 	| objects numbers hashes |
@@ -215,7 +217,7 @@ GeneralSeekerTests >> testIdentitySND [
 	^ objects yourself
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testMarkers [
 
 	| aCol aNumber aMarkerBlock |
@@ -236,7 +238,7 @@ GeneralSeekerTests >> testMarkers [
 	self assert: false
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testNonLocalObjectVariable [
 
 	| aCol aNumber |
@@ -252,7 +254,7 @@ GeneralSeekerTests >> testNonLocalObjectVariable [
 	self assert: false
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testNonderministicIdentities [
 
 	"this is a manual test. "
@@ -277,7 +279,7 @@ When executed with Seeker, it should be true.
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testNonderministicIdentitiesNoHalt [
 
 	"this is a manual test. "
@@ -295,7 +297,7 @@ GeneralSeekerTests >> testNonderministicIdentitiesNoHalt [
 	objectsSet do: [ :o | listMyAssignments := o text ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testPlusEqual [
 
 	"the the tested code is in another project now.. search for operators in my github"
@@ -308,7 +310,7 @@ GeneralSeekerTests >> testPlusEqual [
 	self assert: false
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testProcessSerializationDeserialization [
 
 	"this is a manual test. "
@@ -364,7 +366,7 @@ GeneralSeekerTests >> testProcessSerializationDeserialization [
 	proc2 resume
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testRandomSomething [
 
 	| r list number |
@@ -377,13 +379,13 @@ GeneralSeekerTests >> testRandomSomething [
 	list do: [ :i | number := i ].
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testRandomSomething2 [
 
 	self testDoSomethingWithRandom: SharedRandom globalGenerator 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testSharedRandomSomething [
 
 	| list number |
@@ -394,7 +396,7 @@ GeneralSeekerTests >> testSharedRandomSomething [
 	list do: [ :i | number := i ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testVariableChange [
 
 	"Do this once the window opens:
@@ -417,7 +419,7 @@ GeneralSeekerTests >> testVariableChange [
 	self assert: false
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testVariableOfObject [
 
 	| dog person |
@@ -431,7 +433,7 @@ GeneralSeekerTests >> testVariableOfObject [
 	self assert: person name equals: 'unnamed'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testVariableTracking [
 
 	"Do this once the window opens:
@@ -455,7 +457,7 @@ GeneralSeekerTests >> testVariableTracking [
 	self assert: false
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testVariableWriting [
 
 	| dog |
@@ -466,7 +468,7 @@ GeneralSeekerTests >> testVariableWriting [
 	self assert: dog name equals: 'doo'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testWithoutFailure [
 
 
@@ -485,7 +487,7 @@ GeneralSeekerTests >> testWithoutFailure [
 	self assert: true
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 GeneralSeekerTests >> testWithoutFailureShort [
 	^self assert: true
 ]

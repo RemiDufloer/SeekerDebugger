@@ -1,14 +1,16 @@
 Class {
-	#name : #QSTimedUpdateResult,
-	#superclass : #QuerySolver,
+	#name : 'QSTimedUpdateResult',
+	#superclass : 'QuerySolver',
 	#instVars : [
 		'bufferReadyCallback',
 		'timespan'
 	],
-	#category : #'Seeker-Query'
+	#category : 'Seeker-Query',
+	#package : 'Seeker',
+	#tag : 'Query'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 QSTimedUpdateResult class >> newForQuery: aQuery withBufferCompletedCallback: aBlock [
 
 	^ (self newForQuery: aQuery)
@@ -16,19 +18,19 @@ QSTimedUpdateResult class >> newForQuery: aQuery withBufferCompletedCallback: aB
 		  yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QSTimedUpdateResult >> bufferReadyCallback [
 
 	^ bufferReadyCallback
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QSTimedUpdateResult >> bufferReadyCallback: anObject [
 
 	bufferReadyCallback := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 QSTimedUpdateResult >> initialize [
 
 	super initialize.
@@ -36,7 +38,7 @@ QSTimedUpdateResult >> initialize [
 	bufferReadyCallback := [ :o |  ]
 ]
 
-{ #category : #navigating }
+{ #category : 'navigating' }
 QSTimedUpdateResult >> resolve [
 
 	"This will call the buffer callback every timespan milliseconds "
@@ -58,13 +60,13 @@ QSTimedUpdateResult >> resolve [
 	currentBuffer ifNotEmpty: [timeToRun := self ellapsedTime. bufferReadyCallback value: currentBuffer ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QSTimedUpdateResult >> timespan [
 
 	^ timespan
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QSTimedUpdateResult >> timespan: anObject [
 
 	timespan := anObject

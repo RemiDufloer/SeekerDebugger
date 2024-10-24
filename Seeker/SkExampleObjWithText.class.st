@@ -1,37 +1,39 @@
 Class {
-	#name : #SkExampleObjWithText,
-	#superclass : #Object,
+	#name : 'SkExampleObjWithText',
+	#superclass : 'Object',
 	#instVars : [
 		'text'
 	],
-	#category : #'Seeker-BugCollection-Tests'
+	#category : 'Seeker-BugCollection-Tests',
+	#package : 'Seeker',
+	#tag : 'BugCollection-Tests'
 }
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SkExampleObjWithText >> = another [
 
 	^ text = another text
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkExampleObjWithText >> initialize [
 
 	text := ''
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 SkExampleObjWithText >> printOn: stream [
 
 	stream nextPutAll: text
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExampleObjWithText >> text [
 
 	^ text
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExampleObjWithText >> text: anObject [
 
 	text := anObject

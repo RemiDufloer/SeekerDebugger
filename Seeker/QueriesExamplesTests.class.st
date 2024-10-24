@@ -1,16 +1,18 @@
 Class {
-	#name : #QueriesExamplesTests,
-	#superclass : #TestCase,
-	#category : #'Seeker-BugCollection-Tests'
+	#name : 'QueriesExamplesTests',
+	#superclass : 'TestCase',
+	#category : 'Seeker-BugCollection-Tests',
+	#package : 'Seeker',
+	#tag : 'BugCollection-Tests'
 }
 
-{ #category : #'test-support' }
+{ #category : 'test-support' }
 QueriesExamplesTests >> directFibonacci: aNumber [
  (aNumber <= 1) ifTrue: [ ^ 1].
 	^ (self directFibonacci: (aNumber - 1) ) + (self directFibonacci: (aNumber - 2))
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QueriesExamplesTests >> directForwardConcatenation: aStringCollection separator: aString [
 
 	aStringCollection ifEmpty: [ ^ '' ].
@@ -20,7 +22,7 @@ QueriesExamplesTests >> directForwardConcatenation: aStringCollection separator:
 		   separator: aString)
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QueriesExamplesTests >> return100SkipRestOfTheMethod [
 
 	| var |
@@ -31,7 +33,7 @@ QueriesExamplesTests >> return100SkipRestOfTheMethod [
 	self assert: false. "This should not be reached"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QueriesExamplesTests >> return40SkipRestOfTheMethodExecutingEnsure [
 
 	| var |
@@ -42,7 +44,7 @@ QueriesExamplesTests >> return40SkipRestOfTheMethodExecutingEnsure [
 	self assert: false. "This should not be reached"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QueriesExamplesTests >> returnSkipRestOfTheMethod [
 
 	| var |
@@ -53,7 +55,7 @@ QueriesExamplesTests >> returnSkipRestOfTheMethod [
 	self assert: false. "This should not be reached"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QueriesExamplesTests >> returns100 [
 
 	| var |
@@ -63,7 +65,7 @@ QueriesExamplesTests >> returns100 [
 		10 + 30]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QueriesExamplesTests >> returns200WithExceptionInOriginalBlock [
 
 	| var |
@@ -74,7 +76,7 @@ QueriesExamplesTests >> returns200WithExceptionInOriginalBlock [
 		^ 200 ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QueriesExamplesTests >> returns200WithInEnsure [
 
 	| var |
@@ -85,7 +87,7 @@ QueriesExamplesTests >> returns200WithInEnsure [
 		^ 200 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 QueriesExamplesTests >> test1ReturnValuesOfEachRecursionConcatenation [
 
 	| stringCollection separator result |
@@ -97,14 +99,14 @@ QueriesExamplesTests >> test1ReturnValuesOfEachRecursionConcatenation [
 	self assert: result equals: 'One,Two,Three,Four'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 QueriesExamplesTests >> test2ReturnValuesOfEachRecursionFibonacci [
 	|result|
 	result := self directFibonacci: 5.
 	self assert: result equals: -8
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 QueriesExamplesTests >> test3AmIInARecursiveCall [
 "Using the markdown bug"
 	"To originally reproduce this bug, put the failing string in the class comment tab (in any class) and save. The comment is saved, but an exception happens when the renderer tries to parse the content (because of the trailing escape character)"
@@ -117,7 +119,7 @@ QueriesExamplesTests >> test3AmIInARecursiveCall [
 	"Nothing to assert. The previous call is not expected to have an unhandled exception"
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 QueriesExamplesTests >> test4SimpleVariableChange [
 
 	| aCol aNumber |
@@ -134,7 +136,7 @@ QueriesExamplesTests >> test4SimpleVariableChange [
 	self assert: aNumber equals: 0
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 QueriesExamplesTests >> test5ComplexVariableChange [
 
 	| name dog person |
@@ -152,7 +154,7 @@ QueriesExamplesTests >> test5ComplexVariableChange [
 	self assert: name equals: 'unnamed'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 QueriesExamplesTests >> test6ReturnOfMethodSatisfies [
 
 	| result parameter |
@@ -164,7 +166,7 @@ QueriesExamplesTests >> test6ReturnOfMethodSatisfies [
 	self assert: result equals: -8
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 QueriesExamplesTests >> test7ExceptionScenario [
 
 	"Do this once the window opens:
@@ -182,7 +184,7 @@ QueriesExamplesTests >> test7ExceptionScenario [
 	self assert: true
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 QueriesExamplesTests >> testEnsure2 [
 
 	self assert: self returns100 equals: 100.

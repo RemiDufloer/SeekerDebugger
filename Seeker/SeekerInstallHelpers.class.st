@@ -1,22 +1,24 @@
 Class {
-	#name : #SeekerInstallHelpers,
-	#superclass : #Object,
-	#category : #'Seeker-Helpers'
+	#name : 'SeekerInstallHelpers',
+	#superclass : 'Object',
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #actions }
+{ #category : 'actions' }
 SeekerInstallHelpers class >> debuggerExtensionEnabled [
 
 	^ SeekerDebuggerPresenter showInDebugger
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 SeekerInstallHelpers class >> debuggerExtensionEnabled: aBoolean [
 
 	SeekerDebuggerPresenter showInDebugger: aBoolean
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerInstallHelpers class >> executeApplicationBackendPatch [
 
 	"Seeker adds a new table presenter, with its own adapter to its own morph. Without reseting the bindings, Spec would not detect the adapter, throwing an error."
@@ -25,7 +27,7 @@ SeekerInstallHelpers class >> executeApplicationBackendPatch [
 	SpApplication allSubInstancesDo: [ :app | app backend resetAdapterBindings ]
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 SeekerInstallHelpers class >> install [
 
 	<script>
@@ -45,7 +47,7 @@ SeekerInstallHelpers class >> install [
 	Author uniqueInstance fullName: authorName
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 SeekerInstallHelpers class >> installAndShowMessageOnCompletion [
 
 	self install.
@@ -57,7 +59,7 @@ SeekerInstallHelpers class >> installAndShowMessageOnCompletion [
 			withTitle: 'Installation complete' ] ] fork "Done this way to avoid blocking the progressbar with the modal"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerInstallHelpers class >> installDeprecationPatch [
 	"prevents the deprecation warning message"
 
@@ -69,7 +71,7 @@ SeekerInstallHelpers class >> installDeprecationPatch [
 	Deprecation compile: newCode
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerInstallHelpers class >> installMoosePatch [
 
 	| f |
@@ -83,7 +85,7 @@ SeekerInstallHelpers class >> installMoosePatch [
 		classified: '*Seeker'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerInstallHelpers class >> installQuickWrapSystem [
 
 	"After installing the debugger packages, this is necessary to actually use the SubCached methods"
@@ -91,7 +93,7 @@ SeekerInstallHelpers class >> installQuickWrapSystem [
 	QuickWrap installQuickWrapSystem
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 SeekerInstallHelpers class >> instrumentHandMorph [
 
 	"Used to capture shift and command keys"
@@ -103,7 +105,7 @@ SeekerInstallHelpers class >> instrumentHandMorph [
 			'<qwpWrappedBy: #SeekerWrapperMethods selector: #handMorphHandleEventWrapper:method:arguments:>' ]
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 SeekerInstallHelpers class >> instrumentMouseButtonEventSendTo [
 
 	| method |
@@ -112,7 +114,7 @@ SeekerInstallHelpers class >> instrumentMouseButtonEventSendTo [
 		method addPragmaExpression: '<skpDebugMouseButtonEventSentTo>' ]
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 SeekerInstallHelpers class >> overrideStDebuggerActionModel [
 
 	| methodSource |
@@ -129,13 +131,13 @@ SeekerInstallHelpers class >> overrideStDebuggerActionModel [
 	StDebugger compile: methodSource
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerInstallHelpers class >> refreshAllWrappers [
 
 	QuickWrap refreshAllWrappers
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerInstallHelpers class >> refreshSubChacheDelegationProxies [
 
 	"After installing the debugger packages, this is necessary to actually use the SubCached methods"
@@ -145,7 +147,7 @@ SeekerInstallHelpers class >> refreshSubChacheDelegationProxies [
 	SubCacheDelegatedInstantiation refreshAllMethodsDelegations
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerInstallHelpers class >> refreshSubChachedMethods [
 
 	"After installing the debugger packages, this is necessary to actually use the SubCached methods"
@@ -155,7 +157,7 @@ SeekerInstallHelpers class >> refreshSubChachedMethods [
 	SubCache refreshAllMethodsCaches
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 SeekerInstallHelpers class >> uninstall [
 
 	<script>

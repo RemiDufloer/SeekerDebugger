@@ -3,12 +3,14 @@ Just a collection of seeker development scripts.
 Used as a reminder.
 "
 Class {
-	#name : #SeekerScriptsBacklog,
-	#superclass : #Object,
-	#category : #'Seeker-Helpers'
+	#name : 'SeekerScriptsBacklog',
+	#superclass : 'Object',
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerScriptsBacklog class >> playgroundForBugSeekerExample [
 
 	| a b |
@@ -24,12 +26,12 @@ SeekerScriptsBacklog class >> playgroundForBugSeekerExample [
 	b := a / b
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerScriptsBacklog class >> scriptForBugSeekerExample [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerScriptsBacklog class >> scriptForBugSeekerExample: currentState programStates: programStates [
 
 	| ctx aVar bVar a b |
@@ -45,7 +47,7 @@ SeekerScriptsBacklog class >> scriptForBugSeekerExample: currentState programSta
 		 buggyExpression: [ a value / b value ]) showInSeeker
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerScriptsBacklog class >> seekBugScript: programStates startingFromStep: aNumber buggyExpression: aBlock [
 
 	| currentState |
@@ -60,7 +62,7 @@ SeekerScriptsBacklog class >> seekBugScript: programStates startingFromStep: aNu
 		  res bytecodeIndex: state bytecodeIndex - 1 ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerScriptsBacklog class >> seekFastBugScript: programStates startingFromStep: aNumber buggyExpression: aBlock [
 
 	| currentState |
@@ -75,7 +77,7 @@ SeekerScriptsBacklog class >> seekFastBugScript: programStates startingFromStep:
 		  res bytecodeIndex: state bytecodeIndex - 1 ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerScriptsBacklog >> findNDS1: programStates tracer: tracer [
 
 	^ SeekerMetaDebugHelper searchNDSNodeFor: tracer attemps: 2

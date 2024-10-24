@@ -1,5 +1,5 @@
 Class {
-	#name : 'SkSelectionMessageSends',
+	#name : 'SkSelectionMessage',
 	#superclass : 'SeekerSelectionFunction',
 	#category : 'Seeker-TimeTravelingQueries',
 	#package : 'Seeker',
@@ -7,7 +7,7 @@ Class {
 }
 
 { #category : 'accessing' }
-SkSelectionMessageSends >> value: programState [
+SkSelectionMessage >> value: programState [
 
-	^ programState isMessageSend
+	^ programState isMessage
 ]

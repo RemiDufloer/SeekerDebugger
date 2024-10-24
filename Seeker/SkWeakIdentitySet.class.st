@@ -1,10 +1,12 @@
 Class {
-	#name : #SkWeakIdentitySet,
-	#superclass : #WeakIdentitySet,
-	#category : #'Seeker-Helpers'
+	#name : 'SkWeakIdentitySet',
+	#superclass : 'WeakIdentitySet',
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #private }
+{ #category : 'private' }
 SkWeakIdentitySet >> scanFor: anObject [
 	"Scan the key array for the first slot containing either flag (indicating an empty slot) or an element that matches anObject. Answer the index of that slot or raise an error if no slot is found. This method will be overridden in various subclasses that have different interpretations for matching elements."
 
@@ -18,7 +20,7 @@ SkWeakIdentitySet >> scanFor: anObject [
 	self errorNoFreeSpace
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SkWeakIdentitySet >> scanForEmptySlotFor: aKey [
 	"Scan the key array for the first slot containing an empty slot (indicated by flag or a nil). Answer the index of that slot. This method will be overridden in various subclasses that have different interpretations for matching elements."
 

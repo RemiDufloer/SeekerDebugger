@@ -13,8 +13,8 @@ Being more selective means more verifications and fine grained actions need to b
 
 "
 Class {
-	#name : #SkSelectiveExecutionRestorer,
-	#superclass : #SkExecutionRestorer,
+	#name : 'SkSelectiveExecutionRestorer',
+	#superclass : 'SkExecutionRestorer',
 	#instVars : [
 		'timeIndexedUndoBlocks',
 		'writingEventCallback',
@@ -23,16 +23,18 @@ Class {
 	#classInstVars : [
 		'writingMethodsUndoDictionary'
 	],
-	#category : #'Seeker-Components'
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkSelectiveExecutionRestorer class >> initialize [
 
 	self initializeWritingMethodsUndoDictionary
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkSelectiveExecutionRestorer class >> initializeWritingMethodsUndoDictionary [
 |tmpCls|
 	"Manually populating the mapping of writing methods and their undo blocks"
@@ -272,14 +274,14 @@ SkSelectiveExecutionRestorer class >> initializeWritingMethodsUndoDictionary [
 		put: [ :csi | self undoBlockForFloat64AtOffsetPut: csi ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> sortedWritingPrimitivesMethods [
 
 	<script>
 	SeekerCurrentStateInterface pragmasOfRegisteredWritingPrimitives inspect.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForAtAllPut: csi [
 
 	"SeekerCurrentStateInterface"
@@ -287,7 +289,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForAtAllPut: csi [
 	^ self undoBlockNonSelectiveSnapshotForMessageReceiver: csi
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForAtPut: csi [
 	"SeekerCurrentStateInterface"
 
@@ -315,7 +317,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForAtPut: csi [
 			^ [ receiver at: index put: originalValue ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForAtWrapPut: csi [
 
 	"SeekerCurrentStateInterface"
@@ -327,7 +329,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForAtWrapPut: csi [
 	^ [ receiver atWrap: index put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForBasicAtPut: csi [
 
 	| receiver index originalValue |
@@ -337,7 +339,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForBasicAtPut: csi [
 	^ [ receiver basicAt: index put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForBasicReplaceFromToWithStartingAt: csi [
 
 	| originalValues arrSize receiver start stop repStart |
@@ -356,7 +358,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForBasicReplaceFromToWithStarting
 		  startingAt: 1 ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForBoolean8AtOffsetPut: csi [
 
 	| originalValue receiver offset |
@@ -366,7 +368,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForBoolean8AtOffsetPut: csi [
 	^ [ receiver boolean8AtOffset: offset put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForByteAtPut: csi [
 
 	| originalValue receiver index |
@@ -376,7 +378,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForByteAtPut: csi [
 	^ [ receiver byteAt: index put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForChar16AtOffsetPut: csi [
 
 	| originalValue receiver offset |
@@ -386,7 +388,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForChar16AtOffsetPut: csi [
 	^ [ receiver char16AtOffset: offset put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForChar32AtOffsetPut: csi [
 
 	| originalValue receiver offset |
@@ -396,7 +398,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForChar32AtOffsetPut: csi [
 	^ [ receiver char32AtOffset: offset put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForChar8AtOffsetPut: csi [
 
 	| originalValue receiver offset |
@@ -406,7 +408,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForChar8AtOffsetPut: csi [
 	^ [ receiver char8AtOffset: offset put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForFixedFieldOfAtPut: csi [
 
 	| originalValue receiver anObject index |
@@ -418,7 +420,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForFixedFieldOfAtPut: csi [
 	^ [ receiver fixedFieldOf: anObject at: index put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForFloat32AtOffsetPut: csi [
 
 	| originalValue receiver offset |
@@ -428,7 +430,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForFloat32AtOffsetPut: csi [
 	^ [ receiver float32AtOffset: offset put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForFloat64AtOffsetPut: csi [
 
 	| originalValue receiver offset |
@@ -438,7 +440,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForFloat64AtOffsetPut: csi [
 	^ [ receiver float64AtOffset: offset put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForGlobalVariableAssignment: csi [
 
 	| pinnedValue varName |
@@ -447,7 +449,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForGlobalVariableAssignment: csi 
 	^ [ Smalltalk globals at: varName put: pinnedValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForIndexableFieldOfAtPut: csi [
 
 	| originalValue receiver anObject index |
@@ -458,7 +460,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForIndexableFieldOfAtPut: csi [
 	^ [ receiver indexableFieldOf: anObject at: index put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForInstanceVariableAssignment: csi [
 
 	| originalValue anObject varName |
@@ -468,7 +470,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForInstanceVariableAssignment: cs
 	^ [ anObject writeSlotNamed: varName value: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForInt16AtOffsetPut: csi [
 
 	| originalValue receiver offset |
@@ -478,7 +480,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForInt16AtOffsetPut: csi [
 	^ [ receiver int16AtOffset: offset put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForInt32AtOffsetPut: csi [
 
 	| originalValue receiver offset |
@@ -488,7 +490,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForInt32AtOffsetPut: csi [
 	^ [ receiver int32AtOffset: offset put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForInt32AtOffsetPutFor: receiver offset: offset [
 
 	| originalValue |
@@ -496,7 +498,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForInt32AtOffsetPutFor: receiver 
 	^ [ receiver int32AtOffset: offset put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForInt64AtOffsetPut: csi [
 
 	| originalValue receiver offset |
@@ -506,7 +508,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForInt64AtOffsetPut: csi [
 	^ [ receiver int64AtOffset: offset put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForInt8AtOffsetPut: csi [
 
 	| originalValue receiver offset |
@@ -516,7 +518,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForInt8AtOffsetPut: csi [
 	^ [ receiver int8AtOffset: offset put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForIntegerAtPut: csi [
 
 	| originalValue receiver index |
@@ -526,7 +528,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForIntegerAtPut: csi [
 	^ [ receiver at: index put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForIntegerAtPutFor: receiver at: index [
 
 	| originalValue |
@@ -534,7 +536,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForIntegerAtPutFor: receiver at: 
 	^ [ receiver at: index put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForOGTempVariableAssignmentInContext: aContext variable: aVariable [
 
 	"Only works if the original context is still alive"
@@ -548,7 +550,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForOGTempVariableAssignmentInCont
 		 aContext writeVariableNamed: aVariable name value: originalValue] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForObjectAtPut: csi [
 
 	| originalValue receiver index |
@@ -558,7 +560,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForObjectAtPut: csi [
 	^ [ receiver objectAt: index put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForObjectBasicAtPut: csi [
 
 	| originalValue receiver anObject index |
@@ -569,7 +571,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForObjectBasicAtPut: csi [
 	^ [ receiver object: anObject basicAt: index put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForObjectCopyFrom: csi [
 
 	| originalValue receiver fromObj |
@@ -579,7 +581,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForObjectCopyFrom: csi [
 	^ [ receiver copyFrom: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForObjectInstVarAtPut: csi [
 
 	| originalValue receiver anObject index |
@@ -590,7 +592,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForObjectInstVarAtPut: csi [
 	^ [ receiver object: anObject instVarAt: index put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForPointerAtOffsetPut: csi [
 
 	| originalValue receiver offset |
@@ -600,13 +602,13 @@ SkSelectiveExecutionRestorer class >> undoBlockForPointerAtOffsetPut: csi [
 	^ [ receiver pointerAtOffset: offset put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForPrimFill: csi [
 
 	^ self undoBlockNonSelectiveSnapshotForMessageReceiver: csi
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForPrivateAtPut: csi [
 
 	| originalValue receiver index |
@@ -616,7 +618,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForPrivateAtPut: csi [
 	^ [ receiver privateAt: index put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForPvtAtPut: csi [
 
 	| originalValue receiver index |
@@ -626,7 +628,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForPvtAtPut: csi [
 	^ [ receiver pvtAt: index put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForReplaceFromToWithStartingAt: csi [
 
 	| originalValues arrSize receiver start stop repStart |
@@ -648,7 +650,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForReplaceFromToWithStartingAt: c
 		  startingAt: 1 ] 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForTempAtPut: csi [
 
 	| originalValue receiver index |
@@ -658,7 +660,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForTempAtPut: csi [
 	^ [ receiver tempAt: index put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForUint16AtOffsetPut: csi [
 
 	| originalValue receiver offset |
@@ -668,7 +670,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForUint16AtOffsetPut: csi [
 	^ [ receiver uint16AtOffset: offset put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForUint32AtOffsetPut: csi [
 
 	| originalValue receiver offset |
@@ -678,7 +680,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForUint32AtOffsetPut: csi [
 	^ [ receiver uint32AtOffset: offset put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForUint64AtOffsetPut: csi [
 
 	| originalValue receiver offset |
@@ -688,7 +690,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForUint64AtOffsetPut: csi [
 	^ [ receiver uint64AtOffset: offset put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForUint8AtOffsetPut: csi [
 
 	| originalValue receiver offset |
@@ -698,7 +700,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForUint8AtOffsetPut: csi [
 	^ [ receiver uint8AtOffset: offset put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForWordAtPut: csi [
 
 	| originalValue receiver index |
@@ -708,7 +710,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForWordAtPut: csi [
 	^ [ receiver wordAt: index put: originalValue ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForWorkspaceVariableAssignmentInContext: aContext variable: aVariable [
 
 	| varName originalValue |
@@ -717,7 +719,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForWorkspaceVariableAssignmentInC
 	^ [ aVariable write: originalValue inContext: aContext ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockForWritingPrimitive: csi [
 
 	"Returns the corresponding undo block for the current writing primitive . It will fail if the state doesnt correspond to an actual writing primitive, or one that doesnt have a registered undo block creation"
@@ -727,7 +729,7 @@ SkSelectiveExecutionRestorer class >> undoBlockForWritingPrimitive: csi [
 		   ^ [  ] ]) value: csi
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockNonSelectiveSnapshotForMessageReceiver: csi [
 
 	"The default undo action. Non selective and might produce undesired side effects. The final implementation should not use this"
@@ -737,7 +739,7 @@ SkSelectiveExecutionRestorer class >> undoBlockNonSelectiveSnapshotForMessageRec
 	^ self undoBlockNonSelectiveSnapshotOfObject: csi messageReceiver
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer class >> undoBlockNonSelectiveSnapshotOfObject: anObject [
 
 	"The default undo action. Non selective and might produce undesired side effects. The final implementation should not use this"
@@ -749,19 +751,19 @@ SkSelectiveExecutionRestorer class >> undoBlockNonSelectiveSnapshotOfObject: anO
 	^ [ anObject copySameFrom: objCopy ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkSelectiveExecutionRestorer >> bindComponents [
 
 	super bindComponents.
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer >> createDefaultUndoBlock [
 ^ [  ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSelectiveExecutionRestorer >> doPreStepProcessForAssignments [
 
 	| variable context |
@@ -801,7 +803,7 @@ Alternativelly, checking if the variable is defined in an outerContext would mak
 				 variable: variable) ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer >> doPreStepProcessForMessageSends [
 	"handling message sends cases"
 
@@ -817,7 +819,7 @@ SkSelectiveExecutionRestorer >> doPreStepProcessForMessageSends [
 				(self class undoBlockForWritingPrimitive: currentState) ] ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkSelectiveExecutionRestorer >> initialize [
 
 	super initialize.
@@ -826,7 +828,7 @@ SkSelectiveExecutionRestorer >> initialize [
 	self class initialize " not ideal solution"
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkSelectiveExecutionRestorer >> initializeFromCurrentState [
 
 	| context |
@@ -837,7 +839,7 @@ SkSelectiveExecutionRestorer >> initializeFromCurrentState [
 		context := context sender ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkSelectiveExecutionRestorer >> isOGReceiver: anObject [
 
 	"answers true if the object is external and is part of the initial stack receivers"
@@ -845,13 +847,13 @@ SkSelectiveExecutionRestorer >> isOGReceiver: anObject [
 	^ externalReceiversInStack includes: anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer >> lateInitialization [
 
 	self initializeFromCurrentState
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer >> pushUndoBlockAtCurrentTime: aBlock [
 
 	timeIndexedUndoBlocks add: currentState bytecodeIndex -> aBlock.
@@ -864,26 +866,26 @@ SkSelectiveExecutionRestorer >> pushUndoBlockAtCurrentTime: aBlock [
 				 yourself) ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSelectiveExecutionRestorer >> recordChangeForReceiver: anObject ofVar: aVariable inContext: aContext [
 
 	^ self error: 'this meethod should not be called in the selective restorer'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSelectiveExecutionRestorer >> recordSnapshotOfObject: anObject [
 
 	^ self error: 'this meethod should not be called in the selective restorer'
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkSelectiveExecutionRestorer >> reset [
 
 	super reset.
 	timeIndexedUndoBlocks removeAll
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSelectiveExecutionRestorer >> restoreNonLocalChanges [
 
 	timeIndexedUndoBlocks reverseDo: [ :undoBlockAssoc | 
@@ -893,19 +895,19 @@ SkSelectiveExecutionRestorer >> restoreNonLocalChanges [
 	storedFlushCacheBlocks reverseDo: [ :b| b value ].
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSelectiveExecutionRestorer >> timeIndexedUndoBlocks [
 
 	^ timeIndexedUndoBlocks
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSelectiveExecutionRestorer >> writingEventCallback [
 
 	^ writingEventCallback
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSelectiveExecutionRestorer >> writingEventCallback: anObject [
 
 	writingEventCallback := anObject

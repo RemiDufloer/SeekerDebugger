@@ -1,6 +1,6 @@
-Extension { #name : #Dictionary }
+Extension { #name : 'Dictionary' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Dictionary >> softCopy [
 
 	| d |
@@ -13,7 +13,7 @@ Dictionary >> softCopy [
 	^ d
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Dictionary >> softEqualTo: aDictionary withCache: objs [
 	"Two dictionaries are equal if
 	 (a) they are the same 'kind' of thing.

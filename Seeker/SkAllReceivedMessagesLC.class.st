@@ -1,10 +1,12 @@
 Class {
-	#name : #SkAllReceivedMessagesLC,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkAllReceivedMessagesLC',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllReceivedMessagesLC >> description [
 
 	^ self commonDescriptionIntroString
@@ -12,14 +14,14 @@ SkAllReceivedMessagesLC >> description [
 	  'for every <received message>. Every listed result corresponds to the first instruction of a method call. (Receiver''s point of view. Useful for arguments values inspection)'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SkAllReceivedMessagesLC >> executeCommand [
 
 	self showResultFor:
 		(TTQAllReceivedMessages queryFrom: self tracer newProgramStates)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllReceivedMessagesLC >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -31,7 +33,7 @@ SkAllReceivedMessagesLC >> icon [
 	^ #glamorousOpenFromUrl
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllReceivedMessagesLC >> name [
 
 	^'All Received messages'

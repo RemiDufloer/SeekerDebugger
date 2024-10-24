@@ -1,7 +1,9 @@
 Class {
-	#name : #SkExecutionVirtualTableWithMemory,
-	#superclass : #SkExecutionVirtualTable,
+	#name : 'SkExecutionVirtualTableWithMemory',
+	#superclass : 'SkExecutionVirtualTable',
 	#traits : 'TSeekerTableWithMemory',
 	#classTraits : 'TSeekerTableWithMemory classTrait',
-	#category : #'Seeker-Experimental'
+	#category : 'Seeker-Experimental',
+	#package : 'Seeker',
+	#tag : 'Experimental'
 }

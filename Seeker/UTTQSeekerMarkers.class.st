@@ -1,10 +1,12 @@
 Class {
-	#name : #UTTQSeekerMarkers,
-	#superclass : #UserTTQ,
-	#category : #'Seeker-TimeTravelingQueries'
+	#name : 'UTTQSeekerMarkers',
+	#superclass : 'UserTTQ',
+	#category : 'Seeker-TimeTravelingQueries',
+	#package : 'Seeker',
+	#tag : 'TimeTravelingQueries'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 UTTQSeekerMarkers class >> queryFrom: aDataSource [
 
 	| autoType |
@@ -26,7 +28,7 @@ UTTQSeekerMarkers class >> queryFrom: aDataSource [
 				  endWith ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 UTTQSeekerMarkers >> ttqTitle [
 
 	^ 'Find Seeker Markers'

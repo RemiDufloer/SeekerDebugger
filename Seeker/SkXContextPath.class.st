@@ -2,12 +2,14 @@
 A list of nodePaths. Separated by /.
 "
 Class {
-	#name : #SkXContextPath,
-	#superclass : #OrderedCollection,
-	#category : #'Seeker-Experimental-NodeNotation'
+	#name : 'SkXContextPath',
+	#superclass : 'OrderedCollection',
+	#category : 'Seeker-Experimental-NodeNotation',
+	#package : 'Seeker',
+	#tag : 'Experimental-NodeNotation'
 }
 
-{ #category : #arithmetic }
+{ #category : 'arithmetic' }
 SkXContextPath >> / aNodePathOrContextPath [
 
 	(aNodePathOrContextPath class inheritsFromOrSameAs: SkXContextPath)
@@ -17,7 +19,7 @@ SkXContextPath >> / aNodePathOrContextPath [
 	^ self
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SkXContextPath >> = anotherPath [
 
 	"Returns if two context paths are equal (no necessarily the same instance)"
@@ -30,7 +32,7 @@ SkXContextPath >> = anotherPath [
 	^ true
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 SkXContextPath >> asExpression [
 
 	self ifEmpty: [ '' ].
@@ -39,7 +41,7 @@ SkXContextPath >> asExpression [
 			   nodePath asExpression ", ')'" ])
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 SkXContextPath >> asExpressionSkippingFirst: aNumber [
 
 	aNumber >= self size ifTrue: [ ^ '' ].

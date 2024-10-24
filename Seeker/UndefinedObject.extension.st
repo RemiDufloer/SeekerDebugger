@@ -1,12 +1,12 @@
-Extension { #name : #UndefinedObject }
+Extension { #name : 'UndefinedObject' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 UndefinedObject >> isSessionActive [
 
 	^ false
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 UndefinedObject >> printOn: aStream showingDecimalPlaces: aNumber [
 
 	aStream nextPutAll: '#errorPrintingUndefinedObject'

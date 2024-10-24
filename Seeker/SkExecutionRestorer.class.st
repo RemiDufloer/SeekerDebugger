@@ -4,8 +4,8 @@ Works with the rest of seeker components, and its role is to provide functions t
 The restorer participates activelly in every step performed (It is part of the stepping pipeline)
 "
 Class {
-	#name : #SkExecutionRestorer,
-	#superclass : #SkComponent,
+	#name : 'SkExecutionRestorer',
+	#superclass : 'SkComponent',
 	#instVars : [
 		'currentState',
 		'tracer',
@@ -16,10 +16,12 @@ Class {
 		'flushCacheMethods',
 		'storedFlushCacheBlocks'
 	],
-	#category : #'Seeker-Components'
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkExecutionRestorer >> bindComponents [
 
 	tracer := componentsHolder tracer.
@@ -29,7 +31,7 @@ SkExecutionRestorer >> bindComponents [
 	objectsTracker := componentsHolder objectsTracker
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionRestorer >> doPreStepProcessForAssignments [
 
 	| variable |
@@ -58,7 +60,7 @@ SkExecutionRestorer >> doPreStepProcessForAssignments [
 					inContext: currentState context ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkExecutionRestorer >> doPreStepProcessForMessageSends [
 
 	"handling message sends cases"
@@ -76,13 +78,13 @@ SkExecutionRestorer >> doPreStepProcessForMessageSends [
 				self recordSnapshotOfObject: messageReceiver ] ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionRestorer >> enabled [
 
 	^ enabled and: [ SeekerConfig default restorationEnabled ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkExecutionRestorer >> handleFlushCache [
 
 	| rcvr |
@@ -90,7 +92,7 @@ SkExecutionRestorer >> handleFlushCache [
 	storedFlushCacheBlocks add: [ rcvr flushCache ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkExecutionRestorer >> initialize [
 
 	super initialize.
@@ -104,17 +106,17 @@ SkExecutionRestorer >> initialize [
 	storedNonLocalChangesDictionary := WeakIdentityKeyDictionary new "Keys are the object owning the variable, and the value is a dictionary of keys variable name (symbol) with values the Undo block"
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkExecutionRestorer >> initializeFromCurrentState [
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkExecutionRestorer >> isFlushCache [
 
 	^ flushCacheMethods includes: currentState methodAboutToExecute
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionRestorer >> recordChangeForReceiver: anObject ofVar: aVariable inContext: aContext [
 
 	"Note that this method stores only the first change of a variable."
@@ -135,7 +137,7 @@ SkExecutionRestorer >> recordChangeForReceiver: anObject ofVar: aVariable inCont
 				[ anObject writeSlotNamed: varName value: varValue ] ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkExecutionRestorer >> recordSnapshotOfObject: anObject [
 
 	"Note that this method stores only the first change of a variable."
@@ -153,14 +155,14 @@ SkExecutionRestorer >> recordSnapshotOfObject: anObject [
 			[ anObject copySameFrom: valuesCopy ] ]
 ]
 
-{ #category : #'add/remove' }
+{ #category : 'add/remove' }
 SkExecutionRestorer >> reset [
 
 	storedNonLocalChangesDictionary removeAll.
 	storedFlushCacheBlocks removeAll
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionRestorer >> restoreNonLocalChanges [
 
 	storedNonLocalChangesDictionary valuesDo: [ :variablesAndUndoBlocks |
@@ -168,13 +170,13 @@ SkExecutionRestorer >> restoreNonLocalChanges [
 	flushCacheMethods reverseDo: [ :b | b value ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionRestorer >> tracer [
 
 	^ tracer
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionRestorer >> tracer: anObject [
 
 	tracer := anObject

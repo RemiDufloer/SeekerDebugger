@@ -1,10 +1,12 @@
 Class {
-	#name : #SkChangesOfObjectLC,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkChangesOfObjectLC',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkChangesOfObjectLC >> description [
 
 	^ self commonDescriptionIntroString
@@ -12,7 +14,7 @@ SkChangesOfObjectLC >> description [
 	  'for every assignment of any <instance variable> of the object referred by the <current value> of the <selected variable>'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SkChangesOfObjectLC >> executeCommand [
 
 	| objectOid |
@@ -23,7 +25,7 @@ SkChangesOfObjectLC >> executeCommand [
 			 withObjectOid: objectOid)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkChangesOfObjectLC >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -35,13 +37,13 @@ SkChangesOfObjectLC >> icon [
 	^ #objects
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkChangesOfObjectLC >> name [
 
 	^ 'All the assignments of instance variables, of the object currently pointed by the selected variable'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkChangesOfObjectLC >> selectionTitleString [
 
 	^ ' : (' , self codeSelectedText , ')'

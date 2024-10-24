@@ -1,10 +1,12 @@
 Class {
-	#name : #SkAllMessageSendsToObjectInVariableLC,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkAllMessageSendsToObjectInVariableLC',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllMessageSendsToObjectInVariableLC >> description [
 
 	^ self commonDescriptionIntroString
@@ -12,7 +14,7 @@ SkAllMessageSendsToObjectInVariableLC >> description [
 	  'for every <sent message> to the selected object. Every listed result corresponds to the moment before performing the message send. (Sender''s point of view)'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SkAllMessageSendsToObjectInVariableLC >> executeCommand [
 
 	| oid |
@@ -23,7 +25,7 @@ SkAllMessageSendsToObjectInVariableLC >> executeCommand [
 			 withObjectOid: oid)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllMessageSendsToObjectInVariableLC >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -38,7 +40,7 @@ smallPushpin
 	^ #smallExport
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllMessageSendsToObjectInVariableLC >> name [
 
 	^ 'All Messages sent to the selected object'

@@ -8,16 +8,18 @@ How to add more commands?
 3. Add the new class to a tree in SeekerLiteCommands (see its methods).
 "
 Class {
-	#name : #SeekerLiteCommand,
-	#superclass : #CmCommand,
+	#name : 'SeekerLiteCommand',
+	#superclass : 'CmCommand',
 	#instVars : [
 		'queryTitle',
 		'time'
 	],
-	#category : #'Seeker-Commands'
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SeekerLiteCommand class >> newForSpec [
 |newInstance|
 newInstance := self new.
@@ -25,41 +27,41 @@ newInstance := self new.
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerLiteCommand >> codeCaretPosition [
 	^context code selectionInterval first 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerLiteCommand >> codeSelectedSelector [
 
 	^ self tracer selectedSelector
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerLiteCommand >> codeSelectedText [
 
 	^ self tracer selectedCode
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerLiteCommand >> commonDescriptionIntroString [
 
 	^ 'Queries the execution, from start to finish, '
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerLiteCommand >> createQueryTitle [
 
 	^ 'Query for ' , self name , self selectionTitleString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerLiteCommand >> description [
 	^self subclassResponsibility 
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SeekerLiteCommand >> execute [
 
 	queryTitle := self createQueryTitle.
@@ -68,12 +70,12 @@ SeekerLiteCommand >> execute [
 	UIManager default showWaitCursorWhile: [ self executeCommand ]
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SeekerLiteCommand >> executeCommand [
 	self subclassResponsibility
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerLiteCommand >> getSelectedObjectOid [
 
 	| selectedNode obj objClass selectedContext |
@@ -87,66 +89,66 @@ SeekerLiteCommand >> getSelectedObjectOid [
 	^ self tracer getOidOf: obj
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerLiteCommand >> icon [
 	^self subclassResponsibility 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerLiteCommand >> name [
 	^self subclassResponsibility 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerLiteCommand >> nodeUnderCursor [
 
 	^ context nodeUnderCursor
 ]
 
-{ #category : #'ui notifying' }
+{ #category : 'ui notifying' }
 SeekerLiteCommand >> notifyError: aString [
 
 	context warning: aString for: context code.
 	self inform: 'Error: ' , aString
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerLiteCommand >> pushesNavigation [
 	^false
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerLiteCommand >> readVariable: aVariable inContext: aContext [
 
 	^ aContext readVariableNamed: aVariable name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerLiteCommand >> seeker [ 
 	^self seekerDebuggerPresenter seekerDebugger
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerLiteCommand >> seekerDebuggerPresenter [
 	context extensionTools do: [ :each|  (each class = SeekerDebuggerPresenter) ifTrue: [
 		^each
 		]].^nil
 ]
 
-{ #category : #'accessing context' }
+{ #category : 'accessing context' }
 SeekerLiteCommand >> selectedContext [
 
 	^ self seeker stDebugger selectedContext
 ]
 
-{ #category : #'accessing context' }
+{ #category : 'accessing context' }
 SeekerLiteCommand >> selectedContextIsTopContext [
 
 	^ self seeker stDebugger interruptedContext
 	  = self seeker stDebugger selectedContext
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerLiteCommand >> selectionTitleString [
 
 	"This will be appended to the query title. If the command relies on selected text, override this method"
@@ -154,7 +156,7 @@ SeekerLiteCommand >> selectionTitleString [
 	^ ''
 ]
 
-{ #category : #'UI specific' }
+{ #category : 'UI specific' }
 SeekerLiteCommand >> showResultFor: aTTQ [
 
 	| resultsUI |
@@ -166,7 +168,7 @@ SeekerLiteCommand >> showResultFor: aTTQ [
 			resultsUI showInResult: aTTQ displayModel ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerLiteCommand >> tracer [
 
 	^ self seeker tracer

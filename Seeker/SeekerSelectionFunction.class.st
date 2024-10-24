@@ -1,22 +1,24 @@
 Class {
-	#name : #SeekerSelectionFunction,
-	#superclass : #Object,
-	#category : #'Seeker-TimeTravelingQueries'
+	#name : 'SeekerSelectionFunction',
+	#superclass : 'Object',
+	#category : 'Seeker-TimeTravelingQueries',
+	#package : 'Seeker',
+	#tag : 'TimeTravelingQueries'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerSelectionFunction >> and: anObject [
 
 	^ self value and: anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerSelectionFunction >> or: anObject [
 
 	^ self value or: anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerSelectionFunction >> value: programState [
 
 	^ self subclassResponsibility

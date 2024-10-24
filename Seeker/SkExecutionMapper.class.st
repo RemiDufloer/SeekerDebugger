@@ -11,8 +11,8 @@ Its main participation happens when the Seeker Session is loaded, setting the ex
 After that, the mapper participates passively (it is only asked, without making changes in the debug session)
 "
 Class {
-	#name : #SkExecutionMapper,
-	#superclass : #SkComponent,
+	#name : 'SkExecutionMapper',
+	#superclass : 'SkComponent',
 	#instVars : [
 		'tracer',
 		'currentState',
@@ -24,10 +24,12 @@ Class {
 		'userStartTraceTime',
 		'mappingAlgorithm'
 	],
-	#category : #'Seeker-Components'
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkExecutionMapper class >> newForTracer: tracer [
 
 	^ self new
@@ -36,7 +38,7 @@ SkExecutionMapper class >> newForTracer: tracer [
 		  yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkExecutionMapper >> automapForCustomScenario: aContext withEndingCondition: aBlock [
 
 	| recordingInitialContext currentCompiledMethod |
@@ -57,62 +59,62 @@ SkExecutionMapper >> automapForCustomScenario: aContext withEndingCondition: aBl
 	^ true
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkExecutionMapper >> bindComponents [
 
 	tracer := componentsHolder tracer.
 	currentState := tracer currentState
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionMapper >> contextOfExecutedBytecodeOne [
 
 	^ contextOfExecutedBytecodeOne
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionMapper >> contextOfExecutedBytecodeOne: anObject [
 
 	contextOfExecutedBytecodeOne := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionMapper >> currentState [
 
 	^ currentState
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionMapper >> currentState: anObject [
 
 	currentState := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionMapper >> doItContext [
 
 	^ doItContext
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionMapper >> doItContext: anObject [
 
 	doItContext := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionMapper >> endCondition [
 
 	^ endCondition
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionMapper >> endCondition: anObject [
 
 	endCondition := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkExecutionMapper >> initialize [
 
 	super initialize.
@@ -122,50 +124,50 @@ SkExecutionMapper >> initialize [
 	mappingAlgorithm := SkMapAlgoNone new
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkExecutionMapper >> isDoItScenario [
 
 	^ currentState compiledCode isDoIt
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkExecutionMapper >> isEndReached [
 
 	^ endCondition isEndReached
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionMapper >> isMapped [
 
 	^ isMapped
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionMapper >> isMapped: anObject [
 
 	isMapped := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionMapper >> isMappedForDoIt [
 
 	^ isMappedForDoIt
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionMapper >> isMappedForDoIt: anObject [
 
 	isMappedForDoIt := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkExecutionMapper >> isTestCaseOrDoIT [
 
 	^ (SkMapAlgoTestCase matchesExecutionScenario: tracer) or: [ 
 		  SkMapAlgoDoIt matchesExecutionScenario: tracer ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkExecutionMapper >> quickMap [
 
 	SkExecutionMapperAlgorithm subclassesDo: [ :s | 
@@ -179,7 +181,7 @@ SkExecutionMapper >> quickMap [
 	^ mappingAlgorithm mapExecution
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkExecutionMapper >> recordFromHereWithExecutionEndingConditionOnState: aPredicateOfCurrentState [
 
 	self
@@ -188,7 +190,7 @@ SkExecutionMapper >> recordFromHereWithExecutionEndingConditionOnState: aPredica
 	tracer seeker inform: 'New execution parameters set.'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkExecutionMapper >> recordOnThisContext [
 
 	| initialContext endingContext endTracedInstructionPC endTraceTime |
@@ -207,14 +209,14 @@ SkExecutionMapper >> recordOnThisContext [
 	"tracer seeker inform: 'New execution parameters set.'"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkExecutionMapper >> recountBytecodes [
 
 	tracer blockingDoAndUpdateSessionAfter: [ 
 		tracer recountExecutedBytecodes ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkExecutionMapper >> recountExecutedBytecodes [
 
 	"Restart the execution, and executes every bytecode (while counting them) up the the state where this method was called.
@@ -232,7 +234,7 @@ SkExecutionMapper >> recountExecutedBytecodes [
 	tracer safeTimeTravelToTraceTime: currentTraceTime
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkExecutionMapper >> recursiveAddContextInStackToList: aCollection startingContext: aContext [
 
 	| sender |
@@ -244,25 +246,25 @@ SkExecutionMapper >> recursiveAddContextInStackToList: aCollection startingConte
 	aCollection add: aContext
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionMapper >> tracer [
 
 	^ tracer
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionMapper >> tracer: anObject [
 
 	tracer := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionMapper >> userStartTraceTime [
 
 	^ userStartTraceTime
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutionMapper >> userStartTraceTime: anObject [
 
 	userStartTraceTime := anObject

@@ -1,38 +1,40 @@
 Class {
-	#name : #SeekerCounter,
-	#superclass : #Object,
+	#name : 'SeekerCounter',
+	#superclass : 'Object',
 	#instVars : [
 		'count'
 	],
-	#category : #'Seeker-Helpers'
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCounter class >> countTo: aNumber [
 
 	^ self new count: aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerCounter >> count: aNumber [
 
 	count := aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerCounter >> value [
 
 	count := count - 1.
 	^ count <= 0
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 SeekerCounter >> whileFalse: aBlock [
 
 	^ [ self value ] whileFalse: aBlock
 ]
 
-{ #category : #controlling }
+{ #category : 'controlling' }
 SeekerCounter >> whileTrue: aBlock [
 
 	^ [ self value ] whileTrue: aBlock

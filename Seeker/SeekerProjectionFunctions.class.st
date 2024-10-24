@@ -1,10 +1,12 @@
 Class {
-	#name : #SeekerProjectionFunctions,
-	#superclass : #Object,
-	#category : #'Seeker-Helpers'
+	#name : 'SeekerProjectionFunctions',
+	#superclass : 'Object',
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerProjectionFunctions class >> projectionForMessageSends [
 
 	| t |

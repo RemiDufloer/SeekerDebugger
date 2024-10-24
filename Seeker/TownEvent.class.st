@@ -1,6 +1,6 @@
 Class {
-	#name : #TownEvent,
-	#superclass : #Object,
+	#name : 'TownEvent',
+	#superclass : 'Object',
 	#instVars : [
 		'name',
 		'population',
@@ -8,46 +8,48 @@ Class {
 		'random',
 		'applesPool'
 	],
-	#category : #'Seeker-Presentation'
+	#category : 'Seeker-Presentation',
+	#package : 'Seeker',
+	#tag : 'Presentation'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TownEvent class >> applesPerParticipant [
 
 	^ 10
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TownEvent class >> numberOfActivities [
 
 ^ 10
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TownEvent class >> numberOfParticipants [
 
 	^ 3
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TownEvent class >> totalApples [
 
 	^ self numberOfParticipants * self applesPerParticipant
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TownEvent >> activities [
 
 	^ activities
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TownEvent >> activities: anObject [
 
 	activities := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TownEvent >> createActivity [
 
 	"Creates an activity with a randomized name, and with all the population as participants"
@@ -58,7 +60,7 @@ TownEvent >> createActivity [
 		  yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TownEvent >> deliverApples [
 
 	population do: [ :villager | 
@@ -72,7 +74,7 @@ TownEvent >> deliverApples [
 		villager receiveApples: apples ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TownEvent >> doClosureCeremony [
 
 	"Each villager eat their basket of Apples"
@@ -80,7 +82,7 @@ TownEvent >> doClosureCeremony [
 	population do: [ :villager | villager eatAllApples ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TownEvent >> initialize [
 
 	name := 'Unnamed town event'.
@@ -95,7 +97,7 @@ TownEvent >> initialize [
 			Villager newCharlie }
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TownEvent >> initializeRandom [
 
 	"We specify the seed to have a deterministic random"
@@ -105,7 +107,7 @@ TownEvent >> initializeRandom [
 		  yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TownEvent >> logActivity: activity [
 
 	TownEventLoggerUtil log: '******** Activity Log'.
@@ -113,7 +115,7 @@ TownEvent >> logActivity: activity [
 	TownEventLoggerUtil log: 'Status: ' , self populationStatus asString
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TownEvent >> logClosureCeremony [
 
 	TownEventLoggerUtil log: ''.
@@ -123,7 +125,7 @@ TownEvent >> logClosureCeremony [
 	TownEventLoggerUtil log: 'Status: ' , self populationStatus asString
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TownEvent >> logOpeningInformation [
 
 	TownEventLoggerUtil clear.
@@ -135,31 +137,31 @@ TownEvent >> logOpeningInformation [
 	TownEventLoggerUtil log: ''
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TownEvent >> makeApplesPoolContainer [
 
 	^ Set new
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TownEvent >> makePopulationContainer [
 
 	^ Set new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TownEvent >> name [
 
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TownEvent >> name: anObject [
 
 	name := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TownEvent >> organizeEvent [
 
 	"Activities are created, Apples are created and delivered"
@@ -181,37 +183,37 @@ TownEvent >> organizeEvent [
 	self deliverApples
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TownEvent >> population [
 
 	^ population
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TownEvent >> population: anObject [
 
 	population := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TownEvent >> populationStatus [
 
 	^ population collect: [ :villager | villager name -> villager status ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TownEvent >> random [
 
 	^ random
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TownEvent >> random: anObject [
 
 	random := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TownEvent >> start [
 	"Performs every activity sequentially, and at the end, performs the closure ceremony"
 	self logOpeningInformation.

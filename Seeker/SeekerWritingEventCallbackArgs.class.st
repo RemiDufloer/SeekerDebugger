@@ -1,45 +1,47 @@
 Class {
-	#name : #SeekerWritingEventCallbackArgs,
-	#superclass : #Object,
+	#name : 'SeekerWritingEventCallbackArgs',
+	#superclass : 'Object',
 	#instVars : [
 		'executionTime',
 		'seekerDebugger',
 		'undoBlock'
 	],
-	#category : #'Seeker-Experimental'
+	#category : 'Seeker-Experimental',
+	#package : 'Seeker',
+	#tag : 'Experimental'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerWritingEventCallbackArgs >> executionTime [
 
 	^ executionTime
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerWritingEventCallbackArgs >> executionTime: anObject [
 
 	executionTime := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerWritingEventCallbackArgs >> seekerDebugger [
 
 	^ seekerDebugger
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerWritingEventCallbackArgs >> seekerDebugger: anObject [
 
 	seekerDebugger := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerWritingEventCallbackArgs >> undoBlock [
 
 	^ undoBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerWritingEventCallbackArgs >> undoBlock: anObject [
 
 	undoBlock := anObject

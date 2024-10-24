@@ -1,6 +1,6 @@
-Extension { #name : #Object }
+Extension { #name : 'Object' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> ! anObject [
 
 	"self flag remember to remove this"
@@ -8,7 +8,7 @@ Object >> ! anObject [
 	self value: anObject
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> ? aBlock [
 
 	"self flag remember to remove this"
@@ -16,37 +16,37 @@ Object >> ? aBlock [
 	aBlock value: self
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> @< another [
 
 	^ self < another
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> @<= another [
 
 	^ self <= another
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> @= another [
 
 	^ self = another
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> @> another [
 
 	^ self > another
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> @>= another [
 
 	^ self >= another
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> asScopedObjectDo: aBlock [
 
 	aBlock argumentCount ~= 1 ifTrue: [ 
@@ -54,31 +54,31 @@ Object >> asScopedObjectDo: aBlock [
 	[ aBlock value: self ] ensure: [ self finalize ]
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> asyncSend [
 
 	^ TaskBuilder newForReceiver: self
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object class >> atSeekerAuxStorage1 [
 
 	^ SeekerGlobals instance auxiliaryTempStorage1
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object class >> atSeekerAuxStorage2 [
 
 	^ SeekerGlobals instance auxiliaryTempStorage2
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> canBecome [
 
 	^ self isReadOnlyObject not
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> defaultCase: aValuable [
 
 	"used for switch case do"
@@ -86,13 +86,13 @@ Object >> defaultCase: aValuable [
 	^ self
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> defaultSeekerCacheObjectClass [
 
 	^ SeekerCacheObject
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> doCases [
 
 	| switchBlock |
@@ -107,19 +107,19 @@ Object >> doCases [
 		                 ifFalse: [ switchBlock ] ]
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object class >> globalized [
 
 	^ Smalltalk globals at: #globalizedObject ifAbsent: [ nil ]
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> isIterableDataSource [
 
 	^ false
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> isNotSeekerTrackable [
 "I know, overriding this method in subclasses would make prettier code, but I would loose the whole picture.
 In this case, I preffer this ugly version"
@@ -129,29 +129,29 @@ In this case, I preffer this ugly version"
 	^ self isReadOnlyObject or: [ self isString ]
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> makeMeGlobal [
 
 	^ Smalltalk globals at: #globalizedObject put: self
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> mirrorPrimIdentityHash [
 
 	^ MirrorPrimitives identityHashOf: self
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> putInSeekerAuxStorage1 [
 	SeekerGlobals instance auxiliaryTempStorage1: self
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> putInSeekerAuxStorage2 [
 	SeekerGlobals instance auxiliaryTempStorage2: self
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> seekAllMessagesSentToMe [
 
 	| seeker |
@@ -166,7 +166,7 @@ Object >> seekAllMessagesSentToMe [
 	^ nil
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> seekAllMyChanges [
 
 	| seeker |
@@ -182,7 +182,7 @@ Object >> seekAllMyChanges [
 	^ nil
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> seekAndDisplayAllMessagesSentToMe [
 
 	| seeker error |
@@ -203,7 +203,7 @@ Object >> seekAndDisplayAllMessagesSentToMe [
 			ifTrue: [ self error: 'Could not execute query' ] ]
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> seekAndDisplayAllMessagesSentToMeWithSelector: selector [
 
 	| seeker error |
@@ -224,7 +224,7 @@ Object >> seekAndDisplayAllMessagesSentToMeWithSelector: selector [
 			ifTrue: [ self error: 'Could not execute query' ] ]
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> seekAndDisplayAllMyChanges [
 
 	| seeker error |
@@ -246,7 +246,7 @@ Object >> seekAndDisplayAllMyChanges [
 			ifTrue: [ self error: 'Could not execute query' ] ]
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> seekAndDisplayAllMyChangesOfVariableNamed: varName [
 
 	| seeker error |
@@ -267,7 +267,7 @@ Object >> seekAndDisplayAllMyChangesOfVariableNamed: varName [
 			ifTrue: [ self error: 'Could not execute query' ] ]
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> seekMe [
 
 	SeekerDebugger allInstances.
@@ -280,14 +280,14 @@ Object >> seekMe [
 	^ nil
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> seekMyInspectors [
 
 	^ StInspector allInstances select: [ :insp | 
 		  insp model inspectedObject == self ]
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> seekMyOid [
 
 	SeekerDebugger allInstances.
@@ -299,26 +299,26 @@ Object >> seekMyOid [
 	^ nil
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> seekerCache [
 
 	^ SeekerCache seekerCacheObjectOf: self
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> softCopy [
 
 	^ self shallowCopy
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> softEqualTo: anObject [
 
 	
 	^ self softEqualTo: anObject withCache: WeakIdentitySet new.
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> softEqualTo: anObject withCache: objs [
 
 	| mySlotsNames theirSlotsNames |
@@ -341,7 +341,7 @@ Object >> softEqualTo: anObject withCache: objs [
 	^ true
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Object >> tryPerform: selector [
 
 	(self respondsTo: selector ) ifFalse: [ ^ false ].

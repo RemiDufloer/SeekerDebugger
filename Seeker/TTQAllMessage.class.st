@@ -1,5 +1,5 @@
 Class {
-	#name : 'TTQAllAssignments',
+	#name : 'TTQAllMessage',
 	#superclass : 'TimeTravelingQuery',
 	#category : 'Seeker-TimeTravelingQueries',
 	#package : 'Seeker',
@@ -7,19 +7,19 @@ Class {
 }
 
 { #category : 'as yet unclassified' }
-TTQAllAssignments class >> displayModel [
+TTQAllMessage class >> displayModel [
 
-	^ QdmForAssignments 
+	^ QdmForMessageSends
 ]
 
 { #category : 'as yet unclassified' }
-TTQAllAssignments class >> projectionFunction [
+TTQAllMessage class >> projectionFunction [
 
-	^ SkProjectionAssignments  
+	^ SkProjectionMessageSends
 ]
 
 { #category : 'as yet unclassified' }
-TTQAllAssignments class >> selectionFunction [
+TTQAllMessage class >> selectionFunction [
 
-	^ SkSelectionAssignments
+	^ SkSelectionMessage
 ]

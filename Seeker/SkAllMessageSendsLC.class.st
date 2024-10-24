@@ -1,10 +1,12 @@
 Class {
-	#name : #SkAllMessageSendsLC,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkAllMessageSendsLC',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllMessageSendsLC >> description [
 
 	^ self commonDescriptionIntroString
@@ -12,14 +14,14 @@ SkAllMessageSendsLC >> description [
 	  'for every <sent message>. Every listed result corresponds to the moment before performing the message send. (Sender''s point of view)'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SkAllMessageSendsLC >> executeCommand [
 
 	self showResultFor:
 		(TTQAllMessageSends queryFrom: self tracer newProgramStates)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllMessageSendsLC >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -34,7 +36,7 @@ smallPushpin
 	^ #smallExport
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllMessageSendsLC >> name [
 
 	^'All Message Sends'

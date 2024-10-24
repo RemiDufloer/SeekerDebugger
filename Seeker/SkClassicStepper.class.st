@@ -6,18 +6,20 @@ It is slower but have been tested and it works. The faster stepping (superclass)
 If Pharo 9.0 is used, it might be a good idea to use this stepper instead.
 "
 Class {
-	#name : #SkClassicStepper,
-	#superclass : #SkStepper,
-	#category : #'Seeker-Components'
+	#name : 'SkClassicStepper',
+	#superclass : 'SkStepper',
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkClassicStepper >> stepBytecode [
 
 	^ self stepBytecodeDoingAfterStep: nil.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkClassicStepper >> stepBytecodeDoingAfterStep: aBlock [
 
 	| previousContext startingNode currentContext debuggedProcess |
@@ -48,7 +50,7 @@ SkClassicStepper >> stepBytecodeDoingAfterStep: aBlock [
 	^ true
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkClassicStepper >> stepBytecodeUntilConditionIsTrue: aBlock [
 
 	^ self
@@ -56,7 +58,7 @@ SkClassicStepper >> stepBytecodeUntilConditionIsTrue: aBlock [
 		  doingAfterEachStep: nil
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkClassicStepper >> stepBytecodeUntilConditionIsTrue: aBlock doingAfterEachStep: afterStepBlock [
 
 	iteratingFlag := true.

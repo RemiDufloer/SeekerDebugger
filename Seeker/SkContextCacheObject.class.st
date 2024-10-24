@@ -1,20 +1,22 @@
 Class {
-	#name : #SkContextCacheObject,
-	#superclass : #SeekerCacheObject,
+	#name : 'SkContextCacheObject',
+	#superclass : 'SeekerCacheObject',
 	#instVars : [
 		'stackDepth',
 		'tracedContextPC'
 	],
-	#category : #'Seeker-SeekerCache'
+	#category : 'Seeker-SeekerCache',
+	#package : 'Seeker',
+	#tag : 'SeekerCache'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkContextCacheObject >> initialize [
 
 	super initialize
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkContextCacheObject >> stackDepth [
 
 	^ stackDepth ifNil: [ 
@@ -25,7 +27,7 @@ SkContextCacheObject >> stackDepth [
 			  ifNotNil: [ stackDepth := 1 "sender stackDepth + " ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkContextCacheObject >> tracedContextPC [
 
 	^ tracedContextPC ifNil: [ 

@@ -1,6 +1,6 @@
-Extension { #name : #Delay }
+Extension { #name : 'Delay' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Delay >> busyWait [
 	"Schedule this Delay, then wait on its semaphore. The current process will be suspended for the amount of time specified when this Delay was created."
 
@@ -12,7 +12,7 @@ Delay >> busyWait [
 		Processor yield ]
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 Delay class >> busyWaitRandomMilliseconds: maxRandom random: rand [
 
 	| ms targetTime iterationCount |

@@ -1,6 +1,6 @@
 Class {
-	#name : #SeekerConfig,
-	#superclass : #Object,
+	#name : 'SeekerConfig',
+	#superclass : 'Object',
 	#instVars : [
 		'enableMouseButtonEventDebug',
 		'handleMouseUpEvent',
@@ -21,106 +21,108 @@ Class {
 	#classVars : [
 		'DefaultInstance'
 	],
-	#category : #'Seeker-Helpers'
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig class >> default [
 
 	^ DefaultInstance
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerConfig class >> initialize [
 
 	DefaultInstance := self new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> autoInstrumentationStepping [
 
 	^ autoInstrumentationStepping
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> autoInstrumentationStepping: anObject [
 
 	autoInstrumentationStepping := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> deferredSetup [
 
 	^ deferredSetup
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> deferredSetup: anObject [
 
 	deferredSetup := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> enableMouseButtonEventDebug [
 
 	^ enableMouseButtonEventDebug
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> enableMouseButtonEventDebug: anObject [
 
 	enableMouseButtonEventDebug := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> handleMouseDownEvent [
 
 	^ handleMouseDownEvent
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> handleMouseDownEvent: anObject [
 
 	handleMouseDownEvent := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> handleMouseUpEvent [
 
 	^ handleMouseUpEvent
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> handleMouseUpEvent: anObject [
 
 	handleMouseUpEvent := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> identityEnforcingEnabled [
 
 	^ indentityEnforcingEnabled
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> identityEnforcingEnabled: anObject [
 
 	indentityEnforcingEnabled := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> includeTestsSetup [
 
 	^ includeTestsSetup
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> includeTestsSetup: anObject [
 
 	includeTestsSetup := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerConfig >> initialize [
 
 	enableMouseButtonEventDebug := false.
@@ -140,61 +142,61 @@ SeekerConfig >> initialize [
 	includeTestsSetup := false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> keepMenusOpen [
 
 	^ keepMenusOpen
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> keepMenusOpen: anObject [
 
 	keepMenusOpen := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> objectTrackingEnabled [
 
 	^ objectTrackingEnabled
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> objectTrackingEnabled: anObject [
 
 	objectTrackingEnabled := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> queryResultsLimit [
 
 	^ queryResultsLimit
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> queryResultsLimit: anObject [
 
 	queryResultsLimit := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> queryResultsLimitEnabled [
 
 	^ queryResultsLimitEnabled
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> queryResultsLimitEnabled: anObject [
 
 	queryResultsLimitEnabled := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> quickWrapEnabled [
 
 	^ quickWrapEnabled
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> quickWrapEnabled: anObject [
 
 	| wasEnabled |
@@ -207,31 +209,31 @@ SeekerConfig >> quickWrapEnabled: anObject [
 	QuickWrap refreshAllWrappers
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerConfig >> releasePinnedMenus [
 
 	SeekerSessionHelpers releasePinnedMenus
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> restorationEnabled [
 
 	^ restorationEnabled
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> restorationEnabled: anObject [
 
 	restorationEnabled := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> seekerEnabled [
 
 	^ seekerEnabled
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> seekerEnabled: anObject [
 
 	| wasEnabled |
@@ -242,13 +244,13 @@ SeekerConfig >> seekerEnabled: anObject [
 	seekerEnabled ifTrue: [ SeekerInstallHelpers install ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> systemCallsHandlerEnabled [
 
 	^ systemCallsHandlerEnabled
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerConfig >> systemCallsHandlerEnabled: anObject [
 
 	systemCallsHandlerEnabled := anObject

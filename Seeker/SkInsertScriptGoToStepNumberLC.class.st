@@ -1,21 +1,23 @@
 Class {
-	#name : #SkInsertScriptGoToStepNumberLC,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkInsertScriptGoToStepNumberLC',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkInsertScriptGoToStepNumberLC >> description [
 	^'MyCommand description'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SkInsertScriptGoToStepNumberLC >> executeCommand [
 
 	self seekerDebuggerPresenter insertCodeText: ('seeker stepper restartAndStepToIndex: ANUMBER.',String cr).
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkInsertScriptGoToStepNumberLC >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -27,7 +29,7 @@ SkInsertScriptGoToStepNumberLC >> icon [
 	^ #add
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkInsertScriptGoToStepNumberLC >> name [
 	^'Insert script to go to a specific step'
 ]

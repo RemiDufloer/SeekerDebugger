@@ -1,33 +1,35 @@
 Class {
-	#name : #ClyDebugTestWithSeekerCommand,
-	#superclass : #ClyRunTestsFromMethodsCommand,
-	#category : #'Seeker-Commands'
+	#name : 'ClyDebugTestWithSeekerCommand',
+	#superclass : 'ClyRunTestsFromMethodsCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #activation }
+{ #category : 'activation' }
 ClyDebugTestWithSeekerCommand class >> fullBrowserShortcutActivation [
 
 	<classAnnotation>
 	^ CmdShortcutActivation by: $x shift meta for: self contextClass
 ]
 
-{ #category : #activation }
+{ #category : 'activation' }
 ClyDebugTestWithSeekerCommand class >> fullBrowserTableIconActivation [
 	"It should not be as icon in table"
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 ClyDebugTestWithSeekerCommand >> defaultMenuIcon [
 
 	^ Smalltalk ui iconNamed: #exception
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ClyDebugTestWithSeekerCommand >> defaultMenuItemName [ 
 	^'Debug test with Seeker'
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 ClyDebugTestWithSeekerCommand >> runTest: testSelector of: testClass [
 
 	| process suspendedContext |

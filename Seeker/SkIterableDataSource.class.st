@@ -1,10 +1,12 @@
 Class {
-	#name : #SkIterableDataSource,
-	#superclass : #Object,
-	#category : #'Seeker-Query'
+	#name : 'SkIterableDataSource',
+	#superclass : 'Object',
+	#category : 'Seeker-Query',
+	#package : 'Seeker',
+	#tag : 'Query'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkIterableDataSource >> advanceToNextRow [
 
 	"advances to the next row. returns false if the end of the table (there are no more rows) was reached before trying to advance."
@@ -12,7 +14,7 @@ SkIterableDataSource >> advanceToNextRow [
 	self subclassResponsibility
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkIterableDataSource >> currentRow [
 
 	"returns the object that represents the current row"
@@ -21,12 +23,12 @@ SkIterableDataSource >> currentRow [
 	self subclassResponsibility
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkIterableDataSource >> dataSourceIsTracedExecution [
 	^self subclassResponsibility
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 SkIterableDataSource >> do: aBlock [
 
 	"do aBlock over each of the rows"
@@ -35,7 +37,7 @@ SkIterableDataSource >> do: aBlock [
 	[ self advanceToNextRow ] whileTrue: [ aBlock value: self currentRow ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkIterableDataSource >> endOfTableReached [
 
 	"returns true if the table has no more rows (and advanceToNextRow will return false)"
@@ -43,7 +45,7 @@ SkIterableDataSource >> endOfTableReached [
 	self subclassResponsibility
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkIterableDataSource >> findTracer [
 
 	"Finds a tracer instance where any of the datasources get its rows"
@@ -51,13 +53,13 @@ SkIterableDataSource >> findTracer [
 	^ nil
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkIterableDataSource >> isIterableDataSource [
 
 	^ true
 ]
 
-{ #category : #splitjoin }
+{ #category : 'splitjoin' }
 SkIterableDataSource >> join: anIterableDataSet [
 
 	| jointTable |
@@ -72,7 +74,7 @@ SkIterableDataSource >> join: anIterableDataSet [
 	^ jointTable
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkIterableDataSource >> resetTableTraversing [
 
 	"Puts the table traversing cursor 'before the first row'. one advanceToNextRow is necessary to enter the first row. A reseted table should reply currentRow nil always."
@@ -80,7 +82,7 @@ SkIterableDataSource >> resetTableTraversing [
 	self subclassResponsibility
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 SkIterableDataSource >> selfAndChildrenDo: aBlock [
 
 	"aBlock that receives one argument, which will be the self, and will be called recursivelly for every children datasource"
@@ -88,7 +90,7 @@ SkIterableDataSource >> selfAndChildrenDo: aBlock [
 	aBlock value: self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkIterableDataSource >> withExecutionColumns: aCollection [
 
 	| rightTable tracer columns |

@@ -1,10 +1,12 @@
 Class {
-	#name : #QSCollection,
-	#superclass : #QuerySolver,
-	#category : #'Seeker-Query'
+	#name : 'QSCollection',
+	#superclass : 'QuerySolver',
+	#category : 'Seeker-Query',
+	#package : 'Seeker',
+	#tag : 'Query'
 }
 
-{ #category : #navigating }
+{ #category : 'navigating' }
 QSCollection >> resolve [
 
 	"Triggers the solution of the query"

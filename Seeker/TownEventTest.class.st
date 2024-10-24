@@ -1,10 +1,12 @@
 Class {
-	#name : #TownEventTest,
-	#superclass : #TestCase,
-	#category : #'Seeker-Presentation'
+	#name : 'TownEventTest',
+	#superclass : 'TestCase',
+	#category : 'Seeker-Presentation',
+	#package : 'Seeker',
+	#tag : 'Presentation'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 TownEventTest >> testEvent [
 
 	| t |

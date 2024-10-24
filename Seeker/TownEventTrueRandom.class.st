@@ -1,22 +1,24 @@
 Class {
-	#name : #TownEventTrueRandom,
-	#superclass : #TownEvent,
-	#category : #'Seeker-Presentation'
+	#name : 'TownEventTrueRandom',
+	#superclass : 'TownEvent',
+	#category : 'Seeker-Presentation',
+	#package : 'Seeker',
+	#tag : 'Presentation'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TownEventTrueRandom >> initializeRandom [
 
 	^ Random new
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TownEventTrueRandom >> makeApplesPoolContainer [
 
 	^ IdentitySet new
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TownEventTrueRandom >> makePopulationContainer [
 
 	^ IdentitySet new

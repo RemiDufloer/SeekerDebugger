@@ -1,10 +1,12 @@
 Class {
-	#name : #QdmForReceivedMessages,
-	#superclass : #QueryDisplayModel,
-	#category : #'Seeker-UI'
+	#name : 'QdmForReceivedMessages',
+	#superclass : 'QueryDisplayModel',
+	#category : 'Seeker-UI',
+	#package : 'Seeker',
+	#tag : 'UI'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QdmForReceivedMessages >> buildContextMenuForResults: aQueryResutls withSelectedItem: selection forTracer: tracer [
 
 	"builds a context menu for an item of this display model"
@@ -33,13 +35,13 @@ QdmForReceivedMessages >> buildContextMenuForResults: aQueryResutls withSelected
 		  "openWithSpecAt: self currentHand position"yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QdmForReceivedMessages >> defaultQueryTitle [
 
 	^ 'Received Messages Query'
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 QdmForReceivedMessages >> initializeModel [
 
 	columns := { 

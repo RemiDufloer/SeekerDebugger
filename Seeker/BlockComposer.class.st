@@ -1,10 +1,12 @@
 Class {
-	#name : #BlockComposer,
-	#superclass : #Object,
-	#category : #'Seeker-Helpers'
+	#name : 'BlockComposer',
+	#superclass : 'Object',
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 BlockComposer class >> isAlwaysMatchPredicate: aBlock [
 
 	| node |
@@ -27,7 +29,7 @@ BlockComposer class >> isAlwaysMatchPredicate: aBlock [
 			  == (SeekerSelectionFunction methodDictionary at: #value:) ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 BlockComposer class >> isIdentityProjection: aBlock [
 
 	| node |
@@ -48,7 +50,7 @@ BlockComposer class >> isIdentityProjection: aBlock [
 				  node arguments first variable = firstStatementNode variable ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlockComposer class >> projectionCompositionOf: aBlock1 and: aBlock2 [
 
 	(self isIdentityProjection: aBlock1) ifTrue: [ ^ aBlock2 ].
@@ -56,7 +58,7 @@ BlockComposer class >> projectionCompositionOf: aBlock1 and: aBlock2 [
 	^ aBlock2 "Note that this will always overwrite the block1"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BlockComposer class >> selectionCompositionOf: aBlock1 and: aBlock2 [
 
 	(self isAlwaysMatchPredicate: aBlock1) ifTrue: [ ^ aBlock2 ].

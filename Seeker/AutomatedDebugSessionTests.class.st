@@ -1,10 +1,12 @@
 Class {
-	#name : #AutomatedDebugSessionTests,
-	#superclass : #TestCase,
-	#category : #'Seeker-BugCollection-Tests'
+	#name : 'AutomatedDebugSessionTests',
+	#superclass : 'TestCase',
+	#category : 'Seeker-BugCollection-Tests',
+	#package : 'Seeker',
+	#tag : 'BugCollection-Tests'
 }
 
-{ #category : #compiling }
+{ #category : 'compiling' }
 AutomatedDebugSessionTests >> compile: aStream for: anObject in: evalContext [
 	| methodClass |
 
@@ -20,7 +22,7 @@ AutomatedDebugSessionTests >> compile: aStream for: anObject in: evalContext [
 		compile
 ]
 
-{ #category : #'do-its' }
+{ #category : 'do-its' }
 AutomatedDebugSessionTests >> createCleanContextFromSource: aString [
 
 	| methodClass compiledMethod process |
@@ -41,7 +43,7 @@ AutomatedDebugSessionTests >> createCleanContextFromSource: aString [
 	process := [ compiledMethod value ] newProcess
 ]
 
-{ #category : #'do-its' }
+{ #category : 'do-its' }
 AutomatedDebugSessionTests >> createCleanProcessForSource: aString [
 |compiledMethod process suspendedContext|
 "debug: aCompiledMethod receiver: anObject in: evalContext
@@ -56,7 +58,7 @@ AutomatedDebugSessionTests >> createCleanProcessForSource: aString [
 	
 ]
 
-{ #category : #'do-its' }
+{ #category : 'do-its' }
 AutomatedDebugSessionTests >> createDebugProcessFromSource: aString [
 
 	| methodClass compiledMethod process |
@@ -79,7 +81,7 @@ AutomatedDebugSessionTests >> createDebugProcessFromSource: aString [
 	^process
 ]
 
-{ #category : #'do-its' }
+{ #category : 'do-its' }
 AutomatedDebugSessionTests >> debug: aCompiledMethod receiver: anObject in: evalContext [
 	| process suspendedContext session|
 
@@ -97,7 +99,7 @@ AutomatedDebugSessionTests >> debug: aCompiledMethod receiver: anObject in: eval
 		submit
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 AutomatedDebugSessionTests >> doFakeInitializationAndProgrammaticallyLaunchSeekerExample [
 
 	| testClass testMethodSelector |
@@ -114,7 +116,7 @@ AutomatedDebugSessionTests >> doFakeInitializationAndProgrammaticallyLaunchSeeke
 		of: testClass
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 AutomatedDebugSessionTests >> replaceVar: aBlock [
 
 	| thisBlock |
@@ -132,7 +134,7 @@ AutomatedDebugSessionTests >> replaceVar: aBlock [
 	thisBlock value
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AutomatedDebugSessionTests >> testABlockDebugSession [
 
 	"This code should openup a debugger on the given block"
@@ -157,7 +159,7 @@ AutomatedDebugSessionTests >> testABlockDebugSession [
 	"That works, but not as cleanly as the Debug this context menu"
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AutomatedDebugSessionTests >> testABlockDebugSession2 [
 
 	"This code should openup a debugger on the given block"
@@ -188,7 +190,7 @@ AutomatedDebugSessionTests >> testABlockDebugSession2 [
 self debug: method receiver: nil in: nil 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AutomatedDebugSessionTests >> testABlockDebugSession3 [
 
 	"This code should openup a debugger on the given block"
@@ -211,7 +213,7 @@ AutomatedDebugSessionTests >> testABlockDebugSession3 [
 	"That works, but not as cleanly as the Debug this context menu"
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AutomatedDebugSessionTests >> testInvertReceiverAndSender [
 
 	| creator calc |
@@ -227,7 +229,7 @@ AutomatedDebugSessionTests >> testInvertReceiverAndSender [
 	self assert: calc number value equals: 1
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AutomatedDebugSessionTests >> testReadThing [
 
 	| xvar |

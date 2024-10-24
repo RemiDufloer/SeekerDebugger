@@ -1,16 +1,18 @@
 Class {
-	#name : #SkAliasOfSelectedVariableTestLC,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkAliasOfSelectedVariableTestLC',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAliasOfSelectedVariableTestLC >> description [
 
 	^'MyCommand description'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SkAliasOfSelectedVariableTestLC >> executeCommand [
 
 	| selectedNode obj selectedContext |
@@ -23,7 +25,7 @@ SkAliasOfSelectedVariableTestLC >> executeCommand [
 	(self tracer getOidOf: obj) inspect
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAliasOfSelectedVariableTestLC >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -35,7 +37,7 @@ SkAliasOfSelectedVariableTestLC >> icon [
 	^ #add
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAliasOfSelectedVariableTestLC >> name [
 
 	^ 'Alias of selected variable'

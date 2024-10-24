@@ -1,10 +1,12 @@
 Class {
-	#name : #QdmForDetectedObjects,
-	#superclass : #QueryDisplayModel,
-	#category : #'Seeker-UI'
+	#name : 'QdmForDetectedObjects',
+	#superclass : 'QueryDisplayModel',
+	#category : 'Seeker-UI',
+	#package : 'Seeker',
+	#tag : 'UI'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QdmForDetectedObjects >> buildContextMenuForResults: aQueryResutls withSelectedItem: selection forTracer: tracer [
 
 	"builds a context menu for an item of this display model"
@@ -37,13 +39,13 @@ QdmForDetectedObjects >> buildContextMenuForResults: aQueryResutls withSelectedI
 		  "openWithSpecAt: self currentHand position"yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QdmForDetectedObjects >> defaultQueryTitle [
 
 	^ 'Detected Objects'
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 QdmForDetectedObjects >> initializeModel [
 
 	columns := { 
@@ -58,7 +60,7 @@ QdmForDetectedObjects >> initializeModel [
 			            lg) }
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QdmForDetectedObjects >> trackObjectWithOid: aNumber withTracer: tracer [
 
 	tracer bytecodeIndex <= aNumber ifTrue: [ tracer timeTravelToBytecodeIndex: aNumber + 1 ].

@@ -1,6 +1,6 @@
 Class {
-	#name : #SkProgramStates,
-	#superclass : #SkIterableDataSource,
+	#name : 'SkProgramStates',
+	#superclass : 'SkIterableDataSource',
 	#instVars : [
 		'rowReificationBlock',
 		'tracer',
@@ -11,10 +11,12 @@ Class {
 		'csi',
 		'errors'
 	],
-	#category : #'Seeker-Query'
+	#category : 'Seeker-Query',
+	#package : 'Seeker',
+	#tag : 'Query'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkProgramStates class >> newForTracer: tracer [
 
 	| table |
@@ -23,7 +25,7 @@ SkProgramStates class >> newForTracer: tracer [
 	^ table
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkProgramStates >> advanceToNextRow [
 
 	"advances to the next row. returns false if the end of the table (there are no more rows) was reached before trying to advance."
@@ -36,19 +38,19 @@ SkProgramStates >> advanceToNextRow [
 	^ tracer stepBytecode
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkProgramStates >> currentRow [
 
 	^ csi
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkProgramStates >> dataSourceIsTracedExecution [
 
 	^ true
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 SkProgramStates >> do: aBlock [
 
 	"A specialized version of do:, made specifically to be used with queries"
@@ -70,7 +72,7 @@ SkProgramStates >> do: aBlock [
 				tracer timeTravelToTraceTime: currentTracetime ] ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkProgramStates >> endOfTableReached [
 
 	"returns true if the table has no more rows (and advanceToNextRow will return false)"
@@ -78,43 +80,43 @@ SkProgramStates >> endOfTableReached [
 	^ tracer isExecutionFinished or: [ tracer isRiskyStep ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkProgramStates >> errors [
 
 	^ errors
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkProgramStates >> excluding [
 
 	^ excludedFields
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkProgramStates >> excluding: anObject [
 	excludedFields := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkProgramStates >> findSeeker [
 
 	^ tracer seeker
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkProgramStates >> findTracer [
 
 	tracer isMapped ifFalse: [ self error: 'Time Traveling not enabled' ].
 	^ tracer
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkProgramStates >> getRelevantFields [
 
 	^ protectedColumns
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkProgramStates >> initialize [
 
 	excludedFields := {  }.
@@ -122,7 +124,7 @@ SkProgramStates >> initialize [
 	errors := OrderedCollection new
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkProgramStates >> optimizeRowAcquisitionForFields: aCollection [
 
 	"this do nothing. It is only here to void breaking the usage pattern"
@@ -130,19 +132,19 @@ SkProgramStates >> optimizeRowAcquisitionForFields: aCollection [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkProgramStates >> protectedColumns [
 
 	^ protectedColumns
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkProgramStates >> protectedColumns: anObject [
 
 	protectedColumns := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkProgramStates >> resetTableTraversing [
 
 	"Puts the table traversing cursor 'before the first row'. one advanceToNextRow is necessary to enter the first row. getting currentRow of a reseted table has unspecified behavior"
@@ -151,7 +153,7 @@ SkProgramStates >> resetTableTraversing [
 	tracer restartAtBytecodeOne
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkProgramStates >> stepAndInEachStateDo: aBlock [
 
 	aBlock value: csi.
@@ -170,20 +172,20 @@ SkProgramStates >> stepAndInEachStateDo: aBlock [
 				aBlock value: autoE ] ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkProgramStates >> terminate [
 	"This terminates the underlying debugger. This method should not be called by the debugger, or it is likely to have a cyclic finalization calls"
 
 	^ self findSeeker terminate
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkProgramStates >> tracer [
 
 	^ tracer
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkProgramStates >> tracer: anObject [
 
 	tracer := anObject.

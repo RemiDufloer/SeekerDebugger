@@ -1,43 +1,45 @@
 Class {
-	#name : #SkExecutedBytecodeTraceTimeReference,
-	#superclass : #SkTraceTimeReference,
+	#name : 'SkExecutedBytecodeTraceTimeReference',
+	#superclass : 'SkTraceTimeReference',
 	#instVars : [
 		'executedBytecode'
 	],
-	#category : #'Seeker-TraceTime'
+	#category : 'Seeker-TraceTime',
+	#package : 'Seeker',
+	#tag : 'TraceTime'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkExecutedBytecodeTraceTimeReference >> comparableObject [
 
 	^ executedBytecode
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkExecutedBytecodeTraceTimeReference >> comparableObjectFromTracer: tracer [
 
 	^ tracer bytecodeIndex
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutedBytecodeTraceTimeReference >> executedBytecode [
 
 	^ executedBytecode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkExecutedBytecodeTraceTimeReference >> executedBytecode: anObject [
 
 	executedBytecode := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkExecutedBytecodeTraceTimeReference >> referencesTheFuture: tracer [
 
 	^ executedBytecode > tracer bytecodeIndex
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkExecutedBytecodeTraceTimeReference >> referencesTheLocalPast: tracer [
 
 	"No local checing at the moment"
@@ -45,13 +47,13 @@ SkExecutedBytecodeTraceTimeReference >> referencesTheLocalPast: tracer [
 	^ executedBytecode < tracer bytecodeIndex
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkExecutedBytecodeTraceTimeReference >> referencesThePast: tracer [
 
 	^ executedBytecode < tracer bytecodeIndex
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkExecutedBytecodeTraceTimeReference >> referencesThePresent: tracer [
 
 	^ executedBytecode = tracer bytecodeIndex

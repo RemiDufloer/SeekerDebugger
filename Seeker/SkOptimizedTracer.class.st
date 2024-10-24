@@ -1,6 +1,6 @@
 Class {
-	#name : #SkOptimizedTracer,
-	#superclass : #SkSteppableTracer,
+	#name : 'SkOptimizedTracer',
+	#superclass : 'SkSteppableTracer',
 	#instVars : [
 		'cachedCurrentContextTimeKey',
 		'cachedCurrentContext',
@@ -8,10 +8,12 @@ Class {
 		'unsupportedCases',
 		'willReturnStepFlag'
 	],
-	#category : #'Seeker-Components'
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkOptimizedTracer >> currentContext [
 
 	^ executedBytecode == cachedCurrentContextTimeKey
@@ -21,7 +23,7 @@ SkOptimizedTracer >> currentContext [
 			  cachedCurrentContext := super currentContext ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkOptimizedTracer >> doPostStepProcessWithPrevNode: preProcessAstNode andPrevContext: preContext [
 
 	| currentNode "currentStatementNode" contextChanged "statementChanged" |
@@ -48,7 +50,7 @@ SkOptimizedTracer >> doPostStepProcessWithPrevNode: preProcessAstNode andPrevCon
 	"cachedCurrentStatementNode := currentStatementNode"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkOptimizedTracer >> doPreStepProcess [
 
 	showUnsupportedCaseWarning ifTrue: [
@@ -57,7 +59,7 @@ SkOptimizedTracer >> doPreStepProcess [
 	willReturnStepFlag := currentState willReturn.
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkOptimizedTracer >> initialize [
 	super initialize.
 	willReturnStepFlag :=false.
@@ -65,7 +67,7 @@ SkOptimizedTracer >> initialize [
 	unsupportedCases := SkUnsupportedCases new.
 ]
 
-{ #category : #starting }
+{ #category : 'starting' }
 SkOptimizedTracer >> restartAtBytecodeOne [
 
 	cachedCurrentContextTimeKey := nil.
@@ -74,7 +76,7 @@ SkOptimizedTracer >> restartAtBytecodeOne [
 	^ super restartAtBytecodeOne
 ]
 
-{ #category : #'accessing context' }
+{ #category : 'accessing context' }
 SkOptimizedTracer >> slowCurrentContext [
 
 	"Use this method to avoid possible caching issues in border scenarios (initialization, reseting executions, etc)"

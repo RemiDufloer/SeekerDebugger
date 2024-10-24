@@ -1,23 +1,25 @@
 Class {
-	#name : #QueryDisplayModel,
-	#superclass : #Object,
+	#name : 'QueryDisplayModel',
+	#superclass : 'Object',
 	#instVars : [
 		'query',
 		'title',
 		'timeToRun',
 		'columns'
 	],
-	#category : #'Seeker-UI'
+	#category : 'Seeker-UI',
+	#package : 'Seeker',
+	#tag : 'UI'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QueryDisplayModel class >> checkColumnsAgainstProjectionClass: projectionClass [
 
 	^ self checkColumnsAgainstProjectionFields:
 		  projectionClass new fields
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QueryDisplayModel class >> checkColumnsAgainstProjectionFields: projectionFields [
 
 	| dm col_keys |
@@ -30,7 +32,7 @@ QueryDisplayModel class >> checkColumnsAgainstProjectionFields: projectionFields
 	^ true
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 QueryDisplayModel class >> newForQuery: aQuery [
 
 	| model |
@@ -39,7 +41,7 @@ QueryDisplayModel class >> newForQuery: aQuery [
 		           yourself
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 QueryDisplayModel >> addColumn: aSymbol [
 
 	| col |
@@ -48,7 +50,7 @@ QueryDisplayModel >> addColumn: aSymbol [
 	^ col
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QueryDisplayModel >> buildContextMenuForResults: aQueryResutls withSelectedItem: selection forTracer: tracer [
 
 	"builds a context menu for an item of this display model"
@@ -56,25 +58,25 @@ QueryDisplayModel >> buildContextMenuForResults: aQueryResutls withSelectedItem:
 	^ self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QueryDisplayModel >> columns [
 
 	^ columns
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QueryDisplayModel >> columns: anObject [
 
 	columns := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QueryDisplayModel >> defaultQueryTitle [
 
 ^ 'UntitledQuery'
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 QueryDisplayModel >> initialize [
 
 	title := self defaultQueryTitle.
@@ -83,43 +85,43 @@ QueryDisplayModel >> initialize [
 	self initializeModel
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 QueryDisplayModel >> initializeModel [
 
 	^ self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QueryDisplayModel >> query [
 
 	^ query
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QueryDisplayModel >> query: anObject [
 
 	query := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QueryDisplayModel >> timeToRun [
 
 	^ timeToRun
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QueryDisplayModel >> timeToRun: anObject [
 
 	timeToRun := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QueryDisplayModel >> title [
 
 	^ title
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QueryDisplayModel >> title: anObject [
 
 	title := anObject

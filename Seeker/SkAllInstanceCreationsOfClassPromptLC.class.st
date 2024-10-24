@@ -1,10 +1,12 @@
 Class {
-	#name : #SkAllInstanceCreationsOfClassPromptLC,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkAllInstanceCreationsOfClassPromptLC',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllInstanceCreationsOfClassPromptLC >> description [
 
 	^ self commonDescriptionIntroString
@@ -12,7 +14,7 @@ SkAllInstanceCreationsOfClassPromptLC >> description [
 	  'for every <instance creation message send> that will instantiate an object of the class whose name matches the <selected text>.'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 SkAllInstanceCreationsOfClassPromptLC >> executeCommand [
 
 	| className |
@@ -22,7 +24,7 @@ SkAllInstanceCreationsOfClassPromptLC >> executeCommand [
 			 withClassName: className)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllInstanceCreationsOfClassPromptLC >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -34,13 +36,13 @@ SkAllInstanceCreationsOfClassPromptLC >> icon [
 	^ #smallNew
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkAllInstanceCreationsOfClassPromptLC >> name [
 
 	^'All Instances Creation of class named...'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkAllInstanceCreationsOfClassPromptLC >> selectionTitleString [
 
 	^ ' : (user input)'

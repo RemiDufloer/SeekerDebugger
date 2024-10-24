@@ -1,6 +1,6 @@
 Class {
-	#name : #SkSystemCallsHandler,
-	#superclass : #SkComponent,
+	#name : 'SkSystemCallsHandler',
+	#superclass : 'SkComponent',
 	#instVars : [
 		'currentState',
 		'tracer',
@@ -10,34 +10,36 @@ Class {
 		'haltingMethods',
 		'processorYieldMethod'
 	],
-	#category : #'Seeker-Components'
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkSystemCallsHandler >> bindComponents [
 
 	tracer := componentsHolder tracer.
 	currentState := componentsHolder currentState
 ]
 
-{ #category : #starting }
+{ #category : 'starting' }
 SkSystemCallsHandler >> clearRecords [
 
 	returnValuesDictionary removeAll
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSystemCallsHandler >> enabled [
 
 	^ enabled and: [SeekerConfig default systemCallsHandlerEnabled]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSystemCallsHandler >> forceReturnValue: anObject [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSystemCallsHandler >> handleAMetaclassBasicNew: interpretationBlock [
 
 	| nextContext instancedObj messageReceiver |
@@ -81,7 +83,7 @@ SkSystemCallsHandler >> handleAMetaclassBasicNew: interpretationBlock [
 	^ nextContext
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSystemCallsHandler >> handleBehaviorInitialize: interpretationBlock [
 
 	| nextContext instancedObj|
@@ -92,7 +94,7 @@ SkSystemCallsHandler >> handleBehaviorInitialize: interpretationBlock [
 	^ nextContext
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSystemCallsHandler >> handleHalts [
 	"The debugger should stop iterating if it is not in querymode."
 
@@ -113,7 +115,7 @@ SkSystemCallsHandler >> handleHalts [
 	^ ctx
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSystemCallsHandler >> handleMetaclassInstantiation: interpretationBlock [
 
 	| nextContext instancedObj|
@@ -129,7 +131,7 @@ SkSystemCallsHandler >> handleMetaclassInstantiation: interpretationBlock [
 	^ nextContext
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSystemCallsHandler >> handleProcessorYield [
 	"Might leave the program in an inconsistent state for a moment, but maybe it is normal for a yield operation"
 
@@ -141,7 +143,7 @@ SkSystemCallsHandler >> handleProcessorYield [
 	^ ctx
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkSystemCallsHandler >> handleSystemCall: interpretationBlock [
 	"if this is the first time this systemCall is executed, interpret it, and remember the return value"
 
@@ -175,7 +177,7 @@ SkSystemCallsHandler >> handleSystemCall: interpretationBlock [
 	^ nextContext
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkSystemCallsHandler >> initialize [
 
 	super initialize.
@@ -214,19 +216,19 @@ SkSystemCallsHandler >> initialize [
 		                  asIdentitySet
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkSystemCallsHandler >> isAMetaclassBasicNewMethod [
 
 	^ currentState messageReceiver class == Metaclass and: [currentState messageSelector  = #basicNew]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkSystemCallsHandler >> isBehaviorInitialize [
 currentState node isInlined ifTrue: [ ^false ].
 ^currentState methodAboutToExecute methodClass == Behavior and: [currentState messageSelector =#initialize]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkSystemCallsHandler >> isHalt [
 
 	| m |
@@ -235,20 +237,20 @@ SkSystemCallsHandler >> isHalt [
 	^ haltingMethods includes: m
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkSystemCallsHandler >> isMetaclassInstantiation [
 
 	^ currentState messageReceiver == Metaclass and: [
 		  currentState messageSelector  = #basicNew ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkSystemCallsHandler >> isProcessorYield [
 
 	^ currentState methodAboutToExecute = processorYieldMethod
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkSystemCallsHandler >> isSystemCall [
 
 	currentState isMessageSend ifFalse: [ ^ false ].

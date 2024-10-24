@@ -31,8 +31,8 @@ Queries experessions are compatible with AnonymousTypes. Providing freedom to ex
 
 "
 Class {
-	#name : #Query,
-	#superclass : #SkIterableDataSource,
+	#name : 'Query',
+	#superclass : 'SkIterableDataSource',
 	#instVars : [
 		'fromDataSource',
 		'resultBuffer',
@@ -55,10 +55,12 @@ Class {
 		'alwaysMatch',
 		'queryHistory'
 	],
-	#category : #'Seeker-Query'
+	#category : 'Seeker-Query',
+	#package : 'Seeker',
+	#tag : 'Query'
 }
 
-{ #category : #adding }
+{ #category : 'adding' }
 Query class >> addQueryToHistory: aQuery [
 
 	self queryExecutionHistory add: aQuery.
@@ -66,14 +68,14 @@ Query class >> addQueryToHistory: aQuery [
 		self queryExecutionHistory removeFirst ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Query class >> alwaysMatch [
 
 	alwaysMatch ifNil: [ alwaysMatch := [ :anArg | true ] ].
 	^ alwaysMatch
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Query class >> from: aDataSource [
 
 	"Creates a query that can be issued over aDataSource. aDataSource is an object whose class inherits from SkIterableDataSource"
@@ -83,7 +85,7 @@ Query class >> from: aDataSource [
 		  yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Query class >> from: aDataSource select: aRowPredicateBlock [
 
 	^ self new
@@ -92,7 +94,7 @@ Query class >> from: aDataSource select: aRowPredicateBlock [
 		  yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Query class >> from: aSeekerDataSet select: aPredicateBlock collect: aProjectionBlock [
 
 	^ self new
@@ -102,39 +104,39 @@ Query class >> from: aSeekerDataSet select: aPredicateBlock collect: aProjection
 		  yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Query class >> from: aSeekerDataSet select: aPredicateBlock collectAs: stateAndOutputBlock [
 
 	^ (self from: aSeekerDataSet select:aPredicateBlock) collectAs: stateAndOutputBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Query class >> identityProjection [
 
 	identityProjection ifNil: [ identityProjection := [ :anArg | anArg ] ].
 	^ identityProjection
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Query class >> initialize [
 
 	<script>
 	SafeQueryingEnabled := true
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 Query class >> lastExecutedQuery [
 
 	^ self queryExecutionHistory last
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Query class >> lastQuery [
 
 	^ LastQuery
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Query class >> nestedFrom: aQuery select: aPredicateBlock collect: aProjectionBlock [
 
 	^ self new
@@ -148,7 +150,7 @@ Query class >> nestedFrom: aQuery select: aPredicateBlock collect: aProjectionBl
 		  yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query class >> queryExecutionHistory [
 
 	"The query class remembers the last 100 executed queries. For debugging purposes"
@@ -157,19 +159,19 @@ Query class >> queryExecutionHistory [
 	^ queryHistory
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query class >> safeQuerying [
 ""
 	^ SafeQueryingEnabled 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query class >> safeQuerying: anObject [
 
 	SafeQueryingEnabled := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query >> advanceToNextRow [
 
 	"advances to the next row. returns false if the end of the table (there are no more rows) was reached before trying to advance."
@@ -177,13 +179,13 @@ Query >> advanceToNextRow [
 	^fromDataSource advanceToNextRow 
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 Query >> asCollection [
 
 	^ QSCollection solve: self
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 Query >> asCsvFile [
 
 	| aFileReference |
@@ -207,7 +209,7 @@ Query >> asCsvFile [
 	^ self result
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 Query >> asCsvInClipboard [
 
 	| str |
@@ -233,13 +235,13 @@ Query >> asCsvInClipboard [
 	^ self result
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 Query >> asOrderedCollection [
 
 	^ self asCollection
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 Query >> asQueryWithMemory [
 
 	| q |
@@ -251,13 +253,13 @@ Query >> asQueryWithMemory [
 	^ q
 ]
 
-{ #category : #operation }
+{ #category : 'operation' }
 Query >> asSeekerResultsCollection [
    "Wraps common steps for obtaining results and for easier ui integration, returning an Seeker UI friendly type"
 	^ self asTable asSeekerResultsCollection
 ]
 
-{ #category : #operation }
+{ #category : 'operation' }
 Query >> asTable [
 
 	"Triggers the solution of the query"
@@ -273,7 +275,7 @@ Query >> asTable [
 	^ self result
 ]
 
-{ #category : #operation }
+{ #category : 'operation' }
 Query >> asTableForTimeTravel [
 
 	"Triggers the solution of the query"
@@ -296,7 +298,7 @@ Query >> asTableForTimeTravel [
 	^ self result
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 Query >> collect: aBlock [
 
 	"A lazy version of collect: of Pharo collections, applicable to queries"
@@ -310,7 +312,7 @@ Query >> collect: aBlock [
 			   and: aBlock)
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 Query >> collectAs: stateAndOutputBlock [
 	"This syntax hides the Autotype declaration from the user, and provides an cleaner declaration.
 See select:collect:
@@ -324,7 +326,7 @@ See select:collect:
 		  item endWith ]
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 Query >> collectNewType: aBlock [
 
 	"A lazy version of collect: of Pharo collections, applicable to queries"
@@ -353,12 +355,12 @@ Query >> collectNewType: aBlock [
 	^ q
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Query >> columnLabels [
 	^result columnLabels 
 ]
 
-{ #category : #operation }
+{ #category : 'operation' }
 Query >> count [
 
 	"a result operation"
@@ -370,7 +372,7 @@ Query >> count [
 	^ self result
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query >> currentDataSourceRow [
 
 	"Part of the iterable data set interface. Used for queries nesting. returns the rowgetter result"
@@ -378,7 +380,7 @@ Query >> currentDataSourceRow [
 	^ fromDataSource currentRow
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query >> currentRow [
 
 	"Part of the iterable data set interface. Used for queries nesting. returns the rowgetter result"
@@ -386,22 +388,22 @@ Query >> currentRow [
 	^ projectionFunction value: fromDataSource currentRow
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Query >> customPreparationBlock [
 	^ self customPreparationBlock 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Query >> customPreparationBlock: aBlock [
 	customPreparationBlock 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query >> dataSourceIsTracedExecution [
 	^fromDataSource dataSourceIsTracedExecution 
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 Query >> do: aBlock [
 
 	errors removeAll.
@@ -410,7 +412,7 @@ Query >> do: aBlock [
 		LastQuery := self "Executed at the end, to handle query nesting" ]
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 Query >> do: aBlock withTimedCallback: timedCallbackBlock every: anIntMilliseconds [
 
 	"anIntMilliseconds an int or a block that returns an int"
@@ -439,7 +441,7 @@ Query >> do: aBlock withTimedCallback: timedCallbackBlock every: anIntMillisecon
 	LastQuery := self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query >> endOfTableReached [
 
 	"returns true if the table has no more rows (and advanceToNextRow will return false)"
@@ -447,7 +449,7 @@ Query >> endOfTableReached [
 	^ fromDataSource endOfTableReached
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query >> ensureReceiverAliases [
 
 	self selfAndChildrenDo: [ :t | 
@@ -459,7 +461,7 @@ Query >> ensureReceiverAliases [
 			t protectedColumns: protectedColumns ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Query >> errors [
 
 	"Contains the list of errors collected during a query execution"
@@ -467,25 +469,25 @@ Query >> errors [
 	^ errors
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Query >> excluding [
 
 	^ fromDataSource excluding
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Query >> excluding: aCollection [
 	
 	fromDataSource excluding: aCollection 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query >> findTracer [
 
 	^ fromDataSource findTracer
 ]
 
-{ #category : #operations }
+{ #category : 'operations' }
 Query >> first [
 
 	"finds the first matching row in the table and returns it. The table will continue to be iterated until it finishes"
@@ -502,12 +504,12 @@ Query >> first [
 	^ self result
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query >> fromDataSource [
 	^fromDataSource
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query >> fromDataSource: anObject [
 
 	fromDataSource := anObject isIterableDataSource
@@ -517,7 +519,7 @@ Query >> fromDataSource: anObject [
 	self optimizeRowAcquisitionForFields: self getRelevantFields
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query >> getRelevantFields [
 
 	"Returns a collection of the fields (when using anonymous type rows) that are used in the selectBlock or whereBlock. it will search recursivelly in every nested block"
@@ -538,7 +540,7 @@ Query >> getRelevantFields [
 	^ mergedSet asOrderedCollection"
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Query >> initialize [
 
 	operationType := #defaultOperation.
@@ -551,7 +553,7 @@ Query >> initialize [
 	super initialize
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query >> isCurrentRowAMatch [
 
 	"returns true if the current row matches the query predicate without triggering the onQueryRowMatch handler"
@@ -559,13 +561,13 @@ Query >> isCurrentRowAMatch [
 	^ selectionFunction value: self currentDataSourceRow
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Query >> isNotExecutionQuery [
 
 	^ self findTracer isNil
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query >> isRowAMatch: aRow [
 
 	"returns true if the given row matches the query predicate without triggering the onQueryRowMatch handler"
@@ -573,7 +575,7 @@ Query >> isRowAMatch: aRow [
 	^ selectionFunction value: aRow
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query >> makeSourceDoBlock: aBlock [
 
 	^ SafeQueryingEnabled
@@ -581,7 +583,7 @@ Query >> makeSourceDoBlock: aBlock [
 		  ifFalse: [ self makeSourceDoBlockWithoutErrorHandling: aBlock ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query >> makeSourceDoBlockWithErrorHandling: aBlock [
 
 	"Surrounds the query action block in a try catch, producing an error result item.
@@ -597,7 +599,7 @@ Query >> makeSourceDoBlockWithErrorHandling: aBlock [
 					    withExtraMessage: 'Please inspect (Query lastQuery errors)')) ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query >> makeSourceDoBlockWithoutErrorHandling: aBlock [
 
 	^ [ :row | 
@@ -605,7 +607,7 @@ Query >> makeSourceDoBlockWithoutErrorHandling: aBlock [
 		  aBlock value: self currentRow ] ]
 ]
 
-{ #category : #navigating }
+{ #category : 'navigating' }
 Query >> oldResolve [
 "A backup of the old unfinished method"
 	| runIt |
@@ -637,13 +639,13 @@ Query >> oldResolve [
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Query >> onQueryRowMatch [
 
 	^ onQueryRowMatch
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Query >> onQueryRowMatch: anObject [
   "note that this is an action that depends on the query resolution mode.
   It might be a good idea to create subclasses of queries that override the method instead
@@ -651,13 +653,13 @@ Query >> onQueryRowMatch: anObject [
 	onQueryRowMatch := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query >> optimizeRowAcquisitionForFields: aCollection [
 
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Query >> processResult [
 
 	result := [ operationType ] switchCase: { 
@@ -670,12 +672,12 @@ Query >> processResult [
 			          (#defaultCase -> [ #operationCompleted ]) }
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query >> projectionFunction [
 	^projectionFunction 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query >> projectionFunction: anObject [
 
 	projectionFunction := anObject = #*
@@ -684,7 +686,7 @@ Query >> projectionFunction: anObject [
 	self optimizeRowAcquisitionForFields: self getRelevantFields
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query >> resetTableTraversing [
 
 	"Puts the table traversing cursor 'before the first row'. one advanceToNextRow is necessary to enter the first row. A reseted table should reply currentRow nil always."
@@ -692,7 +694,7 @@ Query >> resetTableTraversing [
 	^ fromDataSource resetTableTraversing
 ]
 
-{ #category : #navigating }
+{ #category : 'navigating' }
 Query >> resolve [
 
 	"Deprecated"
@@ -705,19 +707,19 @@ Query >> resolve [
 	self class addQueryToHistory: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Query >> result [
 
 ^ result
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Query >> result: anObject [
 
 	result := anObject
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 Query >> select: aBlock [
 
 	"A lazy version of select: of Pharo collections, applicable to queries"
@@ -731,13 +733,13 @@ Query >> select: aBlock [
 		  collect: projectionFunction
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 Query >> select: aBlock collect: aProjectionBlock [
 
 	^ (self select: aBlock) collect: aProjectionBlock
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 Query >> select: aBlock collectAs: stateAndOutputBlock [
 "This syntax hides the Autotype declaration from the user, and provides an cleaner declaration.
  For example: 
@@ -756,13 +758,13 @@ Query >> select: aBlock collectAs: stateAndOutputBlock [
 		  item endWith ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query >> selectionFunction [
 
 	^ selectionFunction
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Query >> selectionFunction: anObject [
 
 	selectionFunction := anObject = #*
@@ -771,32 +773,32 @@ Query >> selectionFunction: anObject [
 	self optimizeRowAcquisitionForFields: self getRelevantFields
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 Query >> selfAndChildrenDo: aBlock [
 	aBlock value: self.
 	fromDataSource ifNotNil: [ fromDataSource selfAndChildrenDo: aBlock ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Query >> timeIt [
 
 	timeIt := #timeIt.
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Query >> timeItDetailed [
 	timeIt := #timeItDetailed.
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Query >> title [
 
 	^ title
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Query >> title: anObject [
 
 	title := anObject

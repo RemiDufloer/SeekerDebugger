@@ -1,16 +1,18 @@
 Class {
-	#name : #UTTQAllObjectsOfExecution,
-	#superclass : #UserTTQ,
-	#category : #'Seeker-TimeTravelingQueries'
+	#name : 'UTTQAllObjectsOfExecution',
+	#superclass : 'UserTTQ',
+	#category : 'Seeker-TimeTravelingQueries',
+	#package : 'Seeker',
+	#tag : 'TimeTravelingQueries'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 UTTQAllObjectsOfExecution class >> displayModel [
 
 	^ QdmForDetectedObjects
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 UTTQAllObjectsOfExecution class >> queryFrom: programStates [
 
 	| autoType |
@@ -26,7 +28,7 @@ UTTQAllObjectsOfExecution class >> queryFrom: programStates [
 				  endWith ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 UTTQAllObjectsOfExecution >> ttqTitle [
 
 	^ 'Find All Objects of execution'

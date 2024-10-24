@@ -1,25 +1,27 @@
 Class {
-	#name : #SkXTrace,
-	#superclass : #Object,
+	#name : 'SkXTrace',
+	#superclass : 'Object',
 	#instVars : [
 		'stepIndex'
 	],
-	#category : #'Seeker-Experimental'
+	#category : 'Seeker-Experimental',
+	#package : 'Seeker',
+	#tag : 'Experimental'
 }
 
-{ #category : #converting }
+{ #category : 'converting' }
 SkXTrace >> asSeekerOfflineExpressionString [
 
 	^ '[#trace @ ' , stepIndex asString , ']'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXTrace >> stepIndex [
 
 	^ stepIndex
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkXTrace >> stepIndex: anObject [
 
 	stepIndex := anObject

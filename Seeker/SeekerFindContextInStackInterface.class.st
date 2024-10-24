@@ -1,10 +1,12 @@
 Class {
-	#name : #SeekerFindContextInStackInterface,
-	#superclass : #SeekerInterfaceObject,
-	#category : #'Seeker-Interfaces'
+	#name : 'SeekerFindContextInStackInterface',
+	#superclass : 'SeekerInterfaceObject',
+	#category : 'Seeker-Interfaces',
+	#package : 'Seeker',
+	#tag : 'Interfaces'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerFindContextInStackInterface >> doIt [
 
 	^ SkContextHelpers
@@ -12,7 +14,7 @@ SeekerFindContextInStackInterface >> doIt [
 		  startingContext: tracer currentContext
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerFindContextInStackInterface >> endingContextForDoIt [
 
 	"Returns the context where the test is considered to be finished. However, the context wont be reached, since exiting the DoIt method leaves the execution no longer usable"
@@ -23,7 +25,7 @@ SeekerFindContextInStackInterface >> endingContextForDoIt [
 		  startingContext: tracer currentContext
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerFindContextInStackInterface >> endingContextForMarkedSession [
 
 	"Returns the context where the execution is considered to be finished"
@@ -31,7 +33,7 @@ SeekerFindContextInStackInterface >> endingContextForMarkedSession [
 	^ self userStartContextForMarkedSession sender sender
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerFindContextInStackInterface >> endingContextForTestCase [
 	"Returns the context where the test is considered to be finished"
 
@@ -49,7 +51,7 @@ SeekerFindContextInStackInterface >> endingContextForTestCase [
 		  startingContext: tracer currentContext" "self recordStartContextForTestCase sender"
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerFindContextInStackInterface >> nonInlinedOwnerOfNode: aNode startingAt: aContext [
 
 	"searches from top to bottom for the first context that contains said node"
@@ -66,7 +68,7 @@ SeekerFindContextInStackInterface >> nonInlinedOwnerOfNode: aNode startingAt: aC
 		  startingContext: aContext
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerFindContextInStackInterface >> ownerOfNode: aNode startingAt: aContext [
 
 	"searches from top to bottom for the first context that contains said node"
@@ -83,13 +85,13 @@ SeekerFindContextInStackInterface >> ownerOfNode: aNode startingAt: aContext [
 		  startingContext: aContext
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerFindContextInStackInterface >> recordStartContextForDoIt [
 
 	^ self doIt
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerFindContextInStackInterface >> recordStartContextForMarkedSession [
 
 	^ SkContextHelpers
@@ -99,7 +101,7 @@ SeekerFindContextInStackInterface >> recordStartContextForMarkedSession [
 		  startingContext: tracer slowCurrentContext
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerFindContextInStackInterface >> recordStartContextForPragmaDebugSession [
 
 	^ SkContextHelpers
@@ -109,7 +111,7 @@ SeekerFindContextInStackInterface >> recordStartContextForPragmaDebugSession [
 		  startingContext: tracer slowCurrentContext
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerFindContextInStackInterface >> recordStartContextForTestCase [
 
 	"Returns the context that seeker Debugger restarts to begin a new replay"
@@ -131,7 +133,7 @@ SeekerFindContextInStackInterface >> recordStartContextForTestCase [
 	"^ self endingContextForTestCase sender"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerFindContextInStackInterface >> recordStartContextForTestCaseNoSetup [
 	"Returns the context that seeker Debugger restarts to begin a new replay"
 
@@ -152,7 +154,7 @@ SeekerFindContextInStackInterface >> recordStartContextForTestCaseNoSetup [
 	"^ self endingContextForTestCase sender"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerFindContextInStackInterface >> runCaseContextForTestCase [
 
 	"Returns the context where the test is setup and launched"
@@ -165,13 +167,13 @@ SeekerFindContextInStackInterface >> runCaseContextForTestCase [
 		  startingContext: tracer currentContext
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerFindContextInStackInterface >> userStartContextForDoIt [
 
 	^ self doIt
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerFindContextInStackInterface >> userStartContextForMarkedSession [
 
 	^ SkContextHelpers
@@ -181,7 +183,7 @@ SeekerFindContextInStackInterface >> userStartContextForMarkedSession [
 		  startingContext: tracer slowCurrentContext
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerFindContextInStackInterface >> userStartContextForTestCase [
 
 	^ SkContextHelpers
@@ -194,7 +196,7 @@ SeekerFindContextInStackInterface >> userStartContextForTestCase [
 		  startingContext: tracer currentContext
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerFindContextInStackInterface >> userStartContextForTestCaseNoSetup [
 
 	^ SkContextHelpers

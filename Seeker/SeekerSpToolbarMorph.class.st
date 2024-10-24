@@ -8,16 +8,18 @@ It also makes the buttons to use less space without the initial vertical space.
 This is not a final implementation.
 "
 Class {
-	#name : #SeekerSpToolbarMorph,
-	#superclass : #SpToolbarMorph,
+	#name : 'SeekerSpToolbarMorph',
+	#superclass : 'SpToolbarMorph',
 	#instVars : [
 		'marginBottom',
 		'buttonSide'
 	],
-	#category : #'Seeker-UI'
+	#category : 'Seeker-UI',
+	#package : 'Seeker',
+	#tag : 'UI'
 }
 
-{ #category : #adding }
+{ #category : 'adding' }
 SeekerSpToolbarMorph >> addItem: aToolbarItem position: aPosition [
 
 	aPosition addItem: aToolbarItem into: self.
@@ -28,7 +30,7 @@ SeekerSpToolbarMorph >> addItem: aToolbarItem position: aPosition [
 	"self refresh"
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerSpToolbarMorph >> addItemLeft: aMorph [
 
 	| lastSubMorphRight |
@@ -42,7 +44,7 @@ SeekerSpToolbarMorph >> addItemLeft: aMorph [
 	aMorph inspect."
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerSpToolbarMorph >> initialize [
 
 	"Dont call super"

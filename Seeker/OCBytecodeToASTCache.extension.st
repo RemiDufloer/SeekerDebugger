@@ -1,13 +1,13 @@
-Extension { #name : #OCBytecodeToASTCache }
+Extension { #name : 'OCBytecodeToASTCache' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 OCBytecodeToASTCache >> ordinalIndexOf: node [
 
 	(self xpropAt: #ordinalIndices) ifNil: [ self ordinatedNodes ].
 	^ (self xpropAt: #ordinalIndices) at: node ifAbsent: nil "This happens when a block is inlined (The is no bytecode for the BlockNode)"
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 OCBytecodeToASTCache >> ordinatedNodes [
 
 	| ordinatedNodes ordinalIndices counter |
@@ -32,7 +32,7 @@ OCBytecodeToASTCache >> ordinatedNodes [
 		^ ordinatedNodes ]
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 OCBytecodeToASTCache >> statementIndexOf: node [
 
 	(self xpropAt: #statementIndices) ifNil: [ self statements ].
@@ -41,7 +41,7 @@ OCBytecodeToASTCache >> statementIndexOf: node [
 		  ifAbsent: nil ""
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 OCBytecodeToASTCache >> statements [
 
 	| statements |

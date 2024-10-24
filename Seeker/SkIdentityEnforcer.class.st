@@ -3,17 +3,19 @@ The IdentityEnforcer is used to define the implementation of the ""idenity recov
 It is only used by the ObjectTracker, and it is part of the stepping pipeline.
 "
 Class {
-	#name : #SkIdentityEnforcer,
-	#superclass : #SkComponent,
+	#name : 'SkIdentityEnforcer',
+	#superclass : 'SkComponent',
 	#instVars : [
 		'objectsTracker',
 		'currentState',
 		'tracer'
 	],
-	#category : #'Seeker-Components'
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkIdentityEnforcer >> bindComponents [
 
 	tracer := componentsHolder tracer.
@@ -21,7 +23,7 @@ SkIdentityEnforcer >> bindComponents [
 	objectsTracker := componentsHolder objectsTracker
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkIdentityEnforcer >> doPostStepProcess [
 	"Immediately after interpreting a bytecode, if it corresponds to an instantiation message primitive,
 we check if we have the 'same' element from a previous replay. If so, we make the new object to have the old one.
@@ -34,13 +36,13 @@ we check if we have the 'same' element from a previous replay. If so, we make th
 	^ self enforceObjectPreviousIdentity
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkIdentityEnforcer >> enabled [
 
 	^ enabled and: [ SeekerConfig default identityEnforcingEnabled ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkIdentityEnforcer >> enforceObjectPreviousIdentity [
 	"Immediately after interpreting a bytecode, if it corresponds to an instantiation message primitive,
 we check if we have the 'same' element from a previous replay. If so, we make the new object to have the old one.

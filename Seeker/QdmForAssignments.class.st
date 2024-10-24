@@ -1,10 +1,12 @@
 Class {
-	#name : #QdmForAssignments,
-	#superclass : #QueryDisplayModel,
-	#category : #'Seeker-UI'
+	#name : 'QdmForAssignments',
+	#superclass : 'QueryDisplayModel',
+	#category : 'Seeker-UI',
+	#package : 'Seeker',
+	#tag : 'UI'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QdmForAssignments >> buildContextMenuForResults: aQueryResutls withSelectedItem: selection forTracer: tracer [
 
 	"builds a context menu for an item of this display model"
@@ -34,13 +36,13 @@ QdmForAssignments >> buildContextMenuForResults: aQueryResutls withSelectedItem:
 		  "openWithSpecAt: self currentHand position"yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QdmForAssignments >> defaultQueryTitle [
 
 	^ 'All Assignments Query'
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 QdmForAssignments >> initializeModel [
 
 	(self addColumn: #bytecodeIndex)

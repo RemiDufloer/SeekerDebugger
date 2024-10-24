@@ -1,17 +1,19 @@
 Class {
-	#name : #TTQAllInstanceCreationsOfClassWithName,
-	#superclass : #TTQAllInstanceCreations,
-	#category : #'Seeker-TimeTravelingQueries'
+	#name : 'TTQAllInstanceCreationsOfClassWithName',
+	#superclass : 'TTQAllInstanceCreations',
+	#category : 'Seeker-TimeTravelingQueries',
+	#package : 'Seeker',
+	#tag : 'TimeTravelingQueries'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TTQAllInstanceCreationsOfClassWithName class >> performWith: tracer withArg: arg [
 
 	tracer ui showInResult:
 		(self queryFrom: tracer newProgramStates withClassName: arg) displayModel 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TTQAllInstanceCreationsOfClassWithName class >> queryFrom: source withClassName: anObject [
 
 	^ (self queryFrom: source)
@@ -19,7 +21,7 @@ TTQAllInstanceCreationsOfClassWithName class >> queryFrom: source withClassName:
 		  yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TTQAllInstanceCreationsOfClassWithName class >> queryInteractivelyFrom: source [ 
 
 	^ (self queryFrom: source)
@@ -27,19 +29,19 @@ TTQAllInstanceCreationsOfClassWithName class >> queryInteractivelyFrom: source [
 		  yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TTQAllInstanceCreationsOfClassWithName class >> selectionFunction [
 
 	^ SkSelectionInstanceCreationsOfClassNamed
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TTQAllInstanceCreationsOfClassWithName >> newInstanceClassName [
 
 	^ selectionFunction newInstanceClassName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TTQAllInstanceCreationsOfClassWithName >> newInstanceClassName: anObject [
 
 	selectionFunction newInstanceClassName: anObject

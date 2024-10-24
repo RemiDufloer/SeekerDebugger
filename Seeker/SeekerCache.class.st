@@ -1,27 +1,29 @@
 Class {
-	#name : #SeekerCache,
-	#superclass : #Object,
+	#name : 'SeekerCache',
+	#superclass : 'Object',
 	#classInstVars : [
 		'dictionary'
 	],
-	#category : #'Seeker-SeekerCache'
+	#category : 'Seeker-SeekerCache',
+	#package : 'Seeker',
+	#tag : 'SeekerCache'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerCache class >> allObjects [
 
 	^ dictionary ifNil: [ 
 		  dictionary := WeakIdentityKeyDictionary new ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerCache class >> reset [
 
 	<script>
 	dictionary := WeakIdentityKeyDictionary new
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerCache class >> seekerCacheObjectOf: anObject [
 
 	^ self allObjects

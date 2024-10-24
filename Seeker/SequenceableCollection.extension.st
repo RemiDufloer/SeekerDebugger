@@ -1,6 +1,6 @@
-Extension { #name : #SequenceableCollection }
+Extension { #name : 'SequenceableCollection' }
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 SequenceableCollection >> doUnpacked: aBlock [
 
 	"Refer to the comment in Collection|do:."
@@ -9,13 +9,13 @@ SequenceableCollection >> doUnpacked: aBlock [
 	aBlock valueWithArguments: (self at: index) ]
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 SequenceableCollection >> firstOrNil [
 
 	^ self ifEmpty: [ nil ] ifNotEmpty: [ self first ]
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 SequenceableCollection >> hasSoftEqualElements: otherCollection [
 	"Answer whether the receiver's size is the same as otherCollection's
 	size, and each of the receiver's elements equal the corresponding
@@ -27,7 +27,7 @@ SequenceableCollection >> hasSoftEqualElements: otherCollection [
 		  withCache: WeakIdentitySet new
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 SequenceableCollection >> hasSoftEqualElements: otherCollection withCache: objs [
 	"Answer whether the receiver's size is the same as otherCollection's
 	size, and each of the receiver's elements equal the corresponding
@@ -46,13 +46,13 @@ SequenceableCollection >> hasSoftEqualElements: otherCollection withCache: objs 
 	^ true
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 SequenceableCollection >> lastOrNil [
 
 	^ self ifEmpty: [ nil ] ifNotEmpty: [ self last ]
 ]
 
-{ #category : #'*Seeker' }
+{ #category : '*Seeker' }
 SequenceableCollection >> softEqualTo: otherCollection withCache: objs [
 
 	(objs includes: self) ifTrue: [ ^ true ].

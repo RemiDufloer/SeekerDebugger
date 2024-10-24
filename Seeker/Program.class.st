@@ -1,10 +1,12 @@
 Class {
-	#name : #Program,
-	#superclass : #Object,
-	#category : #'Seeker-Temp'
+	#name : 'Program',
+	#superclass : 'Object',
+	#category : 'Seeker-Temp',
+	#package : 'Seeker',
+	#tag : 'Temp'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Program class >> doAssignmentQuery [
 	"Copy paste this in a playground"
 
@@ -25,7 +27,7 @@ Program class >> doAssignmentQuery [
 			cr ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Program class >> doMessageSendsQuery [
 	"Copy paste this in a playground"
 
@@ -46,7 +48,7 @@ Program class >> doMessageSendsQuery [
 			cr ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Program class >> main [
 
 	| obj |

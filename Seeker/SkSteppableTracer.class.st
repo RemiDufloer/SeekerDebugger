@@ -37,8 +37,8 @@ Internal Representation and Key Implementation Points.
     Implementation Points
 "
 Class {
-	#name : #SkSteppableTracer,
-	#superclass : #SkTracerBase,
+	#name : 'SkSteppableTracer',
+	#superclass : 'SkTracerBase',
 	#instVars : [
 		'stDebugger',
 		'maxExecutedBytecode',
@@ -54,10 +54,12 @@ Class {
 		'currentContextID',
 		'enableProcessStateReversal'
 	],
-	#category : #'Seeker-Components'
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #mapping }
+{ #category : 'mapping' }
 SkSteppableTracer >> bytecodeIndex [
 
 	"total number of bytecode steps executed"
@@ -65,7 +67,7 @@ SkSteppableTracer >> bytecodeIndex [
 	^ executedBytecode
 ]
 
-{ #category : #mapping }
+{ #category : 'mapping' }
 SkSteppableTracer >> bytecodeIndex: anObject [
 
 	"total number of bytecode steps executed"
@@ -73,7 +75,7 @@ SkSteppableTracer >> bytecodeIndex: anObject [
 	executedBytecode := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSteppableTracer >> checkPreventNextLiveStateRestoration [
 
 	"Used to prevent restorting the live session when a query is manually stopped (Why? because it is useful to know where the execution is at the moment of the emergency stop"
@@ -84,44 +86,44 @@ SkSteppableTracer >> checkPreventNextLiveStateRestoration [
 	^ val
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> clearSeekerCache [
 
 	SeekerCache reset
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSteppableTracer >> contextCounter [
 
 	^ contextCounter
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> currentContext [
 
 	^ currentContext ifNil: [ 
 		  currentContext := session interruptedProcess suspendedContext ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSteppableTracer >> currentContext: anObject [
 
 	currentContext := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSteppableTracer >> currentContextID [
 
 	^ currentContextID
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> currentNode [
 
 	^ currentState node
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> currentStack [
 
 	"inspect this to debug in case of Seeker failure"
@@ -129,7 +131,7 @@ SkSteppableTracer >> currentStack [
 	^ self currentState context stack
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> currentStackMethods [
 
 	"inspect this to debug in case of Seeker failure"
@@ -137,31 +139,31 @@ SkSteppableTracer >> currentStackMethods [
 	^ self currentStack collect: [ :c | c method ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSteppableTracer >> currentState [
 
 	^ currentState
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> currentStatementNode [
 
 	^ currentState node statementNode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSteppableTracer >> debuggedProcess [
 
 	^ debuggedProcess
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSteppableTracer >> debuggedProcess: anObject [
 
 	debuggedProcess := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> doAsUnhaltable: aBlock [
 
 	| haltableFlag |
@@ -171,7 +173,7 @@ SkSteppableTracer >> doAsUnhaltable: aBlock [
 	aBlock ensure: [ stepper haltableMode: haltableFlag ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> doMappingIfCorresponds [
 	"Short decription: Was the StDebugger opened with the intention of using seeker? if true, map the execution"
 
@@ -194,7 +196,7 @@ intent of using seeker. So the process is not placed in the watchlist.
 					SeekerGlobals instance stopWatchingProcess: debuggedProcess ] ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> doesAnyContextsInTheStackStatisfies: aPredicateBlock [
 
 	"the predicate block receives a context as parameter"
@@ -209,7 +211,7 @@ SkSteppableTracer >> doesAnyContextsInTheStackStatisfies: aPredicateBlock [
 	^ true
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> doesAnyContextsInTheStackStatisfies: aPredicateBlock maxDepth: maxDepth [
 
 	"the predicate block receives a context as parameter"
@@ -227,25 +229,25 @@ SkSteppableTracer >> doesAnyContextsInTheStackStatisfies: aPredicateBlock maxDep
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSteppableTracer >> enableProcessStateReversal [
 
 	^ enableProcessStateReversal
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSteppableTracer >> enableProcessStateReversal: anObject [
 
 	enableProcessStateReversal := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSteppableTracer >> executedBytecode [
 
 	^ executedBytecode
 ]
 
-{ #category : #mapping }
+{ #category : 'mapping' }
 SkSteppableTracer >> executionProgress [
 
 	""
@@ -253,7 +255,7 @@ SkSteppableTracer >> executionProgress [
 	^ (100.0 * executedBytecode / maxExecutedBytecode) asFloat
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> forceRestartOnTimeTravel [
 	"Method used for dbugging purposes. In particular, used to hunt for NDS. In such case, the method should return true. 
 	Returns false otherwise"
@@ -261,13 +263,13 @@ SkSteppableTracer >> forceRestartOnTimeTravel [
 	^ false
 ]
 
-{ #category : #'updating - session' }
+{ #category : 'updating - session' }
 SkSteppableTracer >> forceSessionUpdate [
 
 	self debuggerUpdateCoordinator forceUpdate
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkSteppableTracer >> hasSignalledUnhandledException [
 	"Returns true if the debugged execution has signalled an exception that has not been handled by any on:do: (i.e. the #defaultAction of the exception is about to be executed. This default action typically leads to opening a debugger on the process that signalled the exception)"
 	|context|
@@ -275,7 +277,7 @@ SkSteppableTracer >> hasSignalledUnhandledException [
 	^ (context selector = #defaultAction ) and: [context receiver isKindOf: Exception ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> increaseExecutedBytecode [
 
 	executedBytecode := executedBytecode + 1.
@@ -283,7 +285,7 @@ SkSteppableTracer >> increaseExecutedBytecode [
 	currentState updateCacheTimeKey
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkSteppableTracer >> initialize [
 
 	SeekerSessionHelpers doCriticalInitialization: [
@@ -308,25 +310,25 @@ SkSteppableTracer >> initialize [
 		executedBytecode := 1 ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkSteppableTracer >> isMapped [
 
 	^ executionMappper isMapped
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SkSteppableTracer >> isQuickMapAvailable [
 
 	^ executionMappper isQuickMapAvailable
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSteppableTracer >> mapper [
 
 	^ executionMappper
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> oldStepUntilConditionIsTrue: aBlock [
 
 	"Steps into statements until condition is true"
@@ -345,7 +347,7 @@ SkSteppableTracer >> oldStepUntilConditionIsTrue: aBlock [
 	^ true
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> onTracedContextChanged [
 
 	currentContext pc = currentContext startpc
@@ -363,12 +365,12 @@ SkSteppableTracer >> onTracedContextChanged [
 				ifFalse: [ self syncContextStack ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> onTracedStatementChanged [
 
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 SkSteppableTracer >> perform [
 
 	^ SeekerPerformInterface new
@@ -376,37 +378,37 @@ SkSteppableTracer >> perform [
 		  yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSteppableTracer >> preventNextTimeRestoration [
 
 	^ preventNextTimeLiveStateRestoration
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSteppableTracer >> preventNextTimeRestorationOfLiveState: anObject [
 
 	preventNextTimeLiveStateRestoration := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> quickMap [
 
 	^ executionMappper quickMap
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> recountExecutedBytecodes [
 
 	^ executionMappper recountExecutedBytecodes
 ]
 
-{ #category : #starting }
+{ #category : 'starting' }
 SkSteppableTracer >> restart [
 
 	self restartAtBytecodeOne
 ]
 
-{ #category : #starting }
+{ #category : 'starting' }
 SkSteppableTracer >> restartAtBytecodeOne [
 	"Restart a record and debug session from the stored startingContextForRecord"
 
@@ -437,7 +439,7 @@ SkSteppableTracer >> restartAtBytecodeOne [
 		fork "the fork seems to be irrelevant, since the garbageCollect call blocks the whole systems during the slowest steps"
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> reverseDynToBytecodeIndex: aNumber [
 
 	"Note that this will alter an execution path. Therefore, ideally we would have invalidate posterior registered events for the reverser or the systemCallsHandler  "
@@ -458,7 +460,7 @@ SkSteppableTracer >> reverseDynToBytecodeIndex: aNumber [
 		currentState resetCacheTimeKey ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> reverseEffToBytecodeIndex: aNumber [
 
 	"Note that this will alter an execution path. Therefore, ideally we would have invalidate posterior registered events for the reverser or the systemCallsHandler  "
@@ -478,7 +480,7 @@ SkSteppableTracer >> reverseEffToBytecodeIndex: aNumber [
 		currentState resetCacheTimeKey ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> safeStepToTraceTime: aTraceTime [
 
 	"time travel with breaks. Not fully safe though. If the target time is skipped for some reson, the travel can detect it while in the same sequence(local trace time) and step"
@@ -488,7 +490,7 @@ SkSteppableTracer >> safeStepToTraceTime: aTraceTime [
 			aTraceTime referencesTheLocalPastOrPresent: self ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> safeTimeTravelToTraceTime: aTraceTime [
 
 	"time trave with breaks. Not fully safe though. If the target time is skipped for some reson, the travel can detect it while in the same sequence(local trace time) and step"
@@ -498,7 +500,7 @@ SkSteppableTracer >> safeTimeTravelToTraceTime: aTraceTime [
 		self stepBytecodeUntilConditionIsTrue: [ aTraceTime referencesTheLocalPastOrPresent: self ] ]
 ]
 
-{ #category : #signalling }
+{ #category : 'signalling' }
 SkSteppableTracer >> signalExceptionIfDebuggedExecutionHasSignalledUnhandledException [
 	| unhandledException |
 	(self hasSignalledUnhandledException)
@@ -510,7 +512,7 @@ SkSteppableTracer >> signalExceptionIfDebuggedExecutionHasSignalledUnhandledExce
 	
 ]
 
-{ #category : #signalling }
+{ #category : 'signalling' }
 SkSteppableTracer >> signalExceptionIfDebuggedExecutionIsFinished [
 	"Signals an DebuggedExecutionIsFinished exception if the debugged execution is finished"
 	(self isExecutionFinished) ifTrue: [ 
@@ -518,7 +520,7 @@ SkSteppableTracer >> signalExceptionIfDebuggedExecutionIsFinished [
 	].
 ]
 
-{ #category : #'updating - session' }
+{ #category : 'updating - session' }
 SkSteppableTracer >> softUIUpdate [
 
 	"updates values on specific elements of the UI (i.e. wihout reloading completely the StDebugger UI from the session"
@@ -528,19 +530,19 @@ SkSteppableTracer >> softUIUpdate [
 	presenter ifNotNil: [ self safeInvoke: [ presenter updateLabelOnly ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSteppableTracer >> stDebugger [
 
 	^ stDebugger
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSteppableTracer >> stDebugger: anObject [
 
 	stDebugger := anObject
 ]
 
-{ #category : #'debug - stepping' }
+{ #category : 'debug - stepping' }
 SkSteppableTracer >> step [
 
 	"To be used in the scripting presenter"
@@ -548,7 +550,7 @@ SkSteppableTracer >> step [
 	self doAndUpdateSessionAfter: [ ^ stepper stepBytecode ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> stepBackOneBytecode [
 
 	self doAndUpdateSessionAfter: [ 
@@ -557,31 +559,31 @@ SkSteppableTracer >> stepBackOneBytecode [
 		self timeTravelToTraceTime: targetTime asExecutedBytecodeTraceTime ]
 ]
 
-{ #category : #'debug - stepping' }
+{ #category : 'debug - stepping' }
 SkSteppableTracer >> stepBytecode [
 
 	^ stepper stepBytecode
 ]
 
-{ #category : #'debug - stepping' }
+{ #category : 'debug - stepping' }
 SkSteppableTracer >> stepBytecodeAccountingInstrumentation [
 "Need to reimplement this according to new pipeline"
 	self stepBytecode
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> stepBytecodeToExecutionEnd [
 
 	stepper stepBytecodeUntilConditionIsTrue: [ false ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> stepBytecodeUntilConditionIsTrue: aBlock [
 
 	stepper stepBytecodeUntilConditionIsTrue: aBlock
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> stepBytecodeUntilConditionIsTrue: aBlock doingAfterEachStep: afterStepBlock [
 
 	stepper
@@ -589,7 +591,7 @@ SkSteppableTracer >> stepBytecodeUntilConditionIsTrue: aBlock doingAfterEachStep
 		doingAfterEachStep: afterStepBlock
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> stepBytecodeUntilConditionIsTrueAccountingInstrumentation: aBlock [
 
 	"to be reworked with new pipeline"
@@ -597,7 +599,7 @@ SkSteppableTracer >> stepBytecodeUntilConditionIsTrueAccountingInstrumentation: 
 	self stepBytecodeUntilConditionIsTrue: aBlock
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> stepBytecodes: aNumber [
 
 	"supports negative numbers to travel backward"
@@ -608,14 +610,14 @@ SkSteppableTracer >> stepBytecodes: aNumber [
 		self timeTravelToBytecodeIndex: targetBytecode ]
 ]
 
-{ #category : #'debug - stepping' }
+{ #category : 'debug - stepping' }
 SkSteppableTracer >> stepToEnd [
 
 	self doAndUpdateSessionAfter: [ 
 		self stepBytecodeUntilConditionIsTrue: [ false ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> syncContextStack [
 
 	| d crContext getID |
@@ -633,7 +635,7 @@ SkSteppableTracer >> syncContextStack [
 				(getID value: c) } ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> timeTravelToBytecodeIndex: aNumber [
 
 	self doAndUpdateSessionAfter: [ "Reverses the execution only if the target time is in the past.
@@ -647,7 +649,7 @@ SkSteppableTracer >> timeTravelToBytecodeIndex: aNumber [
 				executedBytecode >= aNumber ] ] ]
 ]
 
-{ #category : #'actions api' }
+{ #category : 'actions api' }
 SkSteppableTracer >> timeTravelToTraceTime: aTraceTime [
 	"Advances or reverses the complete execution to the target traceTime"
 
@@ -662,25 +664,25 @@ SkSteppableTracer >> timeTravelToTraceTime: aTraceTime [
 				self traceTime @>= aTraceTime ] ] ]
 ]
 
-{ #category : #starting }
+{ #category : 'starting' }
 SkSteppableTracer >> timeTravelToUserStart [
 
 	self safeTimeTravelToTraceTime: executionMappper userStartTraceTime
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> timeTravelingEnabled [
 
 	^ executionMappper isNotNil and: [executionMappper isMapped]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkSteppableTracer >> traceTime [
 
 	^ currentTraceTimeReference
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 SkSteppableTracer >> updateUI [
 
 	"If there is a UI it will be updated"

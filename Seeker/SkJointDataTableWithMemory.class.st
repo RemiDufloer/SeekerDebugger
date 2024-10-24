@@ -1,7 +1,9 @@
 Class {
-	#name : #SkJointDataTableWithMemory,
-	#superclass : #SkJointDataTable,
+	#name : 'SkJointDataTableWithMemory',
+	#superclass : 'SkJointDataTable',
 	#traits : 'TSeekerTableWithMemory',
 	#classTraits : 'TSeekerTableWithMemory classTrait',
-	#category : #'Seeker-Experimental'
+	#category : 'Seeker-Experimental',
+	#package : 'Seeker',
+	#tag : 'Experimental'
 }

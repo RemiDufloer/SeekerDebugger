@@ -1,10 +1,12 @@
 Class {
-	#name : #TTQAllAssignmentsOfInstanceVariablesOfClassWithName,
-	#superclass : #TTQAllAssignments,
-	#category : #'Seeker-TimeTravelingQueries'
+	#name : 'TTQAllAssignmentsOfInstanceVariablesOfClassWithName',
+	#superclass : 'TTQAllAssignments',
+	#category : 'Seeker-TimeTravelingQueries',
+	#package : 'Seeker',
+	#tag : 'TimeTravelingQueries'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TTQAllAssignmentsOfInstanceVariablesOfClassWithName class >> performWith: tracer withArg: arg [
 
 	tracer ui showInResult:
@@ -12,7 +14,7 @@ TTQAllAssignmentsOfInstanceVariablesOfClassWithName class >> performWith: tracer
 			displayModel
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TTQAllAssignmentsOfInstanceVariablesOfClassWithName class >> queryFrom: source withClassName: anObject [
 
 	^ (self queryFrom: source)
@@ -20,19 +22,19 @@ TTQAllAssignmentsOfInstanceVariablesOfClassWithName class >> queryFrom: source w
 		  yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 TTQAllAssignmentsOfInstanceVariablesOfClassWithName class >> selectionFunction [
 
 	^ SkSelectionAssignmentsOfInstanceVariablesOfClassNamed 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TTQAllAssignmentsOfInstanceVariablesOfClassWithName >> objectClassName [
 
 	^ selectionFunction objectClassName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TTQAllAssignmentsOfInstanceVariablesOfClassWithName >> objectClassName: anObject [
 
 	selectionFunction objectClassName: anObject

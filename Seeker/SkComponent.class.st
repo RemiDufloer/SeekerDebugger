@@ -26,16 +26,18 @@ One can think of this design as a set of stages:
 
 "
 Class {
-	#name : #SkComponent,
-	#superclass : #Object,
+	#name : 'SkComponent',
+	#superclass : 'Object',
 	#instVars : [
 		'componentsHolder',
 		'enabled'
 	],
-	#category : #'Seeker-Components'
+	#category : 'Seeker-Components',
+	#package : 'Seeker',
+	#tag : 'Components'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SkComponent class >> newFor: anObject [
 
 	| component |
@@ -46,7 +48,7 @@ SkComponent class >> newFor: anObject [
 	^ component
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkComponent >> bindComponents [
 
 	"subclasses must reimplement this method"
@@ -54,37 +56,37 @@ SkComponent >> bindComponents [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkComponent >> componentsHolder [
 
 	^ componentsHolder
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkComponent >> componentsHolder: anObject [
 
 	componentsHolder := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkComponent >> enabled [
 
 	^ enabled
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkComponent >> enabled: anObject [
 
 	enabled := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SkComponent >> initialize [
 
 	enabled := true
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SkComponent >> lateInitialization [
 
 	

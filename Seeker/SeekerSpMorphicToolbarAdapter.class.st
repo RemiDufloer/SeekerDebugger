@@ -1,10 +1,12 @@
 Class {
-	#name : #SeekerSpMorphicToolbarAdapter,
-	#superclass : #SpMorphicToolbarAdapter,
-	#category : #'Seeker-UI'
+	#name : 'SeekerSpMorphicToolbarAdapter',
+	#superclass : 'SpMorphicToolbarAdapter',
+	#category : 'Seeker-UI',
+	#package : 'Seeker',
+	#tag : 'UI'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerSpMorphicToolbarAdapter class >> adaptingName [
 
 	"Override me if adapter will not follow the common pattern"
@@ -14,7 +16,7 @@ SeekerSpMorphicToolbarAdapter class >> adaptingName [
 	^ #SeekerToolbarAdapter
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 SeekerSpMorphicToolbarAdapter >> buildWidget [
 
 	| toolBarMorph |
@@ -24,7 +26,7 @@ SeekerSpMorphicToolbarAdapter >> buildWidget [
 	^ toolBarMorph
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeekerSpMorphicToolbarAdapter >> refreshStyle [
 
 	self applyStyle: self widget

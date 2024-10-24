@@ -1,20 +1,22 @@
 Class {
-	#name : #SkSetSessionStartingPointLC,
-	#superclass : #SeekerLiteCommand,
-	#category : #'Seeker-Commands'
+	#name : 'SkSetSessionStartingPointLC',
+	#superclass : 'SeekerLiteCommand',
+	#category : 'Seeker-Commands',
+	#package : 'Seeker',
+	#tag : 'Commands'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSetSessionStartingPointLC >> description [
 	^'Set starting point for the session for general usage'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSetSessionStartingPointLC >> executeCommand [
 	 self inform: 'command working'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSetSessionStartingPointLC >> icon [
 
 "Inspect the following line and choose an icon for the command
@@ -26,7 +28,7 @@ SkSetSessionStartingPointLC >> icon [
 	^ #add
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SkSetSessionStartingPointLC >> name [
 
 	^'Set the session starting point from selected context (Do not map)'

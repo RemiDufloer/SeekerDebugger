@@ -1,13 +1,15 @@
 Class {
-	#name : #SeekerProjectionFunction,
-	#superclass : #Object,
+	#name : 'SeekerProjectionFunction',
+	#superclass : 'Object',
 	#instVars : [
 		'autoType'
 	],
-	#category : #'Seeker-TimeTravelingQueries'
+	#category : 'Seeker-TimeTravelingQueries',
+	#package : 'Seeker',
+	#tag : 'TimeTravelingQueries'
 }
 
-{ #category : #'field definition' }
+{ #category : 'field definition' }
 SeekerProjectionFunction >> fields [
 
 	"Obtained from the autoType"
@@ -15,26 +17,26 @@ SeekerProjectionFunction >> fields [
 	^ self itemClass fields
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerProjectionFunction >> initialize [
 
 	autoType := AutoType new
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SeekerProjectionFunction >> isIdentity [
 
 	^ false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerProjectionFunction >> itemClass [
 
 	self value: AutoTypeDummyObject new "Forces a materialization of the autoType, by executing the value: method once".
 	^ autoType type
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SeekerProjectionFunction >> value: state [
 
 	"^ state"

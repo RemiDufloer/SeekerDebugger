@@ -7,12 +7,14 @@
 - ""Smalltalk ui icons"": Inspect the string (without the double quotes) To list all glamour icons.
 "
 Class {
-	#name : #SeekerDevelopmentBoard,
-	#superclass : #Object,
-	#category : #'Seeker-Helpers'
+	#name : 'SeekerDevelopmentBoard',
+	#superclass : 'Object',
+	#category : 'Seeker-Helpers',
+	#package : 'Seeker',
+	#tag : 'Helpers'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SeekerDevelopmentBoard >> initialize [
 	"This class does nothing. It is used as a notedpad for seeker development and ideas."
 	"Contents could be Comments section or anywhere in the class. No rules for the moment."	

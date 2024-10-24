@@ -3,12 +3,14 @@ An automatic displayModel
 It creates the columns as they are auto defined in the projection function of the UserTTQ
 "
 Class {
-	#name : #QdmAuto,
-	#superclass : #QueryDisplayModel,
-	#category : #'Seeker-UI'
+	#name : 'QdmAuto',
+	#superclass : 'QueryDisplayModel',
+	#category : 'Seeker-UI',
+	#package : 'Seeker',
+	#tag : 'UI'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QdmAuto >> buildContextMenuForResults: aQueryResutls withSelectedItem: selection forTracer: tracer [
 
 	"builds a context menu for an item of this display model"
@@ -25,19 +27,19 @@ QdmAuto >> buildContextMenuForResults: aQueryResutls withSelectedItem: selection
 		  "openWithSpecAt: self currentHand position"yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 QdmAuto >> defaultQueryTitle [
 
 	^ 'Untitled AutoQuery'
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 QdmAuto >> initializeModel [
 
 	"This class initializes the model automatically when setting the query"
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 QdmAuto >> query: aQuery [
 
 	| fields |
