@@ -77,11 +77,7 @@ QuerySolver class >> initialize [
 	IncludeInstrumentation := true.
 	IncludeSystemClasses := true.
 	PotentiallyExcludedSeekerClasses := IdentitySet new.
-	PotentiallyExcludedSeekerClasses addAll:
-		(RPackageOrganizer default packageNamed: #Seeker) definedClasses.
-	PotentiallyExcludedSeekerClasses addAll:
-		(RPackageOrganizer default packageNamed: #QuickWrap) definedClasses.
-	"UnifiedFFI"
+
 
 	PotentiallyExcludedSystemClasses := IdentitySet new.
 	PotentiallyExcludedSystemClasses addAll: { 
